@@ -24,15 +24,12 @@ function NavBar() {
 
       <div className={style.container}>
         <div className={style.items}>
-        <Link to={"/"}>
-           <p className={style.p}>Inicio</p>
-        </Link>
-         
-          <p className={style.p} onClick={ToggleCategory}>
+          <p className={`${style.p} hover-underline-animation`}>Inicio</p>
+          <p className={`${style.p} hover-underline-animation`} onClick={ToggleCategory}>
             Categorias
           </p>
-          <p className={style.p}>BLOG</p>
-          <p className={style.p} onClick={ToggleContact}>Contáctanos</p>
+          <p className={`${style.p} hover-underline-animation`}>BLOG</p>
+          <p className={`${style.p} hover-underline-animation`}>Contáctanos</p>
         </div>
 
         <div className={style.Burguer}>

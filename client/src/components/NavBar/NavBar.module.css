@@ -55,10 +55,7 @@
   color: #fff;
   cursor: pointer;
 }
-.p:hover{
- box-shadow: #fff;
- box-shadow:  0px 2px 0px #ffffff;
-}
+
 @media (max-width: 800px) {
   .layout {
     justify-content: center;
