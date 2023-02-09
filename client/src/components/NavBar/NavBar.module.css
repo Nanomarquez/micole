@@ -7,7 +7,7 @@
 .img {
   padding-left: 30px;
   width: 200px;
-  height: 90px;
+  height: 70px;
 }
 .container {
   display: flex;
@@ -50,7 +50,7 @@
 .items p {
   text-transform: uppercase;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 12px;
   color: #fff;
 }
 /* .items p:hover{
