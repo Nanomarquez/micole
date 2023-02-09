@@ -2,7 +2,9 @@ import React from "react";
 import Burguer from "./svg/Burguer";
 import Logo from "../../assets/logo1.png"
 import style from "./NavBar.module.css";
+import { Link } from "react-router-dom";
 function NavBar() {
+  
   return (
     <div className={style.layout}>
        <img  className={style.img} src={Logo}/>
@@ -19,8 +21,12 @@ function NavBar() {
           <Burguer />
         </div>
         <div className={style.buttonContainer}>
+          
           <button className={style.SesionButtom}>Iniciar sesion</button>
+        
+          <Link  to={"/enroll"}>
           <button className={style.SesionButtom}>Inscribe tu colegio</button>
+          </Link >
         </div>
       </div>
     </div>
