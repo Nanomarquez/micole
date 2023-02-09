@@ -3,23 +3,36 @@ import Burguer from "./svg/Burguer";
 import Logo from "../../assets/logo1.png";
 import style from "./NavBar.module.css";
 import Categoria from "./Categoria/Categoria";
+import Contacto from "./Contacto/Contacto";
 import { Link } from "react-router-dom";
 function NavBar() {
+ 
   const [OpenCategory, setOpenCategory] = useState(false);
+  const [ OpenContact , setOpenContact ] = useState(false);
   const ToggleCategory = () => {
     setOpenCategory(!OpenCategory);
   };
+  const ToggleContact = () => {
+    setOpenContact(!OpenContact);
+  };
   return (
     <div className={style.layout}>
-      <img className={style.img} src={Logo} />
+  <Link to={"/"}>
+    <img className={style.img} src={Logo} />
+  </Link>
+      
+
       <div className={style.container}>
         <div className={style.items}>
-          <p className={style.p}>Inicio</p>
+        <Link to={"/"}>
+           <p className={style.p}>Inicio</p>
+        </Link>
+         
           <p className={style.p} onClick={ToggleCategory}>
             Categorias
           </p>
           <p className={style.p}>BLOG</p>
-          <p className={style.p}>Contáctanos</p>
+          <p className={style.p} onClick={ToggleContact}>Contáctanos</p>
         </div>
 
         <div className={style.Burguer}>
@@ -34,6 +47,8 @@ function NavBar() {
         </div>
       </div>
       {OpenCategory && <Categoria />}
+      {OpenContact && <Contacto />}
+      
     </div>
   );
 }
