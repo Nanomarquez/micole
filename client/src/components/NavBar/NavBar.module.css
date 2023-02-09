@@ -47,15 +47,17 @@
   justify-content: space-between;
   width: 500px;
 }
-.items p {
+p {
   text-transform: uppercase;
   font-weight: 500;
   font-size: 12px;
   color: #fff;
+  cursor: pointer;
 }
-/* .items p:hover{
-
-} */
+p:hover{
+ box-shadow: #fff;
+ box-shadow:  0px 2px 0px #ffffff;
+}
 @media (max-width: 800px) {
   .layout {
     justify-content: center;

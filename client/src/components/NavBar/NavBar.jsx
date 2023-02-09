@@ -9,10 +9,10 @@ function NavBar() {
       <div className={style.container}>
        
         <div className={style.items}>
-          <p>Inicio</p>
-          <p>Categorias</p>
-          <p>BLOG</p>
-          <p>Contáctanos</p>
+          <p className={style.p}>Inicio</p>
+          <p className={style.p}>Categorias</p>
+          <p className={style.p}>BLOG</p>
+          <p className={style.p}>Contáctanos</p>
         </div>
 
         <div className={style.Burguer}>
