@@ -14,12 +14,12 @@ function NavBar() {
       <img className={style.img} src={Logo} />
       <div className={style.container}>
         <div className={style.items}>
-          <p className={style.p}>Inicio</p>
-          <p className={style.p} onClick={ToggleCategory}>
+          <p className={`${style.p} hover-underline-animation`}>Inicio</p>
+          <p className={`${style.p} hover-underline-animation`} onClick={ToggleCategory}>
             Categorias
           </p>
-          <p className={style.p}>BLOG</p>
-          <p className={style.p}>Contáctanos</p>
+          <p className={`${style.p} hover-underline-animation`}>BLOG</p>
+          <p className={`${style.p} hover-underline-animation`}>Contáctanos</p>
         </div>
 
         <div className={style.Burguer}>
