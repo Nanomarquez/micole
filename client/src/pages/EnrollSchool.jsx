@@ -4,6 +4,7 @@ import CardsTwo from '../components/CardsTwo'
 import VectorPeople from '../assets/VectorPeople.png'
 import VectorTalk from '../assets/VectorTalk.png'
 import GroupSchool from '../assets/GroupSchool.png'
+import Logo from '../assets/logoblanco.png'
 function EnrollSchool() {
   return (
     <div>
@@ -33,6 +34,17 @@ admisión simple y eficiente' parrafe='Olvídate de tener que mandar correos y c
           <CardsTwo price={120} title="Exclusivo" free={false} premium={true} photos={50} plan={"exclusivo"}/>
       </div>  
       <button className='px-4 mx-auto py-3 rounded-lg text-[#0061dd] bg-white font-normal'>¿Prefieres usar otro medio de pago? Usa una billetera virtual</button>
+      </section>
+      <section className="bg-[url('./assets/enroll2.png')] flex justify-center items-center text-center">
+        <form className='flex flex-col bg-white m-14 h-[500px] p-5 w-[400px] justify-evenly items-center rounded-md'>
+          <img src={Logo} alt="logoblanco" className='object-cover w-40' />
+          <h1 className='text-[#037dda] font-bold text-xl'>Completa tus datos</h1>
+          <input type="text" className="border py-2 w-full text-center rounded-md shadow-md outline-none" placeholder='Nombre del colegio'/>
+          <input type="email" className="border py-2 w-full text-center rounded-md shadow-md outline-none" placeholder='Correo Electrónico'/>
+          <input type="text" className="border py-2 w-full text-center rounded-md shadow-md outline-none" placeholder='RUC'/>
+          <input type="text" className="border py-2 w-full text-center rounded-md shadow-md outline-none" placeholder='Celular'/>
+          <button type='submit' className='bg-[#0061dd] w-full py-2 rounded-md font-medium text-white'>Inscribirse</button>
+        </form>
       </section>
     </div>
   )
