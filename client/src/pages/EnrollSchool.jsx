@@ -1,5 +1,6 @@
 import React from 'react'
-import Cards from '../components/Cards'
+import CardsOne from '../components/CardsOne'
+import CardsTwo from '../components/CardsTwo'
 import VectorPeople from '../assets/VectorPeople.png'
 import VectorTalk from '../assets/VectorTalk.png'
 import GroupSchool from '../assets/GroupSchool.png'
@@ -12,16 +13,26 @@ function EnrollSchool() {
         <button className='uppercase p-3 rounded-sm bg-[#0061dd] text-white font-semibold'>inscribe tu colegio aquí</button>
         <button className='px-4 py-1 rounded-md text-[#0061dd] bg-white font-semibold'>¡Quiero más información por el momento!</button>
       </header>
-      <section className='bg-[#f7f8fa] h-[550px] flex flex-col justify-around'>
+      <section className='bg-[#f7f8fa] p-10 gap-10 flex flex-col justify-around'>
         <h1 className="text-center text-3xl font-semibold">¿Por qué escoger MiCole?</h1>
-        <div className="flex justify-center items-center gap-5">
-          <Cards img={GroupSchool} title='Haz que tu colegio brille frente a las familias' parrafe='Publica toda la información relevante sobre ti para las familias que están buscando colegios'/>
-          <Cards img={VectorPeople} title='Completa tus vacantes 
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-5">
+          <CardsOne img={GroupSchool} title='Haz que tu colegio brille frente a las familias' parrafe='Publica toda la información relevante sobre ti para las familias que están buscando colegios'/>
+          <CardsOne img={VectorPeople} title='Completa tus vacantes 
 disponibles' parrafe='Gestiona todas las vacantes de inicial, primaria y secundaria que tengas en un solo lugar.
 '/>
-          <Cards img={VectorTalk} title='Cuenta con un proceso de 
+          <CardsOne img={VectorTalk} title='Cuenta con un proceso de 
 admisión simple y eficiente' parrafe='Olvídate de tener que mandar correos y comunicaciones uno a uno, hazlo todo masivo.'/>
         </div>
+      </section>
+      <section className='bg-[#0061dd] flex flex-col justify-around p-10 gap-10'>
+      <h1 className="text-center text-2xl font-semibold text-white">Elije el plan que más se acomode  a tus necesidades</h1>
+      <div className="flex flex-col sm:flex-row items-center gap-5 justify-evenly mx-5">
+          <CardsTwo title="Gratis" free={true} family={2} photos={3} plan={"gratis"}/>
+          <CardsTwo title="Básico" free={false} family={25} photos={15} price={50} plan={"básico"}/>
+          <CardsTwo price={80} title="Estándar" free={false} family={50} photos={30} plan={"estandar"}/>
+          <CardsTwo price={120} title="Exclusivo" free={false} premium={true} photos={50} plan={"exclusivo"}/>
+      </div>  
+      <button className='px-4 mx-auto py-3 rounded-lg text-[#0061dd] bg-white font-normal'>¿Prefieres usar otro medio de pago? Usa una billetera virtual</button>
       </section>
     </div>
   )

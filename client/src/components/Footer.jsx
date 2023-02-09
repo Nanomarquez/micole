@@ -58,7 +58,7 @@ function Footer() {
         </div>
       </ul>
       </div>
-      <hr className={`${toggle ? "block" : "hidden"}`}/>
+      <hr className={`${toggle ? "block hr" : "hidden"}`}/>
       <div className={`flex w-full items-center justify-center ${toggle ? "h-1/5" : "h-full"} `}>
         <img src={Logo} alt="logo" />
         <button onClick={()=>setToggle(!toggle)} className='absolute w-10 h-10 right-5 bg-[#0061dd] rounded-sm'>
