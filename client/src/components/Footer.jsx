@@ -9,7 +9,7 @@ function Footer() {
 
   return (
     <div className={`bg-gradient-to-b from-[#0c2337] to-[#1a4266] text-white w-full ${toggle ? 'h-full sm:h-[600px]' : 'h-[120px]'} flex flex-col justify-center items-center sm:items-stretch sm:justify-between duration-500`}>
-      <div className={`h-4/5 ${toggle ? "block" : "hidden"} flex gap-10 sm:gap-0 flex-col sm:flex-row mt-24 justify-around`}>
+      <div className={`h-4/5 transition-all duration-300 ${toggle ? "block" : "hidden"} flex gap-10 sm:gap-0 flex-col sm:flex-row my-24 justify-around`}>
       <ul className='font-normal flex flex-col gap-5'>
         <li className="font-bold text-xl">Contáctenos</li>
         <li className='flex items-center gap-3'><FontAwesomeIcon icon={faLocationDot} />Líma, Perú</li>
