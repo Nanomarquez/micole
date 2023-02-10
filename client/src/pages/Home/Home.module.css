@@ -33,7 +33,8 @@
   flex-direction: column;
   background: #ffff;
   width: 100%;
-  height: 80vh;
+  overflow-x: hidden;
+  height: auto;
 }
 .LayoutContent {
   display: flex;
@@ -78,7 +79,13 @@
   font-weight: 400;
   color: #0d263b;
 }
-
+.container_categorias{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 @media (max-width: 800px) {
   .landingText {
     top: 30%;
@@ -89,13 +96,21 @@
   .CardContainer h1 {
     font-size: 16px;
   }
+  .CardContainer h1 {
+    font-size: 12px;
+  }
+  .CardContainer p {
+    font-size: 11px;
+  }
 }
 
 @media (max-width: 600px) {
   .landingText {
     top: 50px;
   }
-
+  .title{
+    font-size: 14px;
+}
   .h1 {
     font-size: 16px;
   }
@@ -103,10 +118,10 @@
     font-size: 14px;
   }
   .CardContainer h1 {
-    font-size: 14px;
+    font-size: 11px;
   }
   .CardContainer p {
-    font-size: 12px;
+    font-size: 10px;
   }
 }
 
@@ -118,7 +133,7 @@
        
     }
     .title{
-        font-size: 16px;
+        font-size: 14px;
     }
     .CardContainer{
       height: 100px;

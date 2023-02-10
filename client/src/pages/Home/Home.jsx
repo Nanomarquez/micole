@@ -4,6 +4,7 @@ import fondoHome from "../../assets/Home_img.png";
 import Icon_directo from "./svg/Icon_directo";
 import Icon_recomendacion from "./svg/Icon_recomendacion";
 import Icon_school from "./svg/Icon_school";
+import Carrusel from "../../components/Carrusel/Carrusel";
 function Home() {
   return (
     <>
@@ -41,6 +42,13 @@ function Home() {
               colegios de la plataforma
             </p>
           </div>
+        </div>
+        <div className={style.container_categorias}>
+          <h1 className={style.title}>
+            Explora nuestras categorías de colegios
+          </h1>
+
+          <Carrusel />
         </div>
       </div>
     </>
