@@ -5,6 +5,7 @@ import Icon_directo from "./svg/Icon_directo";
 import Icon_recomendacion from "./svg/Icon_recomendacion";
 import Icon_school from "./svg/Icon_school";
 import Carrusel from "../../components/Carrusel/Carrusel";
+import FiltrosHome from "../../components/FiltrosHome/FiltrosHome";
 function Home() {
   return (
     <>
@@ -13,6 +14,7 @@ function Home() {
         <div className={style.landingText}>
           <h1 className={style.h1}> Tu búsqueda de colegios comienza aquí</h1>
           <p className={style.p}>¡Qué Emoción!</p>
+        <FiltrosHome/>
         </div>
       </div>
       <div className={style.contentHome}>

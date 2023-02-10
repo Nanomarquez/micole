@@ -10,7 +10,9 @@
 }
 .landingText {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
   position: absolute;
   top: 30%;
   z-index: 2;
