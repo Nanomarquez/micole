@@ -11,9 +11,11 @@ function NavBar() {
   const [ OpenContact , setOpenContact ] = useState(false);
   const ToggleCategory = () => {
     setOpenCategory(!OpenCategory);
+    setOpenContact(false)
   };
   const ToggleContact = () => {
     setOpenContact(!OpenContact);
+    setOpenCategory(false);
   };
   return (
     <div className={style.layout}>
@@ -29,7 +31,7 @@ function NavBar() {
             Categorias
           </p>
           <p className={`${style.p} hover-underline-animation`}>BLOG</p>
-          <p className={`${style.p} hover-underline-animation`}>Contáctanos</p>
+          <p className={`${style.p} hover-underline-animation`} onClick={ToggleContact}>Contáctanos</p>
         </div>
 
         <div className={style.Burguer}>
@@ -43,8 +45,8 @@ function NavBar() {
           </Link>
         </div>
       </div>
-      {OpenCategory && <Categoria />}
-      {OpenContact && <Contacto />}
+      {OpenCategory && <div className={style.divCategory}> <Categoria />  </div> }
+      {OpenContact &&<div  className={`${style.divContact} `}>  <Contacto /> </div>}
       
     </div>
   );
