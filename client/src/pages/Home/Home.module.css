@@ -3,18 +3,23 @@
   position: relative;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 100px;
+  background-image: url("/src/assets/Home_img.png");
+  background-repeat:no-repeat;
+  background-size:cover;  
+  height: 600px;
 }
-.img {
+/* .img {
  max-height: 1000px;
   object-fit: cover;
   z-index: 1;
-}
+} */
 .landingText {
   display: flex;
   flex-direction: column;
   gap: 20px;
   width: 100%;
-  position: absolute;
   z-index: 2;
   align-items: center;
 }
@@ -25,8 +30,6 @@
   gap: 20px;
   height: auto;
   width: 100%;
-  position: absolute;
-  top: 70%;
   z-index: 2;
   align-items: center;
 }

@@ -10,7 +10,7 @@ function Home() {
   return (
     <>
       <div className={style.container}>
-        <img className={style.img} src={fondoHome} alt="home" />
+        {/* <img className={style.img} src={fondoHome} alt="home" /> */}
         <div className={style.landingText}>
           <h1 className={style.h1}> Tu búsqueda de colegios comienza aquí</h1>
           <p className={style.p}>¡Qué Emoción!</p>
