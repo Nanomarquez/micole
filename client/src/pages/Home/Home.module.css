@@ -2,6 +2,7 @@
   display: flex;
   position: relative;
   justify-content: center;
+  align-items: center;
 }
 .img {
   max-height: 800px;
@@ -14,7 +15,6 @@
   gap: 20px;
   width: 100%;
   position: absolute;
-  top: 30%;
   z-index: 2;
   align-items: center;
 }
