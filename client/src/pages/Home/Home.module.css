@@ -2,6 +2,7 @@
   display: flex;
   position: relative;
   justify-content: center;
+  align-items: center;
 }
 .img {
   max-height: 800px;
@@ -12,7 +13,6 @@
   display: flex;
   flex-direction: column-reverse;
   position: absolute;
-  top: 30%;
   z-index: 2;
   align-items: center;
 }
