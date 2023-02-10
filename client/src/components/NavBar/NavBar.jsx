@@ -46,7 +46,7 @@ function NavBar() {
         </div>
       </div>
       {OpenCategory && <div className={style.divCategory}> <Categoria />  </div> }
-      {OpenContact &&<div  className={`${style.divContact} `}>  <Contacto /> </div>}
+      {OpenContact &&<div className={style.divContact}>  <Contacto /> </div>}
       
     </div>
   );
