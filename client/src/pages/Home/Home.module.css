@@ -18,7 +18,7 @@
 .h1 {
   color: #fff;
   font-weight: 600;
-  font-size: 38px;
+  font-size: 30px;
   font-family: Poppins;
 }
 .p {
@@ -82,7 +82,7 @@
 
 @media (max-width: 800px) {
   .landingText {
-    top: 50%;
+    top: 30%;
   }
   .h1 {
     font-size: 25px;
@@ -96,7 +96,7 @@
   .landingText {
     top: 50px;
   }
-  
+
   .h1 {
     font-size: 16px;
   }
