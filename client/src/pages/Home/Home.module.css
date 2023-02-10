@@ -37,11 +37,11 @@
   height: 80vh;
 }
 .LayoutContent {
-    display: flex;
-    gap: 40px;
-    justify-content: center;
-    flex-direction: row;
-    width: 100%;
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
 }
 .title {
   font-family: Poppins;
@@ -68,16 +68,16 @@
   margin: 0 auto;
   text-align: center;
   font-size: 18px;
-font-weight: 500;
-color: #0D263B;
+  font-weight: 500;
+  color: #0d263b;
 }
 
-.CardContainer p{
-    margin: 0 auto;
-    text-align: center;
-    font-size: 16px;
+.CardContainer p {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 16px;
   font-weight: 400;
-  color: #0D263B;
+  color: #0d263b;
 }
 
 @media (max-width: 800px) {
@@ -87,16 +87,51 @@ color: #0D263B;
   .h1 {
     font-size: 25px;
   }
+  .CardContainer h1 {
+    font-size: 16px;
+  }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 600px) {
   .landingText {
     top: 50px;
   }
+  
   .h1 {
     font-size: 16px;
   }
   .p {
     font-size: 14px;
   }
+  .CardContainer h1 {
+    font-size: 14px;
+  }
+  .CardContainer p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 400px) {
+    .LayoutContent{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+       
+    }
+    .title{
+        font-size: 16px;
+    }
+    .CardContainer{
+      height: 100px;
+      justify-content: center;
+    }
+    .CardContainer{
+     flex-direction: column;
+    }
+    .CardContainer h1 {
+        font-size: 12px;
+      }
+      .CardContainer p {
+        font-size: 10px;
+      }
 }

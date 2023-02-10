@@ -35,7 +35,7 @@ function Home() {
           </div>
           <div className={style.CardContainer}>
             <Icon_recomendacion />
-            <h1>Revisa recomendaciones de nuestra comunidad</h1>
+            <h1>Recomendaciones de nuestra comunidad</h1>
             <p>
               Verifica miles de opiniones de otros padres de familia sobre los
               colegios de la plataforma
