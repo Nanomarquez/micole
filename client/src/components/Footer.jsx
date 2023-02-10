@@ -3,13 +3,22 @@ import { faLocationDot, faPhone,faEnvelope , faChevronUp ,faChevronDown } from '
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookF ,faTwitter, faInstagram, faLinkedinIn , faTelegram } from "@fortawesome/free-brands-svg-icons";
 import Logo from '../assets/logo1.png'
-import { useState } from 'react';
+import { useState , useRef} from 'react';
 function Footer() {
   const [toggle,setToggle] = useState(false)
-
+  const handleToggle = () => {
+    setToggle(!toggle);
+    setTimeout(() => {
+      window.scrollTo({
+        top: document.body.scrollHeight, 
+        behavior: 'smooth'
+      });
+  
+    }, 510)
+  }
   return (
-    <div className={`bg-gradient-to-b from-[#0c2337] to-[#1a4266] text-white w-full ${toggle ? 'h-full sm:h-[600px]' : 'h-[120px]'} flex flex-col justify-center items-center sm:items-stretch sm:justify-between duration-500`}>
-      <div className={`h-4/5 transition-all duration-300 ${toggle ? "block" : "hidden"} flex gap-10 sm:gap-0 flex-col sm:flex-row my-24 justify-around`}>
+    <div id='div' className={`bg-gradient-to-b from-[#0c2337] to-[#1a4266] text-white w-full ${toggle ? 'h-full sm:h-[600px]' : 'h-[120px]'} flex flex-col justify-center items-center sm:items-stretch sm:justify-between duration-500`}>
+      <div className={`h-4/5 transition-all duration-500 ${toggle ? "block" : "hidden"} flex gap-10 sm:gap-0 flex-col sm:flex-row my-24 justify-around`}>
       <ul className='font-normal flex flex-col gap-5'>
         <li className="font-bold text-xl">Contáctenos</li>
         <li className='flex items-center gap-3'><FontAwesomeIcon icon={faLocationDot} />Líma, Perú</li>
@@ -61,7 +70,7 @@ function Footer() {
       <hr className={`${toggle ? "block hr" : "hidden"}`}/>
       <div className={`flex w-full items-center justify-center ${toggle ? "h-1/5" : "h-full"} `}>
         <img src={Logo} alt="logo" />
-        <button onClick={()=>setToggle(!toggle)} className='absolute w-10 h-10 right-5 bg-[#0061dd] rounded-sm'>
+        <button onClick={handleToggle} className='absolute w-10 h-10 right-5 bg-[#0061dd] rounded-sm'>
         <FontAwesomeIcon size="xl" icon={toggle ? faChevronUp : faChevronDown} />
         </button>
       </div>
