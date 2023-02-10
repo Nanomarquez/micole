@@ -134,8 +134,14 @@
         align-items: center;
        
     }
+    .h1{
+      font-size: 12px;
+  }
+  .p{
+    font-size: 12px;
+}
     .title{
-        font-size: 14px;
+        font-size: 12px;
     }
     .CardContainer{
       height: 100px;
