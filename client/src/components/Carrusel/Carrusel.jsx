@@ -9,7 +9,7 @@ console.log(images)
 
     <motion.div className={style.slider_container}>
    
-      <motion.div className={style.slider} drag='x' dragConstraints={{right:10, left:-500} }>
+      <motion.div className={style.slider} drag='x' dragConstraints={{right:0, left:-700} }>
         {images.map((image) => {
             return (
                  <motion.div className={style.item}>  

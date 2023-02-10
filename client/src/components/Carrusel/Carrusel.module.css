@@ -26,11 +26,11 @@
 }
 
 
-@media (max-width: 360px) {
-    .slider_container{
+@media (max-width: 500px) {
+    /* .slider_container{
         width: 40rem;
         overflow-x: hidden;
-    }
+    } */
     .item{
         height:11rem ;
         width: 12rem;
