@@ -47,8 +47,14 @@ function Home() {
           <h1 className={style.title}>
             Explora nuestras categorías de colegios
           </h1>
-
           <Carrusel />
+        </div>
+        <div className={style.preFooter}>
+          <h1>Inscribe tu colegio en nuestra plataforma</h1>
+          <p>Únete a la mayor comunidad de colegios en el Perú</p>
+          <button>
+            Registrar
+          </button>
         </div>
       </div>
     </>

@@ -88,6 +88,49 @@
   align-items: center;
   width: 100%;
 }
+
+
+
+
+.preFooter{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 30vh;
+  width: 100%;
+  background-image:url("../../assets/decoracion.png");
+
+  background-color: #0061DF ;
+ 
+ 
+  gap: 8px;
+}
+.preFooter h1 {
+  font-family: Poppins;
+  font-size: 25px;
+  font-weight: 500;
+
+  color: #fff;
+}
+.preFooter p {
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+}
+.preFooter button{
+  font-size: 14px;
+color: #0061DF;
+  width: 150px;
+  font-weight: 600;
+  text-transform: uppercase;
+  height: 40px;
+  border-radius: 5px;
+  background: #fff;
+}
+
 @media (max-width: 800px) {
   .landingText {
     top: 30%;
@@ -155,5 +198,20 @@
       }
       .CardContainer p {
         font-size: 10px;
+      }
+
+      .preFooter h1 {
+      
+        font-size: 18px;
+    
+      }
+      .preFooter p {
+   
+        font-size: 12px;
+     
+      }
+      .preFooter button{
+        font-size: 12px;
+   
       }
 }
