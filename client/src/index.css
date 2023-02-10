@@ -1,6 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+*{
+  font-family: Poppins;
+}
+
 .hr {
   border: 0 none #7d769d66;
   border-top: 1.5px solid #7d769d66;

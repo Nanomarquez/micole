@@ -3,7 +3,7 @@ import { faLocationDot, faPhone,faEnvelope , faChevronUp ,faChevronDown } from '
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookF ,faTwitter, faInstagram, faLinkedinIn , faTelegram } from "@fortawesome/free-brands-svg-icons";
 import Logo from '../assets/logo1.png'
-import { useState , useRef} from 'react';
+import { useState } from 'react';
 function Footer() {
   const [toggle,setToggle] = useState(false)
   const handleToggle = () => {
