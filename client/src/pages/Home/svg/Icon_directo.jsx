@@ -4,8 +4,8 @@ export default function Icon_directo() {
     return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="57"
-          height="50"
+          width="55"
+          height="55"
           fill="none"
           viewBox="0 0 57 50"
         >
