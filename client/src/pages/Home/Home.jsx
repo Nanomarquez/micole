@@ -14,8 +14,12 @@ function Home() {
         <div className={style.landingText}>
           <h1 className={style.h1}> Tu búsqueda de colegios comienza aquí</h1>
           <p className={style.p}>¡Qué Emoción!</p>
-        <FiltrosHome/>
+      
+        </div>  
+        <div className={style.container_filtros}>
+           <FiltrosHome/>
         </div>
+       
       </div>
       <div className={style.contentHome}>
         <h1 className={style.title}>¿Por qué escoger MiCole.pe?</h1>
