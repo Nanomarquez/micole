@@ -20,12 +20,26 @@ function Home() {
         <div className={style.LayoutContent}>
           <div className={style.CardContainer}>
             <Icon_school />
+            <h1>Cientos de alternativas para escoger</h1>
+            <p>
+              Encuentra una gran variedad de colegios que se acomoden a tus
+              necesidades
+            </p>
           </div>
           <div className={style.CardContainer}>
             <Icon_directo />
+            <h1>Contacto directo con tu colegio de interés</h1>
+            <p>
+              Separa una cita directamente desde la plataforma con un solo click
+            </p>
           </div>
           <div className={style.CardContainer}>
             <Icon_recomendacion />
+            <h1>Revisa recomendaciones de nuestra comunidad</h1>
+            <p>
+              Verifica miles de opiniones de otros padres de familia sobre los
+              colegios de la plataforma
+            </p>
           </div>
         </div>
       </div>
