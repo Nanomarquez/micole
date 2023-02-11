@@ -5,29 +5,30 @@ function FiltrosHome() {
   return (
     <div className={style.filtros_container}>
       <div className={style.container_select}>
-        <div>
-            <p>Distrito</p>
+        <div className={style.select}>
+          <p>Distrito</p>
+
           <label>Selecciona un distrito</label>
           <select></select>
         </div>
-        <div>
-        <p>Grado</p>
+        <div className={style.select}>
+          <p>Grado</p>
           <label>Selecciona un grado</label>
           <select></select>
         </div>
-        <div>
-        <p>Ingreso</p>
+        <div className={style.select}>
+          <p>Ingreso</p>
           <label>Selecciona año de ingreso</label>
+
           <select></select>
         </div>
         <div className={style.masFiltros}>
           <Icon_filters_home />
-          <p > Mas filtros</p>
+          <p> Mas filtros</p>
         </div>
         <div className={style.container_button}>
-              <button>Buscar</button>
+          <button>Buscar</button>
         </div>
-      
       </div>
     </div>
   );
