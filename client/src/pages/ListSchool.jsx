@@ -5,6 +5,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Slider from "@mui/material/Slider";
+import ContentLoader from "react-content-loader"
 import { Rating, Typography, Pagination, Box } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -128,12 +129,20 @@ function ListSchool() {
     });
   }, [pagination.from,pagination.to]);
 
+  const [disabledPage, setDisabledPage] = useState(false)
+
   const handlePageChange = (event,page) => {
+    setDisabledPage(true)
+    setPagination({data:{}})
     const from = (page - 1) * pageSize;
     const to = (page - 1) * pageSize + pageSize;
     setPagination({...pagination,from:from,to:to})
+    setTimeout(()=>{
+      setDisabledPage(false)
+    },1000)
   }
 
+  const items = [1, 2, 3, 4, 5];
 
   return (
     <div className="flex flex-col p-5 bg-[#fcfeff]">
@@ -279,9 +288,9 @@ function ListSchool() {
               </Select>
             </FormControl>
           </div>
-            <Pagination count={Math.ceil(pagination.count/pageSize)} onChange={handlePageChange} color='primary'/>
+
           <div className="flex flex-col gap-5">
-            {pagination?.data?.length > 0 && pagination.data.map((school) => (
+            {pagination?.data?.length > 0 ? pagination.data.map((school) => (
               <div
                 key={school.id}
                 className="flex border rounded-md shadow-md bg-white p-2 items-center gap-2"
@@ -291,7 +300,7 @@ function ListSchool() {
                   alt={school.title}
                   className="w-64 h-64 object-cover"
                 />
-                <div className="w-full p-5 pb-2 flex flex-col justify-between gap-5">
+                <div className="w-full p-5  flex flex-col justify-between gap-5">
                   <div className="flex justify-between">
                     <div className="flex flex-col gap-4">
                       <div className="flex flex-col w-fit gap-2">
@@ -340,8 +349,9 @@ function ListSchool() {
                       </button>
                     </div>
                   </div>
-                  <div>
+                  
                   <hr />
+                
                   <div className="flex justify-between items-center">
                     <div className="flex flex-col">
                       <small>Cuota de ingreso: S/ {school.price} </small>
@@ -360,15 +370,34 @@ function ListSchool() {
                   </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              
+              )) :           items.map(item=>(
+<ContentLoader 
+              speed={3}
+            width={"100%"}
+            height={"100%"}
+            viewBox="0 0 500 120"
+            backgroundColor="#f3f3f3"
+            foregroundColor="#ecebeb"
+
+          >
+            <rect x="110" y="8" rx="3" ry="3" width="120" height="10" /> 
+            <rect x="110" y="25" rx="3" ry="3" width="100" height="6" /> 
+            <rect x="48" y="26" rx="3" ry="3" width="52" height="6" /> 
+            <rect x="110" y="56" rx="3" ry="3" width="310" height="6" /> 
+            <rect x="110" y="72" rx="3" ry="3" width="300" height="6" /> 
+            <rect x="110" y="88" rx="3" ry="3" width="178" height="6" /> 
+            <rect width="100" height="100" />
+          </ContentLoader>
+              ))  }
             <Box
               justifyContent={"start"}
               alignItems={"center"}
               display={"flex"}
               sx={{ margin: "20px 0px" }}
             >
-              <Pagination count={Math.ceil(pagination.count/pageSize)} onChange={handlePageChange} color='primary'/>
+              <Pagination count={Math.ceil(pagination.count/pageSize)} onChange={handlePageChange} color='primary' disabled={disabledPage} />
+              
             </Box>
           </div>
         </section>
