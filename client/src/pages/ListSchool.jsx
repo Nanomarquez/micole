@@ -123,16 +123,20 @@ function ListSchool() {
     to: pageSize,
   });
 
+  useEffect(()=>{
+    axios.get("https://fakestoreapi.com/products").then(res=>{
+      console.log(res)
+    })
+  },[])
+
   useEffect(() => {
     axios.get("https://fakestoreapi.com/products").then((res) => {
-      console.log(res)
       const schools = res.data.slice(pagination.from, pagination.to);
       setPagination({ ...pagination, count: res.data.length, data: schools });
     });
   }, [pagination.from, pagination.to]);
 
   const [disabledPage, setDisabledPage] = useState(false);
-  console.log(pagination)
   const handlePageChange = (event, page) => {
     setDisabledPage(true);
     setPagination({ data: {} });
