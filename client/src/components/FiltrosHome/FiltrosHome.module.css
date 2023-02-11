@@ -52,13 +52,19 @@
   font-size: 13px;
 }
 
-.select{
-    display: flex;
-    flex-direction: column;
+.select {
+  display: flex;
+  flex-direction: column;
 }
 
 @media (max-width: 900px) {
- 
+  .masFiltros {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   .filtros_container {
     display: flex;
     align-items: center;
@@ -77,6 +83,14 @@
   }
 }
 @media (max-width: 600px) {
+  .masFiltros {
+    display: flex;
+    /* gap: 20px; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   .filtros_container button {
     height: 30px;
     font-size: 12px;
@@ -106,7 +120,7 @@
     align-items: center;
     justify-content: center;
   }
-  .select{
+  .select {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -114,8 +128,7 @@
   .masFiltros {
     display: flex;
     justify-content: center;
-align-items: center;
+    align-items: center;
     width: 100%;
   }
-  
 }
