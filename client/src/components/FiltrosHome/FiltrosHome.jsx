@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import style from "./FiltrosHome.module.css";
 import Icon_filters_home from "./svg/Icon_filters_home";
 function FiltrosHome() {
@@ -27,7 +28,9 @@ function FiltrosHome() {
           <p> Mas filtros</p>
         </div>
         <div className={style.container_button}>
+          <Link to='/listschool'>
           <button>Buscar</button>
+          </Link>
         </div>
       </div>
     </div>
