@@ -135,7 +135,7 @@ function ListSchool() {
         Encuentra el colegio ideal
       </h1>
       <div className="flex p-5 gap-10 m-5">
-        <section className="w-1/4 flex flex-col gap-5 rounded-md bg-white shadow-lg p-10">
+        <section className="w-1/4 flex flex-col gap-5 rounded-md h-min bg-white shadow-lg p-10">
           <h2 className="font-semibold text-xl">Filtros</h2>
           <div>
             <FormControl fullWidth>
@@ -256,7 +256,7 @@ function ListSchool() {
             </small>
             <FormControl variant="standard" style={{ width: "200px" }}>
               <InputLabel id="demo-simple-select-standard-label">
-                Tipo de colegio
+                Ordenar por
               </InputLabel>
               <Select
                 labelId="demo-simple-select-standard-label"
