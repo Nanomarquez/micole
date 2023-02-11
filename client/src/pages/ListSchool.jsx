@@ -19,7 +19,7 @@ import {
 import OutlinedInput from "@mui/material/OutlinedInput";
 import ListItemText from "@mui/material/ListItemText";
 import Checkbox from "@mui/material/Checkbox";
-
+import { useLocation } from 'react-router-dom';
 const pageSize = 5;
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -55,6 +55,13 @@ function valuetext2(value) {
 
 const minDistance = 10;
 function ListSchool() {
+
+  const location = useLocation()
+
+  const params = new URLSearchParams(location.search)
+
+  console.log(params.get('distrito'))
+
   const [distritName, setDistritName] = React.useState([]);
 
   const handleChangeDistrit = (event) => {
@@ -127,7 +134,6 @@ function ListSchool() {
     setPagination({...pagination,from:from,to:to})
   }
 
-  console.log(pagination)
 
   return (
     <div className="flex flex-col p-5 bg-[#fcfeff]">
@@ -285,7 +291,7 @@ function ListSchool() {
                   alt={school.title}
                   className="w-64 h-64 object-cover"
                 />
-                <div className="w-full p-5 flex flex-col justify-between gap-3">
+                <div className="w-full p-5 pb-2 flex flex-col justify-between gap-5">
                   <div className="flex justify-between">
                     <div className="flex flex-col gap-4">
                       <div className="flex flex-col w-fit gap-2">
@@ -334,6 +340,7 @@ function ListSchool() {
                       </button>
                     </div>
                   </div>
+                  <div>
                   <hr />
                   <div className="flex justify-between items-center">
                     <div className="flex flex-col">
@@ -350,6 +357,7 @@ function ListSchool() {
                       <FontAwesomeIcon size="lg" icon={faCirclePlus} />
                       <FontAwesomeIcon size="lg" icon={faHeart} />
                     </div>
+                  </div>
                   </div>
                 </div>
               </div>

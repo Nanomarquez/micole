@@ -28,7 +28,7 @@ function FiltrosHome() {
           <p> Mas filtros</p>
         </div>
         <div className={style.container_button}>
-          <Link to='/listschool'>
+          <Link to='/listschool?distrito=algundistrito'>
           <button>Buscar</button>
           </Link>
         </div>
