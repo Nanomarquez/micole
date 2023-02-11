@@ -35,6 +35,12 @@ const distrits = [
   "Virginia Andrews",
   "Kelly Snyder",
 ];
+const types = [
+  "Religoso",
+  "Hombres",
+  "Mujeres",
+  "Mixtos"
+];
 function valuetext(value) {
   return `${value}°C`;
 }
@@ -146,12 +152,9 @@ function ListSchool() {
               onChange={handleChangeType}
               label="Tipo de colegio"
             >
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
+              {types.map((type)=>(
+                <MenuItem value={type} key={type}><ListItemText primary={type} /></MenuItem>
+              ))}
             </Select>
           </FormControl>
           <div>
