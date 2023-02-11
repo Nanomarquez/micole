@@ -8,6 +8,33 @@ import Slider from "@mui/material/Slider";
 import { Rating, Typography } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import ListItemText from "@mui/material/ListItemText";
+import Checkbox from "@mui/material/Checkbox";
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+    },
+  },
+};
+
+const distrits = [
+  "Oliver Hansen",
+  "Van Henry",
+  "April Tucker",
+  "Ralph Hubbard",
+  "Omar Alexander",
+  "Carlos Abbott",
+  "Miriam Wagner",
+  "Bradley Wilkerson",
+  "Virginia Andrews",
+  "Kelly Snyder",
+];
 function valuetext(value) {
   return `${value}°C`;
 }
@@ -18,13 +45,22 @@ function valuetext2(value) {
 
 const minDistance = 10;
 function ListSchool() {
+  const [distritName, setDistritName] = React.useState([]);
+
+  const handleChangeDistrit = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setDistritName(
+      // On autofill we get a stringified value.
+      typeof value === 'string' ? value.split(',') : value,
+    );
+  };
   const [english, setEnglish] = React.useState(10);
 
   const handleChangeEnglish = (event, newValue) => {
     setEnglish(newValue);
   };
-
-  const [distrito, setDistrito] = React.useState("");
 
   const [type, setType] = React.useState("");
 
@@ -58,9 +94,6 @@ function ListSchool() {
     }
   };
 
-  const handleChangeDistrit = (event) => {
-    setDistrito(event.target.value);
-  };
   const handleChangeType = (event) => {
     setType(event.target.value);
   };
@@ -80,26 +113,29 @@ function ListSchool() {
       <div className="flex p-5 gap-10 m-5">
         <section className="w-1/4 flex flex-col gap-5 border-2 rounded-md bg-white shadow-lg p-10">
           <h2 className="font-semibold text-xl">Filtros</h2>
-          <FormControl variant="standard" fullWidth>
-            <InputLabel id="demo-simple-select-standard-label">
-              Distrito
-            </InputLabel>
-            <Select
-              labelId="demo-simple-select-standard-label"
-              id="demo-simple-select-standard"
-              value={distrito}
-              onChange={handleChangeDistrit}
-              label="Distrito"
-            >
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
-            </Select>
-          </FormControl>
-          <FormControl variant="standard" fullWidth>
+          <div>
+          <FormControl fullWidth>
+        <InputLabel id="demo-multiple-checkbox-label">Tag</InputLabel>
+        <Select
+          labelId="demo-multiple-checkbox-label"
+          id="demo-multiple-checkbox"
+          multiple
+          value={distritName}
+          onChange={handleChangeDistrit}
+          input={<OutlinedInput label="Tag" />}
+          renderValue={(selected) => selected.join(', ')}
+          MenuProps={MenuProps}
+        >
+          {distrits.map((distrit) => (
+            <MenuItem key={distrit} value={distrit}>
+              <Checkbox checked={distritName.indexOf(distrit) > -1} />
+              <ListItemText primary={distrit} />
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+          </div>
+          <FormControl fullWidth>
             <InputLabel id="demo-simple-select-standard-label">
               Tipo de colegio
             </InputLabel>
@@ -161,7 +197,7 @@ function ListSchool() {
             </div>
           </div>
           <div>
-          <Typography id="input-slider" gutterBottom>
+            <Typography id="input-slider" gutterBottom>
               Calificación
             </Typography>
             <Rating
