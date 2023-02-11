@@ -5,7 +5,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Slider from "@mui/material/Slider";
-import { Rating, Typography } from "@mui/material";
+import { Rating, Typography, Pagination, Box } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSearch,
@@ -20,6 +20,7 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import ListItemText from "@mui/material/ListItemText";
 import Checkbox from "@mui/material/Checkbox";
 
+const pageSize = 5;
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -106,15 +107,27 @@ function ListSchool() {
   const handleChangeType = (event) => {
     setType(event.target.value);
   };
-  const [schools, setSchools] = useState([]);
+
+  const [pagination,setPagination] = useState({
+    count:0,
+    from:0,
+    to: pageSize
+  })
 
   useEffect(() => {
     axios.get("https://fakestoreapi.com/products").then((res) => {
-      setSchools(res.data.slice(0, 100));
+      const schools = res.data.slice(pagination.from,pagination.to)
+      setPagination({...pagination,count:res.data.length,data:schools})
     });
-  }, []);
+  }, [pagination.from,pagination.to]);
 
-  console.log(schools);
+  const handlePageChange = (event,page) => {
+    const from = (page - 1) * pageSize;
+    const to = (page - 1) * pageSize + pageSize;
+    setPagination({...pagination,from:from,to:to})
+  }
+
+  console.log(pagination)
 
   return (
     <div className="flex flex-col p-5 bg-[#fcfeff]">
@@ -239,7 +252,7 @@ function ListSchool() {
         <section className="w-3/4 p-10 flex flex-col gap-5">
           <div className="flex items-center justify-between">
             <small>
-              <span className="font-semibold">{schools.length}</span> results{" "}
+              Mostrando <span className="font-semibold">{pageSize}</span> de <span className="font-semibold">{pagination?.count}</span>  resultados{" "}
             </small>
             <FormControl variant="standard" style={{ width: "200px" }}>
               <InputLabel id="demo-simple-select-standard-label">
@@ -260,8 +273,9 @@ function ListSchool() {
               </Select>
             </FormControl>
           </div>
+            <Pagination count={Math.ceil(pagination.count/pageSize)} onChange={handlePageChange} color='primary'/>
           <div className="flex flex-col gap-5">
-            {schools.map((school) => (
+            {pagination?.data?.length > 0 && pagination.data.map((school) => (
               <div
                 key={school.id}
                 className="flex border rounded-md shadow-md bg-white p-2 items-center gap-2"
@@ -324,7 +338,9 @@ function ListSchool() {
                   <div className="flex justify-between items-center">
                     <div className="flex flex-col">
                       <small>Cuota de ingreso: S/ {school.price} </small>
-                      <span className="font-semibold">S/ {school.price*100}/mes</span>
+                      <span className="font-semibold">
+                        S/ {school.price * 100}/mes
+                      </span>
                     </div>
                     <div className="flex gap-5">
                       <FontAwesomeIcon
@@ -338,6 +354,14 @@ function ListSchool() {
                 </div>
               </div>
             ))}
+            <Box
+              justifyContent={"start"}
+              alignItems={"center"}
+              display={"flex"}
+              sx={{ margin: "20px 0px" }}
+            >
+              <Pagination count={Math.ceil(pagination.count/pageSize)} onChange={handlePageChange} color='primary'/>
+            </Box>
           </div>
         </section>
       </div>
