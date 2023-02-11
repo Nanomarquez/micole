@@ -27,10 +27,10 @@ admisión simple y eficiente' parrafe='Olvídate de tener que mandar correos y c
       </section>
       <section className='bg-[#0061dd] flex flex-col justify-around p-10 gap-10'>
       <h1 className="text-center text-2xl font-semibold text-white">Elije el plan que más se acomode  a tus necesidades</h1>
-      <div className="flex flex-col sm:flex-row items-center gap-5 justify-evenly mx-5">
+      <div className="flex flex-col sm:flex-row items-center sm:gap-5 gap-10 justify-evenly mx-5">
           <CardsTwo title="Gratis" free={true} family={2} photos={3} plan={"gratis"}/>
           <CardsTwo title="Básico" free={false} family={25} photos={15} price={50} plan={"básico"}/>
-          <CardsTwo price={80} title="Estándar" free={false} family={50} photos={30} plan={"estandar"}/>
+          <CardsTwo price={80} title="Estándar" standard={true} free={false} family={50} photos={30} plan={"estandar"}/>
           <CardsTwo price={120} title="Exclusivo" free={false} premium={true} photos={50} plan={"exclusivo"}/>
       </div>  
       <button className='px-4 mx-auto py-3 rounded-lg text-[#0061dd] bg-white font-normal'>¿Prefieres usar otro medio de pago? Usa una billetera virtual</button>
