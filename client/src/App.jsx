@@ -4,7 +4,8 @@ import Footer from './components/Footer'
 import NavBar from './components/NavBar/NavBar'
 import Home from './pages/Home/Home';
 import EnrollSchool from './pages/EnrollSchool';
-import Carrusel from './components/Carrusel/Carrusel';
+import ListSchool from './pages/ListSchool';
+
 function App() {
   return (
     <>
@@ -12,7 +13,7 @@ function App() {
     <Routes>
       <Route exact path="/" element={<Home/>}/>
       <Route exact path="/enroll" element={<EnrollSchool/>}/>
-  
+      <Route path="/listschool" element={<ListSchool/>}/>
     </Routes>
     <Footer/>
     </>
