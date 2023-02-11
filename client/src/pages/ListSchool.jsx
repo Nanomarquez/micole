@@ -5,10 +5,12 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Slider from "@mui/material/Slider";
-import ContentLoader from "react-content-loader"
+import ContentLoader from "react-content-loader";
 import { Rating, Typography, Pagination, Box } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faCamera,
+  faPlayCircle,
   faSearch,
   faUsers,
   faPaperclip,
@@ -20,7 +22,7 @@ import {
 import OutlinedInput from "@mui/material/OutlinedInput";
 import ListItemText from "@mui/material/ListItemText";
 import Checkbox from "@mui/material/Checkbox";
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 const pageSize = 5;
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -56,12 +58,11 @@ function valuetext2(value) {
 
 const minDistance = 10;
 function ListSchool() {
+  const location = useLocation();
 
-  const location = useLocation()
+  const params = new URLSearchParams(location.search);
 
-  const params = new URLSearchParams(location.search)
-
-  console.log(params.get('distrito'))
+  console.log(params.get("distrito"));
 
   const [distritName, setDistritName] = React.useState([]);
 
@@ -116,37 +117,38 @@ function ListSchool() {
     setType(event.target.value);
   };
 
-  const [pagination,setPagination] = useState({
-    count:0,
-    from:0,
-    to: pageSize
-  })
+  const [pagination, setPagination] = useState({
+    count: 0,
+    from: 0,
+    to: pageSize,
+  });
 
   useEffect(() => {
     axios.get("https://fakestoreapi.com/products").then((res) => {
-      const schools = res.data.slice(pagination.from,pagination.to)
-      setPagination({...pagination,count:res.data.length,data:schools})
+      console.log(res)
+      const schools = res.data.slice(pagination.from, pagination.to);
+      setPagination({ ...pagination, count: res.data.length, data: schools });
     });
-  }, [pagination.from,pagination.to]);
+  }, [pagination.from, pagination.to]);
 
-  const [disabledPage, setDisabledPage] = useState(false)
-
-  const handlePageChange = (event,page) => {
-    setDisabledPage(true)
-    setPagination({data:{}})
+  const [disabledPage, setDisabledPage] = useState(false);
+  console.log(pagination)
+  const handlePageChange = (event, page) => {
+    setDisabledPage(true);
+    setPagination({ data: {} });
     const from = (page - 1) * pageSize;
     const to = (page - 1) * pageSize + pageSize;
-    setPagination({...pagination,from:from,to:to})
-    setTimeout(()=>{
-      setDisabledPage(false)
-    },1000)
-  }
+    setPagination({ ...pagination, from: from, to: to });
+    setTimeout(() => {
+      setDisabledPage(false);
+    }, 1000);
+  };
 
   const items = [1, 2, 3, 4, 5];
 
   return (
-    <div className="flex flex-col p-5 bg-[#fcfeff]">
-      <h1 className="text-center text-2xl font-semibold">
+    <div className="flex flex-col p-5 bg-[#eef0f1]">
+      <h1 className="text-center mt-2 text-2xl font-semibold">
         Encuentra el colegio ideal
       </h1>
       <div className="flex p-5 gap-10 m-5">
@@ -267,7 +269,9 @@ function ListSchool() {
         <section className="w-3/4 p-10 flex flex-col gap-5">
           <div className="flex items-center justify-between">
             <small>
-              Mostrando <span className="font-semibold">{pageSize}</span> de <span className="font-semibold">{pagination?.count}</span>  resultados{" "}
+              Mostrando <span className="font-semibold">{pageSize}</span> de{" "}
+              <span className="font-semibold">{pagination?.count}</span>{" "}
+              resultados{" "}
             </small>
             <FormControl variant="standard" style={{ width: "200px" }}>
               <InputLabel id="demo-simple-select-standard-label">
@@ -290,114 +294,132 @@ function ListSchool() {
           </div>
 
           <div className="flex flex-col gap-5">
-            {pagination?.data?.length > 0 ? pagination.data.map((school) => (
-              <div
-                key={school.id}
-                className="flex border rounded-md shadow-md bg-white p-2 items-center gap-2"
-              >
-                <img
-                  src={school.image}
-                  alt={school.title}
-                  className="w-64 h-64 object-cover"
-                />
-                <div className="w-full p-5  flex flex-col justify-between gap-5">
-                  <div className="flex justify-between">
-                    <div className="flex flex-col gap-4">
-                      <div className="flex flex-col w-fit gap-2">
-                        <h1 className="font-semibold text-lg">
-                          {school.title}{" "}
-                        </h1>
-                        <small className="text-gray-400">
-                          {school.category}{" "}
-                        </small>
-                      </div>
-                      <div className="flex w-fit gap-10">
-                        <div className="flex flex-col text-center">
-                          <FontAwesomeIcon
-                            size="lg"
-                            color="rgb(156 163 175)"
-                            icon={faUsers}
-                          />
-                          <span className="text-sm text-gray-400">
-                            368 Alumnos
-                          </span>
-                        </div>
-                        <div className="flex flex-col text-center">
-                          <FontAwesomeIcon
-                            size="lg"
-                            color="rgb(156 163 175)"
-                            icon={faPaperclip}
-                          />
-                          <span className="text-sm text-gray-400"> Mixto</span>
-                        </div>
-                        <div className="flex flex-col text-center">
-                          <FontAwesomeIcon
-                            size="lg"
-                            color="rgb(156 163 175)"
-                            icon={faDoorOpen}
-                          />
-                          <span className="text-sm text-gray-400">
-                            2 Salones
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex flex-col justify-between">
-                      <h1>Numero: +54123123123</h1>
-                      <button className="bg-[#edf4fe] rounded-sm shadow-md p-2 text-[#0061dd] w-full text-center font-semibold">
-                        VER DETALLE
-                      </button>
-                    </div>
-                  </div>
-                  
-                  <hr />
-                
-                  <div className="flex justify-between items-center">
-                    <div className="flex flex-col">
-                      <small>Cuota de ingreso: S/ {school.price} </small>
-                      <span className="font-semibold">
-                        S/ {school.price * 100}/mes
-                      </span>
-                    </div>
-                    <div className="flex gap-5">
-                      <FontAwesomeIcon
-                        size="lg"
-                        icon={faUpRightAndDownLeftFromCenter}
+            {pagination?.data?.length > 0
+              ? pagination.data.map((school) => (
+                  <div
+                    key={school.id}
+                    className="flex border rounded-md shadow-md bg-white p-2 items-center gap-2"
+                  >
+                    {" "}
+                    <div className="relative">
+                      <img
+                        src={school.image}
+                        alt={school.title}
+                        className="w-[400px] h-64 object-cover"
                       />
-                      <FontAwesomeIcon size="lg" icon={faCirclePlus} />
-                      <FontAwesomeIcon size="lg" icon={faHeart} />
+                      <span className="absolute bg-[#0061dd] text-white p-1 px-2 rounded-md top-3 left-3">DESTACADO</span>
+                      <span className="absolute animate-bounce bg-black/80 text-white p-1 px-2 rounded-md top-3 right-3">9 VACANTES</span>
+                      <div className="flex absolute gap-5 text-white bottom-3 left-3 bg-black/50 p-2 rounded-md">
+                        <span className="flex hover:scale-110 duration-200 cursor-pointer items-center gap-2"><FontAwesomeIcon size="lg" icon={faCamera}/>22</span>
+                        <span className="flex hover:scale-110 duration-200 cursor-pointer items-center gap-2"> <FontAwesomeIcon size="lg" icon={faPlayCircle} />9</span>         
+                      </div>
+                    </div>
+                    <div className="w-full p-5  flex flex-col justify-between gap-5">
+                      <div className="flex justify-between">
+                        <div className="flex flex-col gap-4">
+                          <div className="flex flex-col w-fit gap-2">
+                            <h1 className="font-semibold text-lg">
+                              {school.title}{" "}
+                            </h1>
+                            <small className="text-gray-400">
+                              {school.category}{" "}
+                            </small>
+                          </div>
+                          <div className="flex w-fit gap-10">
+                            <div className="flex flex-col text-center">
+                              <FontAwesomeIcon
+                                size="lg"
+                                color="rgb(156 163 175)"
+                                icon={faUsers}
+                              />
+                              <span className="text-sm text-gray-400">
+                                368 Alumnos
+                              </span>
+                            </div>
+                            <div className="flex flex-col text-center">
+                              <FontAwesomeIcon
+                                size="lg"
+                                color="rgb(156 163 175)"
+                                icon={faPaperclip}
+                              />
+                              <span className="text-sm text-gray-400">
+                                {" "}
+                                Mixto
+                              </span>
+                            </div>
+                            <div className="flex flex-col text-center">
+                              <FontAwesomeIcon
+                                size="lg"
+                                color="rgb(156 163 175)"
+                                icon={faDoorOpen}
+                              />
+                              <span className="text-sm text-gray-400">
+                                2 Salones
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex flex-col justify-between">
+                          <h1>Numero: +54123123123</h1>
+                          <button className="bg-[#edf4fe] hover:scale-110 duration-200 cursor-pointer rounded-sm shadow-md p-2 text-[#0061dd] w-full text-center font-semibold">
+                            VER DETALLE
+                          </button>
+                        </div>
+                      </div>
+
+                      <hr />
+
+                      <div className="flex justify-between items-center">
+                        <div className="flex flex-col">
+                          <small>Cuota de ingreso: S/ {school.price} </small>
+                          <span className="font-semibold">
+                            S/ {school.price * 100}/mes
+                          </span>
+                        </div>
+                        <div className="flex gap-5">
+                          <FontAwesomeIcon
+                            size="lg"
+                            icon={faUpRightAndDownLeftFromCenter}
+                            className='hover:scale-110 duration-200 cursor-pointer'
+                          />
+                          <FontAwesomeIcon size="lg" icon={faCirclePlus} className='hover:scale-110 duration-200 cursor-pointer' />
+                          <FontAwesomeIcon size="lg" icon={faHeart} className='hover:scale-110 duration-200 cursor-pointer' />
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  </div>
-                </div>
-              
-              )) :           items.map(item=>(
-<ContentLoader 
-              speed={3}
-            width={"100%"}
-            height={"100%"}
-            viewBox="0 0 500 120"
-            backgroundColor="#f3f3f3"
-            foregroundColor="#ecebeb"
-
-          >
-            <rect x="110" y="8" rx="3" ry="3" width="120" height="10" /> 
-            <rect x="110" y="25" rx="3" ry="3" width="100" height="6" /> 
-            <rect x="48" y="26" rx="3" ry="3" width="52" height="6" /> 
-            <rect x="110" y="56" rx="3" ry="3" width="310" height="6" /> 
-            <rect x="110" y="72" rx="3" ry="3" width="300" height="6" /> 
-            <rect x="110" y="88" rx="3" ry="3" width="178" height="6" /> 
-            <rect width="100" height="100" />
-          </ContentLoader>
-              ))  }
+                ))
+              : items.map((item,key) => (
+                  <ContentLoader
+                  key={key}
+                    speed={3}
+                    width={"100%"}
+                    height={"100%"}
+                    viewBox="0 0 500 120"
+                    backgroundColor="#f3f3f3"
+                    foregroundColor="#ecebeb"
+                  >
+                    <rect x="110" y="8" rx="3" ry="3" width="120" height="10" />
+                    <rect x="110" y="25" rx="3" ry="3" width="100" height="6" />
+                    <rect x="48" y="26" rx="3" ry="3" width="52" height="6" />
+                    <rect x="110" y="56" rx="3" ry="3" width="310" height="6" />
+                    <rect x="110" y="72" rx="3" ry="3" width="300" height="6" />
+                    <rect x="110" y="88" rx="3" ry="3" width="178" height="6" />
+                    <rect width="100" height="100" />
+                  </ContentLoader>
+                ))}
             <Box
               justifyContent={"start"}
               alignItems={"center"}
               display={"flex"}
               sx={{ margin: "20px 0px" }}
             >
-              <Pagination count={Math.ceil(pagination.count/pageSize)} onChange={handlePageChange} color='primary' disabled={disabledPage} />
-              
+              <Pagination
+                count={Math.ceil(pagination.count / pageSize)}
+                onChange={handlePageChange}
+                color="primary"
+                disabled={disabledPage}
+              />
             </Box>
           </div>
         </section>
