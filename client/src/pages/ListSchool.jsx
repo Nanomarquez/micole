@@ -20,7 +20,7 @@ import {
   faCirclePlus,
   faHeart,
   faArrowDown,
-  faArrowUp
+  faArrowUp,
 } from "@fortawesome/free-solid-svg-icons";
 import { getAllSchools } from "../redux/SchoolsActions";
 import OutlinedInput from "@mui/material/OutlinedInput";
@@ -62,7 +62,6 @@ function valuetext2(value) {
 
 const minDistance = 10;
 function ListSchool() {
- 
   /*
  
   para agarrar los querys
@@ -138,16 +137,15 @@ function ListSchool() {
   const { allschools } = useSelector((state) => state.schools);
 
   useEffect(() => {
-    dispatch(getAllSchools())
-  }, [])
-  
+    dispatch(getAllSchools());
+  }, []);
+
   useEffect(() => {
-    if(allschools.length > 0) {
+    if (allschools.length > 0) {
       const schools = allschools.slice(pagination.from, pagination.to);
       setPagination({ ...pagination, count: allschools.length, data: schools });
     }
-  }, [allschools,pagination.from, pagination.to])
-  
+  }, [allschools, pagination.from, pagination.to]);
 
   const [disabledPage, setDisabledPage] = useState(false);
   const handlePageChange = (event, page) => {
@@ -163,143 +161,152 @@ function ListSchool() {
 
   const items = [1, 2, 3, 4, 5];
 
-  const [toggle,setToggle] = useState(false)
+  const [toggle, setToggle] = useState(false);
 
   return (
     <div className="flex flex-col p-5 bg-[#eef0f1]">
       <h1 className="text-center mt-2 text-2xl font-semibold">
         Encuentra el colegio ideal
       </h1>
-      <div className="flex flex-col sm:flex-row p-5 gap-10 m-5">
-        <section className="sm:w-1/4 w-full flex flex-col gap-5 rounded-md h-min bg-white shadow-lg p-10">
+      <div className="flex flex-col lg:flex-row p-5 gap-10 m-5">
+        <section className="lg:w-1/4 w-full flex flex-col gap-5 rounded-md h-min bg-white shadow-lg p-10">
           <h2 className="font-semibold text-xl">Filtros</h2>
-          <button className="absolute block sm:hidden left-0 right-0" onClick={()=>setToggle(!toggle)}>                              <FontAwesomeIcon
-                                size="lg"
-                                color="rgb(156 163 175)"
-                                icon={toggle ? faArrowUp : faArrowDown}
-                              /></button>
-          <div className={`${toggle ? "block sm:block" : "hidden sm:block"}`}>
-          <div>
+          <button
+            className="absolute block lg:hidden left-0 right-0"
+            onClick={() => setToggle(!toggle)}
+          >
+            {" "}
+            <FontAwesomeIcon
+              size="lg"
+              color="rgb(156 163 175)"
+              icon={toggle ? faArrowUp : faArrowDown}
+            />
+          </button>
+          <div className={`${toggle ? "flex lg:flex flex-col gap-5" : "hidden lg:flex flex-col gap-5"}`}>
+            <div>
+              <FormControl fullWidth>
+                <InputLabel id="demo-multiple-checkbox-label">Tag</InputLabel>
+                <Select
+                  labelId="demo-multiple-checkbox-label"
+                  id="demo-multiple-checkbox"
+                  multiple
+                  value={distritName}
+                  onChange={handleChangeDistrit}
+                  input={<OutlinedInput label="Tag" />}
+                  renderValue={(selected) => selected.join(", ")}
+                  MenuProps={MenuProps}
+                >
+                  {distrits.map((distrit) => (
+                    <MenuItem key={distrit} value={distrit}>
+                      <Checkbox checked={distritName.indexOf(distrit) > -1} />
+                      <ListItemText primary={distrit} />
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </div>
             <FormControl fullWidth>
-              <InputLabel id="demo-multiple-checkbox-label">Tag</InputLabel>
+              <InputLabel id="demo-simple-select-standard-label">
+                Tipo de colegio
+              </InputLabel>
               <Select
-                labelId="demo-multiple-checkbox-label"
-                id="demo-multiple-checkbox"
-                multiple
-                value={distritName}
-                onChange={handleChangeDistrit}
-                input={<OutlinedInput label="Tag" />}
-                renderValue={(selected) => selected.join(", ")}
-                MenuProps={MenuProps}
+                labelId="demo-simple-select-standard-label"
+                id="demo-type-select-standard"
+                value={type}
+                onChange={handleChangeType}
+                label="Tipo de colegio"
               >
-                {distrits.map((distrit) => (
-                  <MenuItem key={distrit} value={distrit}>
-                    <Checkbox checked={distritName.indexOf(distrit) > -1} />
-                    <ListItemText primary={distrit} />
+                {types.map((type) => (
+                  <MenuItem value={type} key={type}>
+                    <ListItemText primary={type} />
                   </MenuItem>
                 ))}
               </Select>
             </FormControl>
-          </div>
-          <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-standard-label">
-              Tipo de colegio
-            </InputLabel>
-            <Select
-              labelId="demo-simple-select-standard-label"
-              id="demo-type-select-standard"
-              value={type}
-              onChange={handleChangeType}
-              label="Tipo de colegio"
-            >
-              {types.map((type) => (
-                <MenuItem value={type} key={type}>
-                  <ListItemText primary={type} />
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-          <div>
-            <Typography id="input-slider" gutterBottom>
-              Pensión (s/)
-            </Typography>
-            <Slider
-              getAriaLabel={() => "Minimum distance"}
-              value={value1}
-              onChange={handleChange1}
-              valueLabelDisplay="auto"
-              getAriaValueText={valuetext}
-              disableSwap
-            />
-            <div className="flex w-full gap-5 justify-around">
-              <div className="bg-[#edf4fe] rounded-sm shadow-md p-2 text-[#0061dd] w-full text-center">
-                ${value1[0]}
-              </div>
-              <div className="bg-[#edf4fe] rounded-sm shadow-md p-2 text-[#0061dd] w-full text-center">
-                ${value1[1]}
+            <div>
+              <Typography id="input-slider" gutterBottom>
+                Pensión (s/)
+              </Typography>
+              <Slider
+                getAriaLabel={() => "Minimum distance"}
+                value={value1}
+                onChange={handleChange1}
+                valueLabelDisplay="auto"
+                getAriaValueText={valuetext}
+                disableSwap
+              />
+              <div className="flex w-full gap-5 justify-around">
+                <div className="bg-[#edf4fe] rounded-sm shadow-md p-2 text-[#0061dd] w-full text-center">
+                  ${value1[0]}
+                </div>
+                <div className="bg-[#edf4fe] rounded-sm shadow-md p-2 text-[#0061dd] w-full text-center">
+                  ${value1[1]}
+                </div>
               </div>
             </div>
-          </div>
-          <div>
-            <Typography id="input-slider" gutterBottom>
-              Cuota de ingreso (s/)
-            </Typography>
-            <Slider
-              getAriaLabel={() => "Minimum distance"}
-              value={value2}
-              onChange={handleChange2}
-              valueLabelDisplay="auto"
-              getAriaValueText={valuetext2}
-              disableSwap
-            />
-            <div className="flex w-full gap-5 justify-around">
-              <div className="bg-[#edf4fe] rounded-sm shadow-md p-2 text-[#0061dd] w-full text-center">
-                ${value2[0]}
-              </div>
-              <div className="bg-[#edf4fe] rounded-sm shadow-md p-2 text-[#0061dd] w-full text-center">
-                ${value2[1]}
+            <div>
+              <Typography id="input-slider" gutterBottom>
+                Cuota de ingreso (s/)
+              </Typography>
+              <Slider
+                getAriaLabel={() => "Minimum distance"}
+                value={value2}
+                onChange={handleChange2}
+                valueLabelDisplay="auto"
+                getAriaValueText={valuetext2}
+                disableSwap
+              />
+              <div className="flex w-full gap-5 justify-around">
+                <div className="bg-[#edf4fe] rounded-sm shadow-md p-2 text-[#0061dd] w-full text-center">
+                  ${value2[0]}
+                </div>
+                <div className="bg-[#edf4fe] rounded-sm shadow-md p-2 text-[#0061dd] w-full text-center">
+                  ${value2[1]}
+                </div>
               </div>
             </div>
-          </div>
-          <div>
-            <Typography id="input-slider" gutterBottom>
-              Calificación
-            </Typography>
-            <Rating
-              name="simple-controlled"
-              value={rating}
-              onChange={(event, newValue) => {
-                setRating(newValue);
-              }}
-            />
-          </div>
-          <div>
-            <Typography id="input-slider" gutterBottom>
-              Inglés {english} (Hrs/semana)
-            </Typography>
-            <Slider
-              aria-label="English"
-              min={0}
-              max={10}
-              value={english}
-              onChange={handleChangeEnglish}
-              valueLabelDisplay="auto"
-            />
-          </div>
-          <button className="bg-[#0061dd] text-white w-full p-3 rounded-sm flex justify-center items-center gap-5">
-            <FontAwesomeIcon size="lg" icon={faSearch} />
-            BUSCAR
-          </button>
+            <div>
+              <Typography id="input-slider" gutterBottom>
+                Calificación
+              </Typography>
+              <Rating
+                name="simple-controlled"
+                value={rating}
+                onChange={(event, newValue) => {
+                  setRating(newValue);
+                }}
+              />
+            </div>
+            <div>
+              <Typography id="input-slider" gutterBottom>
+                Inglés {english} (Hrs/semana)
+              </Typography>
+              <Slider
+                aria-label="English"
+                min={0}
+                max={10}
+                value={english}
+                onChange={handleChangeEnglish}
+                valueLabelDisplay="auto"
+              />
+            </div>
+            <button className="bg-[#0061dd] text-white w-full p-3 rounded-sm flex justify-center items-center gap-5">
+              <FontAwesomeIcon size="lg" icon={faSearch} />
+              BUSCAR
+            </button>
           </div>
         </section>
-        <section className="sm:w-3/4 w-full p-10 flex flex-col gap-5">
+        <section className="lg:w-3/4 w-full pl-10 pr-10 pb-10 flex flex-col gap-5">
           <div className="flex items-center justify-between">
             <small>
               Mostrando <span className="font-semibold">{pageSize}</span> de{" "}
               <span className="font-semibold">{pagination?.count}</span>{" "}
               resultados{" "}
             </small>
-            <FormControl variant="standard" style={{ width: "200px", height: "80px" }}>
+            <FormControl
+              variant="standard"
+              style={{ width: "200px", height: "80px" }}
+            >
               <InputLabel id="demo-simple-select-standard-label">
                 Ordenar por
               </InputLabel>
@@ -324,7 +331,7 @@ function ListSchool() {
               ? pagination.data.map((school) => (
                   <div
                     key={school.id}
-                    className="flex border rounded-md shadow-md bg-white p-2 items-center gap-2"
+                    className="flex border rounded-md shadow-md bg-white p-2 items-center gap-2 flex-col md:flex-row"
                   >
                     {" "}
                     <div className="relative">
@@ -333,15 +340,25 @@ function ListSchool() {
                         alt={school.title}
                         className="w-[400px] h-64 object-cover"
                       />
-                      <span className="absolute bg-[#0061dd] text-white p-1 px-2 rounded-md top-3 left-3">DESTACADO</span>
-                      <span className="absolute animate-bounce bg-black/80 text-white p-1 px-2 rounded-md top-3 right-3">9 VACANTES</span>
+                      <span className="absolute bg-[#0061dd] text-white p-1 px-2 rounded-md top-3 left-3">
+                        DESTACADO
+                      </span>
+                      <span className="absolute animate-bounce bg-black/80 text-white p-1 px-2 rounded-md top-14 xl:top-3 xl:right-3 ml-3 w-fit">
+                        9 VACANTES
+                      </span>
                       <div className="flex absolute gap-5 text-white bottom-3 left-3 bg-black/50 p-2 rounded-md">
-                        <span className="flex hover:scale-110 duration-200 cursor-pointer items-center gap-2"><FontAwesomeIcon size="lg" icon={faCamera}/>22</span>
-                        <span className="flex hover:scale-110 duration-200 cursor-pointer items-center gap-2"> <FontAwesomeIcon size="lg" icon={faPlayCircle} />9</span>         
+                        <span className="flex hover:scale-110 duration-200 cursor-pointer items-center gap-2">
+                          <FontAwesomeIcon size="lg" icon={faCamera} />
+                          22
+                        </span>
+                        <span className="flex hover:scale-110 duration-200 cursor-pointer items-center gap-2">
+                          {" "}
+                          <FontAwesomeIcon size="lg" icon={faPlayCircle} />9
+                        </span>
                       </div>
                     </div>
                     <div className="w-full p-5  flex flex-col justify-between gap-5">
-                      <div className="flex justify-between">
+                      <div className="flex justify-between gap-4 xl:gap-0 flex-col xl:flex-row">
                         <div className="flex flex-col gap-4">
                           <div className="flex flex-col w-fit gap-2">
                             <h1 className="font-semibold text-lg">
@@ -406,18 +423,26 @@ function ListSchool() {
                           <FontAwesomeIcon
                             size="lg"
                             icon={faUpRightAndDownLeftFromCenter}
-                            className='hover:scale-110 duration-200 cursor-pointer'
+                            className="hover:scale-110 duration-200 cursor-pointer"
                           />
-                          <FontAwesomeIcon size="lg" icon={faCirclePlus} className='hover:scale-110 duration-200 cursor-pointer' />
-                          <FontAwesomeIcon size="lg" icon={faHeart} className='hover:scale-110 duration-200 cursor-pointer' />
+                          <FontAwesomeIcon
+                            size="lg"
+                            icon={faCirclePlus}
+                            className="hover:scale-110 duration-200 cursor-pointer"
+                          />
+                          <FontAwesomeIcon
+                            size="lg"
+                            icon={faHeart}
+                            className="hover:scale-110 duration-200 cursor-pointer"
+                          />
                         </div>
                       </div>
                     </div>
                   </div>
                 ))
-              : items.map((item,key) => (
+              : items.map((item, key) => (
                   <ContentLoader
-                  key={key}
+                    key={key}
                     speed={3}
                     width={"100%"}
                     height={"100%"}
