@@ -8,6 +8,7 @@ import Slider from "@mui/material/Slider";
 import ContentLoader from "react-content-loader";
 import { Rating, Typography, Pagination, Box } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useSelector, useDispatch } from "react-redux";
 import {
   faCamera,
   faPlayCircle,
@@ -18,7 +19,10 @@ import {
   faUpRightAndDownLeftFromCenter,
   faCirclePlus,
   faHeart,
+  faArrowDown,
+  faArrowUp
 } from "@fortawesome/free-solid-svg-icons";
+import { getAllSchools } from "../redux/SchoolsActions";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import ListItemText from "@mui/material/ListItemText";
 import Checkbox from "@mui/material/Checkbox";
@@ -58,11 +62,18 @@ function valuetext2(value) {
 
 const minDistance = 10;
 function ListSchool() {
+ 
+  /*
+ 
+  para agarrar los querys
+
   const location = useLocation();
 
   const params = new URLSearchParams(location.search);
 
   console.log(params.get("distrito"));
+
+  */
 
   const [distritName, setDistritName] = React.useState([]);
 
@@ -123,18 +134,20 @@ function ListSchool() {
     to: pageSize,
   });
 
-  useEffect(()=>{
-    axios.get("https://fakestoreapi.com/products").then(res=>{
-      console.log(res)
-    })
-  },[])
+  const dispatch = useDispatch();
+  const { allschools } = useSelector((state) => state.schools);
 
   useEffect(() => {
-    axios.get("https://fakestoreapi.com/products").then((res) => {
-      const schools = res.data.slice(pagination.from, pagination.to);
-      setPagination({ ...pagination, count: res.data.length, data: schools });
-    });
-  }, [pagination.from, pagination.to]);
+    dispatch(getAllSchools())
+  }, [])
+  
+  useEffect(() => {
+    if(allschools.length > 0) {
+      const schools = allschools.slice(pagination.from, pagination.to);
+      setPagination({ ...pagination, count: allschools.length, data: schools });
+    }
+  }, [allschools,pagination.from, pagination.to])
+  
 
   const [disabledPage, setDisabledPage] = useState(false);
   const handlePageChange = (event, page) => {
@@ -150,14 +163,22 @@ function ListSchool() {
 
   const items = [1, 2, 3, 4, 5];
 
+  const [toggle,setToggle] = useState(false)
+
   return (
     <div className="flex flex-col p-5 bg-[#eef0f1]">
       <h1 className="text-center mt-2 text-2xl font-semibold">
         Encuentra el colegio ideal
       </h1>
-      <div className="flex p-5 gap-10 m-5">
-        <section className="w-1/4 flex flex-col gap-5 rounded-md h-min bg-white shadow-lg p-10">
+      <div className="flex flex-col sm:flex-row p-5 gap-10 m-5">
+        <section className="sm:w-1/4 w-full flex flex-col gap-5 rounded-md h-min bg-white shadow-lg p-10">
           <h2 className="font-semibold text-xl">Filtros</h2>
+          <button className="absolute block sm:hidden left-0 right-0" onClick={()=>setToggle(!toggle)}>                              <FontAwesomeIcon
+                                size="lg"
+                                color="rgb(156 163 175)"
+                                icon={toggle ? faArrowUp : faArrowDown}
+                              /></button>
+          <div className={`${toggle ? "block sm:block" : "hidden sm:block"}`}>
           <div>
             <FormControl fullWidth>
               <InputLabel id="demo-multiple-checkbox-label">Tag</InputLabel>
@@ -269,15 +290,16 @@ function ListSchool() {
             <FontAwesomeIcon size="lg" icon={faSearch} />
             BUSCAR
           </button>
+          </div>
         </section>
-        <section className="w-3/4 p-10 flex flex-col gap-5">
+        <section className="sm:w-3/4 w-full p-10 flex flex-col gap-5">
           <div className="flex items-center justify-between">
             <small>
               Mostrando <span className="font-semibold">{pageSize}</span> de{" "}
               <span className="font-semibold">{pagination?.count}</span>{" "}
               resultados{" "}
             </small>
-            <FormControl variant="standard" style={{ width: "200px" }}>
+            <FormControl variant="standard" style={{ width: "200px", height: "80px" }}>
               <InputLabel id="demo-simple-select-standard-label">
                 Ordenar por
               </InputLabel>
