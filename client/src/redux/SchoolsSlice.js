@@ -4,7 +4,7 @@ export const schoolsSlice = createSlice({
   name: "schools",
   initialState: {
     allschools: [],
-    oneSchool: [],
+    oneSchool: {},
     error: "",
     loading: false
   },
