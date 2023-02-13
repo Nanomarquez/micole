@@ -8,7 +8,7 @@ import ContentLoader from "react-content-loader";
 import { Rating, Typography, Pagination, Box } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSelector, useDispatch } from "react-redux";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 import {
   faCamera,
   faPlayCircle,
@@ -23,20 +23,14 @@ import {
   faArrowUp,
 } from "@fortawesome/free-solid-svg-icons";
 import { getAllSchools } from "../redux/SchoolsActions";
-import OutlinedInput from "@mui/material/OutlinedInput";
-import ListItemText from "@mui/material/ListItemText";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
+import ListItemText from "@mui/material/ListItemText";
+
 const pageSize = 5;
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
-};
 
 const distrits = [
   "Oliver Hansen",
@@ -133,7 +127,7 @@ function ListSchool() {
   });
 
   const dispatch = useDispatch();
-  const { allschools , loading} = useSelector((state) => state.schools);
+  const { allschools, loading } = useSelector((state) => state.schools);
 
   useEffect(() => {
     dispatch(getAllSchools());
@@ -145,7 +139,7 @@ function ListSchool() {
       setPagination({ ...pagination, count: allschools.length, data: schools });
     }
   }, [allschools, pagination.from, pagination.to]);
-  
+
   const [disabledPage, setDisabledPage] = useState(false);
   const handlePageChange = (event, page) => {
     setDisabledPage(true);
@@ -157,10 +151,16 @@ function ListSchool() {
       setDisabledPage(false);
     }, 1000);
   };
+  const [checked, setChecked] = React.useState(true);
 
+  const handleChange = (event) => {
+    setChecked(event.target.checked);
+  };
   const items = [1, 2, 3, 4, 5];
 
   const [toggle, setToggle] = useState(false);
+  const [toggleDistrits, setToggleDistrits] = useState(false);
+  const [toggleTypes, setToggleTypes] = useState(false);
 
   return (
     <div className="flex flex-col py-5 px-0 lg:p-5 bg-[#f6f7f8] ">
@@ -181,49 +181,67 @@ function ListSchool() {
               icon={toggle ? faArrowUp : faArrowDown}
             />
           </button>
-          <div className={`${toggle ? "flex lg:flex flex-col gap-5" : "hidden lg:flex flex-col gap-5"}`}>
+          <div
+            className={`${
+              toggle
+                ? "flex lg:flex flex-col gap-5"
+                : "hidden lg:flex flex-col gap-5"
+            }`}
+          >
             <div>
-              <FormControl fullWidth>
-                <InputLabel id="demo-multiple-checkbox-label">Tag</InputLabel>
-                <Select
-                  labelId="demo-multiple-checkbox-label"
-                  id="demo-multiple-checkbox"
-                  multiple
-                  value={distritName}
-                  onChange={handleChangeDistrit}
-                  input={<OutlinedInput label="Tag" />}
-                  renderValue={(selected) => selected.join(", ")}
-                  MenuProps={MenuProps}
-                >
+              <div className="flex items-center gap-5 z-50">
+                <Typography id="input-slider" gutterBottom fontWeight="bold">
+                  Distritos
+                </Typography>
+                <button onClick={() => setToggleDistrits(!toggleDistrits)}>
+                  {" "}
+                  <FontAwesomeIcon
+                    size="lg"
+                    icon={toggleDistrits ? faArrowUp : faArrowDown}
+                  />
+                </button>
+              </div>
+              <div className={toggleDistrits ? "block" : "hidden"}>
+                <FormGroup>
                   {distrits.map((distrit) => (
-                    <MenuItem key={distrit} value={distrit}>
-                      <Checkbox checked={distritName.indexOf(distrit) > -1} />
-                      <ListItemText primary={distrit} />
-                    </MenuItem>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          onChange={(event, target) => {
+                            console.log({ event, target });
+                          }}
+                        />
+                      }
+                      label={distrit}
+                    />
                   ))}
-                </Select>
-              </FormControl>
+                </FormGroup>
+              </div>
             </div>
-            <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-standard-label">
-                Tipo de colegio
-              </InputLabel>
-              <Select
-                labelId="demo-simple-select-standard-label"
-                id="demo-type-select-standard"
-                value={type}
-                onChange={handleChangeType}
-                label="Tipo de colegio"
-              >
+            <div>
+              <div className="flex items-center gap-5 z-50">
+                <Typography id="input-slider" gutterBottom fontWeight="bold">
+                  Tipo de Colegios
+                </Typography>
+                <button onClick={() => setToggleTypes(!toggleTypes)}>
+                  {" "}
+                  <FontAwesomeIcon
+                    size="lg"
+                    icon={toggleTypes ? faArrowUp : faArrowDown}
+                  />
+                </button>
+              </div>
+              <div className={toggleTypes ? "block" : "hidden"}>
+
+              <FormGroup>
                 {types.map((type) => (
-                  <MenuItem value={type} key={type}>
-                    <ListItemText primary={type} />
-                  </MenuItem>
+                  <FormControlLabel control={<Checkbox />} label={type} />
                 ))}
-              </Select>
-            </FormControl>
+              </FormGroup>
+              </div>
+            </div>
             <div className="drop-shadow-md">
-              <Typography id="input-slider" gutterBottom fontWeight='bold'>
+              <Typography id="input-slider" gutterBottom fontWeight="bold">
                 Pensión (s/)
               </Typography>
               <Slider
@@ -265,7 +283,7 @@ function ListSchool() {
               </div>
             </div>
             <div className="drop-shadow-md">
-              <Typography id="input-slider" gutterBottom fontWeight='bold'>
+              <Typography id="input-slider" gutterBottom fontWeight="bold">
                 Calificación
               </Typography>
               <Rating
@@ -277,8 +295,8 @@ function ListSchool() {
               />
             </div>
             <div className="drop-shadow-md">
-              <Typography id="input-slider" gutterBottom fontWeight='bold'>
-                Inglés {english} (Hrs/semana)
+              <Typography id="input-slider" gutterBottom fontWeight="bold">
+                Inglés
               </Typography>
               <Slider
                 aria-label="English"
@@ -288,6 +306,9 @@ function ListSchool() {
                 onChange={handleChangeEnglish}
                 valueLabelDisplay="auto"
               />
+              <div className="bg-[#edf4fe] rounded-sm shadow-md p-2 text-[#0061dd] w-full text-center">
+                {english} (Hrs/semana)
+              </div>
             </div>
             <button className="bg-[#0061dd] text-white w-full p-3 rounded-sm flex justify-center items-center gap-5">
               <FontAwesomeIcon size="lg" icon={faSearch} />
@@ -296,9 +317,7 @@ function ListSchool() {
           </div>
         </section>
         <section className="lg:w-3/4 w-full lg:pl-10 lg:pr-10 lg:pb-10 p-0 flex flex-col gap-5">
-          
           <div className="flex items-center justify-between drop-shadow-md">
-            
             <small>
               Mostrando <span className="font-semibold">{pageSize}</span> de{" "}
               <span className="font-semibold">{pagination?.count}</span>{" "}
@@ -404,7 +423,11 @@ function ListSchool() {
                         </div>
                         <div className="flex flex-col justify-between">
                           <h1>Numero: +54123123123</h1>
-                          <Link to={`/schooldetail/${school.id}`} className="bg-[#edf4fe] hover:scale-110 duration-200 cursor-pointer rounded-sm shadow-md p-2 text-[#0061dd] w-full text-center font-semibold">VER DETALLE
+                          <Link
+                            to={`/schooldetail/${school.id}`}
+                            className="bg-[#edf4fe] hover:scale-110 duration-200 cursor-pointer rounded-sm shadow-md p-2 text-[#0061dd] w-full text-center font-semibold"
+                          >
+                            VER DETALLE
                           </Link>
                         </div>
                       </div>
