@@ -16,11 +16,17 @@ function Footer() {
   
     }, 510)
   }
+
+  const [toggleMenuContact,setToggleMenuContact] = useState(false)
+  const [toggleMenuCategory,setToggleMenuCategory] = useState(false)
+  const [toggleMenuMenu,setToggleMenuMenu] = useState(false)
+
   return (
-    <div id='div' className={`bg-gradient-to-b from-[#0c2337] to-[#1a4266] text-white w-full ${toggle ? 'h-full sm:h-[600px]' : 'h-[120px]'} flex flex-col justify-center items-center sm:items-stretch sm:justify-between duration-500`}>
+    <div id='div' className={`bg-gradient-to-b p-5 from-[#0c2337] to-[#1a4266] text-white w-full ${toggle ? 'h-full sm:h-[600px]' : 'h-[120px]'} flex flex-col justify-center items-center sm:items-stretch sm:justify-between duration-500`}>
       <div className={`h-4/5 transition-all duration-500 ${toggle ? "block" : "hidden"} flex gap-10 sm:gap-0 flex-col sm:flex-row my-24 justify-around`}>
-      <ul className='font-normal flex flex-col gap-5'>
-        <li className="font-bold text-xl">Contáctenos</li>
+      <ul className='font-normal flex flex-col gap-5 '>
+        <li className="font-bold text-xl z-50 flex items-center gap-2 cursor-pointer sm:cursor-default" onClick={()=>setToggleMenuContact(!toggleMenuContact)}>Contáctenos<FontAwesomeIcon className="block sm:hidden" icon={toggleMenuContact ? faChevronUp : faChevronDown} /></li>
+        <ul className={`flex duration-200 flex-col gap-5 sm:translate-y-0 -translate-y-full h-0 static ${toggleMenuContact ? "translate-y-0 h-max" : "opacity-0 sm:opacity-100"}`}>
         <li className='flex items-center gap-3'><FontAwesomeIcon icon={faLocationDot} />Líma, Perú</li>
         <li className='flex items-center gap-3'><FontAwesomeIcon icon={faPhone} />123 456 7890</li>
         <li className='flex items-center gap-3'><FontAwesomeIcon icon={faEnvelope} />support@houzing.com</li>
@@ -38,23 +44,28 @@ function Footer() {
         <FontAwesomeIcon icon={faLinkedinIn} />
           </a>
         </li>
+        </ul>
       </ul>
       <ul className='font-normal flex flex-col gap-5'>
-        <li className="font-bold text-xl">Categorías</li>
+        <li className="font-bold text-xl z-50 flex items-center gap-2 cursor-pointer sm:cursor-default" onClick={()=>setToggleMenuCategory(!toggleMenuCategory)}>Categorías<FontAwesomeIcon className="block sm:hidden" icon={toggleMenuCategory ? faChevronUp : faChevronDown} /></li>
+        <ul className={`flex duration-200 flex-col gap-5 sm:translate-y-0 -translate-y-full h-0 static ${toggleMenuCategory ? "translate-y-0 h-max" : "opacity-0 sm:opacity-100"}`}>
         <li className='hover-underline-animation w-min cursor-default'>Religiosos</li>
         <li className='hover-underline-animation w-min cursor-default'>Internacionales</li>
         <li className='hover-underline-animation w-min cursor-default'>Mujeres</li>
         <li className='hover-underline-animation w-min cursor-default'>Hombres</li>
         <li className='hover-underline-animation w-min cursor-default'>Especiales</li>
+        </ul>
       </ul>
       <ul className='font-normal flex flex-col gap-5'>
-        <li className="font-bold text-xl">Menu</li>
+        <li className="font-bold text-xl z-50 flex items-center gap-2 cursor-pointer sm:cursor-default" onClick={()=>setToggleMenuMenu(!toggleMenuMenu)}>Menu<FontAwesomeIcon className="block sm:hidden" icon={toggleMenuMenu ? faChevronUp : faChevronDown} /></li>
+        <ul className={`flex duration-200 flex-col gap-5 sm:translate-y-0 -translate-y-full h-0 static ${toggleMenuMenu ? "translate-y-0 h-max" : "opacity-0 sm:opacity-100"}`}>
         <li className='hover-underline-animation w-min cursor-default'>Inicio</li>
         <li className='hover-underline-animation w-min cursor-default'>Categorías</li>
         <li className='hover-underline-animation w-min cursor-default'>Nosotros</li>
         <li className='hover-underline-animation w-min cursor-default'>Blog</li>
         <li className='hover-underline-animation w-min cursor-default'>Contacto</li>
         <li className='hover-underline-animation w-min sm:w-max cursor-default'>Terminos y Condiciones</li>
+        </ul>
       </ul>
       <ul className='font-normal flex flex-col gap-5'>
         <li className="font-bold text-xl">Subscríbite</li>
