@@ -19,16 +19,16 @@ function FiltrosHome() {
           <p>Distrito</p>
 
           <label>Selecciona un distrito</label>
-          <select>
+          <select className="text-xs">
             {MockupDistritos.map((distrito) => (
               <option>{distrito}</option>
             ))}
           </select>
         </div>
-        <div className={style.select}>
+        <div  className={style.select}>
           <p>Grado</p>
           <label>Selecciona un grado</label>
-          <select>
+          <select className="text-xs">
             {MockupGrados.map((grado) => (
               <option>{grado}</option>
             ))}
@@ -38,35 +38,18 @@ function FiltrosHome() {
           <p>Ingreso</p>
           <label>Selecciona año de ingreso</label>
 
-          <select>
+          <select className="text-xs">
             {Ingreso.map((año) => (
               <option>{año}</option>
             ))}
           </select>
         </div>
-        {/* <div className={style.select}>
-          <p>Categoria</p>
-          <label>Selecciona año de ingreso</label>
-
-          <select>
-          {MockupCategoria.map((c) => (
-              <option>{c}</option>
-            ))}
-          </select>
-        </div> */}
+   
         <div className={style.masFiltros} onClick={toggleFilters}>
           <Icon_filters_home />
           <p> Mas filtros</p>
         </div>
-        {/* {OpenFilter && (
-          <div>
-            <div>
-            {MockupCategoria.map((c) => (
-              <option>{c}</option>
-            ))}
-            </div>
-          </div>
-        )} */}
+   
 
         <div className={style.container_button}>
           <Link to="/listschool?distrito=algundistrito">
