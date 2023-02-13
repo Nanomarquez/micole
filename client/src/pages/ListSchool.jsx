@@ -163,7 +163,7 @@ function ListSchool() {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <div className="flex flex-col p-5 bg-[#eef0f1]">
+    <div className="flex flex-col py-5 px-0 lg:p-5 bg-[#eef0f1]">
       <h1 className="text-center mt-2 text-2xl font-semibold">
         Encuentra el colegio ideal
       </h1>
