@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -9,6 +8,7 @@ import ContentLoader from "react-content-loader";
 import { Rating, Typography, Pagination, Box } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSelector, useDispatch } from "react-redux";
+import {Link} from 'react-router-dom'
 import {
   faCamera,
   faPlayCircle,
@@ -26,7 +26,6 @@ import { getAllSchools } from "../redux/SchoolsActions";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import ListItemText from "@mui/material/ListItemText";
 import Checkbox from "@mui/material/Checkbox";
-import { useLocation } from "react-router-dom";
 const pageSize = 5;
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -134,7 +133,7 @@ function ListSchool() {
   });
 
   const dispatch = useDispatch();
-  const { allschools } = useSelector((state) => state.schools);
+  const { allschools , loading} = useSelector((state) => state.schools);
 
   useEffect(() => {
     dispatch(getAllSchools());
@@ -146,7 +145,7 @@ function ListSchool() {
       setPagination({ ...pagination, count: allschools.length, data: schools });
     }
   }, [allschools, pagination.from, pagination.to]);
-
+  
   const [disabledPage, setDisabledPage] = useState(false);
   const handlePageChange = (event, page) => {
     setDisabledPage(true);
@@ -296,8 +295,10 @@ function ListSchool() {
             </button>
           </div>
         </section>
-        <section className="lg:w-3/4 w-full pl-10 pr-10 pb-10 flex flex-col gap-5">
+        <section className="lg:w-3/4 w-full lg:pl-10 lg:pr-10 lg:pb-10 p-0 flex flex-col gap-5">
+          
           <div className="flex items-center justify-between">
+            
             <small>
               Mostrando <span className="font-semibold">{pageSize}</span> de{" "}
               <span className="font-semibold">{pagination?.count}</span>{" "}
@@ -325,10 +326,9 @@ function ListSchool() {
               </Select>
             </FormControl>
           </div>
-
           <div className="flex flex-col gap-5">
-            {pagination?.data?.length > 0
-              ? pagination.data.map((school) => (
+            {!loading
+              ? pagination?.data?.map((school) => (
                   <div
                     key={school.id}
                     className="flex border rounded-md shadow-md bg-white p-2 items-center gap-2 flex-col md:flex-row"
@@ -404,9 +404,8 @@ function ListSchool() {
                         </div>
                         <div className="flex flex-col justify-between">
                           <h1>Numero: +54123123123</h1>
-                          <button className="bg-[#edf4fe] hover:scale-110 duration-200 cursor-pointer rounded-sm shadow-md p-2 text-[#0061dd] w-full text-center font-semibold">
-                            VER DETALLE
-                          </button>
+                          <Link to={`/schooldetail/${school.id}`} className="bg-[#edf4fe] hover:scale-110 duration-200 cursor-pointer rounded-sm shadow-md p-2 text-[#0061dd] w-full text-center font-semibold">VER DETALLE
+                          </Link>
                         </div>
                       </div>
 

@@ -3,15 +3,30 @@ import { createSlice } from "@reduxjs/toolkit";
 export const schoolsSlice = createSlice({
   name: "schools",
   initialState: {
-    allschools: []
+    allschools: [],
+    oneSchool: [],
+    error: "",
+    loading: false
   },
   reducers : {
     getSchools: (state,action) => {
-      state.allschools = action.payload
+      state.allschools = action.payload,
+      state.loading = false
+    },
+    getOneSchool: (state,action) => {
+      state.oneSchool = action.payload,
+      state.loading = false
+    },
+    getError: (state,action) => {
+      state.error = action.payload,
+      state.loading = false
+    },
+    isLoading: (state,action) => {
+      state.loading = action.payload
     }
   }
 })
 
-export const {getSchools} = schoolsSlice.actions
+export const {getSchools,getOneSchool,getError,isLoading} = schoolsSlice.actions
 
 export default schoolsSlice.reducer
