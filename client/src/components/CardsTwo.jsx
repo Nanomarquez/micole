@@ -18,7 +18,7 @@ function CardsTwo({
           <img
             src={logoPremium}
             alt=""
-            className="w-24 absolute -right-10 -top-10"
+            className="w-24 absolute -left-2 -top-10"
           />
         )}
 
