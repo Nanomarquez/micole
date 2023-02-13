@@ -12,17 +12,30 @@ import {
   faUsers,
   faCalendar,
   faSchool,
+  faChalkboard,
+  faChildReaching,
+  faVectorSquare,
+  faFlask,
+  faRobot,
+  faRestroom
 } from "@fortawesome/free-solid-svg-icons";
+import Tab from "@mui/material/Tab"
+import Tabs from "@mui/material/Tabs"
 import Maps from "../components/Maps";
+import { a11yProps, TabPanel } from "../components/Tabs"
+
 function SchoolDetail() {
   const { id } = useParams();
   const { oneSchool } = useSelector((state) => state.schools);
-  console.log(oneSchool);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getSchoolDetail(id));
   }, []);
-
+  const [value, setValue] = React.useState(0)
+  const handleChange = (event, newValue) => {
+    setValue(newValue)
+  }
   return (
     <div className="bg-[#f6f7f8]">
       <img
@@ -237,6 +250,234 @@ function SchoolDetail() {
               minima nam, officiis totam odio repellat cupiditate soluta
               adipisci nemo veniam.{" "}
             </p>
+          </div>
+          <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md">
+            <h2 className="font-semibold text-xl">Infraestructura</h2>
+            <Tabs
+                value={value}
+                onChange={handleChange}
+                aria-label="basic tabs example"
+                variant="scrollable"
+                scrollButtons
+                allowScrollButtonsMobile
+                style={{margin:"auto",padding:"0px"}}
+              >
+
+                <Tab
+                  style={{
+                    fontSize: "14px",
+                    fontFamily: "Poppins"
+                  }}
+                  label="Color"
+                  {...a11yProps(0)}
+                />
+                <Tab
+                  style={{
+                    fontSize: "14px",
+                    fontFamily: "Poppins"
+                  }}
+                  label="Codes"
+                  {...a11yProps(1)}
+                />
+                <Tab
+                  style={{
+                    fontSize: "14px",
+                    fontFamily: "Poppins"
+                  }}
+                  label="Links"
+                  {...a11yProps(2)}
+                />
+                {/* <Tab
+                  style={{
+                    fontSize: "16px",
+                    fontFamily: "Poppins"
+                  }}
+                  label="Toggles"
+                  {...a11yProps(3)}
+                />*/}
+                <Tab
+                  style={{
+                    fontSize: "14px",
+                    fontFamily: "Poppins"
+                  }}
+                  label="Others"
+                  {...a11yProps(3)}
+                />
+                {/*<Tab
+                  style={{
+                    fontSize: "16px",
+                    fontFamily: "Poppins"
+                  }}
+                  label="AWS S3 Config"
+                  {...a11yProps(5)}
+                />*/}
+              </Tabs>
+
+            <div className="flex text-xs w-full justify-between">
+            <TabPanel value={value} index={0}>
+            <ul className="flex flex-col gap-3">
+                <li className="flex items-center gap-2">
+                  {" "}
+                  <FontAwesomeIcon
+                    size="lg"
+                    color="rgb(156 163 175)"
+                    className="bg-[#f6f7f8] rounded-full p-3"
+                    icon={faChalkboard}
+                  />
+                  Pizarras acrilicas
+                </li>
+                <li className="flex items-center gap-2">
+                  {" "}
+                  <FontAwesomeIcon
+                    size="lg"
+                    color="rgb(156 163 175)"
+                    className="bg-[#f6f7f8] rounded-full p-3"
+                    icon={faChildReaching}
+                  />
+                  Area de juegos
+                </li>
+                <li className="flex items-center gap-2">
+                  {" "}
+                  <FontAwesomeIcon
+                    size="lg"
+                    color="rgb(156 163 175)"
+                    className="bg-[#f6f7f8] rounded-full p-3"
+                    icon={faVectorSquare}
+                  />
+                  Patio
+                </li>
+                <li className="flex items-center gap-2">
+                  {" "}
+                  <FontAwesomeIcon
+                    size="lg"
+                    color="rgb(156 163 175)"
+                    className="bg-[#f6f7f8] rounded-full p-3"
+                    icon={faFlask}
+                  />
+                  Laboratorio de Ciencias
+                </li>
+                <li className="flex items-center gap-2">
+                  {" "}
+                  <FontAwesomeIcon
+                    size="lg"
+                    color="rgb(156 163 175)"
+                    className="bg-[#f6f7f8] rounded-full p-3"
+                    icon={faRobot}
+                  />
+                  Laboratorio de Robotica
+                </li>
+              </ul>
+                </TabPanel>
+            <TabPanel value={value} index={1}>
+              <ul className="flex flex-col gap-3">
+                <li className="flex items-center gap-2">
+                  {" "}
+                  <FontAwesomeIcon
+                    size="lg"
+                    color="rgb(156 163 175)"
+                    className="bg-[#f6f7f8] rounded-full p-3"
+                    icon={faRestroom}
+                  />
+                  Baños
+                </li>
+                <li className="flex items-center gap-2">
+                  {" "}
+                  <FontAwesomeIcon
+                    size="lg"
+                    color="rgb(156 163 175)"
+                    className="bg-[#f6f7f8] rounded-full p-3"
+                    icon={faShare}
+                  />
+                  Compartir
+                </li>
+                <li className="flex items-center gap-2">
+                  {" "}
+                  <FontAwesomeIcon
+                    size="lg"
+                    color="rgb(156 163 175)"
+                    className="bg-[#f6f7f8] rounded-full p-3"
+                    icon={faShare}
+                  />
+                  Compartir
+                </li>
+                <li className="flex items-center gap-2">
+                  {" "}
+                  <FontAwesomeIcon
+                    size="lg"
+                    color="rgb(156 163 175)"
+                    className="bg-[#f6f7f8] rounded-full p-3"
+                    icon={faShare}
+                  />
+                  Compartir
+                </li>
+                <li className="flex items-center gap-2">
+                  {" "}
+                  <FontAwesomeIcon
+                    size="lg"
+                    color="rgb(156 163 175)"
+                    className="bg-[#f6f7f8] rounded-full p-3"
+                    icon={faShare}
+                  />
+                  Compartir
+                </li>
+              </ul>
+            </TabPanel>
+            <TabPanel value={value} index={2}>
+              <ul className="flex flex-col gap-3">
+                <li className="flex items-center gap-2">
+                  {" "}
+                  <FontAwesomeIcon
+                    size="lg"
+                    color="rgb(156 163 175)"
+                    className="bg-[#f6f7f8] rounded-full p-3"
+                    icon={faShare}
+                  />
+                  Compartir
+                </li>
+                <li className="flex items-center gap-2">
+                  {" "}
+                  <FontAwesomeIcon
+                    size="lg"
+                    color="rgb(156 163 175)"
+                    className="bg-[#f6f7f8] rounded-full p-3"
+                    icon={faShare}
+                  />
+                  Compartir
+                </li>
+                <li className="flex items-center gap-2">
+                  {" "}
+                  <FontAwesomeIcon
+                    size="lg"
+                    color="rgb(156 163 175)"
+                    className="bg-[#f6f7f8] rounded-full p-3"
+                    icon={faShare}
+                  />
+                  Compartir
+                </li>
+                <li className="flex items-center gap-2">
+                  {" "}
+                  <FontAwesomeIcon
+                    size="lg"
+                    color="rgb(156 163 175)"
+                    className="bg-[#f6f7f8] rounded-full p-3"
+                    icon={faShare}
+                  />
+                  Compartir
+                </li>
+                <li className="flex items-center gap-2">
+                  {" "}
+                  <FontAwesomeIcon
+                    size="lg"
+                    color="rgb(156 163 175)"
+                    className="bg-[#f6f7f8] rounded-full p-3"
+                    icon={faShare}
+                  />
+                  Compartir
+                </li>
+              </ul> 
+            </TabPanel>
+
+            </div>
           </div>
         </section>
         <section className="right"></section>
