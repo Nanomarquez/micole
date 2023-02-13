@@ -11,11 +11,13 @@ export const schoolsSlice = createSlice({
   reducers : {
     getSchools: (state,action) => {
       state.allschools = action.payload,
-      state.loading = false
+      state.loading = false,
+      state.error = ""
     },
     getOneSchool: (state,action) => {
       state.oneSchool = action.payload,
-      state.loading = false
+      state.loading = false,
+      state.error = ""
     },
     getError: (state,action) => {
       state.error = action.payload,
