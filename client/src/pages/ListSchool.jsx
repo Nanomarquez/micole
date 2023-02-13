@@ -163,13 +163,13 @@ function ListSchool() {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <div className="flex flex-col py-5 px-0 lg:p-5 bg-[#eef0f1]">
-      <h1 className="text-center mt-2 text-2xl font-semibold">
+    <div className="flex flex-col py-5 px-0 lg:p-5 bg-[#f6f7f8] ">
+      <h1 className="text-center mt-2 text-2xl font-semibold drop-shadow-md">
         Encuentra el colegio ideal
       </h1>
-      <div className="flex flex-col lg:flex-row p-5 gap-10 m-5">
-        <section className="lg:w-1/4 w-full flex flex-col gap-5 rounded-md h-min bg-white shadow-lg p-10">
-          <h2 className="font-semibold text-xl">Filtros</h2>
+      <div className="flex flex-col lg:flex-row p-5 gap-10 m-5 ">
+        <section className="lg:w-1/4 w-full flex flex-col gap-5 rounded-md h-min bg-white shadow-lg p-10 ">
+          <h2 className="font-semibold text-2xl drop-shadow-md">Filtros</h2>
           <button
             className="absolute block lg:hidden left-0 right-0"
             onClick={() => setToggle(!toggle)}
@@ -222,8 +222,8 @@ function ListSchool() {
                 ))}
               </Select>
             </FormControl>
-            <div>
-              <Typography id="input-slider" gutterBottom>
+            <div className="drop-shadow-md">
+              <Typography id="input-slider" gutterBottom fontWeight='bold'>
                 Pensión (s/)
               </Typography>
               <Slider
@@ -243,8 +243,8 @@ function ListSchool() {
                 </div>
               </div>
             </div>
-            <div>
-              <Typography id="input-slider" gutterBottom>
+            <div className="drop-shadow-md">
+              <Typography id="input-slider" gutterBottom fontWeight="bold">
                 Cuota de ingreso (s/)
               </Typography>
               <Slider
@@ -264,8 +264,8 @@ function ListSchool() {
                 </div>
               </div>
             </div>
-            <div>
-              <Typography id="input-slider" gutterBottom>
+            <div className="drop-shadow-md">
+              <Typography id="input-slider" gutterBottom fontWeight='bold'>
                 Calificación
               </Typography>
               <Rating
@@ -276,8 +276,8 @@ function ListSchool() {
                 }}
               />
             </div>
-            <div>
-              <Typography id="input-slider" gutterBottom>
+            <div className="drop-shadow-md">
+              <Typography id="input-slider" gutterBottom fontWeight='bold'>
                 Inglés {english} (Hrs/semana)
               </Typography>
               <Slider
@@ -297,7 +297,7 @@ function ListSchool() {
         </section>
         <section className="lg:w-3/4 w-full lg:pl-10 lg:pr-10 lg:pb-10 p-0 flex flex-col gap-5">
           
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between drop-shadow-md">
             
             <small>
               Mostrando <span className="font-semibold">{pageSize}</span> de{" "}
@@ -357,7 +357,7 @@ function ListSchool() {
                         </span>
                       </div>
                     </div>
-                    <div className="w-full p-5  flex flex-col justify-between gap-5">
+                    <div className="w-full p-5  flex flex-col justify-between gap-5 drop-shadow-md">
                       <div className="flex justify-between gap-4 xl:gap-0 flex-col xl:flex-row">
                         <div className="flex flex-col gap-4">
                           <div className="flex flex-col w-fit gap-2">
