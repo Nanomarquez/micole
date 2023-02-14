@@ -4,17 +4,21 @@
   height: 100vh;
   align-items: center;
   justify-content: center;
+
   padding: 20px;
+
 }
 
 .container {
   padding-top: 10px;
   display: flex;
   flex-direction: column;
+
   max-width: 1200px;
   border-radius: 10px;
   height: auto;
   background-color: #fff;
+
 }
 .h1_div {
   display: flex;
@@ -29,6 +33,7 @@
 }
 
 
+
 @media (max-width: 800px) {
   .container {
 width: 400px;
@@ -40,3 +45,4 @@ height: auto;
     padding: 20px;
   } 
 }
+

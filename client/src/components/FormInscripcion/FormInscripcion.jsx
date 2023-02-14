@@ -29,6 +29,7 @@ function FormInscripcion() {
         <div className={style.divInputs}>
             <label>Nombre</label>
             <input {...register("name", { required: true })} />
+
             {errors.name && <p className={style.p}>Introduzca su nombre.</p>}
        
             <label>Email</label>
@@ -46,16 +47,20 @@ function FormInscripcion() {
           <div className={style.divInputs}>
             <label>Apellido</label>
             <input {...register("lastname", { required: true })} />
+
             {errors.ruc && <p  className={style.p}>Introduzca su apellido.</p>}
 
             <label>Telefono</label>
             <input type="number" {...register("phone", { required: true })} />
             {errors.phone && <p  className={style.p}>Introduzca su telefono .</p>}
 
+
             <label>Nombre del Colegio</label>
             <input {...register("schoolName", { required: true })} />
             {errors.schoolName && (
+
               <p  className={style.p}>Introduzca su institución .</p>
+
             )}
          
           </div>
