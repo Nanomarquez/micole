@@ -30,28 +30,34 @@ function FormInscripcion() {
             <label>Nombre</label>
             <input {...register("name", { required: true })} />
             {errors.name && <p>Introduzca su nombre.</p>}
-            <label>Nombre</label>
-            <input {...register("lastname", { required: true })} />
-            {errors.lastname && <p>Introduzca su lastname.</p>}
-            <label>Nombre</label>
+       
+            <label>Email</label>
             <input {...register("email", { required: true })} />
             {errors.email && <p>Introduzca su email.</p>}
-            <label>Nombre</label>
-            <input {...register("phone", { required: true })} />
-            {errors.phone && <p>Introduzca su telefono .</p>}
+                <label>RUC</label>
+            <input {...register("ruc", { required: true })} />
+            {errors.lastname && <p>Introduzca su lastname.</p>}
+           
+            <label>Distrito del Colegio</label>
+            <input {...register("schoolDistrict", { required: true })} />
+            {errors.schoolDistrict && <p>Introduzca el distrito .</p>}
+         
           </div>
           <div className={style.divInputs}>
-            <label>Nombre</label>
-            <input {...register("ruc", { required: true })} />
+            <label>Apellido</label>
+            <input {...register("lastname", { required: true })} />
             {errors.ruc && <p>Introduzca su RUC.</p>}
-            <label>Nombre</label>
+
+            <label>Telefono</label>
+            <input {...register("phone", { required: true })} />
+            {errors.phone && <p>Introduzca su telefono .</p>}
+
+            <label>Nombre del Colegio</label>
             <input {...register("schoolName", { required: true })} />
             {errors.schoolName && (
               <p>Introduzca el nombre de su institución .</p>
             )}
-            <label>Nombre</label>
-            <input {...register("schoolDistrict", { required: true })} />
-            {errors.schoolDistrict && <p>Introduzca el distrito .</p>}
+         
           </div>
 
         </div>

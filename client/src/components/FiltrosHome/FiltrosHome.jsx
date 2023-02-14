@@ -28,7 +28,7 @@ function FiltrosHome() {
             {MockupDistritos.map((distrito) => {
               return (
                 <>
-                  <option>Selecciona un distrito</option>
+               
                   <option>{distrito}</option>
                 </>
               );

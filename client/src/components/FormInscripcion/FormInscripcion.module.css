@@ -1,21 +1,22 @@
-
-.formLayout{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    height: 80vh;
+.formLayout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 80vh;
 }
 .Form {
   display: flex;
   flex-direction: row;
+  gap: 50px;
+  padding: 50px;
   justify-content: space-evenly;
-  height: 50vh;
+  height: auto;
 }
 
 .Form input {
-  height: 50px;
+  height: 40px;
   width: 340px;
-  outline: none;
+
   border-radius: 5px;
   border: 1px solid red;
 }
@@ -25,10 +26,24 @@
   flex-direction: column;
   gap: 20px;
 }
-
+.divInputs label {
+  font-size: 16px;
+  padding-top: 10px;
+  font-weight: 600;
+}
 .divButton {
   display: flex;
   justify-content: center;
   padding-top: 10px;
   width: 100%;
+}
+
+@media (max-width: 500px) {
+    .divInputs {
+width: 50px;
+    }
+    .Form {
+        flex-direction: column;
+        gap: 0px;
+    }
 }
