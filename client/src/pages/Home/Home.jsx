@@ -64,9 +64,12 @@ function Home() {
         <div className={style.preFooter}>
           <h1>Inscribe tu colegio en nuestra plataforma</h1>
           <p>Únete a la mayor comunidad de colegios en el Perú</p>
-          <button>
+          <Link to={"/enroll"}>
+              <button>
             Registrar
           </button>
+          </Link>
+        
         </div>
       </div>
     </>

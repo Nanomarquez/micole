@@ -5,13 +5,19 @@ import VectorPeople from '../assets/VectorPeople.png'
 import VectorTalk from '../assets/VectorTalk.png'
 import GroupSchool from '../assets/GroupSchool.png'
 import Logo from '../assets/logoblanco.png'
+import { Link } from "react-router-dom";
 function EnrollSchool() {
+  
   return (
     <div>
       <header className="bg-[url('./assets/enroll.png')] h-[700px] flex justify-center items-center flex-col gap-10">
         <h1 className='text-white text-center text-4xl font-bold'>Publica tu colegio. Concreta citas con familias interesadas. <br />Gestiona todo en línea. Obtén nuevos estudiantes</h1>
         <h2 className='text-white text-center text-3xl font-bold'>Todo en un solo lugar, de forma simple y a bajo costo</h2>
-        <button className='uppercase p-3 rounded-sm bg-[#0061dd] text-white font-semibold'>inscribe tu colegio aquí</button>
+        <Link to={"/inscripcion"}>
+           <button className='uppercase p-3 rounded-sm bg-[#0061dd] text-white font-semibold'>inscribe tu colegio aquí</button>
+        </Link>
+       
+       
         <button className='px-4 py-1 rounded-md text-[#0061dd] bg-white font-semibold'>¡Quiero más información por el momento!</button>
       </header>
       <section className='bg-[#f7f8fa] p-10 gap-10 flex flex-col justify-around'>
