@@ -8,9 +8,9 @@ import ListSchool from "./pages/ListSchool";
 import SchoolDetail from "./pages/SchoolDetail";
 import { useSelector } from "react-redux";
 import Error from "./pages/Error";
-import { useNavigate } from "react-router-dom";
+
 function App() {
-  const navigate = useNavigate();
+
 
   const { error } = useSelector((state) => state.schools);
 
@@ -25,7 +25,8 @@ function App() {
           <Route exact path="/enroll" element={<EnrollSchool />} />
           <Route path="/listschool" element={<ListSchool />} />
           <Route path="/schooldetail/:id" er element={<SchoolDetail />} />
-          <Route path="/error" element={<Error />} />
+          <Route path="/*" element={<Error />} />
+          <Route path="*" element={<Error />} />
         </Routes>
       )}
 
