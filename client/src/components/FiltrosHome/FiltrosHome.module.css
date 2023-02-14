@@ -1,13 +1,25 @@
 .filtros_container {
   display: flex;
-
-  align-items: center;
   border-radius: 5px;
   width: 80%;
-  height: 80px;
+  height: 90px;
   background: #fff;
+  align-items: flex-start;
 }
 
+
+
+
+
+
+
+
+
+/* .select{
+  	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+} */
 .container_select {
   display: flex;
   flex-direction: row;
