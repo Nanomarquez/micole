@@ -24,11 +24,11 @@ function FiltrosHome() {
   return (
     <div className={style.filtros_container}>
       <div className={style.container_select}>
-        <div className={style.selectContent}>
+        <div className={style.select}>
           <p>Distrito</p>
           <FormControl
             variant="standard"
-            style={{ width: "150px", height: "70px" }}
+            style={{ width: "150px" }}
             size="small"
           >
             <InputLabel
@@ -56,7 +56,7 @@ function FiltrosHome() {
           <p>Grado</p>
           <FormControl
             variant="standard"
-            style={{ width: "150px", height: "70px" }}
+            style={{ width: "150px" }}
             size="small"
           >
             <InputLabel
@@ -94,7 +94,7 @@ function FiltrosHome() {
           <p>Ingreso</p>
           <FormControl
             variant="standard"
-            style={{ width: "150px", height: "70px" }}
+            style={{ width: "150px" }}
             size="small"
           >
             <InputLabel
