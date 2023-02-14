@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import style from "./Home.module.css";
 import fondoHome from "../../assets/Home_img.png";
 import Icon_directo from "./svg/Icon_directo";
@@ -6,9 +6,13 @@ import Icon_recomendacion from "./svg/Icon_recomendacion";
 import Icon_school from "./svg/Icon_school";
 import Carrusel from "../../components/Carrusel/Carrusel";
 import FiltrosHome from "../../components/FiltrosHome/FiltrosHome";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 function Home() {
-
+  const navigate = useNavigate();
+  useEffect(() => {
+    navigate('/')
+  }, [])
+  
   return (
     <>
       <div className={style.container}>

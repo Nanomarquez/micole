@@ -33,7 +33,7 @@ admisión simple y eficiente' parrafe='Olvídate de tener que mandar correos y c
       </section>
       <section className='bg-[#0061dd] flex flex-col justify-around p-10 gap-10'>
       <h1 className="text-center text-2xl font-semibold text-white">Elije el plan que más se acomode  a tus necesidades</h1>
-      <div className="flex flex-col sm:flex-row items-center sm:gap-5 gap-10 justify-evenly mx-5">
+      <div className="flex flex-col xl:flex-row items-center sm:gap-5 gap-10 justify-evenly mx-5">
           <CardsTwo title="Gratis" free={true} family={2} photos={3} plan={"gratis"}/>
           <CardsTwo title="Básico" free={false} family={25} photos={15} price={50} plan={"básico"}/>
           <CardsTwo price={80} title="Estándar" standard={true} free={false} family={50} photos={30} plan={"estandar"}/>
@@ -49,7 +49,7 @@ admisión simple y eficiente' parrafe='Olvídate de tener que mandar correos y c
           <input type="email" className="border py-2 w-full text-center rounded-md shadow-md outline-none" placeholder='Correo Electrónico'/>
           <input type="text" className="border py-2 w-full text-center rounded-md shadow-md outline-none" placeholder='RUC'/>
           <input type="text" className="border py-2 w-full text-center rounded-md shadow-md outline-none" placeholder='Celular'/>
-          <button type='submit' className='bg-[#0061dd] w-full py-2 rounded-md font-medium text-white'>Inscribirse</button>
+          <button type='submit' className='bg-[#0061dd] w-full py-2 rounded-md font-medium text-white'>Quiero mas informacion</button>
         </form>
       </section>
     </div>

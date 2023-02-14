@@ -325,7 +325,8 @@ function ListSchool() {
             </small>
             <FormControl
               variant="standard"
-              style={{ width: "200px", height: "80px" }}
+              style={{ width: "200px", height: "70px" }}
+              size='small'
             >
               <InputLabel id="demo-simple-select-standard-label">
                 Ordenar por

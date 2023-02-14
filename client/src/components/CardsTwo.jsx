@@ -1,5 +1,4 @@
 import React from "react";
-import Tilt from "react-parallax-tilt";
 import logoPremium from "../assets/premium.png";
 function CardsTwo({
   title,
@@ -12,7 +11,7 @@ function CardsTwo({
   standard,
 }) {
   return (
-    <Tilt glareEnable={true} glareBorderRadius="1rem">
+    <div className="relative">
       <div className={`text-white group py-5 ${standard ? "border-4 shadow-xl" : "border-2"} p-2 rounded-lg w-[350px] shadow-sm shadow-white sm:w-[270px] hover:shadow-none duration-500 hover:bg-white hover:text-[#0061dd] text-center flex flex-col gap-5`}>
         {standard && (
           <img
@@ -39,7 +38,7 @@ function CardsTwo({
           ¡Quiero el plan {plan}!
         </button>
       </div>
-    </Tilt>
+    </div>
   );
 }
 
