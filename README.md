@@ -4,7 +4,7 @@
 **-Puerto del back 3001 / script -> npm start**<br/>
 **-Puerto del front 5173 / script -> npm run dev**<br/>
 **-Stack back express sequelize postgresql**<br/>
-**-Stack front react tailwind redux vite**<br/>
+**-Stack front react tailwind material ui redux vite**<br/>
 <br/>
 **Formato .env**<br/>
 PORT=3001<br/>
