@@ -33,7 +33,7 @@ function Home() {
     
 
      
-        <section className="bg-[#f7f8fa] p-10 gap-10 flex flex-col justify-around">
+        <section className="bg-[#f7f8fa] w-full p-10 py-20 gap-10 flex flex-col justify-around">
           <h1 className="text-center text-3xl font-semibold">
             ¿Por qué escoger MiCole?
           </h1>
