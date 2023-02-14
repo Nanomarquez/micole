@@ -1,0 +1,34 @@
+
+.formLayout{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 80vh;
+}
+.Form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: 50vh;
+}
+
+.Form input {
+  height: 50px;
+  width: 340px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid red;
+}
+
+.divInputs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.divButton {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  width: 100%;
+}

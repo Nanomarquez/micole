@@ -6,7 +6,9 @@ import Icon_recomendacion from "./svg/Icon_recomendacion";
 import Icon_school from "./svg/Icon_school";
 import Carrusel from "../../components/Carrusel/Carrusel";
 import FiltrosHome from "../../components/FiltrosHome/FiltrosHome";
+import { Link } from "react-router-dom";
 function Home() {
+
   return (
     <>
       <div className={style.container}>
@@ -58,9 +60,12 @@ function Home() {
         <div className={style.preFooter}>
           <h1>Inscribe tu colegio en nuestra plataforma</h1>
           <p>Únete a la mayor comunidad de colegios en el Perú</p>
-          <button>
+          <Link to={"/enroll"}>
+              <button>
             Registrar
           </button>
+          </Link>
+        
         </div>
       </div>
     </>

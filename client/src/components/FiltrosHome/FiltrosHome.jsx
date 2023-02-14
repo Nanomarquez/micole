@@ -5,8 +5,12 @@ import Icon_filters_home from "./svg/Icon_filters_home";
 import MockupDistritos from "../../MockupInfo/MockupDistritos";
 import MockupGrados from "../../MockupInfo/MockupGrados";
 import MockupCategoria from "../../MockupInfo/MockupCategoria";
-const Ingreso = ["2023", "2024", "2025"];
+import Select from "@mui/material/Select";
+import { MenuItem } from "@mui/material";
 
+import { InputLabel } from "@mui/material";
+const Ingreso = ["2023", "2024", "2025"];
+//className="text-xs"
 function FiltrosHome() {
   const [OpenFilter, setOpenFilter] = useState(false);
   const toggleFilters = () => {
@@ -18,38 +22,70 @@ function FiltrosHome() {
         <div className={style.select}>
           <p>Distrito</p>
 
-          <label>Selecciona un distrito</label>
+          {/* <label>Selecciona un distrito</label> */}
           <select className="text-xs">
-            {MockupDistritos.map((distrito) => (
-              <option>{distrito}</option>
-            ))}
+            <option>Selecciona un distrito</option>
+            {MockupDistritos.map((distrito) => {
+              return (
+                <>
+                  <option>Selecciona un distrito</option>
+                  <option>{distrito}</option>
+                </>
+              );
+            })}
           </select>
         </div>
-        <div  className={style.select}>
+        <div className={style.select}>
           <p>Grado</p>
-          <label>Selecciona un grado</label>
+
           <select className="text-xs">
-            {MockupGrados.map((grado) => (
-              <option>{grado}</option>
-            ))}
+            <option>Selecciona un grado</option>
+            {MockupGrados.map((distrito) => {
+              return (
+                <>
+                  <option>{distrito}</option>
+                </>
+              );
+            })}
           </select>
         </div>
         <div className={style.select}>
           <p>Ingreso</p>
-          <label>Selecciona año de ingreso</label>
 
           <select className="text-xs">
-            {Ingreso.map((año) => (
-              <option>{año}</option>
-            ))}
+            <option>Selecciona año de ingreso</option>
+            {Ingreso.map((distrito) => {
+              return (
+                <>
+                  <option>{distrito}</option>
+                </>
+              );
+            })}
           </select>
         </div>
-   
+        {/* <div className={style.select}>
+          <p>Categoria</p>
+          <label>Selecciona año de ingreso</label>
+
+          <select>
+          {MockupCategoria.map((c) => (
+              <option>{c}</option>
+            ))}
+          </select>
+        </div> */}
         <div className={style.masFiltros} onClick={toggleFilters}>
           <Icon_filters_home />
           <p> Mas filtros</p>
         </div>
-   
+        {/* {OpenFilter && (
+          <div>
+            <div>
+            {MockupCategoria.map((c) => (
+              <option>{c}</option>
+            ))}
+            </div>
+          </div>
+        )} */}
 
         <div className={style.container_button}>
           <Link to="/listschool?distrito=algundistrito">

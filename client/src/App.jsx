@@ -6,6 +6,7 @@ import Home from "./pages/Home/Home";
 import EnrollSchool from "./pages/EnrollSchool";
 import ListSchool from "./pages/ListSchool";
 import SchoolDetail from "./pages/SchoolDetail";
+import InscripcionColegio from "./pages/Inscripcion/InscripcionColegio";
 import { useSelector } from "react-redux";
 import Error from "./pages/Error";
 import { useNavigate } from "react-router-dom";
@@ -26,6 +27,8 @@ function App() {
           <Route path="/listschool" element={<ListSchool />} />
           <Route path="/schooldetail/:id" er element={<SchoolDetail />} />
           <Route path="/error" element={<Error />} />
+          <Route path="/inscripcion" element={<InscripcionColegio />} />
+         
         </Routes>
       )}
 
