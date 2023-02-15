@@ -61,6 +61,10 @@ function Payment() {
             <p>✔️ Soporte operativo disponible</p>
           </div>
         </div>
+     <div className={style.containerMetodoPago}>
+
+     </div>
+     
       </div>
     </>
   );
