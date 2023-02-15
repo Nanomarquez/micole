@@ -44,7 +44,7 @@ box-shadow: rgba(100,100,111,0.2) 0px 7px 29px 0px
   padding: 20px;
 }
 .h1_div h1 {
-  font-size: 22px;
+  font-size: 32px;
   color:#0061DF;
   font-weight: 700;
 }
@@ -155,5 +155,8 @@ box-shadow: rgba(100,100,111,0.2) 0px 7px 29px 0px
   .contenedorModal{
     max-height:700px ;
     overflow-y: scroll;
+  }
+  .h1_div h1{
+    font-size: 20px;
   }
 }
