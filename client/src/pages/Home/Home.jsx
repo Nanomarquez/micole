@@ -37,7 +37,7 @@ function Home() {
           <h1 className="text-center text-3xl font-semibold">
             ¿Por qué escoger MiCole?
           </h1>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-5 text-black">
+          <div className="flex flex-col lg:flex-row justify-center items-center gap-5 text-black">
             <CardsOne
               img={GroupSchool}
               title="Haz que tu colegio brille frente a las familias"
