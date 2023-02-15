@@ -1,16 +1,16 @@
 import React from "react";
-import style from "./FormInscripcion.module.css";
+import style from "./Payment.module.css";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import FormControl from "@mui/material/FormControl";
-import { MenuItem, toggleButtonClasses } from "@mui/material";
+import { MenuItem} from "@mui/material";
 import Select from "@mui/material/Select";
 import ListItemText from "@mui/material/ListItemText";
 import { InputLabel } from "@mui/material";
 import MockupDistritos from "../../MockupInfo/MockupDistritos";
-
-function FormInscripcion({handlerOpenPayment}) {
+import Logo from "../../assets/logoPayment.png"
+function Payment() {
   const {
     register,
     handleSubmit,
@@ -37,7 +37,7 @@ function FormInscripcion({handlerOpenPayment}) {
   return (
     <>
       <div className={style.h1_div}>
-        <h1>Completa tus datos</h1>
+        <img src={Logo}/>
       </div>
 
       <form onSubmit={handleSubmit(OnSubmit)} className={style.formLayout}>
@@ -151,4 +151,4 @@ function FormInscripcion({handlerOpenPayment}) {
   );
 }
 
-export default FormInscripcion;
+export default Payment;

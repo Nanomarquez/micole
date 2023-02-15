@@ -6,7 +6,7 @@ import VectorTalk from "../assets/VectorTalk.png";
 import GroupSchool from "../assets/GroupSchool.png";
 import Logo from "../assets/logoblanco.png";
 import { Link } from "react-router-dom";
-import FormInscripcion from "../components/FormInscripcion/FormInscripcion";
+import ModalInscripcion from "../components/ModalInscripcion/ModalInscripcion";
 function EnrollSchool() {
   const [Open, setOpen] = useState(false);
   const toggleInscripcion = () => {
@@ -27,7 +27,7 @@ function EnrollSchool() {
             inscribe tu colegio aquí
           </button>
         </div>
-        {Open && <FormInscripcion handleClose={setOpen} />}
+        {Open && <ModalInscripcion handleClose={setOpen} />}
 
         <button className="px-4 py-1 rounded-md text-[#0061dd] bg-white font-semibold">
           ¡Quiero más información por el momento!
