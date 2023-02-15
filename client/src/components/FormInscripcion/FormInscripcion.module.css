@@ -85,10 +85,21 @@ box-shadow: rgba(100,100,111,0.2) 0px 7px 29px 0px
 .divButton {
   display: flex;
   justify-content: center;
-
+  align-items: center;
+flex-direction: column;
   padding: 20px;
   width: 100%;
 }
+.divSingIn{
+  display: flex;
+  padding-top: 20px;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  width: 100%;
+}
+
+
 .divButton button {
   font-family: Poppins;
   font-size: 14px;

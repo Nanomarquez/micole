@@ -10,6 +10,7 @@ import ListItemText from "@mui/material/ListItemText";
 import { InputLabel } from "@mui/material";
 import MockupDistritos from "../../MockupInfo/MockupDistritos";
 import CloseButton from "./svg/CloseButton";
+
 function FormInscripcion({ handleClose }) {
   const {
     register,
@@ -157,6 +158,11 @@ function FormInscripcion({ handleClose }) {
             </div>
             <div className={style.divButton}>
               <button>REGISTRARSE</button>
+              <div className={style.divSingIn}>
+                  <p>Ya tienes cuenta ? </p>
+                  <p style={{color:'blue'}}>Inicia Sesión </p>
+              </div>
+            
             </div>
           </form>
         </div>
