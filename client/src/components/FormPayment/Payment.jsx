@@ -62,7 +62,7 @@ function Payment() {
           </div>
         </div>
      <div className={style.containerMetodoPago}>
-
+<h1>Elige tu método de pago</h1>
      </div>
      
       </div>
