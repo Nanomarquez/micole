@@ -32,3 +32,41 @@
     width: 100%;
     padding:20px ;
   }
+
+    
+  .contenedorModal::-webkit-scrollbar {
+    -webkit-appearance: none;
+  }
+  
+  .contenedorModal::-webkit-scrollbar:vertical {
+    width:8px;
+  }
+  
+  .contenedorModal::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+    display: none;
+  } 
+  
+  .contenedorModal::-webkit-scrollbar:horizontal {
+    height: 5px;
+  }
+  
+  .contenedorModal::-webkit-scrollbar-thumb {
+    background-color: #dfdfdf;
+    border-radius: 10px;
+    border:0.5px solid #424242;
+  }
+  
+  .contenedorModal::-webkit-scrollbar-track {
+    border-radius: 10px;  
+  }
+
+  
+@media (max-width: 800px) {
+
+    .contenedorModal{
+      max-height:700px ;
+      overflow-y: scroll;
+    }
+
+  }
+  
