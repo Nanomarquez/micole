@@ -30,7 +30,7 @@
 
   gap: 10px;
 }
-.divInputs label {
+.label {
   font-size: 16px;
   color: rgb(49, 48, 48);
 
@@ -64,7 +64,7 @@
     height: 40px;
     gap: 0px;
   }
-  .divInputs label {
+ .label {
     color: rgb(49, 48, 48);
     padding-top: 0px;
   }

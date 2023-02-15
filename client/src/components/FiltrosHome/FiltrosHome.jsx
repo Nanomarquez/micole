@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import style from "./FiltrosHome.module.css";
 import Select from "@mui/material/Select";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
+
 import ListItemText from "@mui/material/ListItemText";
 import Icon_filters_home from "./svg/Icon_filters_home";
 import MockupDistritos from "../../MockupInfo/MockupDistritos";
