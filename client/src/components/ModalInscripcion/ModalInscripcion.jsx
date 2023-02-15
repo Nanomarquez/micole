@@ -11,7 +11,9 @@ export default function ModalInscripcion({ handleClose }) {
   };
   return (
     <div className={style.Overlay}>
-      <div className={style.contenedorModal}>
+            <div style={{paddingTop:'20px'}}>
+           <div className={style.contenedorModal}>
+  
         <div className={style.DivCloseButton} onClick={toggleClose}>
           <CloseButton />
         </div>
@@ -20,6 +22,8 @@ export default function ModalInscripcion({ handleClose }) {
         )}
         <div>{OpenPayment && <Payment />}</div>
       </div>
+          </div>
+     
     </div>
   );
 }

@@ -54,6 +54,7 @@ function Payment() {
           </div>
 
           <div className={style.divBeneficios}>
+            <h1>Información Detallada del Plan Especial</h1>
             <p>✔️ ¡30 días de prueba gratis!</p>
             <p>✔️ 365 días de publicación</p>
             <p>✔️ Envío de hasta 50 familias interesadas por mes</p>
