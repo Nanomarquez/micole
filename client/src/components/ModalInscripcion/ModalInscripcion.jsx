@@ -11,19 +11,20 @@ export default function ModalInscripcion({ handleClose }) {
   };
   return (
     <div className={style.Overlay}>
-            <div style={{paddingTop:'20px'}}>
-           <div className={style.contenedorModal}>
-  
-        <div className={style.DivCloseButton} onClick={toggleClose}>
-          <CloseButton />
-        </div>
-        {OpenPayment === false && (
-          <FormInscripcion handlerOpenPayment={setOpenPayment} />
-        )}
-        <div>{OpenPayment && <Payment />}</div>
-      </div>
+      <div style={{ paddingTop: "20px" }}>
+        <div className={style.contenedorModal}>
+          <div className={style.DivCloseButton}>
+            <div  onClick={toggleClose}>
+              <CloseButton /> 
+            </div>
+           
           </div>
-     
+          {OpenPayment === false && (
+            <FormInscripcion handlerOpenPayment={setOpenPayment} />
+          )}
+          <div>{OpenPayment && <Payment />}</div>
+        </div>
+      </div>
     </div>
   );
 }
