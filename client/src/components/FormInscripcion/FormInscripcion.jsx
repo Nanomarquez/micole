@@ -28,9 +28,11 @@ function FormInscripcion() {
     mode: "onChange",
   });
   const navigate = useNavigate();
+  const handleChangeDistric = ()=>{}
   const OnSubmit = () => {
     navigate("/payment");
   };
+
 
   return (
     <>
@@ -85,7 +87,7 @@ function FormInscripcion() {
                   labelId="demo-simple-select-standard-label"
                   id="demo-type-select-standard"
                   // value={type}
-                  // onChange={handleChangeType}
+                  // onChange={handleChangeDistric}
                   label="Tipo de colegio"
                 >
                   {MockupDistritos.map((type) => (
