@@ -1,4 +1,4 @@
-import {getUser,registerUser,loginUser,logoutUser,getError,isLoading} from './AuthSlice'
+import {getUser,registerUser,loginUser,logoutUser,getError,isLoading,updateUser} from './AuthSlice'
 import axios from 'axios'
 
 export const getUser = () => (dispatch) => {
@@ -27,6 +27,15 @@ export const loginUser = (user) => (dispatch) => {
   .catch(err=>dispatch(getError(err.message)))
 }
 
+export const updateUser = (user) => (dispatch) => {
+  dispatch(isLoading())
+  axios.put(`/auth/${user.email}`,{user})
+  .then(res=>{
+    dispatch(updateUser(res.data.user))
+  })
+  .catch(err=>dispatch(getError(err.message)))
+}
+
 export const logoutUser = () => (dispatch) => {
   dispatch(isLoading())
   try {
@@ -37,4 +46,3 @@ export const logoutUser = () => (dispatch) => {
     dispatch(getError(err.message))
   }
 }
-
