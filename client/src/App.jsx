@@ -6,7 +6,7 @@ import Home from "./pages/Home/Home";
 import EnrollSchool from "./pages/EnrollSchool";
 import ListSchool from "./pages/ListSchool";
 import SchoolDetail from "./pages/SchoolDetail";
-
+import InfoPlanes from "./components/FormPayment/utils/InfoPlanes";
 import { useSelector } from "react-redux";
 import Error from "./pages/Error";
 import Payment from "./pages/Payment/Payment"
@@ -14,7 +14,7 @@ function App() {
 
 
   const { error } = useSelector((state) => state.schools);
-
+ 
   return (
     <>
       <NavBar />

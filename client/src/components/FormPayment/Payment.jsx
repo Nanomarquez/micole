@@ -12,8 +12,9 @@ import Union from "./svg/Union";
 import Paypal from "./svg/Paypal";
 import ImageMG from "./svg/infoMG.png";
 import YapeLogo from "./svg/yape.png";
-
-function Payment({planes}) {
+import InfoPlanes from "./utils/InfoPlanes";
+function Payment({price , plan }) {
+console.log(price , plan)
   const {
     register,
     handleSubmit,
@@ -37,24 +38,9 @@ function Payment({planes}) {
     handlerOpenPayment(true);
   };
 
-function  renderSwitchPlan(planes) {
-    switch(planes) {
-      case 'foo':
-        return 'bar';
-      default:
-        return <>
-       
-        <p>✔️ ¡30 días de prueba gratis!</p>
-        <p>✔️ 365 días de publicación</p>
-        <p>✔️ Envío de hasta 50 familias interesadas por mes</p>
-        <p>✔️ 30 fotos del centro educativo en la plataforma</p>
-        <p>✔️ Soporte operativo disponible</p>
-        </>
-    ;
-    }
-  }
-  
-  
+
+
+
   return (
     <>
       {" "}
@@ -67,11 +53,11 @@ function  renderSwitchPlan(planes) {
             <h1>Detalles de Compra</h1>
             <div className={style.detalle}>
               <p>Plan Especial +IGV</p>
-              <p>S/.80.00</p>
+              <p>S/.{price}</p>
             </div>
             <div className={style.detalle}>
               <p>Total</p>
-              <p>S/. 80.00</p>
+              <p>S/. {price}</p>
             </div>
           </div>
           <div className={style.containerMetodoPago}>
@@ -94,12 +80,13 @@ function  renderSwitchPlan(planes) {
               </div>
 
               <div
-                style={{
-                  display: "flex",
-                  fleDirection: "row",
-                  alignItems: "center",
-                  gap: "20px",
-                }}
+              className={style.tarjetas}
+                // style={{
+                //   display: "flex",
+                //   fleDirection: "row",
+                //   alignItems: "center",
+                //   gap: "20px",
+                // }}
               >
                 <Visa />
                 <MasterCard />
@@ -130,8 +117,8 @@ function  renderSwitchPlan(planes) {
           </div>
         </div>
         <div className={style.divBeneficios}>
-        <h1>Información Detallada del Plan Especial</h1>
-        {renderSwitchPlan(planes)}
+          <h1>Información Detallada del Plan Especial</h1>
+          <InfoPlanes  plan ={plan}/>
         </div>
       </div>
     </>
