@@ -3,9 +3,12 @@ import style from "./ModalInscripcion.module.css";
 import CloseButton from "./svg/CloseButton";
 import FormInscripcion from "../FormInscripcion/FormInscripcion";
 import Payment from "../FormPayment/Payment";
+import FormLogin from "../FormLogin/FormLogin";
 export default function ModalInscripcion({ handleClose }) {
   const [OpenPayment, setOpenPayment] = useState(false);
-
+  const [OpenLogin, setOpenLogin] = useState(false);
+  const [OpenRegister, setOpenRegister] = useState(true);
+//handlerOpenLogin
   const toggleClose = () => {
     handleClose(false);
   };
@@ -19,10 +22,11 @@ export default function ModalInscripcion({ handleClose }) {
             </div>
            
           </div>
-          {OpenPayment === false && (
-            <FormInscripcion handlerOpenPayment={setOpenPayment} />
+          {OpenPayment === false && OpenLogin=== false && OpenRegister === true &&(
+            <FormInscripcion handlerOpenLogin={setOpenLogin}   handlerOpenPayment={setOpenPayment} />
           )}
-          <div>{OpenPayment && <Payment />}</div>
+          <div>{OpenPayment === true  && <Payment />}</div>
+          <div>{OpenLogin=== true  && <FormLogin  />}</div>
         </div>
       </div>
     </div>
