@@ -10,7 +10,7 @@ import ListItemText from "@mui/material/ListItemText";
 import { InputLabel } from "@mui/material";
 import MockupDistritos from "../../MockupInfo/MockupDistritos";
 
-function FormInscripcion({handlerOpenPayment}) {
+function FormInscripcion({handlerOpenPayment,handlerOpenLogin}) {
   const {
     register,
     handleSubmit,
@@ -29,7 +29,9 @@ function FormInscripcion({handlerOpenPayment}) {
     mode: "onChange",
   });
   const navigate = useNavigate();
-  const handleChangeDistric = () => {};
+  const handlerLogin = () => {
+    handlerOpenLogin(true)
+  };
   const OnSubmit = () => {
     handlerOpenPayment(true)
   };
@@ -143,7 +145,10 @@ function FormInscripcion({handlerOpenPayment}) {
           <button>REGISTRARSE</button>
           <div className={style.divSingIn}>
             <p>Ya tienes cuenta ? </p>
-            <p style={{ color: "blue" }}>Inicia Sesión </p>
+            <div onClick={handlerLogin}>
+               <p style={{ color: "blue", cursor:"pointer" }}>Inicia Sesión </p>
+            </div>
+           
           </div>
         </div>
       </form>

@@ -1,17 +1,25 @@
 .PaymentLayout {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: first baseline;
+  padding: 20px;
   /* justify-content: space-evenly; */
   height: 80vh;
+  overflow-y: scroll;
 }
 .container {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  width: auto;
+  padding: 20px;
 }
 .h1_div {
   display: flex;
   width: 100%;
   justify-content: center;
-  padding: 20px;
+  padding: 0px;
 }
 .h1_div img {
   width: 200px;
@@ -25,8 +33,11 @@
   padding: 20px;
 }
 .Divdetalle h1 {
-  color: blue;
   padding-left: 8px;
+  font-size: 16px;
+  color: #0061df;
+  font-weight: 600;
+  padding-bottom: 20px;
 }
 
 .detalle {
@@ -40,35 +51,71 @@
   width: auto;
   height: auto;
   padding: 20px;
-  box-shadow: 0px 10px 50px rgba(13, 38, 59, 0.1);
+
   align-content: flex-start;
   border-radius: 10.6667px;
 }
+.divBeneficios h1 {
+  font-size: 16px;
+  color: #0061df;
+  font-weight: 600;
+  padding-bottom: 20px;
+}
+.containerMetodoPago {
+  width: 100%;
+}
 
-@media (max-width: 800px) {
-  .divInputs input {
-    width: 200px;
-    height: 40px;
-    gap: 0px;
-  }
-  .label {
-    color: rgb(49, 48, 48);
-    padding-top: 0px;
-  }
-  .form {
-    flex-direction: column;
-    padding: 10px;
-    gap: 0px;
-  }
-  .formLayout {
-    height: auto;
+.containerMetodoPago h1 {
+  font-size: 16px;
+  color: #2c2d2e;
+  font-weight: 600;
+  padding-bottom: 24px;
+}
+
+.mercadoPago {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+  padding: 10px;
+  border: 1px solid #2c2d2e42;
+  justify-content: space-between;
+}
+.divButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+flex-direction: column;
+  padding: 20px;
+  width: 100%;
+}
+.divButton button {
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  width: 200px;
+  border-radius: 8px;
+  height: 40px;
+  background-color: #0061df;
+}
+
+@media (max-width: 700px) {
+  .PaymentLayout {
+    flex-direction: column-reverse;
     align-items: center;
   }
-  .contenedorModal {
-    max-height: 700px;
-    overflow-y: scroll;
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
   }
-  .h1_div h1 {
-    font-size: 20px;
+  .containerMetodoPago {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .Divdetalle {
+    align-items: flex-start;
+    padding: 0px;
   }
 }

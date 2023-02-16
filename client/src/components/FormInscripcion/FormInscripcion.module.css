@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 80vh;
+  height: 70vh;
 }
 
 .h1_div {
@@ -59,16 +59,6 @@ flex-direction: column;
   padding: 20px;
   width: 100%;
 }
-.divSingIn{
-  display: flex;
-  padding-top: 20px;
-  align-items: center;
-  gap: 10px;
-  justify-content: center;
-  width: 100%;
-}
-
-
 .divButton button {
   font-family: Poppins;
   font-size: 14px;
@@ -79,6 +69,17 @@ flex-direction: column;
   height: 40px;
   background-color: #0061df;
 }
+.divSingIn{
+  display: flex;
+  padding-top: 20px;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  width: 100%;
+}
+
+
+
 .p {
   font-size: 14px;
   color: #b10000;
