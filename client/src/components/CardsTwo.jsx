@@ -35,7 +35,7 @@ function CardsTwo({
         )}
 
         <h1 className="text-3xl font-bold">{title}</h1>
-        <h2 className="text-2xl">{free ? "Sin Costo" : `s/ ${price}`}</h2>
+        <h2 className="text-2xl">{price === 0 ? "Sin Costo" : `s/ ${price}`}</h2>
         <small>por mes</small>
         <hr />
         <p>{free ? "¡Siempre gratis!" : "¡30 días de prueba gratis!"}</p>

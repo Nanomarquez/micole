@@ -12,7 +12,7 @@ function EnrollSchool() {
   const [OpenPaymentPLan, setOpenPaymentPLan] = useState({
     state: false,
     plan: "",
-    price: "",
+    price: 0,
   });
   const toggleInscripcion = () => {
     setOpenRegister(true);
@@ -32,7 +32,7 @@ function EnrollSchool() {
             inscribe tu colegio aquí
           </button>
         </div>
-        {OpenRegister && <ModalInscripcion handleClose={setOpenRegister} />}
+        {OpenRegister && <ModalInscripcion handleClose={setOpenRegister}   OpenPaymentPLan={OpenPaymentPLan} />}
 
         <button className="px-4 py-1 rounded-md text-[#0061dd] bg-white font-semibold">
           ¡Quiero más información por el momento!
@@ -73,6 +73,7 @@ admisión simple y eficiente"
             title="Gratis"
             free={true}
             family={2}
+            price={0}
             photos={3}
             plan="gratis"
             handlerOpen={setOpenPaymentPLan}
