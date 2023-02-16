@@ -98,7 +98,16 @@ flex-direction: column;
   height: 40px;
   background-color: #0061df;
 }
-
+.tarjetas{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  /* display: flex,
+  flex-direction: row,
+  alignItems: center,
+  gap:20px, */
+}
 @media (max-width: 700px) {
   .PaymentLayout {
     flex-direction: column-reverse;
@@ -117,5 +126,10 @@ flex-direction: column;
   .Divdetalle {
     align-items: flex-start;
     padding: 0px;
+  }
+}
+@media (max-width: 500px) {
+  .tarjetas{
+    display: none;
   }
 }

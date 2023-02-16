@@ -1,5 +1,5 @@
-export default function infoPlanes(plan) {
-  plan='exclusivo'
+export default function infoPlanes({plan}) {
+console.log(plan)
 
   switch (plan) {
     case "básico":

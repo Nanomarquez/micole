@@ -53,11 +53,11 @@ console.log(price , plan)
             <h1>Detalles de Compra</h1>
             <div className={style.detalle}>
               <p>Plan Especial +IGV</p>
-              <p>S/.80.00</p>
+              <p>S/.{price}</p>
             </div>
             <div className={style.detalle}>
               <p>Total</p>
-              <p>S/. 80.00</p>
+              <p>S/. {price}</p>
             </div>
           </div>
           <div className={style.containerMetodoPago}>
@@ -80,12 +80,13 @@ console.log(price , plan)
               </div>
 
               <div
-                style={{
-                  display: "flex",
-                  fleDirection: "row",
-                  alignItems: "center",
-                  gap: "20px",
-                }}
+              className={style.tarjetas}
+                // style={{
+                //   display: "flex",
+                //   fleDirection: "row",
+                //   alignItems: "center",
+                //   gap: "20px",
+                // }}
               >
                 <Visa />
                 <MasterCard />
@@ -117,7 +118,7 @@ console.log(price , plan)
         </div>
         <div className={style.divBeneficios}>
           <h1>Información Detallada del Plan Especial</h1>
-          {/* <InfoPlanes/> */}
+          <InfoPlanes  plan ={plan}/>
         </div>
       </div>
     </>
