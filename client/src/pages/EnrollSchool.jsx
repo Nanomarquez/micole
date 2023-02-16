@@ -8,9 +8,14 @@ import Logo from "../assets/logoblanco.png";
 import { Link } from "react-router-dom";
 import ModalInscripcion from "../components/ModalInscripcion/ModalInscripcion";
 function EnrollSchool() {
-  const [Open, setOpen] = useState(false);
+  const [OpenRegister, setOpenRegister] = useState(false);
+  const [OpenPaymentPLan, setOpenPaymentPLan] = useState({
+    state: false,
+    plan: "",
+    price: "",
+  });
   const toggleInscripcion = () => {
-    setOpen(true);
+    setOpenRegister(true);
   };
   return (
     <div>
@@ -27,7 +32,7 @@ function EnrollSchool() {
             inscribe tu colegio aquí
           </button>
         </div>
-        {Open && <ModalInscripcion handleClose={setOpen} />}
+        {OpenRegister && <ModalInscripcion handleClose={setOpenRegister} />}
 
         <button className="px-4 py-1 rounded-md text-[#0061dd] bg-white font-semibold">
           ¡Quiero más información por el momento!
@@ -58,6 +63,7 @@ admisión simple y eficiente"
           />
         </div>
       </section>
+      {OpenPaymentPLan.state === true && <ModalInscripcion   OpenPaymentPLan={OpenPaymentPLan}  handleClose={setOpenRegister}  handleClosePayment={setOpenPaymentPLan} />}
       <section className="bg-[#0061dd] flex flex-col justify-around p-10 gap-10">
         <h1 className="text-center text-2xl font-semibold text-white">
           Elije el plan que más se acomode a tus necesidades
@@ -68,7 +74,8 @@ admisión simple y eficiente"
             free={true}
             family={2}
             photos={3}
-            plan={"gratis"}
+            plan="gratis"
+            handlerOpen={setOpenPaymentPLan}
           />
           <CardsTwo
             title="Básico"
@@ -76,7 +83,8 @@ admisión simple y eficiente"
             family={25}
             photos={15}
             price={50}
-            plan={"básico"}
+            plan="básico"
+            handlerOpen={setOpenPaymentPLan}
           />
           <CardsTwo
             price={80}
@@ -85,7 +93,8 @@ admisión simple y eficiente"
             free={false}
             family={50}
             photos={30}
-            plan={"estandar"}
+            plan="estandar"
+            handlerOpen={setOpenPaymentPLan}
           />
           <CardsTwo
             price={120}
@@ -93,9 +102,11 @@ admisión simple y eficiente"
             free={false}
             premium={true}
             photos={50}
-            plan={"exclusivo"}
+            plan="exclusivo"
+            handlerOpen={setOpenPaymentPLan}
           />
         </div>
+
         <button className="px-4 mx-auto py-3 rounded-lg text-[#0061dd] bg-white font-normal">
           ¿Prefieres usar otro medio de pago? Usa una billetera virtual
         </button>
