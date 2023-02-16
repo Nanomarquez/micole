@@ -37,6 +37,7 @@ import { MobileTimePicker } from "@mui/x-date-pickers";
 
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
+import { borderRadius } from "@mui/system";
 
 function srcset(image, size, rows = 1, cols = 1) {
   return {
@@ -50,19 +51,19 @@ function srcset(image, size, rows = 1, cols = 1) {
 function QuiltedImageList({setImage}) {
   return (
     <ImageList
-      sx={{ width: 500, height: 450, margin: 'auto' }}
+      sx={{ width: "100%", height: 450, margin: 'auto' }}
       variant="quilted"
       cols={4}
       rowHeight={121}
     >
-      {itemData.map((item) => (
+      {itemData.map((item,index) => (
         
-        <ImageListItem key={item.img} cols={item.cols || 1} rows={item.rows || 1}>
+        <ImageListItem key={item.img}>
           <img
-            {...srcset(item.img, 121, item.rows, item.cols)}
+            {...srcset(item.img, 121)}
             alt={item.title}
             loading="lazy"
-            className="cursor-pointer z-25"
+            className="cursor-pointer z-25 object-cover rounded-md"
             onClick={()=>setImage(item.img)}
           />
         </ImageListItem>
@@ -74,9 +75,7 @@ function QuiltedImageList({setImage}) {
 const itemData = [
   {
     img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
-    title: 'Breakfast',
-    rows: 2,
-    cols: 2,
+    title: 'Breakfast'
   },
   {
     img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
@@ -88,20 +87,16 @@ const itemData = [
   },
   {
     img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
-    title: 'Coffee',
-    cols: 2,
+    title: 'Coffee'
   },
   {
     img: 'https://images.unsplash.com/photo-1533827432537-70133748f5c8',
-    title: 'Hats',
-    cols: 2,
+    title: 'Hats'
   },
   {
     img: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62',
     title: 'Honey',
-    author: '@arwinneil',
-    rows: 2,
-    cols: 2,
+    author: '@arwinneil'
   },
   {
     img: 'https://images.unsplash.com/photo-1516802273409-68526ee1bdd6',
@@ -113,9 +108,7 @@ const itemData = [
   },
   {
     img: 'https://images.unsplash.com/photo-1597645587822-e99fa5d45d25',
-    title: 'Mushrooms',
-    rows: 2,
-    cols: 2,
+    title: 'Mushrooms'
   },
   {
     img: 'https://images.unsplash.com/photo-1567306301408-9b74779a11af',
@@ -127,8 +120,7 @@ const itemData = [
   },
   {
     img: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6',
-    title: 'Bike',
-    cols: 2,
+    title: 'Bike'
   },
 ];
 function SchoolDetail() {
@@ -380,7 +372,7 @@ function SchoolDetail() {
             </div>
             <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md">
               <h2 className="font-semibold text-xl">Detalles del Colegio</h2>
-              <div className="flex text-xs w-full justify-between">
+              <div className="flex text-xs w-full flex-col lg:flex-row gap-3 justify-between">
                 <ul className="flex flex-col gap-3">
                   <li className="text-black/60">
                     <span className="font-semibold text-black ">RUC: </span>
@@ -739,7 +731,7 @@ function SchoolDetail() {
               </h3>
               <ul className="flex justify-between text-black/50 items-center">
                 <li>Real Plaza Salaverry (3km)</li>
-                <ul className="flex">
+                <ul className="flex items-center gap-2">
                   <li className="flex item-center">
                     {" "}
                     <Rating value={4} readOnly size="small" />
@@ -749,7 +741,7 @@ function SchoolDetail() {
               </ul>
               <ul className="flex justify-between text-black/50 items-center">
                 <li>Real Plaza Salaverry (3km)</li>
-                <ul className="flex">
+                <ul className="flex items-center gap-2">
                   <li className="flex item-center">
                     {" "}
                     <Rating value={4} readOnly size="small" />
@@ -769,7 +761,7 @@ function SchoolDetail() {
               </h3>
               <ul className="flex justify-between text-black/50 items-center">
                 <li>Real Plaza Salaverry (3km)</li>
-                <ul className="flex">
+                <ul className="flex items-center gap-2">
                   <li className="flex item-center">
                     {" "}
                     <Rating value={4} readOnly size="small" />
@@ -779,7 +771,7 @@ function SchoolDetail() {
               </ul>
               <ul className="flex justify-between text-black/50 items-center">
                 <li>Real Plaza Salaverry (3km)</li>
-                <ul className="flex">
+                <ul className="flex items-center gap-2">
                   <li className="flex item-center">
                     {" "}
                     <Rating value={4} readOnly size="small" />
@@ -799,7 +791,7 @@ function SchoolDetail() {
               </h3>
               <ul className="flex justify-between text-black/50 items-center">
                 <li>Real Plaza Salaverry (3km)</li>
-                <ul className="flex">
+                <ul className="flex items-center gap-2">
                   <li className="flex item-center">
                     {" "}
                     <Rating value={4} readOnly size="small" />
@@ -809,7 +801,7 @@ function SchoolDetail() {
               </ul>
               <ul className="flex justify-between text-black/50 items-center">
                 <li>Real Plaza Salaverry (3km)</li>
-                <ul className="flex">
+                <ul className="flex items-center gap-2">
                   <li className="flex item-center">
                     {" "}
                     <Rating value={4} readOnly size="small" />
@@ -821,9 +813,9 @@ function SchoolDetail() {
           </section>
           <section className="right mt-5  flex flex-col gap-8 w-full">
             <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md w-full">
-              <h2 className="font-semibold text-xl">Descripcion</h2>
+              <h2 className="font-semibold text-xl">Solicitar una visita</h2>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <div className="flex w-full justify-between">
+                <div className="flex w-full justify-between flex-col gap-4 lg:flex-row">
                   <MobileDatePicker
                     label="Elejir fecha"
                     inputFormat="DD/MM/YYYY"
@@ -915,7 +907,7 @@ function SchoolDetail() {
             <QuiltedImageList setImage={setImage} />
             <div className={`fixed top-0 left-0 z-50 bg-black/90 w-full h-full ${image ? "block" : "hidden"}`}>
               <button onClick={()=>setImage(null)} className="absolute top-2 right-4 z-[100] text-white">Atras</button>
-              <img src={image} alt="" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 block max-w-[80%] max-h-[80%] object-cover "/>
+              <img src={image} alt="" className="absolute border-4 top-1/2 left-1/2 -translate-x-1/2 rounded-md -translate-y-1/2 block max-w-[80%] max-h-[80%] object-cover "/>
             </div>
             </div>
           </section>
