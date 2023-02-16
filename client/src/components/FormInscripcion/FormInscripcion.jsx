@@ -146,7 +146,7 @@ function FormInscripcion({handlerOpenPayment,handlerOpenLogin}) {
           <div className={style.divSingIn}>
             <p>Ya tienes cuenta ? </p>
             <div onClick={handlerLogin}>
-               <p style={{ color: "blue" }}>Inicia Sesión </p>
+               <p style={{ color: "blue", cursor:"pointer" }}>Inicia Sesión </p>
             </div>
            
           </div>

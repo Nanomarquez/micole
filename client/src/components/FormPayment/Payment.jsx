@@ -12,7 +12,8 @@ import Union from "./svg/Union";
 import Paypal from "./svg/Paypal";
 import ImageMG from "./svg/infoMG.png";
 import YapeLogo from "./svg/yape.png";
-function Payment() {
+
+function Payment({planes}) {
   const {
     register,
     handleSubmit,
@@ -36,6 +37,24 @@ function Payment() {
     handlerOpenPayment(true);
   };
 
+function  renderSwitchPlan(planes) {
+    switch(planes) {
+      case 'foo':
+        return 'bar';
+      default:
+        return <>
+       
+        <p>✔️ ¡30 días de prueba gratis!</p>
+        <p>✔️ 365 días de publicación</p>
+        <p>✔️ Envío de hasta 50 familias interesadas por mes</p>
+        <p>✔️ 30 fotos del centro educativo en la plataforma</p>
+        <p>✔️ Soporte operativo disponible</p>
+        </>
+    ;
+    }
+  }
+  
+  
   return (
     <>
       {" "}
@@ -111,12 +130,8 @@ function Payment() {
           </div>
         </div>
         <div className={style.divBeneficios}>
-          <h1>Información Detallada del Plan Especial</h1>
-          <p>✔️ ¡30 días de prueba gratis!</p>
-          <p>✔️ 365 días de publicación</p>
-          <p>✔️ Envío de hasta 50 familias interesadas por mes</p>
-          <p>✔️ 30 fotos del centro educativo en la plataforma</p>
-          <p>✔️ Soporte operativo disponible</p>
+        <h1>Información Detallada del Plan Especial</h1>
+        {renderSwitchPlan(planes)}
         </div>
       </div>
     </>
