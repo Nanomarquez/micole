@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
     let cole;
     cole = await Colegio.findAll({
       include: [
-        { model: Idioma, attributes: ["nombre_idoma", "id"] },
+        { model: Idioma, attributes: ["nombre_idioma", "id"] },
         {
           model: Departamento,
           attributes: ["nombre_departamento"],
