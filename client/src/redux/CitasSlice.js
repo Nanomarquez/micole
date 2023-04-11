@@ -29,7 +29,7 @@ export const citasSlice = createSlice({
       },
       "column-4": {
         id: "column-4",
-        title: "Entrevista con el director",
+        title: "Entrevista con director",
         estado: "Entrevista",
         taskIds: [],
       },
