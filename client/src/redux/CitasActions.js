@@ -100,7 +100,9 @@ export const getCitaUsuario = () => (dispatch) => {
   const token = localStorage.getItem("token");
   axios
     .get(`/citas/users`, { headers: { Authorization: `Bearer ${token}` } })
-    .then((res) => dispatch(getCitasUsuario(res.data)))
+    .then((res) =>{
+      console.log(res.data.CitasUsuario)
+      dispatch(getCitasUsuario(res.data.CitasUsuario))})
     .catch((err) => {
       dispatch(getError(err.response.data.error));
       Swal.fire({

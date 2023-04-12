@@ -14,20 +14,22 @@ import sliceIntoChunks from "../../../components/CardsCitas/Paginacion/utils/Sli
 import PaginationCitas from "../../../components/CardsCitas/Paginacion/PaginationCitas";
 import ContentPasteSearchOutlinedIcon from "@mui/icons-material/ContentPasteSearchOutlined";
 import { getCitaUsuario } from "../../../redux/CitasActions";
-export default function CitasUser({data}) {
-  const [citasUser, setCitasUser] = useState([]);
+export default function CitasUser({ data }) {
   const { citasUsuario, loading } = useSelector((state) => state.citas);
+    const [citasUser, setCitasUser] = useState([]);
+
   const items = [1, 2, 3, 4, 5];
- const  dispatch= useDispatch()
+  const dispatch = useDispatch();
   const [page, setPage] = React.useState(0);
   useEffect(() => {
-   
-    const citasPaginadas = sliceIntoChunks(citasUsuario&&citasUsuario, 10);
+    dispatch(getCitaUsuario());
 
+    const citasPaginadas = sliceIntoChunks(citasUsuario && citasUsuario, 10);
+console.log(citasPaginadas)
     setCitasUser(citasPaginadas);
   }, []);
 
-  console.log(citasUser);
+  console.log(citasUser.length);
 
   return (
     <>
@@ -38,16 +40,16 @@ export default function CitasUser({data}) {
           fontSize: "2.4vh",
           fontWeight: "700",
           padding: "1vh",
-          paddingLeft:'5vh'
+          paddingLeft: "5vh",
         }}
       >
         Listado de Citas
       </Typography>
 
       <>
-        <div className={style.divLayout}> 
+        <div className={style.divLayout}>
           {citasUser && citasUser[page]?.length > 0 && loading === false ? (
-           citasUser &&
+            citasUser &&
             citasUser[page]?.map((ele) => {
               let str = ele.Colegio?.direccion;
 
@@ -220,7 +222,7 @@ export default function CitasUser({data}) {
                 <rect width="100" height="100" />
               </ContentLoader>
             ))
-          ) : citasUser  && citasUser?.length === 0 && loading === false ? (
+          ) : citasUser && citasUser?.length === 0 && loading === false ? (
             <div
               // data-aos="zoom-up"
               style={{
