@@ -359,7 +359,7 @@ export default function EventosUsuario() {
                               {fechaFormat(ele.fecha_evento)} -
                             </p>
                             <p className={style.pK}>
-                              {es_AM_PM(ele.hora_evento)}
+                            {ele.hora_evento +" "+ es_AM_PM(ele.hora_evento)}
                             </p>
                           </div>
 
@@ -474,7 +474,7 @@ export default function EventosUsuario() {
                             {fechaFormat(ele.fecha_evento)} -
                           </p>
                           <p className={style.pK}>
-                            {es_AM_PM(ele.hora_evento)}
+                          {ele.hora_evento +" "+ es_AM_PM(ele.hora_evento)}
                           </p>
                         </div>
 
