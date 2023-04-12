@@ -8,6 +8,7 @@ export const citasSlice = createSlice({
     error: "",
     loading: false,
     citasUsuario:null,
+    pagination:{},
     columns: {
       "column-1": {
         id: "column-1",
