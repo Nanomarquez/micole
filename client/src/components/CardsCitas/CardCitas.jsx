@@ -705,7 +705,7 @@ export default function CardCitas({ data, filtros }) {
           </>
         )}
 
-        {/*PLAN */}
+    
    
         {/*--------------------  FIN  ------------------------------*/}
         {/* citas ya confirmadas */}
