@@ -80,6 +80,7 @@ function SchoolDetail() {
   const { oneSchool, grados, horariosColegio } = useSelector(
     (state) => state.schools
   );
+
   const { user, isAuth, vacantes } = useSelector((state) => state.auth);
   console.log(horariosColegio);
 
@@ -88,15 +89,15 @@ function SchoolDetail() {
   const params = new URLSearchParams(location.search);
 
   const [gradoParams, setGradoParams] = React.useState(params.get("grado"));
-
+  console.log(gradoParams);
   const [ingresoParams, setIngresoParams] = React.useState(
     params.get("ingreso")
   );
 
   const [listaParams, setListaParams] = React.useState(params.get("lista"));
 
-  console.log(listaParams);
-
+  console.log(gradoParams);
+  console.log(grados);
   const nombre_grado = grados?.find(
     (grado) => grado.id == gradoParams
   )?.nombre_grado;
@@ -160,7 +161,6 @@ function SchoolDetail() {
     });
   };
   const handleChangeTime = (newValue) => {
-
     setTime(dayjs(newValue));
     setCita({
       ...cita,
@@ -192,8 +192,23 @@ function SchoolDetail() {
     grado: nombre_grado
   });
 
+  console.log(cita);
+  // console.log( nombre_grado);
+
+
+useEffect(() => {
+setCita({
+  ...cita,
+  grado: nombre_grado
+})
+}, [nombre_grado])
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+  
+
     if (
       e.target["nombre"].value === "" ||
       e.target["cel"].value === "" ||
@@ -207,9 +222,9 @@ function SchoolDetail() {
       return;
     }
     if (isAuth) {
-      console.log(cita.grado);
-      // console.log(gradosCita);
       
+      console.log(cita);
+
       dispatch(postCita(cita));
     } else {
       Swal.fire({
@@ -222,12 +237,6 @@ function SchoolDetail() {
       setOpenLogin(true);
       return;
     }
-
-    // Swal.fire({
-    //   icon: "success",
-    //   title: "Cita realizada exitosamente!",
-    //   text: "Cita Agendada",
-    // });
   };
 
   const handleModo = () => {
@@ -1264,7 +1273,7 @@ function SchoolDetail() {
                               <>
                                 <div
                                   // si vacantes estan agotadas deberia aparecer todo en gris
-                     
+
                                   className={style.cardTable}
                                 >
                                   <Card
@@ -1314,7 +1323,7 @@ function SchoolDetail() {
                               <>
                                 <div
                                   // si vacantes estan agotadas deberia aparecer todo en gris
-                         
+
                                   className={style.cardTable}
                                 >
                                   {/* <Card
