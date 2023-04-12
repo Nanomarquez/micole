@@ -19,7 +19,7 @@ import Paddock from "./svg/Paddock";
 import { getCitaAgendadas } from "../../redux/SchoolsActions";
 import fechaFormat from "../SwiperEventos/utils/fechaFormat";
 import es_AM_PM from "../SwiperEventos/utils/horaFormat";
-// import sliceIntoChunks from "../"
+
 
 export default function CardCitas({ data, filtros }) {
   const { oneSchool } = useSelector((state) => state.auth);
@@ -89,7 +89,7 @@ export default function CardCitas({ data, filtros }) {
   }, []);
 
   const putStateCita = (id, setLoading) => {
-    console.log(id);
+  
     setLoading(true);
 
     try {
@@ -117,7 +117,7 @@ export default function CardCitas({ data, filtros }) {
   };
 
   function BtnPutCitas({ id }) {
-    console.log(id);
+
     const [Toggle, setToggle] = useState(false);
     const [loading, setLoading] = useState(false);
     const toggleBtn = () => {
