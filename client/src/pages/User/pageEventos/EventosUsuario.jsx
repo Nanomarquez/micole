@@ -167,7 +167,7 @@ export default function EventosUsuario() {
                         <p className={style.pK}>
                           {fechaFormat(ele.fecha_evento)} -
                         </p>
-                        <p className={style.pK}>{es_AM_PM(ele.hora_evento)}</p>
+                        <p className={style.pK}>{ele.hora_evento +" "+ es_AM_PM(ele.hora_evento)}</p>
                       </div>
 
                       <div className={style.divDescripcion}>
