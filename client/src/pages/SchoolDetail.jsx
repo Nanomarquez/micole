@@ -172,7 +172,7 @@ function SchoolDetail() {
   };
   const [modo, setModo] = React.useState(true);
   const [openLogin, setOpenLogin] = useState(false);
-  const gradosCita=nombre_grado
+
   const [cita, setCita] = React.useState({
     date: [
       stringyDate(dayjs(new Date()).$D).toString(),
@@ -189,7 +189,7 @@ function SchoolDetail() {
     celular: isAuth ? user.telefono : "",
     correo: isAuth ? user.email : "",
     añoIngreso: ingresoParams,
-    grado:  gradosCita,
+    grado: nombre_grado
   });
 
   const handleSubmit = (e) => {
@@ -207,8 +207,8 @@ function SchoolDetail() {
       return;
     }
     if (isAuth) {
-      console.log(cita);
-      console.log(gradosCita);
+      console.log(cita.grado);
+      // console.log(gradosCita);
       
       dispatch(postCita(cita));
     } else {
