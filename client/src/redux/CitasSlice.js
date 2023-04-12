@@ -146,6 +146,11 @@ export const citasSlice = createSlice({
       state.citasUsuario = action.payload,
       state.loading = false
     },
+    getPagination: (state, action) => {
+      (state.pagination = action.payload),
+        (state.loading = false),
+        (state.error = "");
+    }
   },
 });
 
@@ -157,6 +162,7 @@ export const {
   isLoading,
   getSuccess,
   cleanSuccess,
-  getCitasUsuario
+  getCitasUsuario,
+  getPagination
 } = citasSlice.actions;
 export default citasSlice.reducer;
