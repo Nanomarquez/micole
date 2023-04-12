@@ -37,7 +37,7 @@ const Column = ({ column, tasksArr }) => {
         <Droppable droppableId={column.id}>
           {(droppableProvided, droppableSnapshot) => (
             <div
-              // className="flex p-4 flex-1 flex-col gap-2"
+              className="flex p-2 flex-1 flex-col gap-2"
 
               ref={droppableProvided.innerRef}
               {...droppableProvided.droppableProps}
