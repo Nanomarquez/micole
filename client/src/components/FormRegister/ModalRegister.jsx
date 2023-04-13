@@ -19,16 +19,19 @@ import FormInscripcion from "../FormInscripcion/FormInscripcion";
 import { register as registerUser } from "../../redux/AuthActions";
 import FormLogin from "../FormLogin/FormLogin";
 import ModalLogin from "../ModalLogin/ModalLogin";
+import FB from "../FormLogin/svg/FB";
+import Gmail from "../FormLogin/svg/Gmail";
 const style1 = {
   position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
+
   //   maxWidth: 400,
   bgcolor: "background.paper",
   boxShadow: " 0px 1px 5px rgba(0, 0, 0, 0.40)",
-  p: 2,
-  borderRadius: "10px",
+  padding: '2.5vh',
+  borderRadius: "1vh",
 };
 
 export default function ModalRegistro({ open, setOpen }) {
@@ -96,7 +99,14 @@ export default function ModalRegistro({ open, setOpen }) {
             OpenLogin === false &&
             OpenRegistroColegio === false && (
               <>
-                <div style={{ display:'flex'  , gap:'2vh',padding:'1vh', flexDirection:'column'}}>
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "2vh",
+                    padding: "1vh",
+                    flexDirection: "column",
+                  }}
+                >
                   <div
                     style={{
                       width: "100%",
@@ -120,7 +130,7 @@ export default function ModalRegistro({ open, setOpen }) {
                         style={{
                           display: "flex",
                           flexDirection: "column",
-                          fontSize:'1.8vh',
+                          fontSize: "1.8vh",
                           gap: "0.50",
                         }}
                       >
@@ -131,28 +141,28 @@ export default function ModalRegistro({ open, setOpen }) {
                       </div>
                     </Typography>
                     <Button
-                      sx={{fontWeight:'600', fontFamily:'Poppins'}}
-                    
+                      sx={{ fontWeight: "600", fontFamily: "Poppins" }}
                       variant="contained"
-                    > <Link
-                    // className={`${style.p} hover-underline-animation`}
-                    to={"/enroll"}
-                  >
-                     Inscribe tu Colegio
-                  </Link>
-                     
+                    >
+                      {" "}
+                      <Link
+                        // className={`${style.p} hover-underline-animation`}
+                        to={"/enroll"}
+                      >
+                        Inscribe tu Colegio
+                      </Link>
                     </Button>
-                       <Typography>
+                    <Typography>
                       <div
                         style={{
                           display: "flex",
                           flexDirection: "column",
-                          fontSize:'1.8vh',
+                          fontSize: "1.8vh",
                           gap: "0.50",
                         }}
                       >
                         <b style={{ color: "#0061DF" }}>
-                         Encuentra el colegio ideal
+                          Encuentra el colegio ideal
                         </b>
                         Únete a la mayor comunidad de colegios en el Perú
                       </div>
@@ -160,7 +170,7 @@ export default function ModalRegistro({ open, setOpen }) {
                     <Button
                       onClick={() => setOpenRegistroPadre(true)}
                       variant="contained"
-                      sx={{fontWeight:'600', fontFamily:'Poppins'}}
+                      sx={{ fontWeight: "600", fontFamily: "Poppins" }}
                     >
                       Registrarse como Familia
                     </Button>
@@ -179,15 +189,37 @@ export default function ModalRegistro({ open, setOpen }) {
                   alignItems: "center",
                 }}
               >
-                <img style={{ width: "30vh" }} src={Logo} />
+                {/* <img style={{ width: "30vh" }} src={Logo} /> */}
               </div>
               <form
                 onSubmit={handleSubmit(OnSubmit)}
                 className={style.formLayout}
               >
-                <div className={style.h1_div}>
-                  <h1>Completa tus datos</h1>
+                {/* <div className={style.h1_div}> 
+
+                  <h1 style={{fontSize:'1.8'}}>Completa tussss datos</h1>
+                </div> */}
+                <div
+                  style={{
+                    width: "100%",
+                    padding: "1vh",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Typography
+                    variant="h5"
+                    sx={{
+                      fontWeight: "700",
+                      fontFamily: "Poppins",
+                      color: "#0061DF",
+                    }}
+                  >
+                    Completa tus datos
+                  </Typography>
                 </div>
+
                 <div className={style.form}>
                   <div className={style.divInputs}>
                     <label className={style.label}>Nombre</label>
@@ -198,7 +230,7 @@ export default function ModalRegistro({ open, setOpen }) {
 
                         maxLength: 100,
                       })}
-                      className="shadow-md"
+                      className={style.input}
                     />
 
                     {errors.name && (
@@ -211,7 +243,7 @@ export default function ModalRegistro({ open, setOpen }) {
                         required: true,
                         maxLength: 100,
                       })}
-                      className="shadow-md"
+                      className={style.input}
                     />
 
                     {errors.lastname?.type === "required" && (
@@ -229,7 +261,7 @@ export default function ModalRegistro({ open, setOpen }) {
                         maxLength: 100,
                         pattern: /\S+@\S+\.\S+/,
                       })}
-                      className="shadow-md"
+                      className={style.input}
                     />
                     {errors.mail?.type === "required" && (
                       <p className={style.p}>Introduzca su mail.</p>
@@ -247,7 +279,7 @@ export default function ModalRegistro({ open, setOpen }) {
                       type="number"
                       placeholder="Introduzca numero de telefono"
                       {...register("phone", { required: true })}
-                      className="shadow-md"
+                      className={style.input}
                     />
                     {errors.phone && (
                       <p className={style.p}>Introduzca su telefono .</p>
@@ -274,7 +306,7 @@ export default function ModalRegistro({ open, setOpen }) {
                           required: true,
                           maxLength: 100,
                         })}
-                        className="shadow-md"
+                        className={style.input}
                       />
                     </div>
                     {errors.password?.type === "required" && (
@@ -284,16 +316,49 @@ export default function ModalRegistro({ open, setOpen }) {
                 </div>
                 <div className={style.divButton}>
                   <button type="submit">REGISTRARSE</button>
-                  <div className={`${style.divButton}`}>
-                    <p>Ya tienes cuenta ? </p>
-                    <div>
-                      <p
-                        onClick={handlerOpenLogin}
-                        style={{ color: "blue", cursor: "pointer" }}
-                      >
-                        Inicia Sesión{" "}
-                      </p>
-                    </div>
+                </div>
+
+              
+                <div
+                  style={{
+                    display: "flex",
+                    width:'100%',
+                    flexDirection:'column',
+                    alignContent:'center',
+                    justifyContent:'center',
+                 
+                    alignItems: "center",
+                  }}
+                >
+                    <p className="  text-sm">Prefiero iniciar sesion con</p>
+                <div
+                  style={{
+                    display: "flex",
+                    width:'100%',
+                    flexDirection:'row',
+                    alignContent:'center',
+                    justifyContent:'center',
+                    gap: "1.5vh",
+                    padding: "1vh",
+                    alignItems: "center",
+                  }}
+                
+                >
+                    <FB/>
+                  <Gmail />
+                </div>
+                
+                </div>
+
+                <div className={`${style.divButton}`}>
+                  <p>Ya tienes cuenta ? </p>
+                  <div>
+                    <p
+                      onClick={handlerOpenLogin}
+                      style={{ color: "blue", cursor: "pointer" }}
+                    >
+                      Inicia Sesión{" "}
+                    </p>
                   </div>
                 </div>
               </form>
