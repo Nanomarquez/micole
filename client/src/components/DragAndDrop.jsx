@@ -4,9 +4,15 @@ import Column from "./Column";
 import SelectCRM from "./CardsDrgAndDrp/SelectsCRM/SelectsCRM";
 import { useDispatch, useSelector } from "react-redux";
 
-import { updateTask, updateColumn, getCita, getCitaDnD_filtros} from "../redux/CitasActions";
+import {
+  updateTask,
+  updateColumn,
+  getCita,
+  getCitaDnD_filtros,
+} from "../redux/CitasActions";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-
+import RotateLeftIcon from "@mui/icons-material/RotateLeft";
+import Button from "@mui/material/Button";
 // const reorderColumnList = (sourceCol, startIndex, endIndex) => {
 //   const newTaskIds = Array.from(sourceCol.taskIds);
 
@@ -120,35 +126,34 @@ function DragAndDrop() {
     //   }! \nTu tarea es ${JSON.stringify(tasks[removed])}`
     // );
   };
-  const [filterSelected, setFilterSelected] = useState({
-    año: "",
-    grado: "",
-  });
+  const [filterAño, setfilterAño] = useState("");
+  const [filterGrado, setfilterGrado] = useState("");
   useEffect(() => {
-    dispatch(getCita());
-  }, [citasAgendadas.CitasActivas?.length, success]);
+    // dispatch(getCita());
+    dispatch(getCitaDnD_filtros({ filterGrado, filterAño }));
+  }, [citasAgendadas.CitasActivas?.length, success, tasks]);
 
   const handleChangeState = (event) => {
     // let state = event.target.value;
     // dispatch(filterAdminState(state, page));
 
-    setFilterSelected({
-      ...filterSelected,
-      año: event.target.value,
-    });
-    dispatch(getCitaDnD_filtros(filterSelected));
+    setfilterAño(event.target.value);
+    dispatch(getCitaDnD_filtros({ filterGrado, filterAño }));
   };
   const handleChangeStateGrado = (event) => {
     // let state = event.target.value;
 
-
-    setFilterSelected({
-      ...filterSelected,
-      grado: event.target.value,
-    });
-
-    dispatch(getCitaDnD_filtros(filterSelected));
+    setfilterGrado(event.target.value);
+    console.log(filterGrado, filterAño);
+    dispatch(getCitaDnD_filtros({ filterGrado, filterAño }));
   };
+  const  handlerResetFiltros = () => {
+    setfilterGrado('');
+    setfilterAño('');
+    dispatch(getCitaDnD_filtros({ filterGrado, filterAño }));
+  }
+
+
   const yearNow = new Date().getFullYear();
 
   return (
@@ -164,7 +169,7 @@ function DragAndDrop() {
                 sx={{ border: "none", outline: "none" }}
                 labelId="demo-select-small"
                 id="demo-select-small"
-                value={filterSelected.grado}
+                value={filterGrado}
                 label={"Grado"}
                 onChange={handleChangeStateGrado}
               >
@@ -180,8 +185,8 @@ function DragAndDrop() {
                 sx={{ border: "none", outline: "none" }}
                 labelId="demo-select-small"
                 id="demo-select-small"
-                value={filterSelected.año}
-                label={"Estado"}
+                value={filterAño}
+                label={"Año"}
                 onChange={handleChangeState}
               >
                 <MenuItem value={yearNow}>{yearNow} </MenuItem>
@@ -189,6 +194,13 @@ function DragAndDrop() {
                 <MenuItem value={yearNow + 2}>{yearNow + 2} </MenuItem>
               </Select>
             </FormControl>
+            {filterGrado != ""|| filterAño != "" ? (
+              <Button
+              onClick={handlerResetFiltros}
+              >
+                <RotateLeftIcon />
+              </Button>
+           ) : null} 
           </div>
         </div>
         <div className="flex flex-col text-base lg:flex-row justify-between  gap-5 px-4">

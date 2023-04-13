@@ -9,7 +9,6 @@ import {
   cleanSuccess,
   getCitasUsuario,
   getPagination,
-
 } from "./CitasSlice";
 import Swal from "sweetalert2";
 export const getCita = () => (dispatch) => {
@@ -27,16 +26,19 @@ export const getCita = () => (dispatch) => {
       // });
     });
 };
-export const getCitaDnD_filtros = (filtro) => (dispatch) => {
+export const getCitaDnD_filtros = ({filterGrado, filterAño}) => (dispatch) => {
   dispatch(isLoading());
-  console.log(filtro)
-  console.log(filtro.año)
+  console.log(filterGrado, filterAño);
+  console.log(filterAño);
   const token = localStorage.getItem("token");
   axios
-    .get(`/citas?grado=${filtro.grado}&año=${filtro.año}`, { headers: { Authorization: `Bearer ${token}` } })
+    .get(`/citas?grado=${filterGrado}&año=${filterAño}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
     .then((res) => {
-      console.log(res.data)
-      dispatch(getCitas(res.data))})
+      console.log(res.data);
+      dispatch(getCitas(res.data));
+    })
     .catch((err) => {
       dispatch(getError(err.response.data.error));
       // Swal.fire({
@@ -132,4 +134,3 @@ export const getCitaUsuario = (page) => (dispatch) => {
       });
     });
 };
-
