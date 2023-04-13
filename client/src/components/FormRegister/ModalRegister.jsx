@@ -21,6 +21,8 @@ import FormLogin from "../FormLogin/FormLogin";
 import ModalLogin from "../ModalLogin/ModalLogin";
 import FB from "../FormLogin/svg/FB";
 import Gmail from "../FormLogin/svg/Gmail";
+import IconSch from "./svg/IconSch";
+import IconUser from "./svg/IconUser";
 const style1 = {
   position: "absolute",
   top: "50%",
@@ -30,7 +32,7 @@ const style1 = {
   //   maxWidth: 400,
   bgcolor: "background.paper",
   boxShadow: " 0px 1px 5px rgba(0, 0, 0, 0.40)",
-  padding: '2.5vh',
+  padding: '2vh',
   borderRadius: "1vh",
 };
 
@@ -107,16 +109,7 @@ export default function ModalRegistro({ open, setOpen }) {
                     flexDirection: "column",
                   }}
                 >
-                  <div
-                    style={{
-                      width: "100%",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    <img style={{ width: "30vh" }} src={Logo} />
-                  </div>
+                 
 
                   <div
                     style={{
@@ -125,55 +118,38 @@ export default function ModalRegistro({ open, setOpen }) {
                       gap: "2vh",
                     }}
                   >
-                    <Typography>
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          fontSize: "1.8vh",
-                          gap: "0.50",
-                        }}
-                      >
-                        <b style={{ color: "#0061DF" }}>
-                          Inscribe tu colegio en nuestra plataforma
-                        </b>
-                        Únete a la mayor comunidad de colegios en el Perú
-                      </div>
-                    </Typography>
+                 <div
+                  style={{display:'flex', gap:'2vh', width:'100%',flexDirection:'row', justifyContent:'flex-start', alignItems:'center' }}
+                 >
+                 <IconSch/> 
                     <Button
-                      sx={{ fontWeight: "600", fontFamily: "Poppins" }}
-                      variant="contained"
+                
+                      transparent
                     >
                       {" "}
                       <Link
                         // className={`${style.p} hover-underline-animation`}
+                        style={{ fontWeight: "600",fontSize:'1.4vh', fontFamily: "Poppins" }}
                         to={"/enroll"}
                       >
-                        Inscribe tu Colegio
+                      Colegio
                       </Link>
                     </Button>
-                    <Typography>
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          fontSize: "1.8vh",
-                          gap: "0.50",
-                        }}
-                      >
-                        <b style={{ color: "#0061DF" }}>
-                          Encuentra el colegio ideal
-                        </b>
-                        Únete a la mayor comunidad de colegios en el Perú
-                      </div>
-                    </Typography>
-                    <Button
+                 </div>
+                  
+                 <div
+                  style={{display:'flex', gap:'2vh', width:'100%',flexDirection:'row', justifyContent:'flex-start', alignItems:'center' }}
+                 >
+                   <IconUser/>
+                   <Button
                       onClick={() => setOpenRegistroPadre(true)}
-                      variant="contained"
-                      sx={{ fontWeight: "600", fontFamily: "Poppins" }}
+                     transparent
+                      sx={{ fontWeight: "600",fontSize:'1.4vh', fontFamily: "Poppins" }}
                     >
-                      Registrarse como Familia
+                     Padre de Familia
                     </Button>
+                 </div>
+                   
                   </div>
                 </div>
               </>
