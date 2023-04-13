@@ -127,7 +127,7 @@ useEffect(() => {
 
   return (
     <DragDropContext Scrollable onDragEnd={onDragEnd}>
-      <div className="flex flex-col text-base py-2 w-full min-h-screen gap-5 duration-300  mb-6 bg-[#f6f7f8] text-[#0061dd]">
+      <div className="flex flex-col text-base py-2 w-full min-h-max   gap-5 duration-300  mb-6 bg-[#f6f7f8] text-[#0061dd]">
         <div className="flex items-center flex-col my-5 ">
           {/* aca van los select de año de ingreso y grado*/}
           {/* <div style={{ display: "flex", width: "100%" }}>
@@ -135,7 +135,7 @@ useEffect(() => {
             <SelectCRM label="Año" />
           </div> */}
         </div>
-        <div className="flex flex-col text-base lg:flex-row justify-between gap-5 px-4">
+        <div className="flex flex-col text-base lg:flex-row justify-between  gap-5 px-4">
           {columnOrder?.map((columnId) => {
             const column = columns[columnId];
 
@@ -144,7 +144,7 @@ useEffect(() => {
             );
 
             return (
-              <Column key={column.id} column={column} tasksArr={tasksArr} />
+              <Column    key={column.id} column={column} tasksArr={tasksArr} />
             );
           })}
         </div>
