@@ -4,7 +4,7 @@ import Column from "./Column";
 import SelectCRM from "./CardsDrgAndDrp/SelectsCRM/SelectsCRM";
 import { useDispatch, useSelector } from "react-redux";
 
-import { updateTask, updateColumn, getCita} from "../redux/CitasActions";
+import { updateTask, updateColumn, getCita, getCitaDnD_filtros} from "../redux/CitasActions";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
 // const reorderColumnList = (sourceCol, startIndex, endIndex) => {
@@ -136,7 +136,7 @@ function DragAndDrop() {
       ...filterSelected,
       año: event.target.value,
     });
-    // dispatch(filtradoDnD(filterSelected));
+    dispatch(getCitaDnD_filtros(filterSelected));
   };
   const handleChangeStateGrado = (event) => {
     // let state = event.target.value;
@@ -147,7 +147,7 @@ function DragAndDrop() {
       grado: event.target.value,
     });
 
-    // dispatch(filtradoDnD(filterSelected));
+    dispatch(getCitaDnD_filtros(filterSelected));
   };
   const yearNow = new Date().getFullYear();
 

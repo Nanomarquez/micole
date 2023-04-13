@@ -27,7 +27,25 @@ export const getCita = () => (dispatch) => {
       // });
     });
 };
-
+export const getCitaDnD_filtros = (filtro) => (dispatch) => {
+  dispatch(isLoading());
+  console.log(filtro)
+  console.log(filtro.año)
+  const token = localStorage.getItem("token");
+  axios
+    .get(`/citas?grado=${filtro.grado}&año=${filtro.año}`, { headers: { Authorization: `Bearer ${token}` } })
+    .then((res) => {
+      console.log(res.data)
+      dispatch(getCitas(res.data))})
+    .catch((err) => {
+      dispatch(getError(err.response.data.error));
+      // Swal.fire({
+      //   icon: "error",
+      //   title: "Oops...",
+      //   text: err.response.data.error,
+      // });
+    });
+};
 export const updateTask = (taskId, NuevoEstado) => (dispatch) => {
   const idCita = taskId.idCita;
 
