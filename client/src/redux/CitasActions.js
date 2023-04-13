@@ -9,6 +9,7 @@ import {
   cleanSuccess,
   getCitasUsuario,
   getPagination,
+
 } from "./CitasSlice";
 import Swal from "sweetalert2";
 export const getCita = () => (dispatch) => {
@@ -94,10 +95,12 @@ export const cleanSuccessState = () => (dispatch) => {
 
 export const getCitaUsuario = (page) => (dispatch) => {
   dispatch(isLoading());
-  console.log(page)
+  console.log(page);
   const token = localStorage.getItem("token");
   axios
-    .get(`/citas/users?limit=5&page=${page}`, { headers: { Authorization: `Bearer ${token}` } })
+    .get(`/citas/users?limit=5&page=${page}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
     .then((res) => {
       dispatch(getPagination(res.data));
       dispatch(getCitasUsuario(res.data.CitasUsuario));
@@ -111,3 +114,4 @@ export const getCitaUsuario = (page) => (dispatch) => {
       });
     });
 };
+
