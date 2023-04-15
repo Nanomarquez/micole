@@ -56,6 +56,7 @@ import ModalLogin from "../components/ModalLogin/ModalLogin";
 import { setVacantesRedux } from "../redux/AuthActions";
 import SliderC from "../components/SliderC";
 import IconError from "../svg/IconError";
+import SecCitas from "../components/SchoolDetail-CITAS/SecCitas";
 function QuiltedImageList({ firstImage, gallery, setImage,setImages }) {
   return (
     <div className="w-full px-4">
@@ -1189,6 +1190,11 @@ setCita({
             </div> */}
           </section>
           <section className="right mt-5  flex flex-col gap-8 w-full">
+            <div className={style.divSwipperCitas}>
+                 <SecCitas data={horariosColegio}/>
+            </div>
+         
+            
             {listaParams === "true" ? (
               <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md w-full">
                 <h2 className="font-semibold text-xl">Lista de espera</h2>
