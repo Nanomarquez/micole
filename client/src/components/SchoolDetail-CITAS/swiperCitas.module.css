@@ -1,9 +1,22 @@
+.slider_container {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: row;
+    border-radius: 30px;
+    /* position: relative; */
+    width: 65vh;
+    /* max-height: 600px; */
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    /* height: 100%; */
+}
+
 .swiper {
     width: 100%;
     height: 100%;
-    /* text-align: center; */
-    padding: 2vh;
-
+    text-align: center;
 }
 
 .swiper_slide {
@@ -38,7 +51,36 @@ flexDirection: "column", */
     /* height: 20vh; */
     display: flex;
     flex-direction: column;
+    box-shadow: rgb(184, 184, 184) -5px 1px 10px, rgb(255, 255, 255) 0px 0px 0px;
 }
 .cardDia:hover{
     border: 2px solid #0061df;
+}
+.p{
+padding: 2px;
+    font-size: 1.9vh;
+    font-weight: 400;
+    color:#000000;
+    
+}
+.p_Selected{
+    padding: 2px;
+    font-size: 1.9vh;
+    font-weight: 500;
+    color:#0061df;
+}
+.p_desactiv{
+    padding: 2px;
+    font-size: 1.9vh;
+    font-weight: 400;
+    color:#434445;
+}
+.divBorderSelected{
+    /* border: 1.5px solid #0061df; */
+    border-radius: 2vh;
+    width: 100%;
+    height: 100%;
+    box-shadow: rgb(0, 97, 223) -1px 1px 1px  1px,rgb(0, 97, 223) 2px 0.5px 0.5px 0.5px;
+    display: flex;
+    flex-direction: column;
 }

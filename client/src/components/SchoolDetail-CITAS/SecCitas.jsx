@@ -18,10 +18,21 @@ import "swiper/css/scrollbar";
 // ---( SE PASAN DE STRING A PROPIEDADES )
 // --- EL FORMATO ADECUADO ES    'Jan': 'Ene'
 
-export default function SecCitas({ data }) {
+export default function SecCitas({ data,setStateBtn,stateBtn }) {
   //data es un obj que contiene las prefencias del colegio (las que configura en su dashboard)
   console.log(data);
+  const [toggleButton, setToggleButton] = useState(true);
+  
+  const nextButton = () => {
 
+    console.log('s')
+    setToggleButton(true);
+};
+
+const prevButton = () => {
+  console.log('a')
+    setToggleButton(false);
+};
   //-----------TOMA EL DIA ACTUAL---------------
   const tiempoTranscurrido = Date.now();
   const hoy = new Date(tiempoTranscurrido);
@@ -165,51 +176,63 @@ export default function SecCitas({ data }) {
   const CardsDia = ({diasSemana,fechadelDia,mesdelDia}) => {
     console.log(diasSemana,fechadelDia,mesdelDia)
     const [cardSelected, setCardSelected] = useState(false);
+
+  const handlerSelected =()=>{
+  setCardSelected(!cardSelected)
+}
+    
     return (
       <>
-        <p
-          style={{
-            fontSize: "1.9vh",
-            fontWeight: "400",
-            color: "#000000",
-          }}
+      <div  className={cardSelected && style.divBorderSelected }
+      onClick={handlerSelected}
+      >
+           <p
+          className={cardSelected ? style.p_Selected : style.p }
         >
           {diasSemana}
         </p>
         <p
-          style={{
-            fontSize: "2.5vh",
-            fontWeight: "500",
-            color: "#000000",
-          }}
+        className={cardSelected ? style.p_Selected : style.p }
         >
           {fechadelDia}
         </p>
         <p
-          style={{
-            fontSize: "1.9vh",
-            fontWeight: "400",
-            color: "#000000",
-          }}
+        className={cardSelected ? style.p_Selected : style.p }
         >
           {mesdelDia}
         </p>
+      </div>
+     
       </>
     );
   };
 
   return (
-    <div style={{ width: "65vh" }}>
+    <div className={style.slider_container}>
+   {/* <div className={style.games_slider_buttons_container }>
+                        <button
+                            onClick={prevButton}
+                            className={
+                                !toggleButton
+                                    ? `${style.prev_indi_colored}`
+                                    : `${style.prev_indi}`
+                            }
+                        >
+                         left
+                        </button>
+                     
+                    </div> */}
+
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={0}
         slidesPerView={5}
-        loop={true}
-        navigation={true}
-        loopFillGroupWithBlank={true}
-        //  pagination={{ clickable: true }}
-        //  scrollbar={{ draggable: true }}
-        // onSwiper={(swiper) => console.log(swiper)}
+    
+        grabCursor={true}
+        rewind={true}
+    
+         pagination={{ clickable: true }}
+     
 
         className={style.swiper}
       >
@@ -228,6 +251,7 @@ export default function SecCitas({ data }) {
                           fontSize: "1.9vh",
                           fontWeight: "400",
                           color: "#9E9999",
+                          padding:'2px'
                         }}
                       >
                         {diasSemana}
@@ -237,6 +261,7 @@ export default function SecCitas({ data }) {
                           fontSize: "2.5vh",
                           fontWeight: "500",
                           color: "#9E9999",
+                          
                         }}
                       >
                         {d.fecha}
@@ -259,6 +284,7 @@ export default function SecCitas({ data }) {
                           fontSize: "1.9vh",
                           fontWeight: "400",
                           color: "#9E9999",
+                          padding:'2px'
                         }}
                       >
                         {diasSemana}
@@ -322,6 +348,21 @@ export default function SecCitas({ data }) {
           );
         })}
       </Swiper>
+
+      <div className={style.games_slider_buttons_container }>
+
+   {/* <button
+       onClick={nextButton}
+      // className={
+      //  toggleButton
+      // ? `${style.next_indi_colored}`
+      // : `${style.next_indi}`
+      // }
+     >
+      right
+     </button> */}
+      </div>
+    
     </div>
   );
 }

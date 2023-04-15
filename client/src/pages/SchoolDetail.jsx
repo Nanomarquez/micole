@@ -439,6 +439,8 @@ setCita({
     }
   },[isAuth])
 
+
+
   return (
     <div className="bg-[#f6f7f8]">
       {images.open && <SliderC setImages={setImages} images={images.src}></SliderC>}
@@ -1191,7 +1193,7 @@ setCita({
           </section>
           <section className="right mt-5  flex flex-col gap-8 w-full">
             <div className={style.divSwipperCitas}>
-                 <SecCitas data={horariosColegio}/>
+                 <SecCitas  data={horariosColegio}/>
             </div>
          
             

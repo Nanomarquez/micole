@@ -55,6 +55,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  height: 20vh;
 }
 @media (max-width: 900px) {
   .divSwipperCitas{
