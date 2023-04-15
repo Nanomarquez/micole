@@ -184,7 +184,7 @@ export default function SecCitas({ data }) {
                 <SwiperSlide className={style.swiper_slide}>
                   <div
                     style={{
-                      border: "1px solid #494646",
+                      border: "1px solid #696969",
                       width: "10vh",
                       borderRadius: "2vh",
                       height: "20",
@@ -192,8 +192,74 @@ export default function SecCitas({ data }) {
                       flexDirection: "column",
                     }}
                   >
-                 
+                     {diasSemana === 'Sab' &&     <>
+                       <p
+                        style={{
+                          fontSize: "1.9vh",
+                          fontWeight: "400",
+                          color: "#9E9999",
+                        }}
+                      >
+                        {diasSemana}
+                      </p>
                       <p
+                      style={{
+                        fontSize: "2.5vh",
+                        fontWeight: "500",
+                        color: "#9E9999",
+                      }}
+                    >
+                      {d.fecha}
+                    </p>
+                    <p
+                      style={{
+                        fontSize: "1.9vh",
+                        fontWeight: "400",
+                        color: "#9E9999",
+                      }}
+                    >
+                      {d.mes}
+                    </p>
+                     </>}
+                     { diasSemana === 'Dom' &&  
+                     <>
+                       <p
+                        style={{
+                          fontSize: "1.9vh",
+                          fontWeight: "400",
+                          color: "#9E9999",
+                        }}
+                      >
+                        {diasSemana}
+                      </p>
+                      <p
+                      style={{
+                        fontSize: "2.5vh",
+                        fontWeight: "500",
+                        color: "#9E9999",
+                      }}
+                    >
+                      {d.fecha}
+                    </p>
+                    <p
+                      style={{
+                        fontSize: "1.9vh",
+                        fontWeight: "400",
+                        color: "#9E9999",
+                      }}
+                    >
+                      {d.mes}
+                    </p>
+                     </>
+
+                   
+                      
+                      }
+
+                      {diasSemana != 'Sab' &&diasSemana != 'Dom' && 
+                      <>
+                      
+                            <p
                         style={{
                           fontSize: "1.9vh",
                           fontWeight: "400",
@@ -202,9 +268,7 @@ export default function SecCitas({ data }) {
                       >
                         {diasSemana}
                       </p>
-                 
-
-                    <p
+                        <p
                       style={{
                         fontSize: "2.5vh",
                         fontWeight: "500",
@@ -222,6 +286,11 @@ export default function SecCitas({ data }) {
                     >
                       {d.mes}
                     </p>
+                      </>
+                
+                      }
+
+                  
                   </div>
                 </SwiperSlide>
               </>
