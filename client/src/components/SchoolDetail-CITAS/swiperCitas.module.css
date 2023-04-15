@@ -1,8 +1,9 @@
 .swiper {
     width: 100%;
     height: 100%;
-    text-align: center;
+    /* text-align: center; */
     padding: 2vh;
+
 }
 
 .swiper_slide {
@@ -22,59 +23,22 @@
     -webkit-align-items: center;
     align-items: center;
 }
+/* INDIE SLIDERS */
+/* border: "1px solid #696969",
+width: "10vh",
+borderRadius: "2vh",
+height: "20",
+display: "flex",
+flexDirection: "column", */
 
-/* .swiper_slide img {
-    display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-    border-radius: 10px ;
-} */
-
-/* .content {
-    position: absolute;
+.cardDia{
+    border: 1px solid #696969;
+    width: 10vh;
+    border-radius: 2vh;
+    /* height: 20vh; */
     display: flex;
-    text-align: center;
-    align-items: center;
-    top: 2%;
-    height: 95%;
-    width: 80%;
-    background: transparent;
-    left: 6vh;
-    padding: 8px 14px;
-    color: #fff;
-    font-family: "Poppins", sans-serif;
-} */
-
-
-
-/* .content p {
-    max-width: 350px;
-    font-size: 12px;
-    word-wrap: break-word;
-    
-    text-align: left;
-} */
-
-/* .content button {
-    display: flex;
-    background: #fff;
-    border-radius: 5px;
-    height: 50px;
-    max-width: 250px;
-    padding: 15px 25px;
-    color: #001d38;
-    font-weight: 500;
-    font-size: 15px;
-    margin-top: 15px;
-    font-family: "Poppins", sans-serif;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    letter-spacing: 0.5px;
-text-transform: uppercase;
-} */
-/* .content button:hover {
-    transform: scale(1.06);
-
-} */
+    flex-direction: column;
+}
+.cardDia:hover{
+    border: 2px solid #0061df;
+}

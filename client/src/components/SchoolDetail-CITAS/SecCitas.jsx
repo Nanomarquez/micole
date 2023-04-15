@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "./swiperCitas.module.css";
 import {
   Pagination,
@@ -14,17 +14,21 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
+//-----NO FORMATEAR EL CODIGO , SE MODIFICAN LOS ARRAYS
+// ---( SE PASAN DE STRING A PROPIEDADES )
+// --- EL FORMATO ADECUADO ES    'Jan': 'Ene'
+
 export default function SecCitas({ data }) {
   //data es un obj que contiene las prefencias del colegio (las que configura en su dashboard)
   console.log(data);
+
+  //-----------TOMA EL DIA ACTUAL---------------
   const tiempoTranscurrido = Date.now();
   const hoy = new Date(tiempoTranscurrido);
   const fecha = hoy.toDateString(); // "Sun Jun 14 2020"
   const formato = hoy.getDate();
-  const slices = fecha.slice(",");
 
-  //--------------------------
-
+  //-----------Separa el formato fecha en un array ---------------
   let partes = fecha.split(" ");
   let diaSemana = partes[0];
   let mes = partes[1];
@@ -32,25 +36,11 @@ export default function SecCitas({ data }) {
   let anio = partes[3];
   const arrSeprarado = [diaSemana, mes, dia, anio];
   //---------------
-  //   const nroDia =  fecha.getDay('Sun Jun 14 2020')
   console.log(formato);
   console.log(fecha);
   console.log(arrSeprarado);
-  //   function separarFecha(fecha) {
 
-  //     return [diaSemana, mes, dia, anio];
-  //   }
-  const formatoFinal = {
-    dia: "Viernes",
-    horarios: { desde: "16:20 ", hasta: "17:00 " },
-  };
-  const arrDiasEspañol = {
-    Viernes: "Fri",
-    Jueves: "Thurs",
-    Miercoles: "Wed",
-    Martes: "Tues",
-    Lunes: "Mon",
-  };
+  // Relacion dias abreviados en ingles con dias abreviados en español
   const arrDiasEspañolal = {
     'Sun': "Dom",
     'Sat': "Sab",
@@ -60,12 +50,13 @@ export default function SecCitas({ data }) {
     'Tues': "Mar",
     'Mon': " Lun",
   };
+  // Relacion meses abreviados en ingles con meses abreviados en español
   const monthsActual = {
     'Jan': "Ene",
     'Feb': "Feb",
     'Mar': "Mar",
     'Apr': "Abr",
-    'May': "May",
+   'May': "May",
     'Jun': "Jun",
     'Jul': "Jul",
     'Aug': "Ago",
@@ -74,6 +65,8 @@ export default function SecCitas({ data }) {
     'Nov': "Nov",
     'Dec': "Dic",
   };
+  // esta relacion la uso para ir sumando a la fecha actual (el nro del dia del mes)
+  // LOS ESPACIOS  deben estar de esa forma ya que no se puede tener un arr con el mismo valor de key
   const relacionNrosDias = {
     "Dom ": 14,
     "Sab ": 13,
@@ -82,6 +75,7 @@ export default function SecCitas({ data }) {
     "Mier ": 10,
     "Mar ": 9,
     "Lun ": 8,
+
     'Dom': 7,
     'Sab': 6,
     'Vier': 5,
@@ -90,9 +84,11 @@ export default function SecCitas({ data }) {
     'Mar': 2,
     'Lun': 1,
   };
+  // misma relacion pero al reves, se usa en el map para obtener el dia
   const NrosDias = {
     14: "Dom ",
     13: "Sab ",
+
     12: "Vier ",
     11: "Jue ",
     10: "Mier ",
@@ -113,7 +109,7 @@ export default function SecCitas({ data }) {
   const DiaActia = arrSeprarado[0];
   console.log(arrSeprarado[0]);
 
-  //   console.log(data.dia)
+  //  devuelve array ordenado con los dias y numeros de la semana
   const calDiasSemana = () => {
     console.log(DiaActia);
     const diaActualCarrusel = arrDiasEspañolal[DiaActia];
@@ -160,40 +156,74 @@ export default function SecCitas({ data }) {
     };
     return [ele0, ele1, ele2, ele3, ele4, ele5, ele6];
   };
+
+  //  ejecuta calDiasSemana y se guarda el array ordenado
   const arrCarruselOrdenado = calDiasSemana();
   console.log(arrCarruselOrdenado);
+
+  // card del dia + seleccion
+  const CardsDia = ({diasSemana,fechadelDia,mesdelDia}) => {
+    console.log(diasSemana,fechadelDia,mesdelDia)
+    const [cardSelected, setCardSelected] = useState(false);
+    return (
+      <>
+        <p
+          style={{
+            fontSize: "1.9vh",
+            fontWeight: "400",
+            color: "#000000",
+          }}
+        >
+          {diasSemana}
+        </p>
+        <p
+          style={{
+            fontSize: "2.5vh",
+            fontWeight: "500",
+            color: "#000000",
+          }}
+        >
+          {fechadelDia}
+        </p>
+        <p
+          style={{
+            fontSize: "1.9vh",
+            fontWeight: "400",
+            color: "#000000",
+          }}
+        >
+          {mesdelDia}
+        </p>
+      </>
+    );
+  };
+
   return (
     <div style={{ width: "65vh" }}>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
-        spaceBetween={2}
-        slidesPerView={4}
-        navigation
+        spaceBetween={0}
+        slidesPerView={5}
+        loop={true}
+        navigation={true}
+        loopFillGroupWithBlank={true}
         //  pagination={{ clickable: true }}
         //  scrollbar={{ draggable: true }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
+        // onSwiper={(swiper) => console.log(swiper)}
+
         className={style.swiper}
       >
         {arrCarruselOrdenado?.map((d) => {
           console.log(NrosDias[d.dia]);
           let diasSemana = NrosDias[d.dia];
-      
-            return (
-              <>
-                <SwiperSlide className={style.swiper_slide}>
-                  <div
-                    style={{
-                      border: "1px solid #696969",
-                      width: "10vh",
-                      borderRadius: "2vh",
-                      height: "20",
-                      display: "flex",
-                      flexDirection: "column",
-                    }}
-                  >
-                     {diasSemana === 'Sab' &&     <>
-                       <p
+
+          return (
+            <>
+              <SwiperSlide className={style.swiper_slide}>
+                <div className={style.cardDia}>
+                  {diasSemana === "Sab" && (
+                    <>
+                      <p
                         style={{
                           fontSize: "1.9vh",
                           fontWeight: "400",
@@ -203,27 +233,28 @@ export default function SecCitas({ data }) {
                         {diasSemana}
                       </p>
                       <p
-                      style={{
-                        fontSize: "2.5vh",
-                        fontWeight: "500",
-                        color: "#9E9999",
-                      }}
-                    >
-                      {d.fecha}
-                    </p>
-                    <p
-                      style={{
-                        fontSize: "1.9vh",
-                        fontWeight: "400",
-                        color: "#9E9999",
-                      }}
-                    >
-                      {d.mes}
-                    </p>
-                     </>}
-                     { diasSemana === 'Dom' &&  
-                     <>
-                       <p
+                        style={{
+                          fontSize: "2.5vh",
+                          fontWeight: "500",
+                          color: "#9E9999",
+                        }}
+                      >
+                        {d.fecha}
+                      </p>
+                      <p
+                        style={{
+                          fontSize: "1.9vh",
+                          fontWeight: "400",
+                          color: "#9E9999",
+                        }}
+                      >
+                        {d.mes}
+                      </p>
+                    </>
+                  )}
+                  {diasSemana === "Dom" && (
+                    <>
+                      <p
                         style={{
                           fontSize: "1.9vh",
                           fontWeight: "400",
@@ -233,68 +264,62 @@ export default function SecCitas({ data }) {
                         {diasSemana}
                       </p>
                       <p
-                      style={{
-                        fontSize: "2.5vh",
-                        fontWeight: "500",
-                        color: "#9E9999",
-                      }}
-                    >
-                      {d.fecha}
-                    </p>
-                    <p
-                      style={{
-                        fontSize: "1.9vh",
-                        fontWeight: "400",
-                        color: "#9E9999",
-                      }}
-                    >
-                      {d.mes}
-                    </p>
-                     </>
-
-                   
-                      
-                      }
-
-                      {diasSemana != 'Sab' &&diasSemana != 'Dom' && 
-                      <>
-                      
-                            <p
+                        style={{
+                          fontSize: "2.5vh",
+                          fontWeight: "500",
+                          color: "#9E9999",
+                        }}
+                      >
+                        {d.fecha}
+                      </p>
+                      <p
                         style={{
                           fontSize: "1.9vh",
                           fontWeight: "400",
-                          color: "#000000",
+                          color: "#9E9999",
                         }}
                       >
-                        {diasSemana}
+                        {d.mes}
                       </p>
-                        <p
-                      style={{
-                        fontSize: "2.5vh",
-                        fontWeight: "500",
-                        color: "#000000",
-                      }}
-                    >
-                      {d.fecha}
-                    </p>
-                    <p
-                      style={{
-                        fontSize: "1.9vh",
-                        fontWeight: "400",
-                        color: "#000000",
-                      }}
-                    >
-                      {d.mes}
-                    </p>
-                      </>
-                
-                      }
+                    </>
+                  )}
 
-                  
-                  </div>
-                </SwiperSlide>
-              </>
-            );
+                  {diasSemana != "Sab" && diasSemana != "Dom" && (
+                    // <>
+                    //   <p
+                    //     style={{
+                    //       fontSize: "1.9vh",
+                    //       fontWeight: "400",
+                    //       color: "#000000",
+                    //     }}
+                    //   >
+                    //     {diasSemana}
+                    //   </p>
+                    //   <p
+                    //     style={{
+                    //       fontSize: "2.5vh",
+                    //       fontWeight: "500",
+                    //       color: "#000000",
+                    //     }}
+                    //   >
+                    //     {d.fecha}
+                    //   </p>
+                    //   <p
+                    //     style={{
+                    //       fontSize: "1.9vh",
+                    //       fontWeight: "400",
+                    //       color: "#000000",
+                    //     }}
+                    //   >
+                    //     {d.mes}
+                    //   </p>
+                    // </>
+                    <CardsDia diasSemana={diasSemana} fechadelDia={d.fecha} mesdelDia={d.mes} />
+                  )}
+                </div>
+              </SwiperSlide>
+            </>
+          );
         })}
       </Swiper>
     </div>
