@@ -935,7 +935,7 @@ function DashboardSchool() {
     }));
 
     console.log(newDays);
-    dispatch(postHorariosVacantes(newDays,user.id));
+    dispatch(postHorariosVacantes(newDays));
     console.log(user.id)
     try {
       axios
