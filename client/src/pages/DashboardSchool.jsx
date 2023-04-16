@@ -869,7 +869,7 @@ function DashboardSchool() {
       ],
     },
     {
-      Mier: [
+      Mié : [
         dayjs("2014-08-18T08:00:00"),
         dayjs("2014-08-18T17:00:00"),
         true,
@@ -883,7 +883,7 @@ function DashboardSchool() {
       ],
     },
     {
-      Vier: [
+      Vie: [
         dayjs("2014-08-18T08:00:00"),
         dayjs("2014-08-18T17:00:00"),
         true,
