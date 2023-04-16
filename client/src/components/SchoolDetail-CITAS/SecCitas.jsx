@@ -29,7 +29,18 @@ export default function SecCitas({ data, setStateBtn, stateBtn }) {
   //  ejecuta calDiasSemana y se guarda el array ordenado
   const arrCarruselOrdenado = generarCalendario();
 
+  let disponibilidad = [
+    {
+      dia: 'Vie'
+    },
+    {
+      dia: 'Lun'
+    },
+    {
+      dia: 'Mar'
+    }
 
+  ]
 
   const CardsDia = ({ diasSemana, fechadelDia, mesdelDia }) => {
     console.log(diasSemana, fechadelDia, mesdelDia)
@@ -39,7 +50,7 @@ export default function SecCitas({ data, setStateBtn, stateBtn }) {
     const handlerSelected = () => {
       setCardSelected(!cardSelected)
     }
-    // aca se podria hacer de data 
+    const diaDisponible = disponibilidad.find((disponibilidadDia) => disponibilidadDia.dia ===diasSemana);
     return (
       <>
         {/* {
@@ -47,21 +58,21 @@ export default function SecCitas({ data, setStateBtn, stateBtn }) {
 
         })
       } */}
-        <div className={cardSelected && style.divBorderSelected}
+        <div className={cardSelected && diaDisponible && style.divBorderSelected   }
           onClick={handlerSelected}
         >
           <p
-            className={cardSelected ? style.p_Selected : style.p}
+            className={cardSelected && diaDisponible ? style.p_Selected : diaDisponible ? style.p : style.p_desactiv}
           >
             {diasSemana}
           </p>
           <p
-            className={cardSelected ? style.p_SelectedNumber : style.pNumber}
+            className={cardSelected && diaDisponible ? style.p_SelectedNumber :diaDisponible ? style.pNumber : style.p_desactiv }
           >
             {fechadelDia}
           </p>
           <p
-            className={cardSelected ? style.p_Selected : style.p}
+            className={cardSelected && diaDisponible ? style.p_Selected : diaDisponible ? style.p : style.p_desactiv}
           >
             {mesdelDia}
           </p>
