@@ -45,7 +45,7 @@ function App() {
     dispatch(getAllDepartaments());
     dispatch(getAllDistrits());
     dispatch(getAllProvincias());
-    dispatch(getAllInfraestructura());
+    // dispatch(getAllInfraestructura());
     dispatch(getAllPaises());
     dispatch(getAllNiveles());
     dispatch(getAllAfiliaciones());
