@@ -63,7 +63,12 @@ padding: 1px;
     color:#000000;
     
 }
-
+.p:hover{
+    color:  #0061df;
+}
+.pNumber:hover{
+    color:  #0061df;
+}
 /* style.p_SelectedNumber : style.pNumber */
 .p_SelectedNumber {
     /* padding: 2px; */
@@ -76,6 +81,12 @@ padding: 1px;
     font-size: 2.5vh;
     font-weight: 400;
     color:#000000;
+}
+.pNumberD {
+    /* padding: 2px; */
+    font-size: 2.5vh;
+    font-weight: 400;
+    color:#9E9999;
 }
 .p_Selected{
     padding: 1px;

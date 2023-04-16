@@ -50,20 +50,16 @@ export default function SecCitas({ data, setStateBtn, stateBtn }) {
     const handlerSelected = () => {
       console.log(diasSemana, fechadelDia, mesdelDia)
       setCardSelected(!cardSelected)
-  
+
     }
 
- 
-    const diaDisponible = disponibilidad.find((disponibilidadDia) => disponibilidadDia.dia ===diasSemana);
+
+    const diaDisponible = disponibilidad.find((disponibilidadDia) => disponibilidadDia.dia === diasSemana);
     return (
       <>
-        {/* {
-        mockData.map((d)=>{
 
-        })
-      } */}
-        <div className={cardSelected && diaDisponible && style.divBorderSelected   }
-          onClick={diaDisponible ? handlerSelected: null }
+        <div className={cardSelected && diaDisponible && style.divBorderSelected}
+          onClick={diaDisponible ? handlerSelected : null}
         >
           <p
             className={cardSelected && diaDisponible ? style.p_Selected : diaDisponible ? style.p : style.p_desactiv}
@@ -71,7 +67,7 @@ export default function SecCitas({ data, setStateBtn, stateBtn }) {
             {diasSemana}
           </p>
           <p
-            className={cardSelected && diaDisponible ? style.p_SelectedNumber :diaDisponible ? style.pNumber :style.p_desactiv }
+            className={cardSelected && diaDisponible ? style.p_SelectedNumber : diaDisponible ? style.pNumber : style.p_desactiv}
           >
             {fechadelDia}
           </p>
@@ -85,42 +81,7 @@ export default function SecCitas({ data, setStateBtn, stateBtn }) {
       </>
     );
   };
-  const CardsDiaDesactivados = ({ diasSemana, fechadelDia, mesdelDia }) => {
-    console.log(diasSemana, fechadelDia, mesdelDia)
-    const [cardSelected, setCardSelected] = useState(false);
 
-
-    const handlerSelected = () => {
-      setCardSelected(!cardSelected)
-    }
-
-    return (
-      <>
-
-        <div
-          className={cardSelected && style.divBorderSelected}
-          onClick={handlerSelected}
-        >
-          <p
-            className={style.p_desactiv}
-          >
-            {diasSemana}
-          </p>
-          <p
-            className={style.p_desactiv}
-          >
-            {fechadelDia}
-          </p>
-          <p
-            className={style.p_desactiv}
-          >
-            {mesdelDia}
-          </p>
-        </div>
-
-      </>
-    );
-  };
   const arrLimpio = arrCarruselOrdenado.filter((ele) => ele.dia != "")
   return (
     <div className={style.slider_container}>
