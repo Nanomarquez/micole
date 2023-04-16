@@ -97,14 +97,14 @@ const prevButton = () => {
   };
   // misma relacion pero al reves, se usa en el map para obtener el dia
   const NrosDias = {
-    14: "Dom ",
-    13: "Sab ",
+    14: "Dom",
+    13: "Sab",
 
-    12: "Vier ",
-    11: "Jue ",
-    10: "Mier ",
-    9: "Mar ",
-    8: "Lun ",
+    12: "Vier",
+    11: "Jue",
+    10: "Mier",
+    9: "Mar",
+    8: "Lun",
 
     7: "Dom",
     6: "Sab",
@@ -173,16 +173,52 @@ const prevButton = () => {
   console.log(arrCarruselOrdenado);
 
   // card del dia + seleccion
+  const mockData =[
+    {
+      id: '66ab0147-3077-4b57-845e-53cad5ee788c',
+      dia: 'Vier',
+      horarios: { desde: '08:00', hasta: '17:00' },
+      ColegioId: '10f6cec7-e37e-4313-8827-2b63727a5651'
+    },
+    {
+      id: 'a02758bb-d980-4e9c-910c-29edc96c929d',
+      dia: 'Mar',
+      horarios: { desde: '11:00', hasta: '12:00' },
+      ColegioId: '10f6cec7-e37e-4313-8827-2b63727a5651'
+    },
+    {
+      id: '77107b28-c56f-4c26-b712-20272ec3ac7f',
+      dia: 'Lun',
+      horarios: { desde: '09:00', hasta: '12:00' },
+      ColegioId: '10f6cec7-e37e-4313-8827-2b63727a5651'
+    },
+  ]
+
+  const relacionDiasAbreviadosEspañol ={
+    'Viernes':'Vier',
+    'Jueves':'Jue',
+    'Miercoles' :'Mier',
+    'Martes':'Mar',
+    'Lunes':'Lun',
+  }
   const CardsDia = ({diasSemana,fechadelDia,mesdelDia}) => {
     console.log(diasSemana,fechadelDia,mesdelDia)
     const [cardSelected, setCardSelected] = useState(false);
-
+const diasSemenaDispo = mockData.map((ele) => {
+  return relacionDiasAbreviadosEspañol[ele.di]
+})
+console.log(diasSemenaDispo)
   const handlerSelected =()=>{
   setCardSelected(!cardSelected)
 }
-    
+    // aca se podria hacer de data 
     return (
       <>
+      {/* {
+        mockData.map((d)=>{
+
+        })
+      } */}
       <div  className={cardSelected && style.divBorderSelected }
       onClick={handlerSelected}
       >
@@ -206,22 +242,46 @@ const prevButton = () => {
       </>
     );
   };
+  const CardsDiaDesactivados = ({diasSemana,fechadelDia,mesdelDia}) => {
+    console.log(diasSemana,fechadelDia,mesdelDia)
+    const [cardSelected, setCardSelected] = useState(false);
 
+
+  const handlerSelected =()=>{
+  setCardSelected(!cardSelected)
+}
+
+    return (
+      <>
+   
+      <div  
+      className={cardSelected && style.divBorderSelected }
+      onClick={handlerSelected}
+      >
+           <p
+          className={style.p_desactiv }
+        >
+          {diasSemana}
+        </p>
+        <p
+        className={style.p_desactiv }
+        >
+          {fechadelDia}
+        </p>
+        <p
+        className={style.p_desactiv }
+        >
+          {mesdelDia}
+        </p>
+      </div>
+     
+      </>
+    );
+  };
   return (
     <div className={style.slider_container}>
-   {/* <div className={style.games_slider_buttons_container }>
-                        <button
-                            onClick={prevButton}
-                            className={
-                                !toggleButton
-                                    ? `${style.prev_indi_colored}`
-                                    : `${style.prev_indi}`
-                            }
-                        >
-                         left
-                        </button>
-                     
-                    </div> */}
+  
+               
 
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -239,10 +299,11 @@ const prevButton = () => {
         {arrCarruselOrdenado?.map((d) => {
           console.log(NrosDias[d.dia]);
           let diasSemana = NrosDias[d.dia];
-
+  console.log(diasSemana)
           return (
             <>
               <SwiperSlide className={style.swiper_slide}>
+                
                 <div className={style.cardDia}>
                   {diasSemana === "Sab" && (
                     <>
@@ -311,36 +372,26 @@ const prevButton = () => {
                   )}
 
                   {diasSemana != "Sab" && diasSemana != "Dom" && (
-                    // <>
-                    //   <p
-                    //     style={{
-                    //       fontSize: "1.9vh",
-                    //       fontWeight: "400",
-                    //       color: "#000000",
-                    //     }}
-                    //   >
-                    //     {diasSemana}
-                    //   </p>
-                    //   <p
-                    //     style={{
-                    //       fontSize: "2.5vh",
-                    //       fontWeight: "500",
-                    //       color: "#000000",
-                    //     }}
-                    //   >
-                    //     {d.fecha}
-                    //   </p>
-                    //   <p
-                    //     style={{
-                    //       fontSize: "1.9vh",
-                    //       fontWeight: "400",
-                    //       color: "#000000",
-                    //     }}
-                    //   >
-                    //     {d.mes}
-                    //   </p>
-                    // </>
-                    <CardsDia diasSemana={diasSemana} fechadelDia={d.fecha} mesdelDia={d.mes} />
+                    <>
+                  {  mockData.map((ele)=>(
+                      <>  
+                      
+                       {   
+                    ele.dia === diasSemana ? 
+                      <CardsDia diasSemana={diasSemana} fechadelDia={d.fecha} mesdelDia={d.mes} />
+                     :
+                     
+                     <CardsDiaDesactivados diasSemana={diasSemana} fechadelDia={d.fecha} mesdelDia={d.mes}  />
+                    }
+                      </>
+                 
+               
+             
+                     // ele.dia != diasSemana && <CardsDiaDesactivados/>
+                ))}
+                    
+                    </>
+                  
                   )}
                 </div>
               </SwiperSlide>

@@ -859,31 +859,31 @@ function DashboardSchool() {
 
   const initialDaysWithTime = [
     {
-      Lunes: [dayjs("2014-08-18T08:00:00"), dayjs("2014-08-18T17:00:00"), true],
+      Lun: [dayjs("2014-08-18T08:00:00"), dayjs("2014-08-18T17:00:00"), true],
     },
     {
-      Martes: [
+      Mar: [
         dayjs("2014-08-18T08:00:00"),
         dayjs("2014-08-18T17:00:00"),
         true,
       ],
     },
     {
-      Miercoles: [
+      Mier: [
         dayjs("2014-08-18T08:00:00"),
         dayjs("2014-08-18T17:00:00"),
         true,
       ],
     },
     {
-      Jueves: [
+      Jue: [
         dayjs("2014-08-18T08:00:00"),
         dayjs("2014-08-18T17:00:00"),
         true,
       ],
     },
     {
-      Viernes: [
+      Vier: [
         dayjs("2014-08-18T08:00:00"),
         dayjs("2014-08-18T17:00:00"),
         true,
@@ -3042,6 +3042,7 @@ function DashboardSchool() {
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <div className="grid lg:grid-cols-3 w-full grid-cols-2">
                 {daysWithTime.map((day, index) => (
+                  
                   <div className="my-3">
                     <FormControlLabel
                       label={Object.keys(day)}
