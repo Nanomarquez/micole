@@ -53,9 +53,7 @@ export default function SecCitas({ data, setStateBtn, stateBtn }) {
   
     }
 
-    const handlerNodispo = () => {
-      alert('no puedes selecionar este dia')
-    }
+ 
     const diaDisponible = disponibilidad.find((disponibilidadDia) => disponibilidadDia.dia ===diasSemana);
     return (
       <>
