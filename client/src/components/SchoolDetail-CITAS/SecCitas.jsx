@@ -54,7 +54,7 @@ export default function SecCitas({ data, setStateBtn, stateBtn }) {
     }
 
 
-    const diaDisponible = disponibilidad.find((disponibilidadDia) => disponibilidadDia.dia === diasSemana);
+    const diaDisponible = data?.find((disponibilidadDia) => disponibilidadDia.dia === diasSemana);
     return (
       <>
 
@@ -125,7 +125,7 @@ export default function SecCitas({ data, setStateBtn, stateBtn }) {
                         <p
                           style={{
                             fontSize: "1.9vh",
-                            fontWeight: "500",
+                            fontWeight: "400",
                             color: "#9E9999",
                             padding: '2px'
                           }}
@@ -137,6 +137,7 @@ export default function SecCitas({ data, setStateBtn, stateBtn }) {
                             fontSize: "1.9vh",
                             fontWeight: "400",
                             color: "#9E9999",
+                            padding: '2px'
                           }}
                         >
                           {d.mes}
@@ -158,8 +159,9 @@ export default function SecCitas({ data, setStateBtn, stateBtn }) {
                         <p
                           style={{
                             fontSize: "1.9vh",
-                            fontWeight: "500",
+                            fontWeight: "400",
                             color: "#9E9999",
+                            padding: '2px'
                           }}
                         >
                           {d.dia}
