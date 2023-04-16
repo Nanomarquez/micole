@@ -71,7 +71,7 @@ export default function SecCitas({ data, setStateBtn, stateBtn }) {
             {diasSemana}
           </p>
           <p
-            className={cardSelected && diaDisponible ? style.p_SelectedNumber :diaDisponible ? style.pNumber : style.p_desactiv }
+            className={cardSelected && diaDisponible ? style.p_SelectedNumber :diaDisponible ? style.pNumber :style.p_desactiv }
           >
             {fechadelDia}
           </p>
@@ -163,9 +163,10 @@ export default function SecCitas({ data, setStateBtn, stateBtn }) {
                         </p>
                         <p
                           style={{
-                            fontSize: "2.5vh",
+                            fontSize: "1.9vh",
                             fontWeight: "500",
                             color: "#9E9999",
+                            padding: '2px'
                           }}
                         >
                           {d.dia}
@@ -195,7 +196,7 @@ export default function SecCitas({ data, setStateBtn, stateBtn }) {
                         </p>
                         <p
                           style={{
-                            fontSize: "2.5vh",
+                            fontSize: "1.9vh",
                             fontWeight: "500",
                             color: "#9E9999",
                           }}
@@ -207,6 +208,7 @@ export default function SecCitas({ data, setStateBtn, stateBtn }) {
                             fontSize: "1.9vh",
                             fontWeight: "400",
                             color: "#9E9999",
+                            padding: '2px'
                           }}
                         >
                           {d.mes}
