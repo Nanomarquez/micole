@@ -178,19 +178,37 @@ const prevButton = () => {
       id: '66ab0147-3077-4b57-845e-53cad5ee788c',
       dia: 'Vier',
       horarios: { desde: '08:00', hasta: '17:00' },
-      ColegioId: '10f6cec7-e37e-4313-8827-2b63727a5651'
+      ColegioId: '10f6cec7-e37e-4313-8827-2b63727a5651',
+      disponible: true
+    },
+    {
+      id: '66ab0147-3077-4b57-845e-53cad5ee788c',
+      dia: 'Jue',
+      horarios: { desde: '08:00', hasta: '17:00' },
+      ColegioId: '10f6cec7-e37e-4313-8827-2b63727a5651',
+      disponible: true
+    },
+    {
+      id: '66ab0147-3077-4b57-845e-53cad5ee788c',
+      dia: 'Mier',
+      horarios: { desde: '08:00', hasta: '17:00' },
+      ColegioId: '10f6cec7-e37e-4313-8827-2b63727a5651',
+      disponible: false
     },
     {
       id: 'a02758bb-d980-4e9c-910c-29edc96c929d',
       dia: 'Mar',
       horarios: { desde: '11:00', hasta: '12:00' },
-      ColegioId: '10f6cec7-e37e-4313-8827-2b63727a5651'
+      ColegioId: '10f6cec7-e37e-4313-8827-2b63727a5651',
+      disponible: false
     },
     {
       id: '77107b28-c56f-4c26-b712-20272ec3ac7f',
       dia: 'Lun',
       horarios: { desde: '09:00', hasta: '12:00' },
-      ColegioId: '10f6cec7-e37e-4313-8827-2b63727a5651'
+      ColegioId: '10f6cec7-e37e-4313-8827-2b63727a5651',
+      disponible: true
+
     },
   ]
 
@@ -374,26 +392,26 @@ console.log(diasSemenaDispo)
                   {diasSemana != "Sab" && diasSemana != "Dom" && (
                     <>
                   {  mockData.map((ele)=>(
-                      <>  
-                      
-                       {   
-                    ele.dia === diasSemana ? 
-                      <CardsDia diasSemana={diasSemana} fechadelDia={d.fecha} mesdelDia={d.mes} />
-                     :
+                  
                      
-                     <CardsDiaDesactivados diasSemana={diasSemana} fechadelDia={d.fecha} mesdelDia={d.mes}  />
-                    }
-                      </>
+                    ele.dia === diasSemana &&
+                      <CardsDia diasSemana={diasSemana} fechadelDia={d.fecha} mesdelDia={d.mes} />
+                    
+                    
+                  
+                    
                  
                
              
-                     // ele.dia != diasSemana && <CardsDiaDesactivados/>
+                     // ele.dia != diasSemana && <CardsDiaDesactivados/>{/* <CardsDiaDesactivados diasSemana={diasSemana} fechadelDia={d.fecha} mesdelDia={d.mes}  /> */}
                 ))}
-                    
+                 
                     </>
                   
                   )}
+               
                 </div>
+              
               </SwiperSlide>
             </>
           );
