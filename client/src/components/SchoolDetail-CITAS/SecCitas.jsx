@@ -48,7 +48,13 @@ export default function SecCitas({ data, setStateBtn, stateBtn }) {
 
 
     const handlerSelected = () => {
+      console.log(diasSemana, fechadelDia, mesdelDia)
       setCardSelected(!cardSelected)
+  
+    }
+
+    const handlerNodispo = () => {
+      alert('no puedes selecionar este dia')
     }
     const diaDisponible = disponibilidad.find((disponibilidadDia) => disponibilidadDia.dia ===diasSemana);
     return (
@@ -59,7 +65,7 @@ export default function SecCitas({ data, setStateBtn, stateBtn }) {
         })
       } */}
         <div className={cardSelected && diaDisponible && style.divBorderSelected   }
-          onClick={handlerSelected}
+          onClick={diaDisponible ? handlerSelected: null }
         >
           <p
             className={cardSelected && diaDisponible ? style.p_Selected : diaDisponible ? style.p : style.p_desactiv}
