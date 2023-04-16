@@ -1,45 +1,40 @@
 function generarCalendario() {
-    const fecha = new Date(); // Creamos una instancia de la fecha actual
-    const anio = fecha.getFullYear(); // Obtenemos el año actual
-    const mes = fecha.getMonth() + 1; // Obtenemos el mes actual
-    const dia = fecha.getDate(); // Obtenemos el día actual
-    
-    const diasEnMes = new Date(anio, mes, 0).getDate(); // Obtenemos la cantidad de días en el mes
-    
-    const diasSemana = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']; // Array con los días de la semana
-    
-    const calendario = []; // Array donde almacenaremos el calendario
-    
-    // Agregamos los días del mes al calendario
-    for (let i = 1; i <= diasEnMes; i++) {
-      const diaSemana = diasSemana[fecha.getDay()]; // Obtenemos el día de la semana correspondiente a la fecha actual
-      if (i === 1) { // Si es el primer día del mes, agregamos los días de la semana anteriores que pertenecen al mes anterior
-        for (let j = 0; j < diasSemana.indexOf(diaSemana); j++) {
-          calendario.push('');
-        }
-      }
-      calendario.push(i); // Agregamos el día al calendario
-      if (i === diasEnMes) { // Si es el último día del mes, agregamos los días de la semana posteriores que pertenecen al mes siguiente
-        for (let j = diasSemana.indexOf(diaSemana) + 1; j < 7; j++) {
-          calendario.push('');
-        }
-      }
-      fecha.setDate(fecha.getDate() + 1); // Incrementamos la fecha para agregar el siguiente día
+  const fecha = new Date();
+  fecha.setHours(fecha.getHours()-3) // Convertimos la fecha a la zona horaria de Perú/Argentina/Chile
+  const anio = fecha.getFullYear();
+  const mes = fecha.getMonth();
+  const dia = fecha.getDate();
+
+  const diasSemana = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+  const mesesAbreviados = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+  
+  const calendario = [];
+  
+  // Agregamos los días del mes al calendario a partir del día actual y hasta 2 semanas después
+  for (let i = dia; i <= dia + 13; i++) {
+    const fechaActual = new Date(anio, mes, i);
+    const diaSemana = diasSemana[fechaActual.getDay()];
+    if (fechaActual.getMonth() === mes) {
+      calendario.push({ diaSemana, mes: mesesAbreviados[mes], dia: i });
+    } else {
+      break; // Si el día ya no pertenece al mes actual, salimos del bucle
     }
-    
-    // Agregamos los días de la semana del mes actual al principio del array
-    for (let i = diasSemana.indexOf(diasSemana[fecha.getDay()]); i < diasSemana.length; i++) {
-      calendario.unshift(diasSemana[i]);
-    }
-    
-    // Agregamos los días de la semana del mes anterior al principio del array
-    const fechaMesAnterior = new Date(anio, mes - 1, 0);
-    for (let i = diasSemana.indexOf(diasSemana[fechaMesAnterior.getDay()]); i >= 0; i--) {
-      calendario.unshift('');
-    }
-    
-    return calendario;
   }
+  
+  // Agregamos los días de la semana del mes actual al principio del array
+  for (let i = diasSemana.indexOf(diasSemana[fecha.getDay()]); i < diasSemana.length; i++) {
+    calendario.unshift({ diaSemana: diasSemana[i], mes: mesesAbreviados[mes], dia: '' });
+  }
+  
+  // Agregamos los días de la semana del mes anterior al principio del array
+  const fechaMesAnterior = new Date(anio, mes, 0);
+  for (let i = diasSemana.indexOf(diasSemana[fechaMesAnterior.getDay()]); i >= 0; i--) {
+    calendario.unshift({ diaSemana: diasSemana[i], mes: mesesAbreviados[mes - 1], dia: '' });
+  }
+  
+  return calendario.slice(diasSemana.indexOf(diasSemana[fecha.getDay()]));
+}
 
 
-  generarCalendario() 
+
+export  default generarCalendario
