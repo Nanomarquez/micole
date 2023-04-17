@@ -58,6 +58,59 @@ function abreviarDiasAlRevez(data) {
     dia: diasAbreviados[item.dia],
   }));
 }
+const CardsDia = ({ diasSemana, fechadelDia, mesdelDia,  onCardSelect }) => {
+  const { oneSchool, grados, horariosColegio } = useSelector(
+    (state) => state.schools
+  );
+  console.log(diasSemana, fechadelDia, mesdelDia)
+  const [cardSelected, setCardSelected] = useState(false);
+  const [selectedCardHorario, setSelectedCardHorario] = useState([]);
+
+  const dataAbreviada = abreviarDias(horariosColegio)
+  console.log(dataAbreviada)
+
+
+
+  const diaDisponible = dataAbreviada?.find((disponibilidadDia) => disponibilidadDia.dia === diasSemana);
+  console.log(diaDisponible)
+
+  const handlerSelected = (e,horarios) => {
+    console.log(diasSemana, fechadelDia, mesdelDia,horarios)
+  
+    setCardSelected(!cardSelected)
+    console.log(horarios)
+    onCardSelect(horarios)
+    console.log(horarios)
+ 
+
+  }
+
+  return (
+    <>
+
+      <div className={cardSelected && diaDisponible && style.divBorderSelected}
+        onClick={diaDisponible ? (e) => handlerSelected(e, diaDisponible) : null}
+      >
+        <p
+          className={cardSelected && diaDisponible ? style.p_Selected : diaDisponible ? style.p : style.p_desactiv}
+        >
+          {diasSemana}
+        </p>
+        <p
+          className={cardSelected && diaDisponible ? style.p_SelectedNumber : diaDisponible ? style.pNumber : style.p_desactiv}
+        >
+          {fechadelDia}
+        </p>
+        <p
+          className={cardSelected && diaDisponible ? style.p_Selected : diaDisponible ? style.p : style.p_desactiv}
+        >
+          {mesdelDia}
+        </p>
+      </div>
+
+    </>
+  );
+};
 export default function SecCitas() {
 
   const { oneSchool, grados, horariosColegio } = useSelector(
@@ -80,7 +133,11 @@ export default function SecCitas() {
 
   }
   // Se generan las cards y se ponen en color gris segun la disponibilidad del colegio
-  const HorariosColegio = (diaSelecionado) => {
+  const HorariosColegio = ({diaSelecionado}) => {
+    const [horarioColegio, setHorarioColegio] = useState('')
+    const handleChangeHora=(e)=>{
+      setHorarioColegio(e.target.value)
+    }
     console.log(diaSelecionado)
     const diasAbreviados = {
       Dom: 'Domingo',
@@ -96,6 +153,7 @@ export default function SecCitas() {
       ...item,
       dia: diasAbreviados[item.dia],
     }));
+    console.log(arrDias)
     return (
       <FormControl
         // variant="standard"
@@ -108,21 +166,21 @@ export default function SecCitas() {
           sx={{ border: "none", outline: "none", fontSize: "2vh" }}
           labelId="demo-select-small"
           id="demo-select-small"
-          value={orderSelected}
+          value={horarioColegio}
           label={"Horarios"}
-          onChange={handleChangeState}
+          onChange={handleChangeHora}
         >
           {arrDias?.map((ele) => {
             return (
-              <div>
-                <ListSubheader>{ele.dia}</ListSubheader>
+           
+       
 
                 <MenuItem key={ele.id} value={ele.horarios.hasta}>
                   {ele.horarios.desde}/{ele.horarios.hasta}
 
                 </MenuItem>
 
-              </div>
+           
 
 
             )
@@ -134,55 +192,7 @@ export default function SecCitas() {
 
   }
 
-  const CardsDia = ({ diasSemana, fechadelDia, mesdelDia,  onCardSelect }) => {
-    console.log(diasSemana, fechadelDia, mesdelDia)
-    const [cardSelected, setCardSelected] = useState(false);
-    const [selectedCardHorario, setSelectedCardHorario] = useState([]);
 
-    const dataAbreviada = abreviarDias(horariosColegio)
-    console.log(dataAbreviada)
-
-
-
-    const diaDisponible = dataAbreviada?.find((disponibilidadDia) => disponibilidadDia.dia === diasSemana);
-    console.log(diaDisponible)
-
-    const handlerSelected = (e,horarios) => {
-      console.log(diasSemana, fechadelDia, mesdelDia)
-    
-      setCardSelected(!cardSelected)
-      onCardSelect(horarios)
-      console.log(horarios)
-   
-
-    }
-  
-    return (
-      <>
-
-        <div className={cardSelected && diaDisponible && style.divBorderSelected}
-          onClick={diaDisponible ? (e) => handlerSelected() : null}
-        >
-          <p
-            className={cardSelected && diaDisponible ? style.p_Selected : diaDisponible ? style.p : style.p_desactiv}
-          >
-            {diasSemana}
-          </p>
-          <p
-            className={cardSelected && diaDisponible ? style.p_SelectedNumber : diaDisponible ? style.pNumber : style.p_desactiv}
-          >
-            {fechadelDia}
-          </p>
-          <p
-            className={cardSelected && diaDisponible ? style.p_Selected : diaDisponible ? style.p : style.p_desactiv}
-          >
-            {mesdelDia}
-          </p>
-        </div>
-
-      </>
-    );
-  };
 
   // Se filtran los cbjetos con strings vacios, ya que los dias pasados a la semana pasada se guardan de esa manera 
   const arrLimpio = arrCarruselOrdenado.filter((ele) => ele.dia != "")
@@ -195,7 +205,9 @@ export default function SecCitas() {
   //   dia: diasAbreviados[item.dia],
   // }));
   const handleCardSelect = (card) => {
-    setSelectedCard(card);
+    console.log(card)
+    setSelectedCard([card]);
+    console.log(selectedCard)
   };
   console.log(selectedCard)
   return (
@@ -218,7 +230,7 @@ export default function SecCitas() {
 
           {arrLimpio?.map((d) => {
 
-            console.log(d)
+            // console.log(d)
             return (
               <>
                 <SwiperSlide className={style.swiper_slide}>
@@ -315,7 +327,7 @@ export default function SecCitas() {
         <div style={{ display: 'flex', justifyContent: 'flex-start', width: '100%' }}>
           <div style={{ display: "flex", alignItems: "flex-end", gap: "1vh" }}>
             {/* <p className={style.pSig}>Ordenar por </p> */}
-            {/* <HorariosColegio/> */}
+           <HorariosColegio diaSelecionado={selectedCard} />
           </div>
         </div>
 
