@@ -113,9 +113,7 @@ const CardsDia = ({ diasSemana, fechadelDia, mesdelDia,  onCardSelect }) => {
 };
 export default function SecCitas() {
 
-  const { oneSchool, grados, horariosColegio } = useSelector(
-    (state) => state.schools
-  );
+
 
   const [orderSelected, setOrderSelected] = useState("");
 
@@ -132,11 +130,12 @@ export default function SecCitas() {
     setOrderSelected(state);
 
   }
-  // Se generan las cards y se ponen en color gris segun la disponibilidad del colegio
+  //este componente devuelve el drop de horarios segun la card seleccionada
   const HorariosColegio = ({diaSelecionado}) => {
     const [horarioColegio, setHorarioColegio] = useState('')
     const handleChangeHora=(e)=>{
       setHorarioColegio(e.target.value)
+      // aca mandar la info del dia y hora hacia school detail
     }
     console.log(diaSelecionado)
     const diasAbreviados = {
@@ -199,17 +198,13 @@ export default function SecCitas() {
 
 
   const [selectedCard, setSelectedCard] = useState(null);
-  // console.log(horarioDiaSelecionado)
-  // const arrDias = horarioDiaSelecionado?.map((item) => ({
-  //   ...item,
-  //   dia: diasAbreviados[item.dia],
-  // }));
+
   const handleCardSelect = (card) => {
     console.log(card)
     setSelectedCard([card]);
     console.log(selectedCard)
   };
-  console.log(selectedCard)
+
   return (
     <>
 
@@ -326,7 +321,7 @@ export default function SecCitas() {
 
         <div style={{ display: 'flex', justifyContent: 'flex-start', width: '100%' }}>
           <div style={{ display: "flex", alignItems: "flex-end", gap: "1vh" }}>
-            {/* <p className={style.pSig}>Ordenar por </p> */}
+            {/* <p className={style.pSig}>Horarios </p> */}
            <HorariosColegio diaSelecionado={selectedCard} />
           </div>
         </div>
