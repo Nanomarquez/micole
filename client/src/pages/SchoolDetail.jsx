@@ -1192,9 +1192,7 @@ setCita({
             </div> */}
           </section>
           <section className="right mt-5  flex flex-col gap-8 w-full">
-            <div className={style.divSwipperCitas}>
-                 <SecCitas  data={horariosColegio}/>
-            </div>
+           
          
             
             {listaParams === "true" ? (
@@ -1301,133 +1299,9 @@ setCita({
             ) : (
               <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md w-full">
                 <h2 className="font-semibold text-xl">Solicitar una visita</h2>
-                <div
-                  onClick={toggleHorarios}
-                  style={{ display: "flex", gap: "10px", alignItems: "center" }}
-                >
-                  {Horarios && (
-                    <>
-                      <p>Ver la disponibilidad horaria de este colegio </p>
-                      <HiChevronDown
-                        data-aos-duration="400"
-                        data-aos="flip-down"
-                      />
-                    </>
-                  )}
-                  {Horarios === false && (
-                    <>
-                      <p>Ver la disponibilidad horaria de este colegio </p>
-                      <HiChevronLeft
-                        data-aos-duration="400"
-                        data-aos="flip-left"
-                      />
-                    </>
-                  )}
-                </div>
-                {Horarios && (
-                  <>
-                    <div className={style.Layout}>
-                      {horariosColegio &&
-                        horariosColegio?.map((ele) => {
-                          console.log(ele.horarios[0]);
-                          if (
-                            ele.horarios[0]?.desde != undefined &&
-                            ele.horarios[0]?.hasta != undefined
-                          ) {
-                            return (
-                              <>
-                                <div
-                                  // si vacantes estan agotadas deberia aparecer todo en gris
-
-                                  className={style.cardTable}
-                                >
-                                  <Card
-                                    sx={{
-                                      display: "flex",
-                                      gap: "10px",
-                                      flexDirection: "column",
-                                      alignItems: "center",
-                                      padding: "10px",
-                                    }}
-                                  >
-                                    <p
-                                      style={{
-                                        fontSize: "14px",
-                                        color: "#515151",
-                                        fontWeight: "700",
-                                      }}
-                                    >
-                                      {ele.dia}
-                                    </p>
-                                    <div
-                                      style={{
-                                        display: "flex",
-                                        gap: "10px",
-                                        fontSize: "12px",
-                                        flexDirection: "column",
-                                      }}
-                                    >
-                                      <p>
-                                        {ele.horarios[0]?.desde +
-                                          " " +
-                                          es_AM_PM(ele.horarios[0]?.desde)}{" "}
-                                      </p>
-
-                                      <p>
-                                        {ele.horarios[0]?.hasta +
-                                          " " +
-                                          es_AM_PM(ele.horarios[0]?.hasta)}{" "}
-                                      </p>
-                                    </div>
-                                  </Card>
-                                </div>
-                              </>
-                            );
-                          } else {
-                            return (
-                              <>
-                                <div
-                                  // si vacantes estan agotadas deberia aparecer todo en gris
-
-                                  className={style.cardTable}
-                                >
-                                  {/* <Card
-                                    sx={{
-                                      display: "flex",
-                                      gap: "10px",
-                                      flexDirection: "column",
-                                      alignItems: "center",
-                                      padding: "10px",
-                                    }}
-                                  >
-                                    <p
-                                      style={{
-                                        fontSize: "14px",
-                                        color: "#515151",
-                                        fontWeight: "700",
-                                      }}
-                                    >
-                                      {ele.dia}
-                                    </p>
-                                    <div
-                                      style={{
-                                        display: "flex",
-                                        gap: "10px",
-                                        fontSize: "12px",
-                                        flexDirection: "column",
-                                      }}
-                                    >
-                                      No disponible
-                                    </div>
-                                  </Card> */}
-                                </div>
-                              </>
-                            );
-                          }
-                        })}
-                    </div>
-                  </>
-                )}
+                <div className={style.divSwipperCitas}>
+                 <SecCitas  data={horariosColegio}/>
+            </div>
 
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <div className="flex w-full justify-between flex-col gap-4 lg:flex-row">
