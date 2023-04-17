@@ -1300,7 +1300,7 @@ setCita({
               <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md w-full">
                 <h2 className="font-semibold text-xl">Solicitar una visita</h2>
                 <div className={style.divSwipperCitas}>
-                 <SecCitas  data={horariosColegio}/>
+                 <SecCitas  />
             </div>
 
                 <LocalizationProvider dateAdapter={AdapterDayjs}>

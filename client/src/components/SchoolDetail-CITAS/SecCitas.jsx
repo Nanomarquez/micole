@@ -15,9 +15,7 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import generarCalendario from "./GenCalendario"
 import { useSelector } from "react-redux";
-//-----NO FORMATEAR EL CODIGO , SE MODIFICAN LOS ARRAYS
-// ---( SE PASAN DE STRING A PROPIEDADES )
-// --- EL FORMATO ADECUADO ES    'Jan': 'Ene'
+
 
 function abreviarDias(data) {
   const diasAbreviados = {
@@ -26,8 +24,8 @@ function abreviarDias(data) {
     Martes: "Mar",
     Miercoles: "Mié",
     Jueves: "Jue",
- 
-Viernes:'Vie'
+    Viernes:'Vie',
+    Miércoles:"Mié"
   };
 
   return data?.map((item) => ({
@@ -36,18 +34,14 @@ Viernes:'Vie'
   }));
 }
 
-export default function SecCitas({ data, setStateBtn, stateBtn }) {
-  //data es un obj que contiene las prefencias del colegio (las que configura en su dashboard)
-  console.log(data);
+export default function SecCitas() {
+
   const { oneSchool, grados, horariosColegio } = useSelector(
     (state) => state.schools
   );
 
-const  [diasDisponibles , setDiasDisponibles]=useState({
-  dia:''
-})
 
-  //  devuelve array ordenado con los dias y numeros de la semana
+
 
 
   //  ejecuta calDiasSemana y se guarda el array ordenado
@@ -57,7 +51,7 @@ const  [diasDisponibles , setDiasDisponibles]=useState({
 
 
 
-
+// Se generan las cards y se ponen en color gris segun la disponibilidad del colegio
   const CardsDia = ({ diasSemana, fechadelDia, mesdelDia }) => {
     console.log(diasSemana, fechadelDia, mesdelDia)
     const [cardSelected, setCardSelected] = useState(false);
@@ -100,10 +94,12 @@ const  [diasDisponibles , setDiasDisponibles]=useState({
       </>
     );
   };
-
+// Se filtran los cbjetos con strings vacios, ya que los dias pasados a la semana pasada se guardan de esa manera 
   const arrLimpio = arrCarruselOrdenado.filter((ele) => ele.dia != "")
-  return (
-    <div className={style.slider_container}>
+   return (
+    <>
+    <div  >
+  <div className={style.slider_container}>
 
 
 
@@ -230,5 +226,11 @@ const  [diasDisponibles , setDiasDisponibles]=useState({
       </div>
 
     </div>
+    <div>Holi</div>
+
+    </div>
+   
+    </>
+   
   );
 }
