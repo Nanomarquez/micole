@@ -58,6 +58,7 @@ function abreviarDiasAlRevez(data) {
     dia: diasAbreviados[item.dia],
   }));
 }
+// CARDS DEL CALENDARIO
 const CardsDia = ({ diasSemana, fechadelDia, mesdelDia,  onCardSelect }) => {
   const { oneSchool, grados, horariosColegio } = useSelector(
     (state) => state.schools
