@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./swiperCitas.module.css";
 import {
   Pagination,
@@ -14,14 +14,38 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import generarCalendario from "./GenCalendario"
+import { useSelector } from "react-redux";
 //-----NO FORMATEAR EL CODIGO , SE MODIFICAN LOS ARRAYS
 // ---( SE PASAN DE STRING A PROPIEDADES )
 // --- EL FORMATO ADECUADO ES    'Jan': 'Ene'
 
+function abreviarDias(data) {
+  const diasAbreviados = {
+    Domingo: "Dom",
+    Lunes: "Lun",
+    Martes: "Mar",
+    Miercoles: "Mié",
+    Jueves: "Jue",
+ 
+Viernes:'Vie'
+  };
+
+  return data?.map((item) => ({
+    ...item,
+    dia: diasAbreviados[item.dia],
+  }));
+}
+
 export default function SecCitas({ data, setStateBtn, stateBtn }) {
   //data es un obj que contiene las prefencias del colegio (las que configura en su dashboard)
   console.log(data);
+  const { oneSchool, grados, horariosColegio } = useSelector(
+    (state) => state.schools
+  );
 
+const  [diasDisponibles , setDiasDisponibles]=useState({
+  dia:''
+})
 
   //  devuelve array ordenado con los dias y numeros de la semana
 
@@ -29,24 +53,17 @@ export default function SecCitas({ data, setStateBtn, stateBtn }) {
   //  ejecuta calDiasSemana y se guarda el array ordenado
   const arrCarruselOrdenado = generarCalendario();
 
-  let disponibilidad = [
-    {
-      dia: 'Vie'
-    },
-    {
-      dia: 'Lun'
-    },
-    {
-      dia: 'Mar'
-    }
+ 
 
-  ]
+
+
 
   const CardsDia = ({ diasSemana, fechadelDia, mesdelDia }) => {
     console.log(diasSemana, fechadelDia, mesdelDia)
     const [cardSelected, setCardSelected] = useState(false);
-
-
+    console.log(horariosColegio)
+    const dataAbreviada = abreviarDias(horariosColegio)
+    console.log(dataAbreviada)
     const handlerSelected = () => {
       console.log(diasSemana, fechadelDia, mesdelDia)
       setCardSelected(!cardSelected)
@@ -54,7 +71,9 @@ export default function SecCitas({ data, setStateBtn, stateBtn }) {
     }
 
 
-    const diaDisponible = data?.find((disponibilidadDia) => disponibilidadDia.dia === diasSemana);
+
+    const diaDisponible = dataAbreviada?.find((disponibilidadDia) =>disponibilidadDia.dia ===diasSemana );
+   console.log(diaDisponible)
     return (
       <>
 

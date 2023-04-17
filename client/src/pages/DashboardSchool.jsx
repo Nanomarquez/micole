@@ -859,31 +859,31 @@ function DashboardSchool() {
 
   const initialDaysWithTime = [
     {
-      Lun: [dayjs("2014-08-18T08:00:00"), dayjs("2014-08-18T17:00:00"), true],
+      Lunes: [dayjs("2014-08-18T08:00:00"), dayjs("2014-08-18T17:00:00"), true],
     },
     {
-      Mar: [
+      Martes: [
         dayjs("2014-08-18T08:00:00"),
         dayjs("2014-08-18T17:00:00"),
         true,
       ],
     },
     {
-      Mié : [
+      Miércoles : [
         dayjs("2014-08-18T08:00:00"),
         dayjs("2014-08-18T17:00:00"),
         true,
       ],
     },
     {
-      Jue: [
+      Jueves: [
         dayjs("2014-08-18T08:00:00"),
         dayjs("2014-08-18T17:00:00"),
         true,
       ],
     },
     {
-      Vie: [
+      Viernes: [
         dayjs("2014-08-18T08:00:00"),
         dayjs("2014-08-18T17:00:00"),
         true,
