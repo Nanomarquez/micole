@@ -36,6 +36,6 @@ function generarCalendario() {
   return calendario.slice(diasSemana.indexOf(diasSemana[fecha.getDay()])); // Devolvemos solo los días a partir del día actual
 }
 
-console.log(generarCalendario() )
+
 
 export  default generarCalendario

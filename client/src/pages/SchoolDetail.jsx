@@ -91,10 +91,10 @@ function SchoolDetail() {
   })
 
   const { user, isAuth, vacantes } = useSelector((state) => state.auth);
-  console.log(horariosColegio);
+ 
 
   const location = useLocation();
-  console.log();
+
   const params = new URLSearchParams(location.search);
 
   const [gradoParams, setGradoParams] = React.useState(params.get("grado"));

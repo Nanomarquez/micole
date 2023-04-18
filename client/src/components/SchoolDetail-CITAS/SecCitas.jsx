@@ -64,23 +64,23 @@ const CardsDia = ({ diasSemana, fechadelDia, mesdelDia, onCardSelect }) => {
   const { oneSchool, grados, horariosColegio } = useSelector(
     (state) => state.schools
   );
-  console.log(diasSemana, fechadelDia, mesdelDia)
+  
   const [cardSelected, setCardSelected] = useState(false);
 
 
 
   const dataAbreviada = abreviarDias(horariosColegio)
-  console.log(dataAbreviada)
+
 
 
 
   const diaDisponible = dataAbreviada?.find((disponibilidadDia) => disponibilidadDia.dia === diasSemana);
-  console.log(diaDisponible)
+ 
 
   // este handler envia lainformacion a schooldetail y HorariosColegios
   const handlerSelected = (e, horariosColegio) => {
     const fecha_actual = new Date();
-    console.log(fechadelDia, mesdelDia, horariosColegio)
+
     const year = fecha_actual.getFullYear();
     let numeroMeses = mesNumero(mesdelDia)
 
@@ -194,8 +194,7 @@ export default function SecCitas({ sendDateHs }) {
 
   const handleChangeState = (event) => {
     let state = event.target.value;
-    console.log(state)
-    console.log(event.target.value)
+  
     setOrderSelected(state);
 
   }
@@ -210,9 +209,9 @@ export default function SecCitas({ sendDateHs }) {
   const [selectedCard, setSelectedCard] = useState(null);
 
   const handleCardSelect = (card) => {
-    console.log(card)
+
     setSelectedCard([card]);
-    console.log(selectedCard)
+   
   };
 
   return (
@@ -235,7 +234,7 @@ export default function SecCitas({ sendDateHs }) {
 
           {arrLimpio?.map((d) => {
 
-            // console.log(d)
+         
             return (
               <>
                 <SwiperSlide className={style.swiper_slide}>
