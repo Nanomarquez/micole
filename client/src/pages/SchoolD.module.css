@@ -54,7 +54,7 @@
   /* width:'100%',display:'flex', justifyContent:'center' */
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   height: 30vh;
 }
 @media (max-width: 900px) {

@@ -329,11 +329,11 @@ export default function SecCitas({ sendDateHs }) {
           }
         </Swiper>
 
-        <div style={{ display: 'flex', justifyContent: 'flex-start', width: '100%' }}>
-          <div style={{ display: "flex", alignItems: "flex-end", gap: "1vh" }}>
+      
+          <div className={style.divDropHorarios}>
             {/* <p className={style.pSig}>Horarios </p> */}
             <HorariosColegio diaSelecionado={selectedCard} sendDateHs={sendDateHs} />
-          </div>
+       
         </div>
 
       </div>
