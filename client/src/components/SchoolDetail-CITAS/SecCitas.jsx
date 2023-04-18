@@ -58,22 +58,7 @@ function abreviarDias(data) {
     dia: diasAbreviados[item.dia],
   }));
 }
-function abreviarDiasAlRevez(data) {
-  const diasAbreviados = {
-    Dom: 'Domingo',
-    Lun: 'Lunes',
-    Mar: 'Martes',
-    Mié: 'Miercoles',
-    Jue: 'Jueves',
-    Vie: 'Viernes',
-    Mié: "Miércoles"
-  };
 
-  return data?.map((item) => ({
-    ...item,
-    dia: diasAbreviados[item.dia],
-  }));
-}
 // CARDS DEL CALENDARIO
 const CardsDia = ({ diasSemana, fechadelDia, mesdelDia, onCardSelect }) => {
   const { oneSchool, grados, horariosColegio } = useSelector(
@@ -142,54 +127,28 @@ const CardsDia = ({ diasSemana, fechadelDia, mesdelDia, onCardSelect }) => {
     </>
   );
 };
-export default function SecCitas({sendDateHs}) {
-console.log(sendDateHs)
 
+//este componente devuelve el drop de horarios segun la card seleccionada
+const HorariosColegio = ({ diaSelecionado , sendDateHs}) => {
+  const [horarioColegio, setHorarioColegio] = useState('')
 
-  const [orderSelected, setOrderSelected] = useState("");
-
-
-
-  //  ejecuta la funcion que genera el calendario y se guarda el arr de dias
-  const arrCarruselOrdenado = generarCalendario();
-
-
-  const handleChangeState = (event) => {
-    let state = event.target.value;
-    console.log(state)
-    console.log(event.target.value)
-    setOrderSelected(state);
-
+  const handleChangeHora = (event) => {
+    setHorarioColegio(event.target.value)
   }
-  //este componente devuelve el drop de horarios segun la card seleccionada
-  const HorariosColegio = ({ diaSelecionado }) => {
-    const [horarioColegio, setHorarioColegio] = useState('')
 
-    const handleChangeHora = (event) => {
-        
-      setHorarioColegio(event.target.value)
-        
+  const handlerInfo = (e, date, time) => {
 
+    // setHorarioColegio(e.target.value)
 
-
-
+    let infoDiaHora = {
+      time: time,
+      date: date
     }
-
-    const handlerInfo = (e, date, time) => {
-
-      setHorarioColegio(e.target.value)
-
-      let infoDiaHora = {
-        time: time,
-        date: date
-      }
-      sendDateHs(infoDiaHora)
-    
-
-    }
-    return (
-      <>   
-        <FormControl
+    sendDateHs(infoDiaHora)
+  }
+  return (
+    <>
+      <FormControl
         // variant="standard"
         sx={{ m: 1, minWidth: 100 }}
         size="small"
@@ -207,69 +166,44 @@ console.log(sendDateHs)
           {diaSelecionado?.map((ele) => {
 
             return (
-
-
-      
               <MenuItem key={ele.time.desde} onClick={(e) => handlerInfo(e, ele.date, ele.time.desde)} value={ele.time.desde}>
                 {ele.time.desde}/{ele.time.hasta}
-
               </MenuItem>
-          
-
-
-
-
-
             )
           })}
 
         </Select>
       </FormControl>
-   <FormControl
-   // variant="standard"
-   sx={{ m: 1, minWidth: 100 }}
-   size="small"
- >
-   <InputLabel id="demo-select-small">Horarios</InputLabel>
-
-   <Select
-     sx={{ border: "none", outline: "none", fontSize: "2vh" }}
-     labelId="demo-select-small"
-     id="demo-select-small"
-     value={horarioColegio}
-     label={"Horarios"}
-     onChange={handleChangeHora}
-   >
-     {diaSelecionado?.map((ele) => {
-
-       return (
 
 
+    </>
+  )
+
+}
+export default function SecCitas({ sendDateHs }) {
  
-         <MenuItem key={ele.time.desde} onClick={(e) => handlerInfo(e, ele.date, ele.time.desde)} value={ele.time.desde}>
-           {ele.time.desde}/{ele.time.hasta}
 
-         </MenuItem>
-     
+
+  const [orderSelected, setOrderSelected] = useState("");
 
 
 
+  //  ejecuta la funcion que genera el calendario y se guarda el arr de dias
+  const arrCarruselOrdenado = generarCalendario();
 
 
-       )
-     })}
-
-   </Select>
- </FormControl>
- 
-      </>
-    )
+  const handleChangeState = (event) => {
+    let state = event.target.value;
+    console.log(state)
+    console.log(event.target.value)
+    setOrderSelected(state);
 
   }
 
 
 
-  // Se filtran los cbjetos con strings vacios, ya que los dias pasados a la semana pasada se guardan de esa manera 
+
+  // Se filtran los objetos con strings vacios, ya que los dias pasados se guardan de esa manera 
   const arrLimpio = arrCarruselOrdenado.filter((ele) => ele.dia != "")
 
 
