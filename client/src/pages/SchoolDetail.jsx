@@ -1318,7 +1318,7 @@ setCita({
                  <SecCitas sendDateHs={handleChangeDateHS}  />
             </div>
 
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <div className="flex w-full justify-between flex-col gap-4 lg:flex-row">
                     <MobileDatePicker
                       label="Elegir fecha"
@@ -1345,7 +1345,7 @@ setCita({
                       </small>
                     </div>
                   </div>
-                </LocalizationProvider>
+                </LocalizationProvider> */}
                 <form
                   onSubmit={handleSubmit}
                   className="w-full flex flex-col gap-7"
