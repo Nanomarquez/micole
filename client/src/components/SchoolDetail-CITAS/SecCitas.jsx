@@ -24,7 +24,23 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import generarCalendario from "./GenCalendario"
 import { useSelector } from "react-redux";
-
+function mesNumero(mes) {
+  const meses = {
+    ene: '01',
+    feb: '02',
+    mar: '03',
+    abr: '04',
+    may: '05',
+    jun: '06',
+    jul: '07',
+    ago: '08',
+    sep: '09',
+    oct: '10',
+    nov: '11',
+    dic: '12'
+  };
+  return meses[mes.toLowerCase()];
+}
 
 function abreviarDias(data) {
   const diasAbreviados = {
@@ -59,13 +75,14 @@ function abreviarDiasAlRevez(data) {
   }));
 }
 // CARDS DEL CALENDARIO
-const CardsDia = ({ diasSemana, fechadelDia, mesdelDia,  onCardSelect }) => {
+const CardsDia = ({ diasSemana, fechadelDia, mesdelDia, onCardSelect }) => {
   const { oneSchool, grados, horariosColegio } = useSelector(
     (state) => state.schools
   );
   console.log(diasSemana, fechadelDia, mesdelDia)
   const [cardSelected, setCardSelected] = useState(false);
-  const [selectedCardHorario, setSelectedCardHorario] = useState([]);
+
+
 
   const dataAbreviada = abreviarDias(horariosColegio)
   console.log(dataAbreviada)
@@ -75,14 +92,27 @@ const CardsDia = ({ diasSemana, fechadelDia, mesdelDia,  onCardSelect }) => {
   const diaDisponible = dataAbreviada?.find((disponibilidadDia) => disponibilidadDia.dia === diasSemana);
   console.log(diaDisponible)
 
-  const handlerSelected = (e,horarios) => {
-    console.log(diasSemana, fechadelDia, mesdelDia,horarios)
-  
+  // este handler envia lainformacion a schooldetail y HorariosColegios
+  const handlerSelected = (e, horariosColegio) => {
+    const fecha_actual = new Date();
+    console.log(fechadelDia, mesdelDia, horariosColegio)
+    const year = fecha_actual.getFullYear();
+    let numeroMeses = mesNumero(mesdelDia)
+
+    const info = {
+      date: fechadelDia + "/" + numeroMeses + '/' + year,
+      time: horariosColegio.horarios,
+      dia: horariosColegio.dia
+
+    }
+
+
     setCardSelected(!cardSelected)
-    console.log(horarios)
-    onCardSelect(horarios)
-    console.log(horarios)
- 
+
+    onCardSelect(info)
+
+
+
 
   }
 
@@ -112,15 +142,15 @@ const CardsDia = ({ diasSemana, fechadelDia, mesdelDia,  onCardSelect }) => {
     </>
   );
 };
-export default function SecCitas() {
-
+export default function SecCitas({sendDateHs}) {
+console.log(sendDateHs)
 
 
   const [orderSelected, setOrderSelected] = useState("");
 
 
 
-  //  ejecuta calDiasSemana y se guarda el array ordenado
+  //  ejecuta la funcion que genera el calendario y se guarda el arr de dias
   const arrCarruselOrdenado = generarCalendario();
 
 
@@ -132,28 +162,30 @@ export default function SecCitas() {
 
   }
   //este componente devuelve el drop de horarios segun la card seleccionada
-  const HorariosColegio = ({diaSelecionado}) => {
+  const HorariosColegio = ({ diaSelecionado }) => {
     const [horarioColegio, setHorarioColegio] = useState('')
-    const handleChangeHora=(e)=>{
-      setHorarioColegio(e.target.value)
-      // aca mandar la info del dia y hora hacia school detail
-    }
-    console.log(diaSelecionado)
-    const diasAbreviados = {
-      Dom: 'Domingo',
-      Lun: 'Lunes',
-      Mar: 'Martes',
-      Mié: 'Miercoles',
-      Jue: 'Jueves',
-      Vie: 'Viernes',
-      Mié: "Miércoles"
-    };
 
-    const arrDias = diaSelecionado && diaSelecionado?.map((item) => ({
-      ...item,
-      dia: diasAbreviados[item.dia],
-    }));
-    console.log(arrDias)
+    const handleChangeHora = (event) => {
+
+      setHorarioColegio(event.target.value)
+
+
+
+
+
+    }
+
+    const handlerInfo = (e, date, time) => {
+      // setHorarioColegio(e.target.value)
+
+      let infoDiaHora = {
+        time: time,
+        date: date
+      }
+      sendDateHs(infoDiaHora)
+    
+
+    }
     return (
       <FormControl
         // variant="standard"
@@ -170,17 +202,20 @@ export default function SecCitas() {
           label={"Horarios"}
           onChange={handleChangeHora}
         >
-          {arrDias?.map((ele) => {
+          {diaSelecionado?.map((ele) => {
+
             return (
-           
-       
 
-                <MenuItem key={ele.id} value={ele.horarios.hasta}>
-                  {ele.horarios.desde}/{ele.horarios.hasta}
 
-                </MenuItem>
+              // <div onClick={(e) => handlerInfo(e, ele.date, ele.time.desde)}>
+              <MenuItem key={ele.time.desde} onClick={(e) => handlerInfo(e, ele.date, ele.time.desde)} value={ele.time.desde}>
+                {ele.time.desde}/{ele.time.hasta}
 
-           
+              </MenuItem>
+              // </div>
+
+
+
 
 
             )
@@ -188,6 +223,7 @@ export default function SecCitas() {
 
         </Select>
       </FormControl>
+
     )
 
   }
@@ -304,7 +340,7 @@ export default function SecCitas() {
 
                       {d.diaSemana != "Sáb" && d.diaSemana != "Dom" && (
                         <>
-                          <CardsDia    onCardSelect={handleCardSelect} diasSemana={d.diaSemana} fechadelDia={d.dia} mesdelDia={d.mes} />
+                          <CardsDia onCardSelect={handleCardSelect} diasSemana={d.diaSemana} fechadelDia={d.dia} mesdelDia={d.mes} />
                         </>
 
                       )}
@@ -323,7 +359,7 @@ export default function SecCitas() {
         <div style={{ display: 'flex', justifyContent: 'flex-start', width: '100%' }}>
           <div style={{ display: "flex", alignItems: "flex-end", gap: "1vh" }}>
             {/* <p className={style.pSig}>Horarios </p> */}
-           <HorariosColegio diaSelecionado={selectedCard} />
+            <HorariosColegio diaSelecionado={selectedCard} sendDateHs={sendDateHs} />
           </div>
         </div>
 

@@ -160,27 +160,40 @@ function SchoolDetail() {
   const [time, setTime] = React.useState(dayjs("2014-08-18T08:00:00"));
   const handleChangeDate = (newValue) => {
     setDate(dayjs(newValue));
-    setCita({
-      ...cita,
-      date: [
-        stringyDate(newValue["$D"]).toString(),
-        stringyDate(newValue["$M"] + 1).toString(),
-        newValue["$y"].toString(),
-      ].join("/"),
-    });
+    // setCita({
+    //   ...cita,
+    //   date: [
+    //     stringyDate(newValue["$D"]).toString(),
+    //     stringyDate(newValue["$M"] + 1).toString(),
+    //     newValue["$y"].toString(),
+    //   ].join("/"),
+    // });
   };
   const handleChangeTime = (newValue) => {
     setTime(dayjs(newValue));
-    setCita({
-      ...cita,
-      time: [
-        stringyDate(newValue["$H"]).toString(),
-        stringyDate(newValue["$m"]).toString(),
-      ].join(":"),
-    });
+    // setCita({
+    //   ...cita,
+    //   time: [
+    //     stringyDate(newValue["$H"]).toString(),
+    //     stringyDate(newValue["$m"]).toString(),
+    //   ].join(":"),
+    // });
   };
   const [modo, setModo] = React.useState(true);
   const [openLogin, setOpenLogin] = useState(false);
+
+
+  const [horarioDia, setHorarioDia] = useState(null)
+  function handleChangeDateHS(data) {
+    setHorarioDia(date);
+    setCita({
+      ...cita,
+      date: data.date,
+      time:data.time
+    });
+  }
+  console.log(horarioDia);
+
 
   const [cita, setCita] = React.useState({
     date: [
@@ -192,7 +205,8 @@ function SchoolDetail() {
       stringyDate(dayjs(new Date()).$H).toString(),
       stringyDate(dayjs(new Date()).$m).toString(),
     ].join(":"),
-
+    // date:horarioDia?.date,
+    // time:horarioDia?.time,
     modo: modo ? "Presencial" : "Virtual",
     nombre: isAuth ? user.nombre_responsable +" "+ user?.apellidos_responsable: "",
     
@@ -201,7 +215,8 @@ function SchoolDetail() {
     añoIngreso: ingresoParams,
     grado: nombre_grado
   });
-
+  // setHorarioDia(horarioDia)
+  // console.log(horarioDia);
   console.log(cita);
   // console.log( nombre_grado);
 
@@ -1300,7 +1315,7 @@ setCita({
               <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md w-full">
                 <h2 className="font-semibold text-xl">Solicitar una visita</h2>
                 <div className={style.divSwipperCitas}>
-                 <SecCitas  />
+                 <SecCitas sendDateHs={handleChangeDateHS}  />
             </div>
 
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
