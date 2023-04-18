@@ -166,9 +166,9 @@ console.log(sendDateHs)
     const [horarioColegio, setHorarioColegio] = useState('')
 
     const handleChangeHora = (event) => {
-
+        
       setHorarioColegio(event.target.value)
-
+        
 
 
 
@@ -176,7 +176,8 @@ console.log(sendDateHs)
     }
 
     const handlerInfo = (e, date, time) => {
-      // setHorarioColegio(e.target.value)
+
+      setHorarioColegio(e.target.value)
 
       let infoDiaHora = {
         time: time,
@@ -187,7 +188,8 @@ console.log(sendDateHs)
 
     }
     return (
-      <FormControl
+      <>   
+        <FormControl
         // variant="standard"
         sx={{ m: 1, minWidth: 100 }}
         size="small"
@@ -207,12 +209,12 @@ console.log(sendDateHs)
             return (
 
 
-              // <div onClick={(e) => handlerInfo(e, ele.date, ele.time.desde)}>
+      
               <MenuItem key={ele.time.desde} onClick={(e) => handlerInfo(e, ele.date, ele.time.desde)} value={ele.time.desde}>
                 {ele.time.desde}/{ele.time.hasta}
 
               </MenuItem>
-              // </div>
+          
 
 
 
@@ -223,7 +225,44 @@ console.log(sendDateHs)
 
         </Select>
       </FormControl>
+   <FormControl
+   // variant="standard"
+   sx={{ m: 1, minWidth: 100 }}
+   size="small"
+ >
+   <InputLabel id="demo-select-small">Horarios</InputLabel>
 
+   <Select
+     sx={{ border: "none", outline: "none", fontSize: "2vh" }}
+     labelId="demo-select-small"
+     id="demo-select-small"
+     value={horarioColegio}
+     label={"Horarios"}
+     onChange={handleChangeHora}
+   >
+     {diaSelecionado?.map((ele) => {
+
+       return (
+
+
+ 
+         <MenuItem key={ele.time.desde} onClick={(e) => handlerInfo(e, ele.date, ele.time.desde)} value={ele.time.desde}>
+           {ele.time.desde}/{ele.time.hasta}
+
+         </MenuItem>
+     
+
+
+
+
+
+       )
+     })}
+
+   </Select>
+ </FormControl>
+ 
+      </>
     )
 
   }
