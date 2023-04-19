@@ -206,7 +206,7 @@ mercado pago
       <div className={style.h1_div}>
         {/* <img src={Logo} /> */}
       </div>
-      <div className={style.PaymentLayout}>
+      <div className={plan != 'gratis'? style.PaymentLayout :style.PaymentLayoutSingap  }>
         <div className={style.container}>
           {
             plan !== 'gratis' && (
