@@ -158,27 +158,7 @@ function SchoolDetail() {
   };
   const [date, setDate] = React.useState(dayjs(new Date()));
   const [time, setTime] = React.useState(dayjs("2014-08-18T08:00:00"));
-  const handleChangeDate = (newValue) => {
-    setDate(dayjs(newValue));
-    // setCita({
-    //   ...cita,
-    //   date: [
-    //     stringyDate(newValue["$D"]).toString(),
-    //     stringyDate(newValue["$M"] + 1).toString(),
-    //     newValue["$y"].toString(),
-    //   ].join("/"),
-    // });
-  };
-  const handleChangeTime = (newValue) => {
-    setTime(dayjs(newValue));
-    // setCita({
-    //   ...cita,
-    //   time: [
-    //     stringyDate(newValue["$H"]).toString(),
-    //     stringyDate(newValue["$m"]).toString(),
-    //   ].join(":"),
-    // });
-  };
+
   const [modo, setModo] = React.useState(true);
   const [openLogin, setOpenLogin] = useState(false);
 
@@ -457,6 +437,7 @@ setCita({
 
 
   return (
+// HEAD DEL DETAIL ---------------
     <div className="bg-[#f6f7f8]">
       {images.open && <SliderC setImages={setImages} images={images.src}></SliderC>}
       {oneSchool?.primera_imagen?.length > 0 ?      <img
@@ -469,13 +450,10 @@ setCita({
               style={{ color: '#0061dd'}}
             />
       </div> }
-
+{/* BODY DETAIL-----------------------*/}
       <div
-        className="p-8 px-5 lg:px-[100px]"
-        data-aos-mirror={false}
-        data-aos="fade-up"
-        data-aos-duration="1000"
-      >
+        className="p-8 px-5 lg:px-[100px]" >
+          {/* Header */}
         <div className="header">
           <h1 className="text-2xl  font-semibold">
             {oneSchool.nombre_colegio}
@@ -550,14 +528,7 @@ setCita({
                   </span>
                 </div>
               ))}
-              {/* <div className="flex flex-col gap-2 text-center">
-                <FontAwesomeIcon
-                  size="lg"
-                  color="rgb(156 163 175)"
-                  icon={faDoorOpen}
-                />
-                <span className="text-sm text-gray-400">2 Salones</span>
-              </div> */}
+             
               <div className="flex flex-col gap-2 text-center">
                 <FontAwesomeIcon
                   size="lg"
@@ -579,6 +550,7 @@ setCita({
                 </span>
               </div>
             </div>
+            {/* COUTA DE INGRESO */}
             {currentVacante && (
               <div className="flex flex-col w-full items-center lg:items-end">
                 <small>
@@ -597,7 +569,22 @@ setCita({
             )}
           </div>
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        {/* INFORMACION DEL COLEGIO Y   CITA -LISTA ESPERA- EVENTOS - VIDEO- COMENTARIOS */}
         <main className="flex gap-5 flex-col lg:flex-row">
+          {/* INFORMACION DEL COLEGIO */}
           <section className="left mt-5 flex flex-col gap-8 w-full">
             <div className="p-5 bg-white flex flex-col gap-2 rounded-md shadow-md">
               <h2 className="font-semibold text-xl">Descripción</h2>
@@ -679,35 +666,9 @@ setCita({
                   </li>
                 </ul>
                 <ul className="flex flex-col gap-3">
-                  {/* <li className="text-black/60">
-                    <span className="font-semibold text-black ">
-                      Profesores:{" "}
-                    </span>
-                    8
-                  </li>
-                  <li className="text-black/60">
-                    <span className="font-semibold text-black ">Salones: </span>
-                    3
-                  </li> */}
+             
                 </ul>
-                {/* <ul className="flex flex-col gap-3">
-                  <li className="text-black/60">
-                    <span className="font-semibold text-black ">
-                      Tipo de educacion:{" "}
-                    </span>
-                    Escolarizada
-                  </li>
-                  <li className="text-black/60">
-                    <span className="font-semibold text-black ">Turnos: </span>
-                    Mañana
-                  </li>
-                  <li className="text-black/60">
-                    <span className="font-semibold text-black ">
-                      Localidad:{" "}
-                    </span>
-                    Urbana
-                  </li>
-                </ul> */}
+             
               </div>
               {oneSchool?.Metodos?.length > 0 && (
                 <>
@@ -750,9 +711,11 @@ setCita({
               <p className="text-black/60 text-base">
                 {oneSchool.propuesta_valor}
               </p>
-            </div>
+            </div> 
+            {/* TABS INFRAESTRUCTURA */}
             <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md">
               <h2 className="font-semibold text-xl">Infraestructura</h2>
+             
               <Tabs
                 value={value}
                 onChange={handleChange}
@@ -928,170 +891,10 @@ setCita({
                     </ul>
                   </TabPanel>
                 )}
-                {/* <TabPanel value={value} index={0}>
-                  <ul className="flex flex-col gap-3">
-                    <li className="flex items-center gap-2">
-                      {" "}
-                      <FontAwesomeIcon
-                        size="lg"
-                        color="rgb(156 163 175)"
-                        className="bg-[#f6f7f8] rounded-full p-3"
-                        icon={faChalkboard}
-                      />
-                      Pizarras acrilicas
-                    </li>
-                    <li className="flex items-center gap-2">
-                      {" "}
-                      <FontAwesomeIcon
-                        size="lg"
-                        color="rgb(156 163 175)"
-                        className="bg-[#f6f7f8] rounded-full p-3"
-                        icon={faChildReaching}
-                      />
-                      Area de juegos
-                    </li>
-                    <li className="flex items-center gap-2">
-                      {" "}
-                      <FontAwesomeIcon
-                        size="lg"
-                        color="rgb(156 163 175)"
-                        className="bg-[#f6f7f8] rounded-full p-3"
-                        icon={faVectorSquare}
-                      />
-                      Patio
-                    </li>
-                    <li className="flex items-center gap-2">
-                      {" "}
-                      <FontAwesomeIcon
-                        size="lg"
-                        color="rgb(156 163 175)"
-                        className="bg-[#f6f7f8] rounded-full p-3"
-                        icon={faFlask}
-                      />
-                      Laboratorio de Ciencias
-                    </li>
-                    <li className="flex items-center gap-2">
-                      {" "}
-                      <FontAwesomeIcon
-                        size="lg"
-                        color="rgb(156 163 175)"
-                        className="bg-[#f6f7f8] rounded-full p-3"
-                        icon={faRobot}
-                      />
-                      Laboratorio de Robotica
-                    </li>
-                  </ul>
-                </TabPanel>
-                <TabPanel value={value} index={1}>
-                  <ul className="flex flex-col gap-3">
-                    <li className="flex items-center gap-2">
-                      {" "}
-                      <FontAwesomeIcon
-                        size="lg"
-                        color="rgb(156 163 175)"
-                        className="bg-[#f6f7f8] rounded-full p-3"
-                        icon={faRestroom}
-                      />
-                      Baños
-                    </li>
-                    <li className="flex items-center gap-2">
-                      {" "}
-                      <FontAwesomeIcon
-                        size="lg"
-                        color="rgb(156 163 175)"
-                        className="bg-[#f6f7f8] rounded-full p-3"
-                        icon={faShare}
-                      />
-                      Compartir
-                    </li>
-                    <li className="flex items-center gap-2">
-                      {" "}
-                      <FontAwesomeIcon
-                        size="lg"
-                        color="rgb(156 163 175)"
-                        className="bg-[#f6f7f8] rounded-full p-3"
-                        icon={faShare}
-                      />
-                      Compartir
-                    </li>
-                    <li className="flex items-center gap-2">
-                      {" "}
-                      <FontAwesomeIcon
-                        size="lg"
-                        color="rgb(156 163 175)"
-                        className="bg-[#f6f7f8] rounded-full p-3"
-                        icon={faShare}
-                      />
-                      Compartir
-                    </li>
-                    <li className="flex items-center gap-2">
-                      {" "}
-                      <FontAwesomeIcon
-                        size="lg"
-                        color="rgb(156 163 175)"
-                        className="bg-[#f6f7f8] rounded-full p-3"
-                        icon={faShare}
-                      />
-                      Compartir
-                    </li>
-                  </ul>
-                </TabPanel>
-                <TabPanel value={value} index={2}>
-                  <ul className="flex flex-col gap-3">
-                    <li className="flex items-center gap-2">
-                      {" "}
-                      <FontAwesomeIcon
-                        size="lg"
-                        color="rgb(156 163 175)"
-                        className="bg-[#f6f7f8] rounded-full p-3"
-                        icon={faShare}
-                      />
-                      Compartir
-                    </li>
-                    <li className="flex items-center gap-2">
-                      {" "}
-                      <FontAwesomeIcon
-                        size="lg"
-                        color="rgb(156 163 175)"
-                        className="bg-[#f6f7f8] rounded-full p-3"
-                        icon={faShare}
-                      />
-                      Compartir
-                    </li>
-                    <li className="flex items-center gap-2">
-                      {" "}
-                      <FontAwesomeIcon
-                        size="lg"
-                        color="rgb(156 163 175)"
-                        className="bg-[#f6f7f8] rounded-full p-3"
-                        icon={faShare}
-                      />
-                      Compartir
-                    </li>
-                    <li className="flex items-center gap-2">
-                      {" "}
-                      <FontAwesomeIcon
-                        size="lg"
-                        color="rgb(156 163 175)"
-                        className="bg-[#f6f7f8] rounded-full p-3"
-                        icon={faShare}
-                      />
-                      Compartir
-                    </li>
-                    <li className="flex items-center gap-2">
-                      {" "}
-                      <FontAwesomeIcon
-                        size="lg"
-                        color="rgb(156 163 175)"
-                        className="bg-[#f6f7f8] rounded-full p-3"
-                        icon={faShare}
-                      />
-                      Compartir
-                    </li>
-                  </ul>
-                </TabPanel> */}
+            
               </div>
             </div>
+            {/*------------------------------- FIN TABS------------------------- */}
             <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md">
               <h2 className="font-semibold text-xl">
                 Acreditaciones / Certificaciones / Asosiaciones
@@ -1107,111 +910,17 @@ setCita({
                 </ul>
               </div>
             </div>
-            {/* <div
-              className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md"
-              data-aos="zoom-in-right"
-              data-aos-duration="1500"
-              data-aos-mirror={false}
-            >
-              <h2 className="font-semibold text-xl">Lugares cercanos</h2>
-              <h3 className="font-medium text-lg flex items-center gap-2">
-                {" "}
-                <FontAwesomeIcon
-                  size="lg"
-                  color="rgb(156 163 175)"
-                  className="bg-[#f4f7f9] rounded-full p-3"
-                  icon={faGraduationCap}
-                />
-                Centros Comerciales
-              </h3>
-              <ul className="flex justify-between text-black/50 items-center">
-                <li>Real Plaza Salaverry (3km)</li>
-                <ul className="flex items-center gap-2">
-                  <li className="flex item-center">
-                    {" "}
-                    <Rating value={4} readOnly size="small" />
-                  </li>
-                  <small className="text-black/50">400 reviews</small>
-                </ul>
-              </ul>
-              <ul className="flex justify-between text-black/50 items-center">
-                <li>Real Plaza Salaverry (3km)</li>
-                <ul className="flex items-center gap-2">
-                  <li className="flex item-center">
-                    {" "}
-                    <Rating value={4} readOnly size="small" />
-                  </li>
-                  <small className="text-black/50">400 reviews</small>
-                </ul>
-              </ul>
-              <h3 className="font-medium text-lg flex items-center gap-2">
-                {" "}
-                <FontAwesomeIcon
-                  size="lg"
-                  color="rgb(156 163 175)"
-                  className="bg-[#f4f7f9] rounded-full p-3"
-                  icon={faHouseMedicalFlag}
-                />
-                Centros Medicos
-              </h3>
-              <ul className="flex justify-between text-black/50 items-center">
-                <li>Real Plaza Salaverry (3km)</li>
-                <ul className="flex items-center gap-2">
-                  <li className="flex item-center">
-                    {" "}
-                    <Rating value={4} readOnly size="small" />
-                  </li>
-                  <small className="text-black/50">400 reviews</small>
-                </ul>
-              </ul>
-              <ul className="flex justify-between text-black/50 items-center">
-                <li>Real Plaza Salaverry (3km)</li>
-                <ul className="flex items-center gap-2">
-                  <li className="flex item-center">
-                    {" "}
-                    <Rating value={4} readOnly size="small" />
-                  </li>
-                  <small className="text-black/50">400 reviews</small>
-                </ul>
-              </ul>
-              <h3 className="font-medium text-lg flex items-center gap-2">
-                {" "}
-                <FontAwesomeIcon
-                  size="lg"
-                  color="rgb(156 163 175)"
-                  className="bg-[#f4f7f9] rounded-full p-3"
-                  icon={faCameraRotate}
-                />
-                Seguridad
-              </h3>
-              <ul className="flex justify-between text-black/50 items-center">
-                <li>Real Plaza Salaverry (3km)</li>
-                <ul className="flex items-center gap-2">
-                  <li className="flex item-center">
-                    {" "}
-                    <Rating value={4} readOnly size="small" />
-                  </li>
-                  <small className="text-black/50">400 reviews</small>
-                </ul>
-              </ul>
-              <ul className="flex justify-between text-black/50 items-center">
-                <li>Real Plaza Salaverry (3km)</li>
-                <ul className="flex items-center gap-2">
-                  <li className="flex item-center">
-                    {" "}
-                    <Rating value={4} readOnly size="small" />
-                  </li>
-                  <small className="text-black/50">400 reviews</small>
-                </ul>
-              </ul>
-            </div> */}
+     
           </section>
+
+           {/* CITA -LISTA ESPERA- EVENTOS - VIDEO- COMENTARIOS */}
           <section className="right mt-5  flex flex-col gap-8 w-full">
            
          
-            
+           
             {listaParams === "true" ? (
-              <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md w-full">
+            // lista espera
+            <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md w-full">
                 <h2 className="font-semibold text-xl">Lista de espera</h2>
                 <form
                   onSubmit={handleSubmitLista}
@@ -1312,40 +1021,14 @@ setCita({
                 </p>
               </div>
             ) : (
+              // SACAR UNA CITA
               <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md w-full">
                 <h2 className="font-semibold text-xl">Solicitar una visita</h2>
                 <div className={style.divSwipperCitas}>
                  <SecCitas sendDateHs={handleChangeDateHS}  />
             </div>
 
-                {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <div className="flex w-full justify-between flex-col gap-4 lg:flex-row">
-                    <MobileDatePicker
-                      label="Elegir fecha"
-                      inputFormat="DD/MM/YYYY"
-                      value={date}
-                      shouldDisableDate={disableWeekends}
-                      onChange={handleChangeDate}
-                      renderInput={(params) => <TextField {...params} />}
-                      disablePast
-                    />
-                    <div className="flex flex-col gap-2">
-                      <MobileTimePicker
-                        label="Elegir hora"
-                        value={time}
-                        onChange={handleChangeTime}
-                        renderInput={(params) => <TextField {...params} />}
-                        ampm={false}
-                        minutesStep={15}
-                        minTime={dayjs("2014-08-18T08:00:00")}
-                        maxTime={dayjs("2014-08-18T17:00:00")}
-                      />
-                      <small className="text-black/50">
-                        08:00 - 17:00 / Intervalo 15 min
-                      </small>
-                    </div>
-                  </div>
-                </LocalizationProvider> */}
+               {/* FORMULARIO DE LA CITA */}
                 <form
                   onSubmit={handleSubmit}
                   className="w-full flex flex-col gap-7"
@@ -1438,6 +1121,7 @@ setCita({
                 </p>
               </div>
             )}
+            {/* EVENTOS */}
             {oneSchool?.Eventos?.length > 0 && (
               <div
                 style={{
@@ -1462,7 +1146,7 @@ setCita({
                 <SwiperEventos data={oneSchool} />
               </div>
             )}
-
+        
             <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md w-full">
               <h2 className="font-semibold text-xl">Galería</h2>
               {oneSchool.hasOwnProperty("galeria_fotos") &&
@@ -1493,6 +1177,7 @@ setCita({
                 />
               </div>
             </div>
+            {/* VIDEOS */}
             {oneSchool.video_url?.length > 0 && (
               <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md w-full">
                 <h2 className="font-semibold text-xl">Video</h2>
@@ -1505,7 +1190,7 @@ setCita({
                 </video>
               </div>
             )}
-
+           {/* COMENTARIOS */}
             <form
               className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md w-full"
               onSubmit={comentarioSubmit}
@@ -1690,6 +1375,7 @@ setCita({
             </form>
           </section>
         </main>
+        {/* ------------------------------------------------------------------------------- */}
       </div>
       {openLogin && <ModalLogin handlerClose={setOpenLogin} />}
     </div>
