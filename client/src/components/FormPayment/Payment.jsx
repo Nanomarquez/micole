@@ -21,6 +21,7 @@ import {
 } from "@mui/material";
 import axios from "axios";
 import Swal from "sweetalert2";
+import InfoPlanesPago from "./utils/InfonPlanesPago";
 function Payment({ plan: Plan }) {
   const { user } = useSelector((state) => state.auth);
   console.log(Plan)
@@ -77,7 +78,7 @@ mercado pago
 
   const planes = [
     {
-      label: "Free",
+      label: "Gratis",
       value: "gratis",
     },
     {
@@ -89,15 +90,19 @@ mercado pago
       value: "estandar",
     },
     {
-      label: "Exclusivo",
-      value: "exclusivo",
+      label: "Premium",
+      value: "premium",
     },
   ];
 
   const handleChangePlan = (event) => {
-    setPlan(event.target.value);
+    // setPlan(event.target.value);
+    setPlan(event);
   };
-
+  const handleChangePlanSelect = (event) => {
+    setPlan(event.target.value);
+ 
+  };
   const meses = [
     {
       label: "1 mes",
@@ -199,7 +204,7 @@ mercado pago
     <div>
       {" "}
       <div className={style.h1_div}>
-        <img src={Logo} />
+        {/* <img src={Logo} /> */}
       </div>
       <div className={style.PaymentLayout}>
         <div className={style.container}>
@@ -295,11 +300,18 @@ mercado pago
 
 
         </div>
-        <div className={style.divBeneficios}>
-          <h1>Información Detallada del Plan {plan === 'gratis' ? "Free" : plan === "básico" ? "Basico" : plan === "estandar" ? "Estándar" : "Exclusivo"} </h1>
-          <InfoPlanes plan={plan} />
+        {/* className={style.divBeneficios} */} 
+        {/* plan={plan} */}
+        <div >
+          <h1>Información Detallada del Plan {plan} </h1>
+          { plan === 'gratis'&&
+             <InfoPlanes handleChangePlan={handleChangePlan } />
+          }
+             { plan != 'gratis'&&
+             <InfoPlanesPago plan={plan}/>
+          }
           <div className="mt-7 flex flex-col gap-5">
-            <FormControl
+        {  plan != 'gratis'&&   <FormControl
               variant="standard"
               style={{ width: "200px", height: "70px" }}
               size="small"
@@ -311,7 +323,7 @@ mercado pago
                 labelId="demo-simple-select-standard-label"
                 id="demo-type-select-standard"
                 value={plan}
-                onChange={handleChangePlan}
+                onChange={handleChangePlanSelect}
                 label="Cambiar plan"
               >
                 {planes.map((type, index) => (
@@ -320,7 +332,7 @@ mercado pago
                   </MenuItem>
                 ))}
               </Select>
-            </FormControl>
+            </FormControl>}
             {
               plan !== 'gratis' && (
                 <FormControl
