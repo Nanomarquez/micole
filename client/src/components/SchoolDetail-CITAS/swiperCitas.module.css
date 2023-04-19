@@ -13,13 +13,7 @@
     /* padding: 2vh; */
    /* gap: 10vh; */
 }
-.divDropHorarios{
-    /* { display: "flex", alignItems: "flex-end", gap: "1vh" } */
-    display: flex;
-    align-items: flex-start;
-    width: 100%;
-    gap: 1vh;
-}
+
 .swiper {
     width: 100%;
     height: 100%;
@@ -50,7 +44,13 @@ borderRadius: "2vh",
 height: "20",
 display: "flex",
 flexDirection: "column", */
-
+.divDropHorarios{
+    /* { display: "flex", alignItems: "flex-end", gap: "1vh" } */
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    gap: 1vh;
+}
 .cardDia{
     border: 1px solid #696969;
     width: 10vh;
