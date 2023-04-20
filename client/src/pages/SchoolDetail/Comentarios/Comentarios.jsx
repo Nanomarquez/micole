@@ -111,7 +111,7 @@ export default function Comentarios({id}) {
             className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md w-full"
             onSubmit={comentarioSubmit}
         >
-            <h2 className="font-semibold text-xl">Deja tu comentario</h2>
+            <h2 className="font-semibold  text-[#0D263B] text-[2.4vh]">Deja tu comentario</h2>
             <div className="flex flex-col lg:grid grid-cols-2 text-black/70">
                 <div>
                     <h2>Nivel de enseñanza</h2>
