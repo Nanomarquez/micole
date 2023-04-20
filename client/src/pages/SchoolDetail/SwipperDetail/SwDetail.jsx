@@ -28,10 +28,10 @@ export default function SwDetail() {
     const { oneSchool } = useSelector(
         (state) => state.schools
     );
-    const arrImg = oneSchool.galeria_fotos !== null &&
-        JSON.parse(oneSchool.galeria_fotos).length > 0 && JSON.parse(oneSchool.galeria_fotos)
+    const arrImg = oneSchool?.galeria_fotos !== null &&
+        JSON.parse(oneSchool?.galeria_fotos).length > 0 && JSON.parse(oneSchool?.galeria_fotos)
     console.log(arrImg)
-    arrImg.unshift(oneSchool.primera_imagen)
+    arrImg.unshift(oneSchool?.primera_imagen)
     return (
         <>
             {/* <div className={style.divResponsiveDesktop}> */}
