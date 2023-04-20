@@ -19,8 +19,8 @@ export default function Infraestructura() {
         new Set(oneSchool?.Infraestructuras?.map((e) => e.InfraestructuraTipoId))
     );
     return (
-        <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md">
-            <h2 className="font-semibold text-xl">Infraestructura</h2>
+        <div className=" bg-white flex flex-col gap-5 rounded-md ">
+            <h2 className="font-semibold  text-[#0D263B] text-[2.4vh]">Infraestructura</h2>
 
             <Tabs
                 value={value}
@@ -33,7 +33,7 @@ export default function Infraestructura() {
                 {infra.map((e) => (
                     <Tab
                         style={{
-                            fontSize: "11px",
+                            fontSize: "1.6vh",
                             fontFamily: "Poppins",
                             textTransform: "capitalize",
                         }}

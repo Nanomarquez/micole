@@ -15,80 +15,47 @@ export default function InfoGeneral() {
 
 
     return (
-        <section className="left mt-5 flex flex-col gap-8 w-full">
+        <section className="left flex flex-col gap-8 w-full">
 
-            <div className="p-5 bg-white flex flex-col gap-2 rounded-md shadow-md">
-                <h2 className="font-semibold text-xl">Descripción</h2>
-                <p className="text-black/60 text-base">{oneSchool.descripcion}</p>
+            <div className=" bg-white flex flex-col gap-2 rounded-md ">
+                <h2 className="font-semibold text-[#0D263B] text-[2.4vh] text-xl">Descripción</h2>
+                <p className=" text-[#696969] text-[1.8vh] ">{oneSchool.descripcion}</p>
             </div>
-
-            <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md">
-                <h2 className="font-semibold text-xl">Ubicación</h2>
-                <div className="flex text-xs w-full justify-between">
-                    <ul className="flex flex-col gap-3">
-                        <li className="text-black/60">
-                            <span className="font-semibold text-black ">
-                                Dirección:{" "}
-                            </span>
-                            {oneSchool.direccion}
-                        </li>
-                        <li className="text-black/60">
-                            <span className="font-semibold text-black ">
-                                Departamento:{" "}
-                            </span>
-                            {oneSchool?.Departamento?.nombre_departamento}
-                        </li>
-                    </ul>
-                    <ul className="flex flex-col gap-3">
-                        <li className="text-black/60">
-                            <span className="font-semibold text-black ">
-                                Distrito:{" "}
-                            </span>
-                            {oneSchool?.Distrito?.nombre_distrito}
-                        </li>
-
-                    </ul>
-                    <ul className="flex flex-col gap-3">
-                        <li className="text-black/60">
-                            <span className="font-semibold text-black ">
-                                Provincia:{" "}
-                            </span>
-                            {oneSchool?.Provincium?.nombre_provincia}
-                        </li>
-                        <li className="text-black/60">
-                            <span className="font-semibold text-black ">Pais: </span>
-                            Peru
-                        </li>
-                    </ul>
-                </div>
-
+            <div className="bg-white flex flex-col gap-2 rounded-md ">
+                <h2 className="font-semibold  text-[#0D263B] text-[2.4vh]">
+                Propuesta Valor Educativa
+                </h2>
+                <p className=" text-[#696969] text-[1.8vh] ">
+                    {oneSchool.propuesta_valor}
+                </p>
             </div>
+     
 
-            <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md">
-                <h2 className="font-semibold text-xl">Detalles del Colegio</h2>
+            <div className=" bg-white flex flex-col gap-5 rounded-md ">
+                <h2 className="font-semibold  text-[#0D263B] text-[2.4vh]">Detalles del Colegio</h2>
                 <div className="flex text-xs w-full flex-col lg:flex-row gap-3 justify-between">
                     <ul className="grid grid-cols-3 w-full gap-3">
-                        <li className="text-black/60">
+                        <li className="text-text-[#0D263B] gap-2">
                             <span className="font-semibold text-black ">RUC: </span>
                             {oneSchool.ruc}
                         </li>
-                        <li className="text-black/60">
+                        <li className="text-text-[#0D263B] gap-2">
                             <span className="font-semibold text-black ">Area: </span>
                             {oneSchool.area}
                         </li>
-                        <li className="text-black/60">
+                        <li className="text-text-[#0D263B] gap-2">
                             <span className="font-semibold text-black ">
                                 Fundación:{" "}
                             </span>
                             {oneSchool.fecha_fundacion}
                         </li>
-                        <li className="text-black/60">
+                        <li className="text-text-[#0D263B] gap-2">
                             <span className="font-semibold text-black ">Niveles: </span>
                             {oneSchool.Nivels?.map((nivel) => nivel.nombre_nivel).join(
                                 ", "
                             )}
                         </li>
-                        <li className="text-black/60">
+                        <li className="text-text-[#0D263B] gap-2">
                             <span className="font-semibold text-black ">
                                 Director:{" "}
                             </span>
@@ -134,14 +101,7 @@ export default function InfoGeneral() {
                 )}
             </div>
 
-            <div className="p-5 bg-white flex flex-col gap-2 rounded-md shadow-md">
-                <h2 className="font-semibold text-xl">
-                    Propuesta Valor Educativo
-                </h2>
-                <p className="text-black/60 text-base">
-                    {oneSchool.propuesta_valor}
-                </p>
-            </div>
+           
     
 
 
