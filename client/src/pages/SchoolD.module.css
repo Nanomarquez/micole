@@ -57,11 +57,18 @@
   justify-content: flex-start;
   height: 30vh;
 }
+.divBox{
+  padding-top: 10vh;
+  width: 90vh;
+}
 @media (max-width: 900px) {
   .divSwipperCitas{
     /* width:'100%',display:'flex', justifyContent:'center' */
     width: 40%;
     display: flex;
     justify-content: center;
+  }
+  .divBox{
+    width: auto;
   }
 }

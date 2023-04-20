@@ -48,6 +48,7 @@ import Infraestructura from "./SchoolDetail/InfoColegios/Infraestructura/Infraes
 import Acreditaciones from "./SchoolDetail/InfoColegios/Acreditaciones/Acreditaciones";
 import Maps from "../components/Maps";
 import Ubicacion from "./SchoolDetail/Ubicacion/Ubicacion";
+import { Tabs } from "@mui/material";
 
 function QuiltedImageList({ firstImage, gallery, setImage, setImages }) {
   return (
@@ -302,14 +303,14 @@ function SchoolDetail() {
   const [value, setValue] = useState("1");
   const handleChange = (event, newValue) => {
     setValue(newValue);
-  
+
   };
 
   return (
     // HEAD DEL DETAIL ---------------
 
     <>
-   
+
       <div className="bg-[#f6f7f8] ">
         {images.open && <SliderC setImages={setImages} images={images.src}></SliderC>}
         {oneSchool?.primera_imagen?.length > 0 ? <img
@@ -324,43 +325,43 @@ function SchoolDetail() {
         </div>}
         {/* BODY DETAIL-----------------------*/}
         <div
-          className=" gap-x-28 lg:px-[100px] flex justify-between" >
+          className='flex flex-col sm:flex-row lg:px-[100px] justify-between' >
           {/* Header */}
-          <div style={{display:'flex', flexDirection:'column'}}>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
             {/* compartir en redes */}
-          <div  className="flex   flex-row ">
-                  <span className="flex items-center gap-2">
-                    {" "}
-                    <FontAwesomeIcon
-                      size="lg"
-                      color="rgb(156 163 175)"
-                      className="bg-white rounded-full p-3"
-                      icon={faShare}
-                    />
-                    Compartir
-                  </span>
-                  <span className="flex items-center gap-2">
-                    {" "}
-                    <FontAwesomeIcon
-                      size="lg"
-                      className="bg-white rounded-full p-3"
-                      color="rgb(156 163 175)"
-                      icon={faHeart}
-                    />
-                    Favoritos
-                  </span>
-                </div>
-             {/*nombre colegio */}
+            <div className="flex   flex-row ">
+              <span className="flex items-center gap-2">
+                {" "}
+                <FontAwesomeIcon
+                  size="lg"
+                  color="rgb(156 163 175)"
+                  className="bg-white rounded-full p-3"
+                  icon={faShare}
+                />
+                Compartir
+              </span>
+              <span className="flex items-center gap-2">
+                {" "}
+                <FontAwesomeIcon
+                  size="lg"
+                  className="bg-white rounded-full p-3"
+                  color="rgb(156 163 175)"
+                  icon={faHeart}
+                />
+                Favoritos
+              </span>
+            </div>
+            {/*nombre colegio */}
             <h1 className="text-2xl  font-semibold">
               {oneSchool.nombre_colegio}
             </h1>
-            <h2 style={{fontSize:'1.9vh'}}>
-                    {oneSchool.direccion}{" "}
-                  </h2>
+            <h2 style={{ fontSize: '1.9vh' }}>
+              {oneSchool.direccion}{" "}
+            </h2>
             <div>
               <div >
                 <div className="">
-                 
+
                   {/* divs negro */}
                   <div className="flex gap-5 lg:flex-row flex-col w-full ">
                     <span className="bg-black/80 min-w-fit py-1 px-2 rounded-sm text-white text-sm flex items-center">
@@ -377,27 +378,27 @@ function SchoolDetail() {
                     </span>
                   </div>
                 </div>
-               
+
               </div>
             </div>
             {/* COUTA DE INGRESO */}
             {currentVacante && (
-                <div className="flex flex-col w-full items-center lg:items-start">
-                  <small>
-                    Cuota de ingreso: S/{" "}
-                    {currentVacante.length > 0 && currentVacante[0].cuota_ingreso}{" "}
-                  </small>
-                  <small>
-                    Cuota de pensión: S/{" "}
-                    {currentVacante.length > 0 && currentVacante[0].cuota_pension}
-                  </small>
-                  <small>
-                    Cuota de matricula: S/{" "}
-                    {currentVacante.length > 0 && currentVacante[0].matricula}
-                  </small>
-                </div>
-              )}
-        
+              <div className="flex flex-col w-full items-center lg:items-start">
+                <small>
+                  Cuota de ingreso: S/{" "}
+                  {currentVacante.length > 0 && currentVacante[0].cuota_ingreso}{" "}
+                </small>
+                <small>
+                  Cuota de pensión: S/{" "}
+                  {currentVacante.length > 0 && currentVacante[0].cuota_pension}
+                </small>
+                <small>
+                  Cuota de matricula: S/{" "}
+                  {currentVacante.length > 0 && currentVacante[0].matricula}
+                </small>
+              </div>
+            )}
+
             <div className="p-4 h-fit gap-5 flex justify-between items-start lg:items-start flex-col">
               <div>
                 {" "}
@@ -447,287 +448,294 @@ function SchoolDetail() {
               </div>
 
 
-          
+
             </div>
           </div>
 
           {/* INFORMACION DEL COLEGIO Y   CITA -LISTA ESPERA- EVENTOS - VIDEO- COMENTARIOS */}
           <main className="flex gap-5 flex-col lg:flex-row">
             {/* INFORMACION DEL COLEGIO */}
-            <Box sx={{ width: "100vh",paddingTop:'10vh', typography: "body1" }}>
-          <TabContext value={value}>
-          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-            <TabList onChange={handleChange} aria-label="lab API tabs example">
-              <Tab sx={{textTransform:'none'}} label="Datos Generales" value="1" />
-              <Tab sx={{textTransform:'none'}} label="Infraestructura" value="2" />
-              <Tab sx={{textTransform:'none'}} label="Acreditaciones" value="3" />
-              <Tab sx={{textTransform:'none'}} label="Ubicacion" value="4" />
-              <Tab sx={{textTransform:'none'}} label="Reservar Citas" value="5" />
-              <Tab sx={{textTransform:'none'}} label="Eventos" value="6" />
-              <Tab sx={{textTransform:'none'}} label="Comentarios" value="7" />
-             
+            {/* <Box sx={{ width: "", paddingTop: '10vh', typography: "body1" }}> */}
+           <div className={style.divBox}>
+            <TabContext value={value}>
+                <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+                  <TabList
+                   variant="scrollable"
+                   scrollButtons={true}
+                   aria-label="scrollable prevent TabList example"
+                    onChange={handleChange} >
+                    <Tab sx={{ textTransform: 'none' }} label="Datos Generales" value="1" />
+                    <Tab sx={{ textTransform: 'none' }} label="Infraestructura" value="2" />
+                    <Tab sx={{ textTransform: 'none' }} label="Acreditaciones" value="3" />
+                    <Tab sx={{ textTransform: 'none' }} label="Ubicacion" value="4" />
+                    <Tab sx={{ textTransform: 'none' }} label="Reservar Citas" value="5" />
+                    <Tab sx={{ textTransform: 'none' }} label="Eventos" value="6" />
+                    <Tab sx={{ textTransform: 'none' }} label="Comentarios" value="7" />
 
-            </TabList>
-          </Box>
-          <TabPanel  value="1"> 
-            <InfoGeneral />
-          </TabPanel>
-          <TabPanel value="2">
-            <Infraestructura/>
-          </TabPanel>
-          <TabPanel value="3">
-            <Acreditaciones/>
-          </TabPanel>
-          <TabPanel value="4">
-         <Ubicacion/>
-           </TabPanel>
-          <TabPanel value="5">
-          {listaParams === "true" ? (
-                // lista espera
-                <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md w-full">
-                  <h2 className="font-semibold text-xl">Lista de espera</h2>
-                  <form
-                    onSubmit={handleSubmitLista}
-                    className="w-full flex flex-col gap-7"
-                  >
-                    <div className="flex w-full gap-5 justify-between">
-                      {isAuth ? (
-                        <input
-                          name="nombreLista"
-                          type="text"
-                          value={user?.nombre_responsable}
-                          className="p-3 border-b-2 border-[#0061dd3a] text-base outline-0 w-full"
-                          placeholder="Nombre"
-                          required
-                        />
-                      ) : (
-                        <input
-                          name="nombreLista"
-                          type="text"
-                          className="p-3 border-b-2 border-[#0061dd3a] text-base outline-0 w-full"
-                          placeholder="Nombre"
-                          required
-                        />
-                      )}
-                      {isAuth ? (
-                        <input
-                          name="apellidoLista"
-                          type="text"
-                          value={user?.apellidos_responsable}
-                          required
-                          className="p-3 border-b-2 border-[#0061dd3a] text-base outline-0 w-full"
-                        />
-                      ) : (
-                        <input
-                          name="apellidoLista"
-                          type="text"
-                          required
-                          className="p-3 border-b-2 border-[#0061dd3a] text-base outline-0 w-full"
-                          placeholder="Apellidos"
-                        />
-                      )}
+
+                  </TabList>
+                </Box>
+                <TabPanel value="1">
+                  <InfoGeneral />
+                </TabPanel>
+                <TabPanel value="2">
+                  <Infraestructura />
+                </TabPanel>
+                <TabPanel value="3">
+                  <Acreditaciones />
+                </TabPanel>
+                <TabPanel value="4">
+                  <Ubicacion />
+                </TabPanel>
+                <TabPanel value="5">
+                  {listaParams === "true" ? (
+                    // lista espera
+                    <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md w-full">
+                      <h2 className="font-semibold text-xl">Lista de espera</h2>
+                      <form
+                        onSubmit={handleSubmitLista}
+                        className="w-full flex flex-col gap-7"
+                      >
+                        <div className="flex w-full gap-5 justify-between">
+                          {isAuth ? (
+                            <input
+                              name="nombreLista"
+                              type="text"
+                              value={user?.nombre_responsable}
+                              className="p-3 border-b-2 border-[#0061dd3a] text-base outline-0 w-full"
+                              placeholder="Nombre"
+                              required
+                            />
+                          ) : (
+                            <input
+                              name="nombreLista"
+                              type="text"
+                              className="p-3 border-b-2 border-[#0061dd3a] text-base outline-0 w-full"
+                              placeholder="Nombre"
+                              required
+                            />
+                          )}
+                          {isAuth ? (
+                            <input
+                              name="apellidoLista"
+                              type="text"
+                              value={user?.apellidos_responsable}
+                              required
+                              className="p-3 border-b-2 border-[#0061dd3a] text-base outline-0 w-full"
+                            />
+                          ) : (
+                            <input
+                              name="apellidoLista"
+                              type="text"
+                              required
+                              className="p-3 border-b-2 border-[#0061dd3a] text-base outline-0 w-full"
+                              placeholder="Apellidos"
+                            />
+                          )}
+                        </div>
+                        <div className="flex w-full gap-5 justify-between">
+                          {isAuth ? (
+                            <input
+                              name="emailLista"
+                              type="email"
+                              value={user?.email}
+                              className="p-3 border-b-2 border-[#0061dd3a] text-base outline-0 w-full"
+                              placeholder="Correo"
+                              required
+                            />
+                          ) : (
+                            <input
+                              name="emailLista"
+                              type="email"
+                              className="p-3 border-b-2 border-[#0061dd3a] text-base outline-0 w-full"
+                              placeholder="Correo"
+                              required
+                            />
+                          )}
+                          {isAuth ? (
+                            <input
+                              name="celLista"
+                              type="number"
+                              pattern="[0-9]{8,15}"
+                              value={user?.telefono}
+                              required
+                              title="Solo se permiten numeros y entre 8 y 10 caracteres"
+                              className="p-3 border-b-2 border-[#0061dd3a] text-base outline-0 w-full"
+                              placeholder="Celular"
+                            />
+                          ) : (
+                            <input
+                              name="celLista"
+                              type="number"
+                              pattern="[0-9]{8,15}"
+                              required
+                              title="Solo se permiten numeros y entre 8 y 10 caracteres"
+                              className="p-3 border-b-2 border-[#0061dd3a] text-base outline-0 w-full"
+                              placeholder="Celular"
+                            />
+                          )}
+                        </div>
+
+                        <button
+                          type="submit"
+                          className="border mt-5 mx-auto px-10 py-2 rounded-md shadow-lg bg-[#0061dd] text-white duration-300 cursor-pointer"
+                        >
+                          INSCRIBIRME
+                        </button>
+                      </form>
+                      <p className="text-sm p-10">
+                        Al enviar estás aceptando los{" "}
+                        <Link className="text-[#0061dd] hover:underline">
+                          Términos y Condiciones de Uso y la Política de Privacidad
+                        </Link>
+                      </p>
                     </div>
-                    <div className="flex w-full gap-5 justify-between">
-                      {isAuth ? (
+                  ) : (
+                    // SACAR UNA CITA
+                    <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md w-full">
+                      <h2 className="font-semibold text-xl">Solicitar una visita</h2>
+                      <div className={style.divSwipperCitas}>
+                        <SecCitas sendDateHs={handleChangeDateHS} />
+                      </div>
+
+                      {/* FORMULARIO DE LA CITA */}
+                      <form
+                        onSubmit={handleSubmit}
+                        className="w-full flex flex-col gap-7"
+                      >
+                        <div className="flex gap-5">
+                          <input
+                            type="button"
+                            value={"Presencial"}
+                            className={`border w-[120px] ${modo ? "bg-[#0061dd] text-white" : "cursor-pointer"
+                              } py-2 rounded-md shadow-lg duration-300`}
+                            onClick={handleModo}
+                            disabled={modo}
+                          />
+                          <input
+                            type="button"
+                            value={"Virtual"}
+                            className={`border w-[120px] py-2 rounded-md shadow-lg ${!modo ? "bg-[#0061dd] text-white" : "cursor-pointer"
+                              } duration-300`}
+                            onClick={handleModo}
+                            disabled={!modo}
+                          />
+                        </div>
+                        <div className="flex w-full gap-5 justify-between">
+                          {
+                            isAuth ?
+                              <input
+                                name="nombre"
+                                type="text"
+                                value={user?.nombre_responsable + " " + user?.apellidos_responsable}
+                                className="p-3 border-b-2 border-[#0061dd3a] text-base outline-0 w-full"
+                                placeholder="Nombre"
+                                onChange={(e) => {
+                                  setCita({ ...cita, nombre: e.target.value });
+                                }}
+                                required
+                              />
+                              :
+                              <input
+                                name="nombre"
+                                type="text"
+
+                                className="p-3 border-b-2 border-[#0061dd3a] text-base outline-0 w-full"
+                                placeholder="Nombre"
+                                onChange={(e) => {
+                                  setCita({ ...cita, nombre: e.target.value });
+                                }}
+                                required
+                              />
+                          }
+                          <input
+                            name="cel"
+                            type="number"
+                            pattern="[0-9]{8,15}"
+                            value={user?.telefono}
+                            required
+                            title="Solo se permiten numeros y entre 8 y 10 caracteres"
+                            className="p-3 border-b-2 border-[#0061dd3a] text-base outline-0 w-full"
+                            placeholder="Celular"
+                            onChange={(e) => {
+                              setCita({ ...cita, celular: Number(e.target.value) });
+                            }}
+                          />
+                        </div>
                         <input
-                          name="emailLista"
+                          name="email"
                           type="email"
                           value={user?.email}
                           className="p-3 border-b-2 border-[#0061dd3a] text-base outline-0 w-full"
                           placeholder="Correo"
+                          onChange={(e) => {
+                            setCita({ ...cita, correo: e.target.value });
+                          }}
                           required
                         />
-                      ) : (
-                        <input
-                          name="emailLista"
-                          type="email"
-                          className="p-3 border-b-2 border-[#0061dd3a] text-base outline-0 w-full"
-                          placeholder="Correo"
-                          required
-                        />
-                      )}
-                      {isAuth ? (
-                        <input
-                          name="celLista"
-                          type="number"
-                          pattern="[0-9]{8,15}"
-                          value={user?.telefono}
-                          required
-                          title="Solo se permiten numeros y entre 8 y 10 caracteres"
-                          className="p-3 border-b-2 border-[#0061dd3a] text-base outline-0 w-full"
-                          placeholder="Celular"
-                        />
-                      ) : (
-                        <input
-                          name="celLista"
-                          type="number"
-                          pattern="[0-9]{8,15}"
-                          required
-                          title="Solo se permiten numeros y entre 8 y 10 caracteres"
-                          className="p-3 border-b-2 border-[#0061dd3a] text-base outline-0 w-full"
-                          placeholder="Celular"
-                        />
-                      )}
+                        <button
+                          type="submit"
+                          value="Virtual"
+                          className="border mt-5 mx-auto px-10 py-2 rounded-md shadow-lg bg-[#0061dd] text-white duration-300 cursor-pointer"
+                        >
+                          SOLICITAR VISITA
+                        </button>
+                      </form>
+                      <p className="text-sm p-10">
+                        Al enviar estás aceptando los{" "}
+                        <Link className="text-[#0061dd] hover:underline">
+                          Términos y Condiciones de Uso y la Política de Privacidad
+                        </Link>
+                      </p>
                     </div>
-
-                    <button
-                      type="submit"
-                      className="border mt-5 mx-auto px-10 py-2 rounded-md shadow-lg bg-[#0061dd] text-white duration-300 cursor-pointer"
-                    >
-                      INSCRIBIRME
-                    </button>
-                  </form>
-                  <p className="text-sm p-10">
-                    Al enviar estás aceptando los{" "}
-                    <Link className="text-[#0061dd] hover:underline">
-                      Términos y Condiciones de Uso y la Política de Privacidad
-                    </Link>
-                  </p>
-                </div>
-              ) : (
-                // SACAR UNA CITA
-                <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md w-full">
-                  <h2 className="font-semibold text-xl">Solicitar una visita</h2>
-                  <div className={style.divSwipperCitas}>
-                    <SecCitas sendDateHs={handleChangeDateHS} />
-                  </div>
-
-                  {/* FORMULARIO DE LA CITA */}
-                  <form
-                    onSubmit={handleSubmit}
-                    className="w-full flex flex-col gap-7"
-                  >
-                    <div className="flex gap-5">
-                      <input
-                        type="button"
-                        value={"Presencial"}
-                        className={`border w-[120px] ${modo ? "bg-[#0061dd] text-white" : "cursor-pointer"
-                          } py-2 rounded-md shadow-lg duration-300`}
-                        onClick={handleModo}
-                        disabled={modo}
-                      />
-                      <input
-                        type="button"
-                        value={"Virtual"}
-                        className={`border w-[120px] py-2 rounded-md shadow-lg ${!modo ? "bg-[#0061dd] text-white" : "cursor-pointer"
-                          } duration-300`}
-                        onClick={handleModo}
-                        disabled={!modo}
-                      />
-                    </div>
-                    <div className="flex w-full gap-5 justify-between">
-                      {
-                        isAuth ?
-                          <input
-                            name="nombre"
-                            type="text"
-                            value={user?.nombre_responsable + " " + user?.apellidos_responsable}
-                            className="p-3 border-b-2 border-[#0061dd3a] text-base outline-0 w-full"
-                            placeholder="Nombre"
-                            onChange={(e) => {
-                              setCita({ ...cita, nombre: e.target.value });
-                            }}
-                            required
-                          />
-                          :
-                          <input
-                            name="nombre"
-                            type="text"
-
-                            className="p-3 border-b-2 border-[#0061dd3a] text-base outline-0 w-full"
-                            placeholder="Nombre"
-                            onChange={(e) => {
-                              setCita({ ...cita, nombre: e.target.value });
-                            }}
-                            required
-                          />
-                      }
-                      <input
-                        name="cel"
-                        type="number"
-                        pattern="[0-9]{8,15}"
-                        value={user?.telefono}
-                        required
-                        title="Solo se permiten numeros y entre 8 y 10 caracteres"
-                        className="p-3 border-b-2 border-[#0061dd3a] text-base outline-0 w-full"
-                        placeholder="Celular"
-                        onChange={(e) => {
-                          setCita({ ...cita, celular: Number(e.target.value) });
-                        }}
-                      />
-                    </div>
-                    <input
-                      name="email"
-                      type="email"
-                      value={user?.email}
-                      className="p-3 border-b-2 border-[#0061dd3a] text-base outline-0 w-full"
-                      placeholder="Correo"
-                      onChange={(e) => {
-                        setCita({ ...cita, correo: e.target.value });
+                  )}
+                </TabPanel>
+                <TabPanel value="6">
+                  {oneSchool?.Eventos?.length > 0 && (
+                    <div
+                      style={{
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        flexDirection: "column",
+                        gap: "10px",
                       }}
-                      required
-                    />
-                    <button
-                      type="submit"
-                      value="Virtual"
-                      className="border mt-5 mx-auto px-10 py-2 rounded-md shadow-lg bg-[#0061dd] text-white duration-300 cursor-pointer"
                     >
-                      SOLICITAR VISITA
-                    </button>
-                  </form>
-                  <p className="text-sm p-10">
-                    Al enviar estás aceptando los{" "}
-                    <Link className="text-[#0061dd] hover:underline">
-                      Términos y Condiciones de Uso y la Política de Privacidad
-                    </Link>
-                  </p>
-                </div>
-              )}
-          </TabPanel>
-          <TabPanel value="6">
-          {oneSchool?.Eventos?.length > 0 && (
-                <div
-                  style={{
-                    width: "100%",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    flexDirection: "column",
-                    gap: "10px",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: "100%",
-                      display: "flex",
-                      justifyContent: "flex-start",
-                    }}
-                  >
-                    <h2 className="font-semibold text-xl">Eventos</h2>
-                  </div>
+                      <div
+                        style={{
+                          width: "100%",
+                          display: "flex",
+                          justifyContent: "flex-start",
+                        }}
+                      >
+                        <h2 className="font-semibold text-xl">Eventos</h2>
+                      </div>
 
-                  <SwiperEventos data={oneSchool} />
-                </div>
-              )}
-          </TabPanel>
-          <TabPanel value="7">
-          <Comentarios id={id} />
-          </TabPanel>
-        </TabContext>
+                      <SwiperEventos data={oneSchool} />
+                    </div>
+                  )}
+                </TabPanel>
+                <TabPanel value="7">
+                  <Comentarios id={id} />
+                </TabPanel>
+              </TabContext>
+           </div>
+              
 
-      </Box>
-          
+            {/* </Box> */}
+
 
             {/* CITA -LISTA ESPERA- EVENTOS - VIDEO- COMENTARIOS */}
             {/* <section className="right mt-5  flex flex-col gap-8 w-full"> */}
 
 
 
-           
-              {/* EVENTOS */}
-            
-              {/* GALERIA DE FOTOS */}
-              {/* <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md w-full">
+
+            {/* EVENTOS */}
+
+            {/* GALERIA DE FOTOS */}
+            {/* <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md w-full">
                 <h2 className="font-semibold text-xl">Galería</h2>
                 {oneSchool.hasOwnProperty("galeria_fotos") &&
                   oneSchool.galeria_fotos !== null &&
@@ -756,9 +764,9 @@ function SchoolDetail() {
                   />
                 </div>
               </div> */}
-              {/* -------------------------AGREGAR GALERIA AL SLIDE DE */}
-              {/* VIDEOS */}
-              {/* {oneSchool.video_url?.length > 0 && (
+            {/* -------------------------AGREGAR GALERIA AL SLIDE DE */}
+            {/* VIDEOS */}
+            {/* {oneSchool.video_url?.length > 0 && (
                 <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md w-full">
                   <h2 className="font-semibold text-xl">Video</h2>
                  
@@ -767,9 +775,9 @@ function SchoolDetail() {
                   </video>
                 </div>
               )} */}
-              {/* COMENTARIOS */}
+            {/* COMENTARIOS */}
 
-            
+
             {/* </section> */}
           </main>
           {/* ------------------------------------------------------------------------------- */}

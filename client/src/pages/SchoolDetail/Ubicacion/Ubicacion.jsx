@@ -18,17 +18,17 @@ export default function Ubicacion() {
 
   return (
     <>
-           <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md">
-                <h2 className="font-semibold text-xl">Ubicación</h2>
+           <div className=" bg-white flex flex-col gap-5 rounded-md ">
+                <h2 className="font-semibold  text-[#0D263B] text-[2.4vh]">Ubicación</h2>
                 <div className="flex text-xs w-full justify-between">
                     <ul className="flex flex-col gap-3">
-                        <li className="text-black/60">
+                        <li className="text-text-[#0D263B] gap-2">
                             <span className="font-semibold text-black ">
                                 Dirección:{" "}
                             </span>
                             {oneSchool.direccion}
                         </li>
-                        <li className="text-black/60">
+                        <li className="text-text-[#0D263B] gap-2">
                             <span className="font-semibold text-black ">
                                 Departamento:{" "}
                             </span>
@@ -36,7 +36,7 @@ export default function Ubicacion() {
                         </li>
                     </ul>
                     <ul className="flex flex-col gap-3">
-                        <li className="text-black/60">
+                        <li className="text-text-[#0D263B] gap-2">
                             <span className="font-semibold text-black ">
                                 Distrito:{" "}
                             </span>
@@ -45,13 +45,13 @@ export default function Ubicacion() {
 
                     </ul>
                     <ul className="flex flex-col gap-3">
-                        <li className="text-black/60">
+                        <li className="text-text-[#0D263B] gap-2">
                             <span className="font-semibold text-black ">
                                 Provincia:{" "}
                             </span>
                             {oneSchool?.Provincium?.nombre_provincia}
                         </li>
-                        <li className="text-black/60">
+                        <li className="text-text-[#0D263B] gap-2">
                             <span className="font-semibold text-black ">Pais: </span>
                             Peru
                         </li>
@@ -59,7 +59,10 @@ export default function Ubicacion() {
                 </div>
 
             </div>
-      <Maps lat={lat} lng={lng} />
+            <div style={{paddingTop:'2vh'}}>
+                 <Maps lat={lat} lng={lng} />
+            </div>
+     
     </>
   
   )

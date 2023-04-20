@@ -7,8 +7,8 @@ export default function Acreditaciones() {
     );
 
     return (
-        <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md">
-            <h2 className="font-semibold text-xl">
+        <div className=" bg-white flex flex-col gap-5 rounded-md ">
+            <h2 className="font-semibold  text-[#0D263B] text-[2.4vh]">
                 Acreditaciones / Certificaciones / Asosiaciones
             </h2>
             <div className="flex text-xs w-full gap-5">

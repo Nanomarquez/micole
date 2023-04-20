@@ -69,13 +69,13 @@ export default function Infraestructura() {
                                             <img
                                                 src={e.imagen}
                                                 alt={e.nombre_infraestructura}
-                                                className="w-10"
+                                                className="w-5"
                                             />
                                         ) : (
                                             <img
                                                 src="https://es.digi.com/getattachment/products/networking/infrastructure-management/icon-im-usbconnectivity.png"
                                                 alt={e.nombre_infraestructura}
-                                                className="w-10"
+                                                className="w-5"
                                             />
                                         )}
                                         {e.nombre_infraestructura}
@@ -97,13 +97,13 @@ export default function Infraestructura() {
                                             <img
                                                 src={e.imagen}
                                                 alt={e.nombre_infraestructura}
-                                                className="w-10"
+                                              className="w-5"
                                             />
                                         ) : (
                                             <img
                                                 src="https://es.digi.com/getattachment/products/networking/infrastructure-management/icon-im-usbconnectivity.png"
                                                 alt={e.nombre_infraestructura}
-                                                className="w-10"
+                                              className="w-5"
                                             />
                                         )}
                                         {e.nombre_infraestructura}
@@ -125,13 +125,13 @@ export default function Infraestructura() {
                                             <img
                                                 src={e.imagen}
                                                 alt={e.nombre_infraestructura}
-                                                className="w-10"
+                                                className="w-5"
                                             />
                                         ) : (
                                             <img
                                                 src="https://es.digi.com/getattachment/products/networking/infrastructure-management/icon-im-usbconnectivity.png"
                                                 alt={e.nombre_infraestructura}
-                                                className="w-10"
+                                                className="w-5"
                                             />
                                         )}
                                         {e.nombre_infraestructura}
@@ -153,13 +153,13 @@ export default function Infraestructura() {
                                             <img
                                                 src={e.imagen}
                                                 alt={e.nombre_infraestructura}
-                                                className="w-10"
+                                                className="w-5"
                                             />
                                         ) : (
                                             <img
                                                 src="https://es.digi.com/getattachment/products/networking/infrastructure-management/icon-im-usbconnectivity.png"
                                                 alt={e.nombre_infraestructura}
-                                                className="w-10"
+                                                className="w-5"
                                             />
                                         )}
                                         {e.nombre_infraestructura}
@@ -181,13 +181,13 @@ export default function Infraestructura() {
                                             <img
                                                 src={e.imagen}
                                                 alt={e.nombre_infraestructura}
-                                                className="w-10"
+                                                className="w-5"
                                             />
                                         ) : (
                                             <img
                                                 src="https://es.digi.com/getattachment/products/networking/infrastructure-management/icon-im-usbconnectivity.png"
                                                 alt={e.nombre_infraestructura}
-                                                className="w-10"
+                                                className="w-5"
                                             />
                                         )}
 
