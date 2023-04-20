@@ -49,6 +49,7 @@ import Acreditaciones from "./SchoolDetail/InfoColegios/Acreditaciones/Acreditac
 import Maps from "../components/Maps";
 import Ubicacion from "./SchoolDetail/Ubicacion/Ubicacion";
 import { Tabs } from "@mui/material";
+import SwDetail from "./SchoolDetail/SwipperDetail/SwDetail";
 
 function QuiltedImageList({ firstImage, gallery, setImage, setImages }) {
   return (
@@ -301,7 +302,7 @@ if(data.select === true){
     setValue(newValue);
 
   };
-
+  console.log(oneSchool.galeria_fotos)
   return (
     // HEAD DEL DETAIL ---------------
 
@@ -309,11 +310,14 @@ if(data.select === true){
 
       <div className="bg-[#f6f7f8] ">
         {images.open && <SliderC setImages={setImages} images={images.src}></SliderC>}
-        {oneSchool?.primera_imagen?.length > 0 ? <img
-          src={oneSchool.primera_imagen}
-          alt="banner"
-          className="object-cover w-full h-[500px]"
-        /> : <div className="w-full h-[500px] flex justify-center items-center">
+        {oneSchool?.primera_imagen?.length > 0 ? 
+        // <img
+        //   src={oneSchool.primera_imagen}
+        //   alt="banner"
+        //   className="object-cover w-full h-[500px]"
+        // /> 
+        <SwDetail/>
+        : <div className="w-full h-[500px] flex justify-center items-center">
           <CircularProgress
             size="5rem"
             style={{ color: '#0061dd' }}
@@ -476,7 +480,7 @@ if(data.select === true){
                     <Tab sx={{ textTransform: 'none' }} label="Reservar Citas" value="5" />
                     <Tab sx={{ textTransform: 'none' }} label="Eventos" value="6" />
                     <Tab sx={{ textTransform: 'none' }} label="Comentarios" value="7" />
-
+                    <Tab sx={{ textTransform: 'none' }} label="Multimedia" value="8" />
 
                   </TabList>
                 </Box>
@@ -696,6 +700,7 @@ if(data.select === true){
                   )}
                 </TabPanel>
                 <TabPanel value="6">
+               
                   {oneSchool?.Eventos?.length > 0 && (
                     <div
                       style={{
@@ -723,6 +728,37 @@ if(data.select === true){
                 </TabPanel>
                 <TabPanel value="7">
                   <Comentarios id={id} />
+                </TabPanel>
+                <TabPanel value="8">
+                <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md w-full">
+                <h2 className="font-semibold text-xl">Galería</h2>
+                {oneSchool.hasOwnProperty("galeria_fotos") &&
+                  oneSchool.galeria_fotos !== null &&
+                  JSON.parse(oneSchool.galeria_fotos).length > 0 && (
+                    <QuiltedImageList
+                      firstImage={oneSchool.primera_imagen}
+                      gallery={JSON.parse(oneSchool.galeria_fotos)}
+                      setImage={setImage}
+                      setImages={setImages}
+                    />
+                  )}
+                <div
+                  className={`fixed top-0 left-0 z-50 bg-black/90 w-full h-full ${image ? "block" : "hidden"
+                    }`}
+                >
+                  <button
+                    onClick={() => setImage(null)}
+                    className="absolute top-2 right-4 z-[100] text-white"
+                  >
+                    Atras
+                  </button>
+                  <img
+                    src={image}
+                    alt=""
+                    className="absolute border-4 top-1/2 left-1/2 -translate-x-1/2 rounded-md -translate-y-1/2 block max-w-[80%] max-h-[80%] object-cover"
+                  />
+                </div>
+              </div>
                 </TabPanel>
               </TabContext>
            </div>
