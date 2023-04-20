@@ -154,30 +154,24 @@ function SchoolDetail() {
   const [openLogin, setOpenLogin] = useState(false);
 
 
-  const [horarioDia, setHorarioDia] = useState(null)
+
   function handleChangeDateHS(data) {
-    setHorarioDia(date);
-    setCita({
+console.log(data)
+if(data.select === true){
+     setCita({
       ...cita,
       date: data.date,
       time: data.time
     });
+}
+ 
   }
-  console.log(horarioDia);
+
 
 
   const [cita, setCita] = React.useState({
-    date: [
-      stringyDate(dayjs(new Date()).$D).toString(),
-      stringyDate(dayjs(new Date()).$M + 1).toString(),
-      dayjs(new Date()).$y.toString(),
-    ].join("/"),
-    time: [
-      stringyDate(dayjs(new Date()).$H).toString(),
-      stringyDate(dayjs(new Date()).$m).toString(),
-    ].join(":"),
-    // date:horarioDia?.date,
-    // time:horarioDia?.time,
+    date:"",
+    time: "",
     modo: modo ? "Presencial" : "Virtual",
     nombre: isAuth ? user.nombre_responsable + " " + user?.apellidos_responsable : "",
 
@@ -200,6 +194,8 @@ function SchoolDetail() {
 
 
     if (
+      cita.time === "" ||
+      cita.date === "" ||
       e.target["nombre"].value === "" ||
       e.target["cel"].value === "" ||
       e.target["email"].value === ""
