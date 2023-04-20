@@ -436,7 +436,7 @@ if(data.select === true){
 
                 <div className="flex flex-row gap-3 text-center">
                   <FontAwesomeIcon
-                    size="lg"
+                    size="sm"
                     color="rgb(156 163 175)"
                     icon={faCalendar}
                   />
@@ -446,7 +446,7 @@ if(data.select === true){
                 </div>
                 <div className="flex flex-row gap-3 text-center">
                   <FontAwesomeIcon
-                    size="lg"
+                    size="sm"
                     color="rgb(156 163 175)"
                     icon={faSchool}
                   />
