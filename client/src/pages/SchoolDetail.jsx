@@ -764,48 +764,7 @@ if(data.select === true){
            </div>
               
 
-            {/* </Box> */}
-
-
-            {/* CITA -LISTA ESPERA- EVENTOS - VIDEO- COMENTARIOS */}
-            {/* <section className="right mt-5  flex flex-col gap-8 w-full"> */}
-
-
-
-
-            {/* EVENTOS */}
-
-            {/* GALERIA DE FOTOS */}
-            {/* <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md w-full">
-                <h2 className="font-semibold text-xl">Galería</h2>
-                {oneSchool.hasOwnProperty("galeria_fotos") &&
-                  oneSchool.galeria_fotos !== null &&
-                  JSON.parse(oneSchool.galeria_fotos).length > 0 && (
-                    <QuiltedImageList
-                      firstImage={oneSchool.primera_imagen}
-                      gallery={JSON.parse(oneSchool.galeria_fotos)}
-                      setImage={setImage}
-                      setImages={setImages}
-                    />
-                  )}
-                <div
-                  className={`fixed top-0 left-0 z-50 bg-black/90 w-full h-full ${image ? "block" : "hidden"
-                    }`}
-                >
-                  <button
-                    onClick={() => setImage(null)}
-                    className="absolute top-2 right-4 z-[100] text-white"
-                  >
-                    Atras
-                  </button>
-                  <img
-                    src={image}
-                    alt=""
-                    className="absolute border-4 top-1/2 left-1/2 -translate-x-1/2 rounded-md -translate-y-1/2 block max-w-[80%] max-h-[80%] object-cover"
-                  />
-                </div>
-              </div> */}
-            {/* -------------------------AGREGAR GALERIA AL SLIDE DE */}
+    
             {/* VIDEOS */}
             {/* {oneSchool.video_url?.length > 0 && (
                 <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md w-full">
@@ -816,10 +775,7 @@ if(data.select === true){
                   </video>
                 </div>
               )} */}
-            {/* COMENTARIOS */}
-
-
-            {/* </section> */}
+   
           </main>
           {/* ------------------------------------------------------------------------------- */}
         </div>
