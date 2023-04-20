@@ -27,47 +27,48 @@ export default function SwDetail() {
 
     const { oneSchool } = useSelector(
         (state) => state.schools
-      );
-   const arrImg = oneSchool.galeria_fotos !== null &&
-   JSON.parse(oneSchool.galeria_fotos).length > 0 &&JSON.parse(oneSchool.galeria_fotos)
- console.log(arrImg)
-   return (
+    );
+    const arrImg = oneSchool.galeria_fotos !== null &&
+        JSON.parse(oneSchool.galeria_fotos).length > 0 && JSON.parse(oneSchool.galeria_fotos)
+    console.log(arrImg)
+    arrImg.unshift(oneSchool.primera_imagen)
+    return (
         <>
             {/* <div className={style.divResponsiveDesktop}> */}
-                <div className={style.slider_container}>
-                    <Swiper
-                        modules={[Autoplay,Navigation, Pagination, Scrollbar, A11y]}
-                        spaceBetween={0}
-                        slidesPerView={1}
-                        grabCursor={true}
-                        rewind={true}
-                        autoplay={{
-                            delay: 2000,
-                            disableOnInteraction: false,
-                        }}
-                        pagination={{ clickable: true }}
-                        className={style.swiper}
-                    >
-                        { arrImg?.map((f) => {
-                            return (
-                                <>
-                                    <SwiperSlide className={style.swiper_slide}>
+            <div className={style.slider_container}>
+                <Swiper
+                    modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y]}
+                    spaceBetween={0}
+                    slidesPerView={1}
+                    grabCursor={true}
+                    rewind={true}
+                    autoplay={{
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    }}
+                    pagination={{ clickable: true }}
+                    className={style.swiper}
+                >
+                    {arrImg?.map((f) => {
+                        return (
+                            <>
+                                <SwiperSlide className={style.swiper_slide}>
 
-                                        <img
-                                            src={f}
-                                            alt="banner"
-                                            className="object-cover w-full h-[500px]"
-                                        />
+                                    <img
+                                        src={f}
+                                        alt="banner"
+                                        className="object-cover w-full h-[500px]"
+                                    />
 
-                                    </SwiperSlide>
+                                </SwiperSlide>
 
-                                </>
-                            );
-                        })
-                        }
-                    </Swiper>
+                            </>
+                        );
+                    })
+                    }
+                </Swiper>
 
-                </div>
+            </div>
             {/* </div> */}
 
 
