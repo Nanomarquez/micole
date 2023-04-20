@@ -308,7 +308,7 @@ if(data.select === true){
 
     <>
 
-      <div className="bg-[#f6f7f8] ">
+      <div className="bg-[#f6f7f8]  ">
         {images.open && <SliderC setImages={setImages} images={images.src}></SliderC>}
         {oneSchool?.primera_imagen?.length > 0 ? 
         // <img
@@ -325,7 +325,7 @@ if(data.select === true){
         </div>}
         {/* BODY DETAIL-----------------------*/}
         <div
-          className='flex flex-col sm:flex-row lg:px-[100px] justify-between' >
+          className='flex flex-col sm:flex-row lg:px-[100px] pb-10 justify-between' >
           {/* Header */}
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             {/* compartir en redes */}
