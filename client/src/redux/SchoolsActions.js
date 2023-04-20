@@ -124,7 +124,9 @@ export const getAllInfraestructura = () => (dispatch) => {
   dispatch(isLoading());
   axios
     .get("/infraestructuras")
-    .then((res) => dispatch(getInfraestructura(res.data)))
+    .then((res) => 
+    dispatch(getInfraestructura(res.data))
+    )
     .catch((err) => dispatch(getError(err.message)));
 };
 

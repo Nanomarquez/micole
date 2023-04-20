@@ -18,7 +18,7 @@ import.meta.env.MODE === "development"
 
 
 // import.meta.env.MODE === "development"
-  ? (axios.defaults.baseURL = "https://micole-production.up.railway.app")
+  ? (axios.defaults.baseURL = "http://localhost:3001/")
   : (axios.defaults.baseURL = "https://micole-production.up.railway.app");
 
 
