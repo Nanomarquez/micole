@@ -64,7 +64,11 @@
 .responsiveHead{
   padding-top: 2vh;
 }
-
+.divIconsHead{
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+}
 @media (max-width: 900px) {
   .divSwipperCitas{
     /* width:'100%',display:'flex', justifyContent:'center' */
@@ -81,5 +85,12 @@
     justify-content: flex-start;
     align-items: start;
    padding: 2vh;
+  }
+  .divIconsHead{
+  padding-left: 2vh;
+  flex-direction: row;
+  flex-wrap: wrap;
+    
+
   }
 }

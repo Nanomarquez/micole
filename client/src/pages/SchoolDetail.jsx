@@ -404,49 +404,49 @@ if(data.select === true){
             </div>
             
 
-            <div className="p-4 h-fit gap-5 flex justify-between items-start lg:items-start flex-wrap lg:flex-col">
-              <div>
+            <div className="pt-4 h-fit gap-5  flex  justify-between items-start lg:items-start  flex-col">
+              <div className={ style.divIconsHead}>
                 {" "}
-                <div className="flex flex-col gap-2 text-center">
+                <div className="flex  flex-row  gap-3 text-center">
                   <FontAwesomeIcon
-                    size="lg"
+                    size="sm"
                     color="rgb(156 163 175)"
                     icon={faUsers}
                   />
-                  <span className="text-sm text-gray-400">
+                  <span className="text-[1.5vh] text-gray-400">
                     {oneSchool.numero_estudiantes} Alumnos
                   </span>
                 </div>
                 {oneSchool?.Categoria?.map((cat) => (
-                  <div className="flex flex-col items-center gap-2 text-center">
+                  <div className="flex flex-row items-center min-w-[20vh] gap-3 text-center">
                     <img
                       src={cat.logo_categoria}
                       alt="logo_categoria"
                       className="w-4 object-cover invert-[40%]"
                     />
-                    <span className="text-sm text-gray-400">
+                    <span className="text-[1.8vh] text-gray-400">
                       {cat.nombre_categoria}{" "}
                     </span>
                   </div>
                 ))}
 
-                <div className="flex flex-col gap-2 text-center">
+                <div className="flex flex-row gap-3 text-center">
                   <FontAwesomeIcon
                     size="lg"
                     color="rgb(156 163 175)"
                     icon={faCalendar}
                   />
-                  <span className="text-sm text-gray-400">
+                  <span className="text-[1.8vh]  text-gray-400">
                     Fundación: {oneSchool.fecha_fundacion}{" "}
                   </span>
                 </div>
-                <div className="flex flex-col gap-2 text-center">
+                <div className="flex flex-row gap-3 text-center">
                   <FontAwesomeIcon
                     size="lg"
                     color="rgb(156 163 175)"
                     icon={faSchool}
                   />
-                  <span className="text-sm text-gray-400">
+                  <span className="text-[1.8vh] text-gray-400">
                     UGEL: {oneSchool.ugel}{" "}
                   </span>
                 </div>
