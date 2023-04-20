@@ -718,7 +718,7 @@ if(data.select === true){
                           justifyContent: "flex-start",
                         }}
                       >
-                        <h2 className="font-semibold text-xl">Eventos</h2>
+                        <h2 className="font-semibold  text-[#0D263B] text-[2.4vh]">Eventos</h2>
                       </div>
 
                       <SwiperEventos data={oneSchool} />
