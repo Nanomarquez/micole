@@ -90,8 +90,8 @@ mercado pago
       value: "estandar",
     },
     {
-      label: "Premium",
-      value: "premium",
+      label: "Exclusivo",
+      value: "exclusivo",
     },
   ];
 
@@ -206,7 +206,7 @@ mercado pago
       <div className={style.h1_div}>
         {/* <img src={Logo} /> */}
       </div>
-      <div className={style.PaymentLayout}>
+      <div className={plan != 'gratis'? style.PaymentLayout :style.PaymentLayoutSingap  }>
         <div className={style.container}>
           {
             plan !== 'gratis' && (
@@ -294,7 +294,29 @@ mercado pago
                       Se enviara un correo a tu email para continuar con el proceso
                     </small>
                   </div>
+
                 </div>
+               { plan !== 'gratis' && <div className={style.responsiveBtnMobile}>
+                  {buttonMp == null && selectedMethod === "mercadoPago" ? (
+                    <div className={style.divButton}>
+                      <button onClick={handleMp}>          {isLoading ? (
+                        <CircularProgress
+                          size="1rem"
+                          style={{ color: '#fff', marginTop: '5px' }}
+                        />
+                      ) : (
+                        'GENERAR LINK DE PAGO'
+                      )}</button>
+                    </div>
+                  ) : buttonMp == null && selectedMethod === "yape" ? (
+                    <div className={style.divButton}>
+                      <button onClick={handleYape}>GENERAR QR</button>
+                    </div>
+                  ) : null}
+                  {buttonMp && <div className={style.divButton}>
+                    <a className="text-white bg-[#0061df] rounded-md px-3 py-2" href={buttonMp} onClick={() => setButtonMp(null)}>PAGAR</a>
+                  </div>}
+                </div>}
               </>
             )
           }
@@ -303,10 +325,10 @@ mercado pago
         </div>
         {/* className={style.divBeneficios} */}
         {/* plan={plan} */}
-        <div >
+        <div className={style.divBeneficios} >
           {plan != 'gratis' &&
 
-            <h1>Información Detallada del Plan {plan} </h1>}
+            <h1 className={style.divBeneficiosh1}>Información Detallada del Plan {plan.toUpperCase()} </h1>}
           {plan === 'gratis' &&
             <InfoPlanes handleChangePlan={handleChangePlan} />
           }
@@ -362,26 +384,28 @@ mercado pago
                 </FormControl>
               )
             }
-
-            {buttonMp == null && selectedMethod === "mercadoPago" ? (
-              <div className={style.divButton}>
-                <button onClick={handleMp}>          {isLoading ? (
-                  <CircularProgress
-                    size="1rem"
-                    style={{ color: '#fff', marginTop: '5px' }}
-                  />
-                ) : (
-                  'GENERAR LINK DE PAGO'
-                )}</button>
-              </div>
-            ) : buttonMp == null && selectedMethod === "yape" ? (
-              <div className={style.divButton}>
-                <button onClick={handleYape}>GENERAR QR</button>
-              </div>
-            ) : null}
-            {buttonMp && <div className={style.divButton}>
-              <a className="text-white bg-[#0061df] rounded-md px-3 py-2" href={buttonMp} onClick={() => setButtonMp(null)}>PAGAR</a>
+           {  plan !== 'gratis' && <div className={style.responsiveBtnDesktop}>
+              {buttonMp == null && selectedMethod === "mercadoPago" ? (
+                <div className={style.divButton}>
+                  <button onClick={handleMp}>          {isLoading ? (
+                    <CircularProgress
+                      size="1rem"
+                      style={{ color: '#fff', marginTop: '5px' }}
+                    />
+                  ) : (
+                    'GENERAR LINK DE PAGO'
+                  )}</button>
+                </div>
+              ) : buttonMp == null && selectedMethod === "yape" ? (
+                <div className={style.divButton}>
+                  <button onClick={handleYape}>GENERAR QR</button>
+                </div>
+              ) : null}
+              {buttonMp && <div className={style.divButton}>
+                <a className="text-white bg-[#0061df] rounded-md px-3 py-2" href={buttonMp} onClick={() => setButtonMp(null)}>PAGAR</a>
+              </div>}
             </div>}
+
           </div>
         </div>
       </div>
