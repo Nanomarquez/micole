@@ -304,7 +304,7 @@ if(data.select === true){
   };
   console.log(oneSchool.galeria_fotos)
   return (
-    // HEAD DEL DETAIL ---------------
+   
 
     <>
 
@@ -379,7 +379,7 @@ if(data.select === true){
                   </div>
                  
                 </div>
-{/* COUTA DE INGRESO */}
+        {/* COUTA DE INGRESO */}
             {currentVacante && (
               <div className="flex flex-col w-full ">
                <small>
@@ -406,7 +406,7 @@ if(data.select === true){
               </div>
              
             </div>
-            
+            {/* ICONS HEAD */}
 
             <div className="pt-4 h-fit gap-5  flex  justify-between items-start lg:items-start  flex-col">
               <div className={ style.divIconsHead}>
@@ -461,10 +461,9 @@ if(data.select === true){
             </div>
           </div>
 
-          {/* INFORMACION DEL COLEGIO Y   CITA -LISTA ESPERA- EVENTOS - VIDEO- COMENTARIOS */}
+        {/* TABS DETAIL */}
           <main className="flex gap-5 flex-col lg:flex-row">
-            {/* INFORMACION DEL COLEGIO */}
-            {/* <Box sx={{ width: "", paddingTop: '10vh', typography: "body1" }}> */}
+          
            <div className={style.divBox}>
             <TabContext value={value}>
                 <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
