@@ -325,7 +325,7 @@ if(data.select === true){
           {/* Header */}
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             {/* compartir en redes */}
-            <div className="flex   flex-row ">
+            <div className="flex pt-20  pb-2 flex-row ">
               <span className="flex items-center gap-2">
                 {" "}
                 <FontAwesomeIcon
@@ -348,54 +348,63 @@ if(data.select === true){
               </span>
             </div>
             {/*nombre colegio */}
-            <h1 className="text-2xl  font-semibold">
+            <h1 className="pl-3 lg:pl-0 font-semibold m-0  text-[#0D263B] text-[2.9vh]">
               {oneSchool.nombre_colegio}
             </h1>
-            <h2 style={{ fontSize: '1.9vh' }}>
+            <h2 className='pl-3 lg:pl-0 text-[#696969] text-[1.5vh]'>
               {oneSchool.direccion}{" "}
             </h2>
             <div>
-              <div >
-                <div className="">
+              <div className={style.responsiveHead} >
+                <div className=" min-w-fit  max-w-fit">
 
                   {/* divs negro */}
-                  <div className="flex gap-5 lg:flex-row flex-col w-full ">
-                    <span className="bg-black/80 min-w-fit py-1 px-2 rounded-sm text-white text-sm flex items-center">
+                  <div className="flex gap-2 lg:flex-row  pb-1 ">
+                    <span className="bg-[#0D263B] text-[1.3vh] min-w-fit m-0 px-2 p-0 text-white rounded-sm  flex items-center">
                       {currentVacante &&
                         Number(currentVacante[0]?.capacidad) -
                         Number(currentVacante[0]?.alumnos_matriculados)}{" "}
                       Vacantes
                     </span>
-                    <span className="bg-black/80 min-w-fit py-1 px-2 rounded-sm text-white text-sm flex items-center">
+                    <span className="bg-[#0D263B] text-[1.3vh] min-w-fit m-0 px-2 p-0 text-white rounded-sm flex items-center">
                       {nombre_grado}
                     </span>
-                    <span className="bg-black/80 min-w-fit py-1 px-2 rounded-sm text-white text-sm flex items-center">
+                    <span className="bg-[#0D263B] text-[1.3vh] min-w-fit m-0 px-2 p-0 rounded-sm text-white  flex items-center">
                       {ingresoParams}
                     </span>
                   </div>
+                 
                 </div>
-
-              </div>
-            </div>
-            {/* COUTA DE INGRESO */}
+{/* COUTA DE INGRESO */}
             {currentVacante && (
-              <div className="flex flex-col w-full items-center lg:items-start">
-                <small>
-                  Cuota de ingreso: S/{" "}
-                  {currentVacante.length > 0 && currentVacante[0].cuota_ingreso}{" "}
+              <div className="flex flex-col w-full ">
+               <small>
+                <p className="font-semibold  text-[#0D263B] text-[2.2vh]"> Pensión: S/   {currentVacante.length > 0 && currentVacante[0].cuota_pension} mes </p>  
+               
                 </small>
                 <small>
-                  Cuota de pensión: S/{" "}
-                  {currentVacante.length > 0 && currentVacante[0].cuota_pension}
+                <p className="text-[#696969] text-[1.5vh]">  Cuota de ingreso: S/{" "}
+                {currentVacante.length > 0 && currentVacante[0].cuota_ingreso}{" "}
+                  </p>
+                
                 </small>
+              
                 <small>
-                  Cuota de matricula: S/{" "}
-                  {currentVacante.length > 0 && currentVacante[0].matricula}
+                  <p className="text-[#696969] text-[1.5vh]">
+                     Cuota de matricula: S/{" "}
+                     {currentVacante.length > 0 && currentVacante[0].matricula}
+                  </p>
+                 
+               
                 </small>
               </div>
             )}
+              </div>
+             
+            </div>
+            
 
-            <div className="p-4 h-fit gap-5 flex justify-between items-start lg:items-start flex-col">
+            <div className="p-4 h-fit gap-5 flex justify-between items-start lg:items-start flex-wrap lg:flex-col">
               <div>
                 {" "}
                 <div className="flex flex-col gap-2 text-center">
