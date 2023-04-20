@@ -730,7 +730,7 @@ if(data.select === true){
                 </TabPanel>
                 <TabPanel value="8">
                 <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md w-full">
-                <h2 className="font-semibold text-xl">Galería</h2>
+                <h2 className="font-semibold  text-[#0D263B] text-[2.4vh]">Galería</h2>
                 {oneSchool.hasOwnProperty("galeria_fotos") &&
                   oneSchool.galeria_fotos !== null &&
                   JSON.parse(oneSchool.galeria_fotos).length > 0 && (
