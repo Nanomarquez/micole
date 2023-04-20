@@ -354,12 +354,13 @@ function SchoolDetail() {
             <h1 className="text-2xl  font-semibold">
               {oneSchool.nombre_colegio}
             </h1>
+            <h2 style={{fontSize:'1.9vh'}}>
+                    {oneSchool.direccion}{" "}
+                  </h2>
             <div>
               <div >
                 <div className="">
-                  <h2 className="text-center lg:text-start">
-                    {oneSchool.direccion}{" "}
-                  </h2>
+                 
                   {/* divs negro */}
                   <div className="flex gap-5 lg:flex-row flex-col w-full ">
                     <span className="bg-black/80 min-w-fit py-1 px-2 rounded-sm text-white text-sm flex items-center">
@@ -453,22 +454,22 @@ function SchoolDetail() {
           {/* INFORMACION DEL COLEGIO Y   CITA -LISTA ESPERA- EVENTOS - VIDEO- COMENTARIOS */}
           <main className="flex gap-5 flex-col lg:flex-row">
             {/* INFORMACION DEL COLEGIO */}
-            <Box sx={{ width: "100%", typography: "body1" }}>
+            <Box sx={{ width: "100vh",paddingTop:'10vh', typography: "body1" }}>
           <TabContext value={value}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
             <TabList onChange={handleChange} aria-label="lab API tabs example">
-              <Tab label="Datos Generales" value="1" />
-              <Tab label="Infraestructura" value="2" />
-              <Tab label="Acreditaciones" value="3" />
-              <Tab label="Ubicacion" value="4" />
-              <Tab label="Reservar Citas" value="5" />
-              <Tab label="Eventos" value="6" />
-              <Tab label="Comentarios" value="7" />
+              <Tab sx={{textTransform:'none'}} label="Datos Generales" value="1" />
+              <Tab sx={{textTransform:'none'}} label="Infraestructura" value="2" />
+              <Tab sx={{textTransform:'none'}} label="Acreditaciones" value="3" />
+              <Tab sx={{textTransform:'none'}} label="Ubicacion" value="4" />
+              <Tab sx={{textTransform:'none'}} label="Reservar Citas" value="5" />
+              <Tab sx={{textTransform:'none'}} label="Eventos" value="6" />
+              <Tab sx={{textTransform:'none'}} label="Comentarios" value="7" />
              
 
             </TabList>
           </Box>
-          <TabPanel value="1"> 
+          <TabPanel  value="1"> 
             <InfoGeneral />
           </TabPanel>
           <TabPanel value="2">
