@@ -57,7 +57,7 @@ export default function SwDetail() {
                                     <img
                                         src={f}
                                         alt="banner"
-                                        className="object-cover w-full h-[500px]"
+                                        className="object-cover w-full h-[500px] h-full"
                                     />
 
                                 </SwiperSlide>

@@ -5,7 +5,8 @@
     flex-direction: column;
     border-radius: 30px;
     /* position: relative; */
-    width: 80vh;
+    width: 70vh;
+    max-width: 70vh;
     /* max-height: 600px; */
     margin: 0;
     padding: 0;
