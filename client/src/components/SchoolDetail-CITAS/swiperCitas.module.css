@@ -5,12 +5,12 @@
     flex-direction: column;
     border-radius: 30px;
     /* position: relative; */
-    width: 65vh;
+    width: 80vh;
     /* max-height: 600px; */
     margin: 0;
     padding: 0;
     justify-content: center;
-    height: 25vh;
+    height: 26vh;
 }
 
 .swiper {
@@ -50,6 +50,7 @@ flexDirection: "column", */
     align-items: flex-start;
     width: 100%;
     gap: 1vh;
+    padding-top: 3vh;
 }
 
 .cardDia {
@@ -164,7 +165,7 @@ flexDirection: "column", */
 
     .slider_container {
         width: 40vh;
-        height: 25vh;
+        height: 27vh;
         /* justify-content: center;
         align-items: center; */
     }

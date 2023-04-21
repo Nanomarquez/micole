@@ -45,7 +45,7 @@ export default function SecCitas({ sendDateHs }) {
           <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
             spaceBetween={0}
-            slidesPerView={5}
+            slidesPerView={6}
             grabCursor={true}
             rewind={true}
             pagination={{ clickable: true }}
