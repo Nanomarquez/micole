@@ -17,7 +17,7 @@ export default function GridVacantesAdmin({ año, setVacantesOff, oneSchool }) {
   // const [datos, setDatos] = React.useState({ año }); 
    const [datos, setDatos] = React.useState({ 
     año, 
-    idColegio: oneSchool.id });
+    idColegio: oneSchool?.id });
   const [defaultVacantes,setDefaultVacantes] = React.useState([])
   const handleChange = (e) => {
     setDatos({
@@ -25,10 +25,6 @@ export default function GridVacantesAdmin({ año, setVacantesOff, oneSchool }) {
       [e.target.id]: { ...datos[e.target.id], [e.target.name]: e.target.value },
     });
   };
-
-
-
-
     React.useEffect(() => {
     setDefaultVacantes(vacantes)
     setDatos({
@@ -48,7 +44,8 @@ export default function GridVacantesAdmin({ año, setVacantesOff, oneSchool }) {
     })
   }, [vacantes])
   
-
+console.log(datos)
+console.log(oneSchool.id)
   const handleSubmit = (e) => {
     e.preventDefault();
     setVacantesOff(false);
@@ -136,7 +133,7 @@ export default function GridVacantesAdmin({ año, setVacantesOff, oneSchool }) {
                     name="capacidad"
                     onChange={handleChange}
                     className="border-b-2 text-center w-[100px] border-l border-r p-2 outline-none rounded-md shadow-white/40 shadow-sm"
-                    defaultValue={defaultVacantes?.filter(
+                    defaultValue={oneSchool?.Vacantes?.filter(
                       (el) => el.GradoId === vac.GradoId && el.año === año
                     ).map((el) => el.capacidad)}
                     placeholder="Ingrese nro"
@@ -147,7 +144,7 @@ export default function GridVacantesAdmin({ año, setVacantesOff, oneSchool }) {
                   <input
                     id={vac.GradoId}
                     name="alumnos"
-                    defaultValue={defaultVacantes?.filter(
+                    defaultValue={oneSchool?.Vacantes?.filter(
                       (el) => el.GradoId === vac.GradoId && el.año === año
                     ).map((el) => el.alumnos_matriculados)}
                     onChange={handleChange}
@@ -164,18 +161,18 @@ export default function GridVacantesAdmin({ año, setVacantesOff, oneSchool }) {
                       datos[vac.GradoId]
                         ? datos[vac.GradoId]["capacidad"] -
                           datos[vac.GradoId]["alumnos"]
-                        : defaultVacantes?.filter(
+                        : oneSchool?.Vacantes?.filter(
                             (el) => el.GradoId === vac.GradoId && el.año === año
                           ).map((el) => el.capacidad) -
-                          defaultVacantes?.filter(
+                          oneSchool?.Vacantes?.filter(
                             (el) => el.GradoId === vac.GradoId && el.año === año
                           ).map((el) => el.alumnos_matriculados)
                     }
                     defaultValue={
-                      defaultVacantes?.filter(
+                      oneSchool?.Vacantes?.filter(
                         (el) => el.GradoId === vac.GradoId && el.año === año
                       ).map((el) => el.capacidad) -
-                      defaultVacantes?.filter(
+                      oneSchool?.Vacantes?.filter(
                         (el) => el.GradoId === vac.GradoId && el.año === año
                       ).map((el) => el.alumnos_matriculados)
                     }
@@ -190,7 +187,7 @@ export default function GridVacantesAdmin({ año, setVacantesOff, oneSchool }) {
                   <input
                     id={vac.GradoId}
                     name="cuota_ingreso"
-                    defaultValue={defaultVacantes?.filter(
+                    defaultValue={oneSchool?.Vacantes?.filter(
                       (el) => el.GradoId === vac.GradoId && el.año === año
                     ).map((el) => el.cuota_ingreso)}
                     onChange={handleChange}
@@ -205,7 +202,7 @@ export default function GridVacantesAdmin({ año, setVacantesOff, oneSchool }) {
                   </span>
                   <input
                     id={vac.GradoId}
-                    defaultValue={defaultVacantes?.filter(
+                    defaultValue={oneSchool?.Vacantes?.filter(
                       (el) => el.GradoId === vac.GradoId && el.año === año
                     ).map((el) => el.matricula)}
                     name="matricula"
@@ -221,7 +218,7 @@ export default function GridVacantesAdmin({ año, setVacantesOff, oneSchool }) {
                   </span>
                   <input
                     id={vac.GradoId}
-                    defaultValue={defaultVacantes?.filter(
+                    defaultValue={oneSchool?.Vacantes?.filter(
                       (el) => el.GradoId === vac.GradoId && el.año === año
                     ).map((el) => el.cuota_pension)}
                     name="cuota_pension"
@@ -232,7 +229,7 @@ export default function GridVacantesAdmin({ año, setVacantesOff, oneSchool }) {
                   />{" "}
                 </td>
                 <td className="relative px-5">
-                  {defaultVacantes?.filter(
+                  {oneSchool?.Vacantes?.filter(
                     (el) => el.GradoId === vac.GradoId && el.año === año
                   ).length > 0 ? (
                     <MdDeleteForever
