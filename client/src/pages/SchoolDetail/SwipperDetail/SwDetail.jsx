@@ -37,9 +37,10 @@ export default function SwDetail() {
             {/* <div className={style.divResponsiveDesktop}> */}
             <div className={style.slider_container}>
                 <Swiper
-                    modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y]}
+                    modules={[EffectFade,Autoplay, Navigation, Pagination, Scrollbar, A11y]}
                     spaceBetween={0}
                     slidesPerView={1}
+                    effect={"fade"}
                     grabCursor={true}
                     rewind={true}
                     autoplay={{
