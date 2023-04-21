@@ -178,7 +178,7 @@ function SchoolDetail() {
           </div>}
         {/* BODY DETAIL----------------lg:px-[100px]-------*/}
         <div
-          className='flex flex-col  sm:flex-row   pb-20 justify-around' >
+          className='flex flex-col  sm:flex-row  pl-1 pb-20 justify-around' >
           {/* Header */}
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             {/* compartir en redes */}
