@@ -30,7 +30,8 @@ export const schoolsSlice = createSlice({
     success: false,
     nameColegio: null,
     precios: [],
-    infraSH:[]
+    infraSH:[],
+    Acre:[]
   },
   reducers: {
     getPrecios: (state, action) => {
@@ -70,6 +71,11 @@ export const schoolsSlice = createSlice({
     },
     getAfiliaciones: (state, action) => {
       (state.afiliaciones = action.payload),
+        (state.loading = false),
+        (state.error = "");
+    },
+    getAcre: (state, action) => {
+      (state.Acre = action.payload),
         (state.loading = false),
         (state.error = "");
     },
@@ -188,7 +194,8 @@ export const {
   getDificultades,
   getNombreColegios,
   getPrecios,
-  getInfraestructuraSH
+  getInfraestructuraSH,
+  getAcre
 } = schoolsSlice.actions;
 
 export default schoolsSlice.reducer;

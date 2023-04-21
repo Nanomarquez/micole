@@ -66,7 +66,7 @@ console.log(infraColegio?.Infraestructuras)
                 ))}
             </Tabs>
 
-            <div className="text-sm flex w-full justify-center">
+            <div className="text-[1.2vh] flex w-full justify-center">
                 {infraColegio?.Infraestructuras?.some(
                     (e) => e.InfraestructuraTipoId === 1
                 ) && (

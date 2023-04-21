@@ -25,7 +25,8 @@ import {
   getDificultades,
   getNombreColegios,
   getPrecios,
-  getInfraestructuraSH
+  getInfraestructuraSH,
+  getAcre
 } from "./SchoolsSlice";
 
 export const setPrecios = () => (dispatch) => {
@@ -379,4 +380,19 @@ export const getInfra = (id) => (dispatch) => {
     console.log(error);
   }
 };
-// /infraestructuras/:Colegio_id
+
+export const getAcreditaciones = (id) => (dispatch) => {
+  try {
+    axios
+
+      .get(`/colegios/afiliacion/${id}`)
+      .then((res) => {
+        console.log(res.data)
+        dispatch(getAcre(res.data));
+      })
+      .catch((err) => console.log(err.message));
+  } catch (error) {
+    console.log(error);
+  }
+};
+// /infraestructuras/:Colegio_id /afiliacion/:Colegio_id
