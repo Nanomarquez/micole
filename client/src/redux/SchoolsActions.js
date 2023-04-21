@@ -24,7 +24,8 @@ import {
   getMetodos,
   getDificultades,
   getNombreColegios,
-  getPrecios
+  getPrecios,
+  getInfraestructuraSH
 } from "./SchoolsSlice";
 
 export const setPrecios = () => (dispatch) => {
@@ -364,3 +365,18 @@ export const filterAdminState = (state, page) => (dispatch) => {
     console.log(error);
   }
 };
+export const getInfra = (id) => (dispatch) => {
+  try {
+    axios
+
+      .get(`/colegios/infraestructuras/${id}`)
+      .then((res) => {
+        console.log(res.data)
+        dispatch(getInfraestructuraSH(res.data));
+      })
+      .catch((err) => console.log(err.message));
+  } catch (error) {
+    console.log(error);
+  }
+};
+// /infraestructuras/:Colegio_id
