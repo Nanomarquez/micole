@@ -5,12 +5,12 @@
     flex-direction: column;
     border-radius: 30px;
     /* position: relative; */
-    width: 65vh;
+    width: auto;
     /* max-height: 600px; */
     margin: 0;
     padding: 0;
     justify-content: center;
-    height: 25vh;
+    height: 60vh;
 }
 
 .swiper {
@@ -163,7 +163,7 @@ flexDirection: "column", */
     }
 
     .slider_container {
-        width: 40vh;
+        width: 100%;
         height: 25vh;
         /* justify-content: center;
         align-items: center; */
