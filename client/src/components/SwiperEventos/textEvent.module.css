@@ -9,6 +9,7 @@
   height: 100%;
   align-items: center;
   justify-content: center;
+  padding: 1vh;
   gap: 2vh;
 }
 .imgDiv {
