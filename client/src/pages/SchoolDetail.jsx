@@ -365,6 +365,7 @@ function SchoolDetail() {
                         alignItems: "center",
                         flexDirection: "column",
                         gap: "10px",
+                        padding:' 1.25rem'
                       }}
                     >
                       <div
