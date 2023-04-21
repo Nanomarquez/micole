@@ -90,7 +90,6 @@ function SchoolDetail() {
 
   const { user, isAuth, vacantes } = useSelector((state) => state.auth);
 
-
   const location = useLocation();
 
   const params = new URLSearchParams(location.search);
@@ -154,19 +153,7 @@ function SchoolDetail() {
 
   const [openLogin, setOpenLogin] = useState(false);
 
-
-
- 
-
-
-
-
-
   document.title = oneSchool?.nombre_colegio?.length > 0 ? oneSchool.nombre_colegio : "MiCole"
-
-
-
-
 
   useEffect(() => {
     if (isAuth) {
