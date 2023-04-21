@@ -660,6 +660,15 @@ if(data.select === true){
                   />
                 </div>
               </div>
+              {oneSchool.video_url?.length > 0 && (
+                <div className=" bg-white flex flex-col gap-5 rounded-md w-full">
+                  <h2 className="font-semibold  text-[#0D263B] text-[2.4vh]">Video</h2>
+                 
+                  <video className="w-full h-[300px] lg:h-[400px]" controls>
+                    <source src={oneSchool.video_url} type="video/mp4" />
+                  </video>
+                </div>
+              )}
                 </TabPanel>
               </TabContext>
            </div>
