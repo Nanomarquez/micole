@@ -13,13 +13,13 @@ import store from "./redux/store";
 
 import.meta.env.MODE === "development"
 
-//  ? (axios.defaults.baseURL = "https://micole-production.up.railway.app")
-//  : (axios.defaults.baseURL = "https://micole-production.up.railway.app");
+ ? (axios.defaults.baseURL = "https://micole-production.up.railway.app")
+ : (axios.defaults.baseURL = "https://micole-production.up.railway.app");
 
 
 // import.meta.env.MODE === "development"
   ? (axios.defaults.baseURL = "http://localhost:3001/")
-  : (axios.defaults.baseURL = "https://micole-production.up.railway.app");
+  : (axios.defaults.baseURL = "http://3.133.89.63:3001/");
 
 
 // let previusTitle = document.title

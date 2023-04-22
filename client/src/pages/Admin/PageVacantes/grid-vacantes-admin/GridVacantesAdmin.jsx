@@ -1,34 +1,58 @@
-import { Checkbox } from "@mui/material";
 import axios from "axios";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+
+
+
 import SwalProp from "../../../../exports/SwalProp";
+
+import * as React from "react";
+import { useSelector,useDispatch } from "react-redux";
+
+import { MdDeleteForever } from "react-icons/md";
+
+import { setVacantesRedux } from "../../../../redux/AuthActions";
+
 import {
   getNombresColegios,
   getVacantes,
 } from "../../../../redux/SchoolsActions";
 
 export default function GridVacantesAdmin({ año, setVacantesOff, oneSchool }) {
-  //   const { grados } = useSelector((state) => state.schools);
   const { vacantesGrados } = useSelector((state) => state.schools);
-  const { token } = useSelector((state) => state.auth);
-
+  const { token, vacantes } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-
-
-  const [datos, setDatos] = React.useState({ 
+  // const [datos, setDatos] = React.useState({ año }); 
+   const [datos, setDatos] = React.useState({ 
     año, 
-    idColegio: oneSchool.id });
-
+    idColegio: oneSchool?.id });
+  const [defaultVacantes,setDefaultVacantes] = React.useState([])
   const handleChange = (e) => {
     setDatos({
       ...datos,
       [e.target.id]: { ...datos[e.target.id], [e.target.name]: e.target.value },
     });
   };
-
-  const handleSubmit = (e) => {
+    React.useEffect(() => {
+    setDefaultVacantes(vacantes)
+    setDatos({
+      ...datos,
+      ...vacantes?.reduce((acc, el) => {
+        if (el.año === año) {
+          acc[el.GradoId] = {
+            capacidad: el.capacidad,
+            alumnos: el.alumnos_matriculados,
+            cuota_ingreso: el.cuota_ingreso,
+            matricula: el.matricula,
+            cuota_pension: el.cuota_pension,
+          };
+        }
+        return acc;
+      }, {}),
+    })
+  }, [vacantes])
   
+console.log(datos)
+console.log(oneSchool.id)
+  const handleSubmit = (e) => {
     e.preventDefault();
     setVacantesOff(false);
     try {
@@ -39,6 +63,7 @@ export default function GridVacantesAdmin({ año, setVacantesOff, oneSchool }) {
           { headers: { Authorization: `Bearer ${token}` } }
         )
         .then((res) => {
+
           dispatch(getNombresColegios());
           SwalProp({
             status: true,
@@ -47,6 +72,7 @@ export default function GridVacantesAdmin({ año, setVacantesOff, oneSchool }) {
           });
           
         })
+
         .catch((err) => {
           SwalProp({
             status: false,
@@ -59,13 +85,16 @@ export default function GridVacantesAdmin({ año, setVacantesOff, oneSchool }) {
     }
   };
 
-  console.log(datos);
-  useEffect(() => {
-    return () => {
-      dispatch(getNombresColegios());
-    };
-  }, []);
+/*
+{ 2: { capacidad: '', alumnos: '', cuota_ingreso: '', matricula: '', cuota_pension: '' }, 'año': 2023 }
+*/
 
+  const handleDelete = (vac) => {
+    setDefaultVacantes(defaultVacantes.filter(el => el.id !== vac.id))
+    setDatos({...datos,
+      [vac.GradoId]: {capacidad: "", alumnos: "", cuota_ingreso: "", matricula: "", cuota_pension: ""}
+    })
+  }
 
 
   return (
@@ -94,6 +123,9 @@ export default function GridVacantesAdmin({ año, setVacantesOff, oneSchool }) {
               </th>
               <th scope="col" className="text-center">
                 Pension
+              </th>
+              <th scope="col" className="text-center">
+                Borrar
               </th>
             </tr>
           </thead>
@@ -162,7 +194,7 @@ export default function GridVacantesAdmin({ año, setVacantesOff, oneSchool }) {
                 </td>
                 <td className=" relative">
                   <span className="absolute top-[33%] left-[10%] font-bold">
-                    $
+                  S/
                   </span>
                   <input
                     id={vac.GradoId}
@@ -178,7 +210,7 @@ export default function GridVacantesAdmin({ año, setVacantesOff, oneSchool }) {
                 </td>
                 <td className=" relative">
                   <span className="absolute top-[33%] left-[10%] font-bold">
-                    $
+                    S/
                   </span>
                   <input
                     id={vac.GradoId}
@@ -194,7 +226,7 @@ export default function GridVacantesAdmin({ año, setVacantesOff, oneSchool }) {
                 </td>
                 <td className="relative pr-2">
                   <span className="absolute top-[33%] left-[10%] font-bold">
-                    $
+                  S/
                   </span>
                   <input
                     id={vac.GradoId}
@@ -208,6 +240,17 @@ export default function GridVacantesAdmin({ año, setVacantesOff, oneSchool }) {
                     type="number"
                   />{" "}
                 </td>
+                <td className="relative px-5">
+                  {oneSchool?.Vacantes?.filter(
+                    (el) => el.GradoId === vac.GradoId && el.año === año
+                  ).length > 0 ? (
+                    <MdDeleteForever
+                    onClick={() => handleDelete(defaultVacantes.find(el=>el.GradoId===vac.GradoId && el.año === año ))}
+                    className="text-[#0061dd] text-4xl cursor-pointer"
+                  />
+                    ) : null }
+
+                </td>
               </tr>
             ))}
           </tbody>
@@ -217,7 +260,7 @@ export default function GridVacantesAdmin({ año, setVacantesOff, oneSchool }) {
         onClick={handleSubmit}
         className="flex mx-auto bg-[#0061dd] p-5 text-white rounded-md"
       >
-        Enviar formulario del año: {año}
+        Enviar vacantes del año  {año}
       </button>
     </>
   );

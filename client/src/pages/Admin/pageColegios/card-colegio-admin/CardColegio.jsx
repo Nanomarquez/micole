@@ -1,5 +1,5 @@
 import { Button, Card, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import HeadTable from "./headTable/HeadTable";
 import style from "./cardColegio.module.css";
@@ -13,7 +13,8 @@ import fechaFormat from "../../../../components/SwiperEventos/utils/fechaFormat"
 export default function CardColegio({ input, data, isLoading, page }) {
   const dispatch = useDispatch();
   const items = [1, 2, 3, 4, 5];
-
+  const pages= useRef(page);
+  
   const putActiveColegio = (id, setLoading) => {
     console.log(id);
     setLoading(true);
@@ -21,7 +22,7 @@ export default function CardColegio({ input, data, isLoading, page }) {
       axios
         .put(`/colegios/activo/${id}`, { isActive: true })
         .then((res) => {
-          dispatch(getAllSchoolsPageAdmin(page));
+          // dispatch(getAllSchoolsPageAdmin(pages));
           setLoading(false);
           SwalProp({
             status: true,
@@ -52,7 +53,7 @@ export default function CardColegio({ input, data, isLoading, page }) {
       axios
         .put(`/colegios/activo/${id}`, { isActive: false })
         .then((res) => {
-          dispatch(getAllSchoolsPageAdmin(page));
+          // dispatch(getAllSchoolsPageAdmin(pages));
           setLoading(false);
           SwalProp({
             status: true,
