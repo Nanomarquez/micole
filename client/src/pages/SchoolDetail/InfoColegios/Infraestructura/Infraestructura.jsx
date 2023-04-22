@@ -61,7 +61,6 @@ export default function Infraestructura() {
           />
         ))}
       </Tabs>
-
       <div className=" text-[1.8vh] flex w-full justify-center">
         {infraColegio?.Infraestructuras?.some(
           (e) => e.InfraestructuraTipoId === 1
