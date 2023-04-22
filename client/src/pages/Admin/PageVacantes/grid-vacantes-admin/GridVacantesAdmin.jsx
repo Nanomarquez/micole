@@ -2,7 +2,7 @@ import { Checkbox } from "@mui/material";
 import axios from "axios";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Swal from "sweetalert2";
+import SwalProp from "../../../../exports/SwalProp";
 import {
   getNombresColegios,
   getVacantes,
@@ -40,12 +40,17 @@ export default function GridVacantesAdmin({ año, setVacantesOff, oneSchool }) {
         )
         .then((res) => {
           dispatch(getNombresColegios());
-          Swal.fire("Success", "Formulario enviado correctamente", "success");
+          SwalProp({
+            status: true,
+            title: "Éxito",
+            text: "Formulario enviado!" ,
+          });
+          
         })
         .catch((err) => {
-          Swal.fire({
-            icon: "error",
-            title: "Algo salio mal",
+          SwalProp({
+            status: false,
+            title: "Algo salió mal",
             text: err.response.data.error,
           });
         });
