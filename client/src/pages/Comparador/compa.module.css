@@ -1,0 +1,32 @@
+.divP {
+   
+    width: 100%;
+    min-height: 50%;
+    display: flex;
+    padding-bottom: 6vh;
+    gap: 6vh;
+    flex-direction: column;
+  
+}
+
+.divP p {
+    font-size: 2vh;
+    font-weight: 600;
+    min-height: 3.1vh;
+    margin: 0;
+    color: #0D263B;
+    padding-left: 1vh;
+}
+.divTabla{
+    display: flex;
+    height: 3vh;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+/* .layout{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    align-items: flex-end;
+    justify-content: center;
+} */

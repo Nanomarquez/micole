@@ -784,9 +784,12 @@ export default function CardsSch() {
                 {/* BODY*/}
                 <div className={style.bodyCard}>
                   <div className={style.bodyInfo}>
-                    <p>{c.direccion}</p>
+                  <div className={style.div}>
+                      <p>{c.direccion}</p>
+                  </div>
+                  
                     {/* Tipo de escuela: */}
-                    <div style={{ border: "1px solid grey", width: "100%" }}>
+                    <div className={style.div}>
                       {c.Categoria.map((ca) => {
                         return (
                           <>
@@ -806,17 +809,17 @@ export default function CardsSch() {
                     </div>
 
                     {/* Cant. Alumnos: */}
-                    <div style={{ border: "1px solid grey", width: "100%" }}>
+                    <div className={style.div}>
                       <p>{c.numero_estudiantes}</p>
                     </div>
 
                     {/* Área */}
-                    <div style={{ border: "1px solid grey", width: "100%" }}>
+                    <div className={style.div}>
                       <p>{c.area}</p>
                     </div>
 
                     {/* Métodos de Aprendizaje: */}
-                    <div style={{ border: "1px solid grey", width: "100%" }}>
+                    <div className={style.div}>
                       {c.Metodos.map((m) => {
                         return (
                           <>
@@ -837,7 +840,7 @@ export default function CardsSch() {
                     </div>
 
                     {/* Neurodiversidad : */}
-                    <div style={{ border: "1px solid grey", width: "100%" }}>
+                    <div className={style.div}>
                       {c.Dificultades.map((d) => {
                         return (
                           <>
