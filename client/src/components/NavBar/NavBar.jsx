@@ -10,11 +10,13 @@ import { logout } from "../../redux/AuthActions";
 import { Squash as Hamburger } from "hamburger-react";
 import CircularProgress from "@mui/material/CircularProgress";
 import ModalRegistro from "../FormRegister/ModalRegister";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
+import { Badge } from "@mui/material";
 function NavBar() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { isAuth, oneSchool, user } = useSelector((state) => state.auth);
+  const { arrColegios } = useSelector((state) => state.comparador);
   const [OpenLogin, setOpenLogin] = useState(false);
   const [BurguerMen, setBurguerMen] = useState(false);
   const [OpenCategory, setOpenCategory] = useState(false);
@@ -50,11 +52,7 @@ function NavBar() {
       behavior: "smooth",
     });
   }
-useEffect(() => {
-  
-
-  
-}, [user])
+  useEffect(() => {}, [user]);
 
   const [isOpen, setOpen] = useState(false);
 
@@ -86,6 +84,19 @@ useEffect(() => {
           >
             Contáctanos
           </p>
+          <div className="flex">
+            <p
+              className={`${style.p} hover-underline-animation`}
+              // onClick={scrollBot}
+            >
+              Comparar Colegios
+            </p>
+            <Badge
+              badgeContent={arrColegios.length}
+              color="success"
+              sx={{ top: "-4px", left: "10px" }}
+            ></Badge>
+          </div>
         </div>
 
         <div className="md:hidden">
@@ -94,10 +105,13 @@ useEffect(() => {
 
         <div className={style.buttonContainer}>
           {isAuth === true ? (
-            <button onClick={()=>{
-              navigate('/')
-              handlerLogout()
-              }} className={style.SesionButtom}>
+            <button
+              onClick={() => {
+                navigate("/");
+                handlerLogout();
+              }}
+              className={style.SesionButtom}
+            >
               Cerrar Sesion
             </button>
           ) : (
@@ -195,10 +209,13 @@ useEffect(() => {
           </p>
 
           {isAuth === true ? (
-            <button onClick={()=>{
-              navigate('/')
-              handlerLogout()
-              }} className={style.SesionButtom}>
+            <button
+              onClick={() => {
+                navigate("/");
+                handlerLogout();
+              }}
+              className={style.SesionButtom}
+            >
               Cerrar Sesion
             </button>
           ) : (
