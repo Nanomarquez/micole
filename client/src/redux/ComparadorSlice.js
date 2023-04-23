@@ -3,12 +3,13 @@ import Swal from "sweetalert2";
 export const comparadorSlice = createSlice({
   name: "comparador",
   initialState: {
-    arrColegios: ["asd","dsad"],
+    arrColegios: ["asd"],
   },
   reducers: {
     getDataColegios: (state, action) => {
-      if (arrColegios.length < 3) {
-        state.arrColegios = [...arrColegios, action.payload];
+      console.log(action.payload)
+      if (state.arrColegios.length < 3) {
+        state.arrColegios = [...state.arrColegios, action.payload];
       } else {
         console.log("oli")
       }

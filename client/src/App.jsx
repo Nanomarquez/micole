@@ -34,6 +34,7 @@ import RequireAuth from "./components/RequireAuth";
 import { getCita } from "./redux/CitasActions";
 import MainAdmin from "./pages/Admin/MainAdmin";
 import MainUser from "./pages/User/MainUser";
+import Comparador from "./pages/Comparador/Comparador";
 
 function App() {
   const { error: errorSchool } = useSelector((state) => state.schools);
@@ -81,7 +82,7 @@ function App() {
           <Route exact path="/enroll" element={<EnrollSchool />} />
           <Route path="/listschool" element={<ListSchool />} />
           <Route path="/schooldetail/:id" er element={<SchoolDetail />} />
-
+          <Route path="/comparador"  element={<Comparador />} />
           <Route path="/*" element={<Error />} />
           <Route path="*" element={<Error />} />
           {user?.rol === "Colegio" && (

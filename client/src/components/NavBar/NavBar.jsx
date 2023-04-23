@@ -12,6 +12,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import ModalRegistro from "../FormRegister/ModalRegister";
 import { useNavigate } from "react-router-dom";
 import { Badge } from "@mui/material";
+import Comparador from "../../pages/Comparador/Comparador";
 function NavBar() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -96,6 +97,7 @@ function NavBar() {
               color="success"
               sx={{ top: "-4px", left: "10px" }}
             ></Badge>
+            {/* <Comparador/> */}
           </div>
         </div>
 

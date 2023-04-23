@@ -1,0 +1,1503 @@
+[
+    {
+      "id": "def7ff4e-4249-4614-8d8e-0279e473f846",
+      "nombre_colegio": "Pardo School",
+      "direccion": "Calle Ciro Alegria 436",
+      "telefono": "998432612",
+      "isActive": true,
+      "primera_imagen": "https://res.cloudinary.com/de4i6biay/image/upload/v1681404152/micole/eildcucmlciiwmv2kwfs.jpg",
+      "logo": "https://res.cloudinary.com/de4i6biay/image/upload/v1681404102/micole/wrn5515d34hibjpxdthp.jpg",
+      "createdAt": "2023-04-13",
+      "Plan_Pago": {
+        "id": 1,
+        "nombre_plan_pago": "Free"
+      },
+      "Distrito": {
+        "id": 24,
+        "nombre_distrito": "Pueblo Libre"
+      },
+      "Provincium": {
+        "id": 180,
+        "nombre_provincia": "Lima"
+      },
+      "Vacantes": [
+        {
+          "id": "89065f93-c4fb-489e-bae1-12713307381f",
+          "alumnos_matriculados": 20,
+          "matricula": "460",
+          "cuota_pension": "460",
+          "cuota_ingreso": "500",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "def7ff4e-4249-4614-8d8e-0279e473f846",
+          "GradoId": 1
+        },
+        {
+          "id": "d5515c48-4dd6-45b6-b7ae-80dbb3565df5",
+          "alumnos_matriculados": 20,
+          "matricula": "460",
+          "cuota_pension": "460",
+          "cuota_ingreso": "500",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "def7ff4e-4249-4614-8d8e-0279e473f846",
+          "GradoId": 2
+        },
+        {
+          "id": "16ed1e01-d0f7-49ab-87fd-d64dc82a6129",
+          "alumnos_matriculados": 20,
+          "matricula": "460",
+          "cuota_pension": "460",
+          "cuota_ingreso": "500",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "def7ff4e-4249-4614-8d8e-0279e473f846",
+          "GradoId": 3
+        },
+        {
+          "id": "bf0d0a02-3c20-4171-b587-4a35c1a62961",
+          "alumnos_matriculados": 20,
+          "matricula": "460",
+          "cuota_pension": "460",
+          "cuota_ingreso": "500",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "def7ff4e-4249-4614-8d8e-0279e473f846",
+          "GradoId": 4
+        },
+        {
+          "id": "c215592a-abd1-41c8-8dbe-39a4802e1774",
+          "alumnos_matriculados": 20,
+          "matricula": "460",
+          "cuota_pension": "460",
+          "cuota_ingreso": "500",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "def7ff4e-4249-4614-8d8e-0279e473f846",
+          "GradoId": 5
+        },
+        {
+          "id": "12fa28a1-d309-42e4-9186-7fd2d99521cf",
+          "alumnos_matriculados": 20,
+          "matricula": "460",
+          "cuota_pension": "460",
+          "cuota_ingreso": "500",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "def7ff4e-4249-4614-8d8e-0279e473f846",
+          "GradoId": 6
+        },
+        {
+          "id": "d42843e5-d66d-4660-b1e9-16c6972ca4e0",
+          "alumnos_matriculados": 20,
+          "matricula": "460",
+          "cuota_pension": "460",
+          "cuota_ingreso": "500",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "def7ff4e-4249-4614-8d8e-0279e473f846",
+          "GradoId": 7
+        },
+        {
+          "id": "2e15768d-afd8-41ec-86f5-acddc718eddb",
+          "alumnos_matriculados": 20,
+          "matricula": "460",
+          "cuota_pension": "460",
+          "cuota_ingreso": "500",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "def7ff4e-4249-4614-8d8e-0279e473f846",
+          "GradoId": 8
+        },
+        {
+          "id": "b5c6daf2-2fb3-4851-9068-85a584d95105",
+          "alumnos_matriculados": 20,
+          "matricula": "460",
+          "cuota_pension": "460",
+          "cuota_ingreso": "500",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "def7ff4e-4249-4614-8d8e-0279e473f846",
+          "GradoId": 9
+        },
+        {
+          "id": "20764356-7967-4f35-9195-50c6504acf9b",
+          "alumnos_matriculados": 20,
+          "matricula": "460",
+          "cuota_pension": "460",
+          "cuota_ingreso": "500",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "def7ff4e-4249-4614-8d8e-0279e473f846",
+          "GradoId": 10
+        },
+        {
+          "id": "2b05fa04-7927-4a84-b78a-b8316c2efbe8",
+          "alumnos_matriculados": 20,
+          "matricula": "460",
+          "cuota_pension": "460",
+          "cuota_ingreso": "500",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "def7ff4e-4249-4614-8d8e-0279e473f846",
+          "GradoId": 11
+        },
+        {
+          "id": "c091ef9d-b783-4100-b550-b559fcf0b7aa",
+          "alumnos_matriculados": 20,
+          "matricula": "460",
+          "cuota_pension": "460",
+          "cuota_ingreso": "500",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "def7ff4e-4249-4614-8d8e-0279e473f846",
+          "GradoId": 12
+        },
+        {
+          "id": "f9e82f1f-96c5-48cf-a403-833d34d4cc9f",
+          "alumnos_matriculados": 20,
+          "matricula": "340",
+          "cuota_pension": "340",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "def7ff4e-4249-4614-8d8e-0279e473f846",
+          "GradoId": 13
+        },
+        {
+          "id": "b896810a-161c-480d-8075-14a9477d37e0",
+          "alumnos_matriculados": 20,
+          "matricula": "340",
+          "cuota_pension": "340",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "def7ff4e-4249-4614-8d8e-0279e473f846",
+          "GradoId": 14
+        },
+        {
+          "id": "37c0c9fc-de51-4c12-8d52-f44c75ee62e2",
+          "alumnos_matriculados": 20,
+          "matricula": "340",
+          "cuota_pension": "340",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "def7ff4e-4249-4614-8d8e-0279e473f846",
+          "GradoId": 15
+        },
+        {
+          "id": "5baed172-1b06-4151-a0a6-808bada13a28",
+          "alumnos_matriculados": 20,
+          "matricula": "340",
+          "cuota_pension": "340",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "def7ff4e-4249-4614-8d8e-0279e473f846",
+          "GradoId": 16
+        },
+        {
+          "id": "04b5233e-ee6e-4405-8a48-15cf662bef67",
+          "alumnos_matriculados": 20,
+          "matricula": "340",
+          "cuota_pension": "340",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "def7ff4e-4249-4614-8d8e-0279e473f846",
+          "GradoId": 17
+        }
+      ],
+      "Nivels": [
+        {
+          "id": 2,
+          "nombre_nivel": "Primaria",
+          "Colegio_Nivel": {
+            "ColegioId": "def7ff4e-4249-4614-8d8e-0279e473f846",
+            "NivelId": 2
+          }
+        },
+        {
+          "id": 1,
+          "nombre_nivel": "Inicial",
+          "Colegio_Nivel": {
+            "ColegioId": "def7ff4e-4249-4614-8d8e-0279e473f846",
+            "NivelId": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "287c7688-afac-48a8-9469-ea18da0f4c50",
+      "nombre_colegio": "Instituto Modelo de Pilar",
+      "direccion": "Calzada México-Xochimilco 289",
+      "telefono": "1166407890",
+      "isActive": true,
+      "primera_imagen": "https://res.cloudinary.com/de4i6biay/image/upload/v1678481905/micole/qq5daqdeuakumbky3qyr.png",
+      "logo": null,
+      "createdAt": "2023-02-23",
+      "Plan_Pago": {
+        "id": 1,
+        "nombre_plan_pago": "Free"
+      },
+      "Distrito": {
+        "id": 5,
+        "nombre_distrito": "Carabayllo"
+      },
+      "Provincium": {
+        "id": 180,
+        "nombre_provincia": "Lima"
+      },
+      "Vacantes": [
+        {
+          "id": "b8eb23b0-ea32-4148-a458-226d441cd941",
+          "alumnos_matriculados": 50,
+          "matricula": "50",
+          "cuota_pension": "50",
+          "cuota_ingreso": "50",
+          "capacidad": 50,
+          "año": 2023,
+          "ColegioId": "287c7688-afac-48a8-9469-ea18da0f4c50",
+          "GradoId": 1
+        },
+        {
+          "id": "eaa2e9d7-cfcf-4e5e-a5fa-0be87261bdaf",
+          "alumnos_matriculados": 50,
+          "matricula": "50",
+          "cuota_pension": "50",
+          "cuota_ingreso": "50",
+          "capacidad": 50,
+          "año": 2023,
+          "ColegioId": "287c7688-afac-48a8-9469-ea18da0f4c50",
+          "GradoId": 2
+        },
+        {
+          "id": "e74933e1-e70d-4097-b2cb-f89a66879baf",
+          "alumnos_matriculados": 50,
+          "matricula": "50",
+          "cuota_pension": "50",
+          "cuota_ingreso": "50",
+          "capacidad": 50,
+          "año": 2023,
+          "ColegioId": "287c7688-afac-48a8-9469-ea18da0f4c50",
+          "GradoId": 4
+        },
+        {
+          "id": "b5a7d3d8-23a3-4513-a3d6-c936a46cc0ce",
+          "alumnos_matriculados": 5,
+          "matricula": "5",
+          "cuota_pension": "5",
+          "cuota_ingreso": "5",
+          "capacidad": 5,
+          "año": 2023,
+          "ColegioId": "287c7688-afac-48a8-9469-ea18da0f4c50",
+          "GradoId": 5
+        },
+        {
+          "id": "4c988077-11ff-49e7-aac9-4d9375250a2e",
+          "alumnos_matriculados": 50,
+          "matricula": "50",
+          "cuota_pension": "50",
+          "cuota_ingreso": "50",
+          "capacidad": 50,
+          "año": 2023,
+          "ColegioId": "287c7688-afac-48a8-9469-ea18da0f4c50",
+          "GradoId": 6
+        },
+        {
+          "id": "5baa240b-e564-4ee0-be54-3602df9dd578",
+          "alumnos_matriculados": 50,
+          "matricula": "50",
+          "cuota_pension": "4000",
+          "cuota_ingreso": "50",
+          "capacidad": 5050,
+          "año": 2023,
+          "ColegioId": "287c7688-afac-48a8-9469-ea18da0f4c50",
+          "GradoId": 3
+        }
+      ],
+      "Nivels": [
+        {
+          "id": 3,
+          "nombre_nivel": "Secundaria",
+          "Colegio_Nivel": {
+            "ColegioId": "287c7688-afac-48a8-9469-ea18da0f4c50",
+            "NivelId": 3
+          }
+        },
+        {
+          "id": 2,
+          "nombre_nivel": "Primaria",
+          "Colegio_Nivel": {
+            "ColegioId": "287c7688-afac-48a8-9469-ea18da0f4c50",
+            "NivelId": 2
+          }
+        },
+        {
+          "id": 1,
+          "nombre_nivel": "Inicial",
+          "Colegio_Nivel": {
+            "ColegioId": "287c7688-afac-48a8-9469-ea18da0f4c50",
+            "NivelId": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "a0b9951f-595b-4256-a552-6cb94e07d001",
+      "nombre_colegio": "Juan Pablo Peregrino",
+      "direccion": "Av. San MartÃ­n de Porres Este 169",
+      "telefono": "0",
+      "isActive": true,
+      "primera_imagen": "https://images.unsplash.com/flagged/photo-1554473675-d0904f3cbf38?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+      "logo": null,
+      "createdAt": "2023-03-23",
+      "Plan_Pago": {
+        "id": 1,
+        "nombre_plan_pago": "Free"
+      },
+      "Distrito": {
+        "id": 5,
+        "nombre_distrito": "Carabayllo"
+      },
+      "Provincium": {
+        "id": 180,
+        "nombre_provincia": "Lima"
+      },
+      "Vacantes": [
+        {
+          "id": "a724415c-b555-4fe7-8b17-0dc9f5bc12c8",
+          "alumnos_matriculados": 10,
+          "matricula": "1200",
+          "cuota_pension": "1800",
+          "cuota_ingreso": "1200",
+          "capacidad": 200,
+          "año": 2024,
+          "ColegioId": "a0b9951f-595b-4256-a552-6cb94e07d001",
+          "GradoId": 7
+        },
+        {
+          "id": "0d710307-e75b-4723-aa88-248093ea8131",
+          "alumnos_matriculados": 20,
+          "matricula": "1300",
+          "cuota_pension": "1900",
+          "cuota_ingreso": "1200",
+          "capacidad": 200,
+          "año": 2024,
+          "ColegioId": "a0b9951f-595b-4256-a552-6cb94e07d001",
+          "GradoId": 8
+        },
+        {
+          "id": "de9f72fe-dd44-483d-9a5d-5364e63439cd",
+          "alumnos_matriculados": 100,
+          "matricula": "1400",
+          "cuota_pension": "1900",
+          "cuota_ingreso": "1000",
+          "capacidad": 220,
+          "año": 2024,
+          "ColegioId": "a0b9951f-595b-4256-a552-6cb94e07d001",
+          "GradoId": 9
+        },
+        {
+          "id": "7e4ad8db-3328-440f-b868-e81567eacddd",
+          "alumnos_matriculados": 120,
+          "matricula": "1500",
+          "cuota_pension": "1900",
+          "cuota_ingreso": "1000",
+          "capacidad": 200,
+          "año": 2024,
+          "ColegioId": "a0b9951f-595b-4256-a552-6cb94e07d001",
+          "GradoId": 10
+        },
+        {
+          "id": "86c70c31-c56b-4baf-bc85-a65da08faf6a",
+          "alumnos_matriculados": 120,
+          "matricula": "1600",
+          "cuota_pension": "1500",
+          "cuota_ingreso": "1100",
+          "capacidad": 200,
+          "año": 2024,
+          "ColegioId": "a0b9951f-595b-4256-a552-6cb94e07d001",
+          "GradoId": 11
+        },
+        {
+          "id": "d78329ee-df73-4695-9074-5094c6fa1c25",
+          "alumnos_matriculados": 120,
+          "matricula": "1700",
+          "cuota_pension": "1500",
+          "cuota_ingreso": "1100",
+          "capacidad": 150,
+          "año": 2024,
+          "ColegioId": "a0b9951f-595b-4256-a552-6cb94e07d001",
+          "GradoId": 12
+        }
+      ],
+      "Nivels": [
+        
+      ]
+    },
+    {
+      "id": "55049bcf-df20-4238-9576-9f5258947aea",
+      "nombre_colegio": "Sor Rosa de Larrabure",
+      "direccion": "Calle Samuel Velarde 110",
+      "telefono": "0",
+      "isActive": false,
+      "primera_imagen": "https://images.unsplash.com/photo-1595134561159-11a5fbf6b3f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1629&q=80",
+      "logo": null,
+      "createdAt": "2023-03-23",
+      "Plan_Pago": {
+        "id": 2,
+        "nombre_plan_pago": "Basico"
+      },
+      "Distrito": {
+        "id": 2,
+        "nombre_distrito": "Ate"
+      },
+      "Provincium": {
+        "id": 180,
+        "nombre_provincia": "Lima"
+      },
+      "Vacantes": [
+        {
+          "id": "7db08dd0-c6e9-4623-828f-cf1710a676fd",
+          "alumnos_matriculados": 10,
+          "matricula": "1200",
+          "cuota_pension": "1800",
+          "cuota_ingreso": "1200",
+          "capacidad": 200,
+          "año": 2024,
+          "ColegioId": "55049bcf-df20-4238-9576-9f5258947aea",
+          "GradoId": 7
+        },
+        {
+          "id": "66ab039d-a40c-48a8-8a19-1a7b5e95298f",
+          "alumnos_matriculados": 20,
+          "matricula": "1300",
+          "cuota_pension": "1900",
+          "cuota_ingreso": "1200",
+          "capacidad": 200,
+          "año": 2024,
+          "ColegioId": "55049bcf-df20-4238-9576-9f5258947aea",
+          "GradoId": 8
+        },
+        {
+          "id": "dfec0383-1dd0-497b-ac47-9ab995808f61",
+          "alumnos_matriculados": 100,
+          "matricula": "1400",
+          "cuota_pension": "1900",
+          "cuota_ingreso": "1000",
+          "capacidad": 220,
+          "año": 2024,
+          "ColegioId": "55049bcf-df20-4238-9576-9f5258947aea",
+          "GradoId": 9
+        },
+        {
+          "id": "7d0e202f-3e7d-4c04-9bc7-cc21b72a5779",
+          "alumnos_matriculados": 120,
+          "matricula": "1500",
+          "cuota_pension": "1900",
+          "cuota_ingreso": "1000",
+          "capacidad": 200,
+          "año": 2024,
+          "ColegioId": "55049bcf-df20-4238-9576-9f5258947aea",
+          "GradoId": 10
+        },
+        {
+          "id": "fa02ac2b-5eb6-4672-93a3-4f90003dd53a",
+          "alumnos_matriculados": 120,
+          "matricula": "1600",
+          "cuota_pension": "1500",
+          "cuota_ingreso": "1100",
+          "capacidad": 200,
+          "año": 2024,
+          "ColegioId": "55049bcf-df20-4238-9576-9f5258947aea",
+          "GradoId": 11
+        },
+        {
+          "id": "768bb324-5720-4db4-833f-dd45c8fa0c4c",
+          "alumnos_matriculados": 120,
+          "matricula": "1700",
+          "cuota_pension": "1500",
+          "cuota_ingreso": "1100",
+          "capacidad": 150,
+          "año": 2024,
+          "ColegioId": "55049bcf-df20-4238-9576-9f5258947aea",
+          "GradoId": 12
+        },
+        {
+          "id": "c23a175e-c236-11ed-afa1-0242ac120002",
+          "alumnos_matriculados": 100,
+          "matricula": "1600",
+          "cuota_pension": "1500",
+          "cuota_ingreso": "1100",
+          "capacidad": 200,
+          "año": 2024,
+          "ColegioId": "55049bcf-df20-4238-9576-9f5258947aea",
+          "GradoId": 11
+        }
+      ],
+      "Nivels": [
+        
+      ]
+    },
+    {
+      "id": "358d2585-110d-4e46-a45d-83612172e17d",
+      "nombre_colegio": "Ateneo School",
+      "direccion": "Portada Del Sol 1 Etapa Avenida los Fresnos",
+      "telefono": "931708797",
+      "isActive": true,
+      "primera_imagen": "https://res.cloudinary.com/de4i6biay/image/upload/v1681421406/micole/v9exuryb53vu6ajqhxha.jpg",
+      "logo": "https://res.cloudinary.com/de4i6biay/image/upload/v1680791528/micole/xfbrujjauvafuchuonwg.png",
+      "createdAt": "2023-02-23",
+      "Plan_Pago": {
+        "id": 1,
+        "nombre_plan_pago": "Free"
+      },
+      "Distrito": {
+        "id": 14,
+        "nombre_distrito": "La Molina"
+      },
+      "Provincium": {
+        "id": 180,
+        "nombre_provincia": "Lima"
+      },
+      "Vacantes": [
+        {
+          "id": "fc82f906-4b5d-4a21-afe4-8780cf943268",
+          "alumnos_matriculados": 1,
+          "matricula": "0",
+          "cuota_pension": "0",
+          "cuota_ingreso": "0",
+          "capacidad": 1,
+          "año": 2023,
+          "ColegioId": "358d2585-110d-4e46-a45d-83612172e17d",
+          "GradoId": 2
+        },
+        {
+          "id": "f6d5c34e-d2e0-45d9-9c5c-78593d387adf",
+          "alumnos_matriculados": 1,
+          "matricula": "0",
+          "cuota_pension": "0",
+          "cuota_ingreso": "0",
+          "capacidad": 1,
+          "año": 2023,
+          "ColegioId": "358d2585-110d-4e46-a45d-83612172e17d",
+          "GradoId": 3
+        },
+        {
+          "id": "dbd78d64-2d78-4185-b035-94c22be16cc9",
+          "alumnos_matriculados": 20,
+          "matricula": "0",
+          "cuota_pension": "0",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "358d2585-110d-4e46-a45d-83612172e17d",
+          "GradoId": 5
+        },
+        {
+          "id": "b54a4a7f-6a7e-4424-9694-fef680a6e93f",
+          "alumnos_matriculados": 20,
+          "matricula": "175",
+          "cuota_pension": "250",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "358d2585-110d-4e46-a45d-83612172e17d",
+          "GradoId": 6
+        },
+        {
+          "id": "faf84042-5518-4dca-acf4-15cef718e2a7",
+          "alumnos_matriculados": 20,
+          "matricula": "175",
+          "cuota_pension": "250",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "358d2585-110d-4e46-a45d-83612172e17d",
+          "GradoId": 7
+        },
+        {
+          "id": "e9437254-31b6-4e83-99d6-f3aa87dfd2ca",
+          "alumnos_matriculados": 20,
+          "matricula": "175",
+          "cuota_pension": "250",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "358d2585-110d-4e46-a45d-83612172e17d",
+          "GradoId": 8
+        },
+        {
+          "id": "e92fbed4-424d-459e-8e3c-f71d04c33617",
+          "alumnos_matriculados": 20,
+          "matricula": "175",
+          "cuota_pension": "250",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "358d2585-110d-4e46-a45d-83612172e17d",
+          "GradoId": 9
+        },
+        {
+          "id": "8a2dab46-595c-4769-ac9a-c5f85fa22e32",
+          "alumnos_matriculados": 20,
+          "matricula": "175",
+          "cuota_pension": "250",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "358d2585-110d-4e46-a45d-83612172e17d",
+          "GradoId": 10
+        },
+        {
+          "id": "03b733f2-f2f7-4be5-b44e-a41e14205fb3",
+          "alumnos_matriculados": 20,
+          "matricula": "175",
+          "cuota_pension": "250",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "358d2585-110d-4e46-a45d-83612172e17d",
+          "GradoId": 11
+        },
+        {
+          "id": "3f5e711c-8002-4c15-a782-cb825c62c6c7",
+          "alumnos_matriculados": 20,
+          "matricula": "175",
+          "cuota_pension": "250",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "358d2585-110d-4e46-a45d-83612172e17d",
+          "GradoId": 12
+        },
+        {
+          "id": "10a006ca-5ae1-4e09-bdc8-620ccdd287a6",
+          "alumnos_matriculados": 20,
+          "matricula": "175",
+          "cuota_pension": "250",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "358d2585-110d-4e46-a45d-83612172e17d",
+          "GradoId": 13
+        },
+        {
+          "id": "2ea13858-aeba-4f09-8f47-39f78dec9e91",
+          "alumnos_matriculados": 20,
+          "matricula": "173",
+          "cuota_pension": "250",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "358d2585-110d-4e46-a45d-83612172e17d",
+          "GradoId": 14
+        },
+        {
+          "id": "1e808a65-acd3-480c-996b-38ed0c22e197",
+          "alumnos_matriculados": 20,
+          "matricula": "175",
+          "cuota_pension": "250",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "358d2585-110d-4e46-a45d-83612172e17d",
+          "GradoId": 15
+        },
+        {
+          "id": "b8dba676-cc4c-4d49-8263-71b2f767eafb",
+          "alumnos_matriculados": 20,
+          "matricula": "175",
+          "cuota_pension": "250",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "358d2585-110d-4e46-a45d-83612172e17d",
+          "GradoId": 16
+        },
+        {
+          "id": "b09c2be0-4893-4fbe-8191-6e7197a9ff62",
+          "alumnos_matriculados": 20,
+          "matricula": "175",
+          "cuota_pension": "250",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "358d2585-110d-4e46-a45d-83612172e17d",
+          "GradoId": 17
+        },
+        {
+          "id": "2ffbabcd-307b-4c37-914d-116a83edc95e",
+          "alumnos_matriculados": 1,
+          "matricula": "0",
+          "cuota_pension": "0",
+          "cuota_ingreso": "0",
+          "capacidad": 1,
+          "año": 2023,
+          "ColegioId": "358d2585-110d-4e46-a45d-83612172e17d",
+          "GradoId": 1
+        },
+        {
+          "id": "45bab42b-c722-4f72-8ee2-0f0dad8b9874",
+          "alumnos_matriculados": 1,
+          "matricula": "0",
+          "cuota_pension": "0",
+          "cuota_ingreso": "0",
+          "capacidad": 1,
+          "año": 2023,
+          "ColegioId": "358d2585-110d-4e46-a45d-83612172e17d",
+          "GradoId": 4
+        }
+      ],
+      "Nivels": [
+        {
+          "id": 3,
+          "nombre_nivel": "Secundaria",
+          "Colegio_Nivel": {
+            "ColegioId": "358d2585-110d-4e46-a45d-83612172e17d",
+            "NivelId": 3
+          }
+        },
+        {
+          "id": 2,
+          "nombre_nivel": "Primaria",
+          "Colegio_Nivel": {
+            "ColegioId": "358d2585-110d-4e46-a45d-83612172e17d",
+            "NivelId": 2
+          }
+        },
+        {
+          "id": 1,
+          "nombre_nivel": "Inicial",
+          "Colegio_Nivel": {
+            "ColegioId": "358d2585-110d-4e46-a45d-83612172e17d",
+            "NivelId": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "2e7749af-07da-431a-896c-91a403855b6d",
+      "nombre_colegio": "Jose Maria ",
+      "direccion": null,
+      "telefono": "2131233",
+      "isActive": false,
+      "primera_imagen": "https://images.unsplash.com/photo-1595134561159-11a5fbf6b3f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1629&q=80",
+      "logo": null,
+      "createdAt": "2023-02-23",
+      "Plan_Pago": {
+        "id": 1,
+        "nombre_plan_pago": "Free"
+      },
+      "Distrito": {
+        "id": 14,
+        "nombre_distrito": "La Molina"
+      },
+      "Provincium": {
+        "id": 180,
+        "nombre_provincia": "Lima"
+      },
+      "Vacantes": [
+        {
+          "id": "c23a1042-c236-11ed-afa1-0242ac120002",
+          "alumnos_matriculados": 10,
+          "matricula": "1500",
+          "cuota_pension": "1500",
+          "cuota_ingreso": "1100",
+          "capacidad": 200,
+          "año": 2023,
+          "ColegioId": "2e7749af-07da-431a-896c-91a403855b6d",
+          "GradoId": 7
+        }
+      ],
+      "Nivels": [
+        
+      ]
+    },
+    {
+      "id": "62f3eafc-04f7-4eb0-874c-7e022ec8b9d5",
+      "nombre_colegio": "Santa Terésa de Vailon III",
+      "direccion": "Av. San MartÃ­n de Porres Este 169",
+      "telefono": "65958574",
+      "isActive": false,
+      "primera_imagen": "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1486&q=80",
+      "logo": null,
+      "createdAt": "2023-03-23",
+      "Plan_Pago": {
+        "id": 2,
+        "nombre_plan_pago": "Basico"
+      },
+      "Distrito": {
+        "id": 42,
+        "nombre_distrito": "Villa el Salvador"
+      },
+      "Provincium": {
+        "id": 180,
+        "nombre_provincia": "Lima"
+      },
+      "Vacantes": [
+        {
+          "id": "c23a21ea-c236-11ed-afa1-0242ac120002",
+          "alumnos_matriculados": 100,
+          "matricula": "200",
+          "cuota_pension": "500",
+          "cuota_ingreso": "500",
+          "capacidad": 150,
+          "año": 2024,
+          "ColegioId": "62f3eafc-04f7-4eb0-874c-7e022ec8b9d5",
+          "GradoId": 7
+        }
+      ],
+      "Nivels": [
+        
+      ]
+    },
+    {
+      "id": "23e46126-65b3-4bbd-9f72-552bcfd96ffb",
+      "nombre_colegio": "San Ignacio del Progreso II",
+      "direccion": "Urb el Progreso Sector 2 Perú",
+      "telefono": "941558641",
+      "isActive": true,
+      "primera_imagen": "https://res.cloudinary.com/de4i6biay/image/upload/v1681405959/micole/ztos5vgiavbwdzjktvsj.jpg",
+      "logo": "https://res.cloudinary.com/de4i6biay/image/upload/v1681405738/micole/pftwllckxakvumpevdhz.jpg",
+      "createdAt": "2023-04-13",
+      "Plan_Pago": {
+        "id": 1,
+        "nombre_plan_pago": "Free"
+      },
+      "Distrito": {
+        "id": 5,
+        "nombre_distrito": "Carabayllo"
+      },
+      "Provincium": {
+        "id": 180,
+        "nombre_provincia": "Lima"
+      },
+      "Vacantes": [
+        {
+          "id": "a51199fa-9c03-4bb9-a0e8-df702a5a2bb8",
+          "alumnos_matriculados": 20,
+          "matricula": "150",
+          "cuota_pension": "180",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "23e46126-65b3-4bbd-9f72-552bcfd96ffb",
+          "GradoId": 1
+        },
+        {
+          "id": "74aa346c-96b9-4edf-81a5-1372c5dc88b2",
+          "alumnos_matriculados": 20,
+          "matricula": "150",
+          "cuota_pension": "180",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "23e46126-65b3-4bbd-9f72-552bcfd96ffb",
+          "GradoId": 2
+        },
+        {
+          "id": "8b8453fb-7d7c-4126-91ca-3403a72b3108",
+          "alumnos_matriculados": 20,
+          "matricula": "150",
+          "cuota_pension": "180",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "23e46126-65b3-4bbd-9f72-552bcfd96ffb",
+          "GradoId": 3
+        },
+        {
+          "id": "e76d4f39-9ff7-4ffc-be7a-b74dd258c273",
+          "alumnos_matriculados": 20,
+          "matricula": "150",
+          "cuota_pension": "180",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "23e46126-65b3-4bbd-9f72-552bcfd96ffb",
+          "GradoId": 4
+        },
+        {
+          "id": "21e00140-638c-43da-8c3e-755401f886e9",
+          "alumnos_matriculados": 20,
+          "matricula": "150",
+          "cuota_pension": "180",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "23e46126-65b3-4bbd-9f72-552bcfd96ffb",
+          "GradoId": 5
+        },
+        {
+          "id": "0827606e-9a1d-4c03-bbfb-7d869248e3ce",
+          "alumnos_matriculados": 20,
+          "matricula": "150",
+          "cuota_pension": "180",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "23e46126-65b3-4bbd-9f72-552bcfd96ffb",
+          "GradoId": 6
+        },
+        {
+          "id": "2fdacc18-6f7a-4c3e-aee8-1bf14f687dc9",
+          "alumnos_matriculados": 20,
+          "matricula": "150",
+          "cuota_pension": "180",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "23e46126-65b3-4bbd-9f72-552bcfd96ffb",
+          "GradoId": 7
+        },
+        {
+          "id": "ae91529a-eacc-41f4-8afe-6dd546f8f4b8",
+          "alumnos_matriculados": 20,
+          "matricula": "150",
+          "cuota_pension": "180",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "23e46126-65b3-4bbd-9f72-552bcfd96ffb",
+          "GradoId": 8
+        },
+        {
+          "id": "9d19aa3a-e7ed-4ae9-96bb-78849fb30c07",
+          "alumnos_matriculados": 20,
+          "matricula": "150",
+          "cuota_pension": "180",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "23e46126-65b3-4bbd-9f72-552bcfd96ffb",
+          "GradoId": 9
+        },
+        {
+          "id": "63c80e58-a001-4316-9b75-04a8c1ea9551",
+          "alumnos_matriculados": 20,
+          "matricula": "150",
+          "cuota_pension": "180",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "23e46126-65b3-4bbd-9f72-552bcfd96ffb",
+          "GradoId": 10
+        },
+        {
+          "id": "7732bdae-e91c-4293-a9d2-1b03a10a21fa",
+          "alumnos_matriculados": 20,
+          "matricula": "150",
+          "cuota_pension": "180",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "23e46126-65b3-4bbd-9f72-552bcfd96ffb",
+          "GradoId": 11
+        },
+        {
+          "id": "66158a9f-9520-4ca8-bb21-599f4a70c79f",
+          "alumnos_matriculados": 20,
+          "matricula": "150",
+          "cuota_pension": "180",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "23e46126-65b3-4bbd-9f72-552bcfd96ffb",
+          "GradoId": 12
+        },
+        {
+          "id": "e734186e-85cc-466a-9051-58e239aa4a2d",
+          "alumnos_matriculados": 20,
+          "matricula": "150",
+          "cuota_pension": "180",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "23e46126-65b3-4bbd-9f72-552bcfd96ffb",
+          "GradoId": 13
+        },
+        {
+          "id": "f75f4472-d812-47e5-9a03-e7872ca185e6",
+          "alumnos_matriculados": 20,
+          "matricula": "150",
+          "cuota_pension": "180",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "23e46126-65b3-4bbd-9f72-552bcfd96ffb",
+          "GradoId": 14
+        },
+        {
+          "id": "0b84efee-b9ca-4504-b454-8227cd216706",
+          "alumnos_matriculados": 20,
+          "matricula": "150",
+          "cuota_pension": "180",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "23e46126-65b3-4bbd-9f72-552bcfd96ffb",
+          "GradoId": 15
+        },
+        {
+          "id": "4dcffe05-4515-4f8c-aa81-e97b03d053f2",
+          "alumnos_matriculados": 20,
+          "matricula": "150",
+          "cuota_pension": "180",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "23e46126-65b3-4bbd-9f72-552bcfd96ffb",
+          "GradoId": 16
+        },
+        {
+          "id": "55dd68cb-da69-42fc-982a-562cf400fdb0",
+          "alumnos_matriculados": 20,
+          "matricula": "150",
+          "cuota_pension": "180",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "23e46126-65b3-4bbd-9f72-552bcfd96ffb",
+          "GradoId": 17
+        }
+      ],
+      "Nivels": [
+        {
+          "id": 2,
+          "nombre_nivel": "Primaria",
+          "Colegio_Nivel": {
+            "ColegioId": "23e46126-65b3-4bbd-9f72-552bcfd96ffb",
+            "NivelId": 2
+          }
+        },
+        {
+          "id": 3,
+          "nombre_nivel": "Secundaria",
+          "Colegio_Nivel": {
+            "ColegioId": "23e46126-65b3-4bbd-9f72-552bcfd96ffb",
+            "NivelId": 3
+          }
+        },
+        {
+          "id": 1,
+          "nombre_nivel": "Inicial",
+          "Colegio_Nivel": {
+            "ColegioId": "23e46126-65b3-4bbd-9f72-552bcfd96ffb",
+            "NivelId": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "bf85405d-3796-464a-987c-735b3099bf25",
+      "nombre_colegio": "Colegio Juan Pablo Peregrino",
+      "direccion": "A.h Jesus Oropeza Chonta Lima",
+      "telefono": "977400689",
+      "isActive": true,
+      "primera_imagen": "https://res.cloudinary.com/de4i6biay/image/upload/v1681351188/micole/wuy9g4xgqfyzxmjgokpn.png",
+      "logo": "https://res.cloudinary.com/de4i6biay/image/upload/v1681350803/micole/j7n5hpxz9ntfe8dd2n69.png",
+      "createdAt": "2022-12-23",
+      "Plan_Pago": {
+        "id": 1,
+        "nombre_plan_pago": "Free"
+      },
+      "Distrito": {
+        "id": 32,
+        "nombre_distrito": "San Juan de Lurigancho"
+      },
+      "Provincium": {
+        "id": 180,
+        "nombre_provincia": "Lima"
+      },
+      "Vacantes": [
+        {
+          "id": "38d23c76-24c4-4380-be68-34d89e64b9a6",
+          "alumnos_matriculados": 20,
+          "matricula": "354",
+          "cuota_pension": "354",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "bf85405d-3796-464a-987c-735b3099bf25",
+          "GradoId": 4
+        },
+        {
+          "id": "af23514f-9672-48c4-be4b-37b94834ba86",
+          "alumnos_matriculados": 20,
+          "matricula": "354",
+          "cuota_pension": "354",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "bf85405d-3796-464a-987c-735b3099bf25",
+          "GradoId": 5
+        },
+        {
+          "id": "71ad11ff-4545-4280-adca-6c1f8789ef75",
+          "alumnos_matriculados": 20,
+          "matricula": "354",
+          "cuota_pension": "354",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "bf85405d-3796-464a-987c-735b3099bf25",
+          "GradoId": 6
+        },
+        {
+          "id": "ea33de20-5d1d-4555-b68b-a8ee5efdf6f5",
+          "alumnos_matriculados": 20,
+          "matricula": "354",
+          "cuota_pension": "354",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "bf85405d-3796-464a-987c-735b3099bf25",
+          "GradoId": 7
+        },
+        {
+          "id": "a2789f05-f5e9-4c84-9682-272237aab03b",
+          "alumnos_matriculados": 20,
+          "matricula": "354",
+          "cuota_pension": "354",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "bf85405d-3796-464a-987c-735b3099bf25",
+          "GradoId": 8
+        },
+        {
+          "id": "f4e11147-1088-4fef-9f12-2695ae4f27a7",
+          "alumnos_matriculados": 20,
+          "matricula": "354",
+          "cuota_pension": "354",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "bf85405d-3796-464a-987c-735b3099bf25",
+          "GradoId": 9
+        },
+        {
+          "id": "d5131b12-dffa-4d57-a864-775d09d2c60d",
+          "alumnos_matriculados": 20,
+          "matricula": "354",
+          "cuota_pension": "354",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "bf85405d-3796-464a-987c-735b3099bf25",
+          "GradoId": 10
+        },
+        {
+          "id": "d66f6c4d-2fdc-44ac-92ff-418504283324",
+          "alumnos_matriculados": 20,
+          "matricula": "354",
+          "cuota_pension": "354",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "bf85405d-3796-464a-987c-735b3099bf25",
+          "GradoId": 11
+        },
+        {
+          "id": "674c2cf6-65f4-4ded-b11d-2e527b0d9bb2",
+          "alumnos_matriculados": 20,
+          "matricula": "354",
+          "cuota_pension": "354",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "bf85405d-3796-464a-987c-735b3099bf25",
+          "GradoId": 12
+        },
+        {
+          "id": "14f9e75c-849a-4b70-a7c3-6145c6422c71",
+          "alumnos_matriculados": 20,
+          "matricula": "354",
+          "cuota_pension": "354",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "bf85405d-3796-464a-987c-735b3099bf25",
+          "GradoId": 13
+        },
+        {
+          "id": "b262d62d-5252-456e-aac2-a4f6e2f5cd64",
+          "alumnos_matriculados": 20,
+          "matricula": "354",
+          "cuota_pension": "354",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "bf85405d-3796-464a-987c-735b3099bf25",
+          "GradoId": 14
+        },
+        {
+          "id": "1e554be0-0214-4323-83c5-6e35f83ab9f8",
+          "alumnos_matriculados": 20,
+          "matricula": "354",
+          "cuota_pension": "354",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "bf85405d-3796-464a-987c-735b3099bf25",
+          "GradoId": 15
+        },
+        {
+          "id": "d5f340ae-609b-4b6b-bcd6-008bda07491f",
+          "alumnos_matriculados": 20,
+          "matricula": "354",
+          "cuota_pension": "354",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "bf85405d-3796-464a-987c-735b3099bf25",
+          "GradoId": 16
+        },
+        {
+          "id": "0a5c700a-d272-45c3-a25c-5efa30ce8f44",
+          "alumnos_matriculados": 20,
+          "matricula": "354",
+          "cuota_pension": "354",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "bf85405d-3796-464a-987c-735b3099bf25",
+          "GradoId": 17
+        }
+      ],
+      "Nivels": [
+        {
+          "id": 3,
+          "nombre_nivel": "Secundaria",
+          "Colegio_Nivel": {
+            "ColegioId": "bf85405d-3796-464a-987c-735b3099bf25",
+            "NivelId": 3
+          }
+        },
+        {
+          "id": 2,
+          "nombre_nivel": "Primaria",
+          "Colegio_Nivel": {
+            "ColegioId": "bf85405d-3796-464a-987c-735b3099bf25",
+            "NivelId": 2
+          }
+        },
+        {
+          "id": 1,
+          "nombre_nivel": "Inicial",
+          "Colegio_Nivel": {
+            "ColegioId": "bf85405d-3796-464a-987c-735b3099bf25",
+            "NivelId": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "c350d70f-5b30-4526-af77-2c5f223c4e04",
+      "nombre_colegio": "Colegio Notable Santísima de las Mercedes",
+      "direccion": "Calle las Guindas 367",
+      "telefono": "970887130",
+      "isActive": true,
+      "primera_imagen": "https://res.cloudinary.com/de4i6biay/image/upload/v1681328620/micole/ccbic4h9x4zsqmf4khtb.png",
+      "logo": "https://res.cloudinary.com/de4i6biay/image/upload/v1681328767/micole/gsoapol4zctvggljwbsg.png",
+      "createdAt": "2022-11-23",
+      "Plan_Pago": {
+        "id": 3,
+        "nombre_plan_pago": "Estandar"
+      },
+      "Distrito": {
+        "id": 11,
+        "nombre_distrito": "El Agustino"
+      },
+      "Provincium": {
+        "id": 180,
+        "nombre_provincia": "Lima"
+      },
+      "Vacantes": [
+        {
+          "id": "f3e62ea0-46a2-42ac-988c-3171d111af0e",
+          "alumnos_matriculados": 20,
+          "matricula": "340",
+          "cuota_pension": "340",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "c350d70f-5b30-4526-af77-2c5f223c4e04",
+          "GradoId": 4
+        },
+        {
+          "id": "b44b79f9-4fa6-4aa3-a2d9-fb6193e7f1ec",
+          "alumnos_matriculados": 20,
+          "matricula": "340",
+          "cuota_pension": "340",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "c350d70f-5b30-4526-af77-2c5f223c4e04",
+          "GradoId": 6
+        },
+        {
+          "id": "6b81ab95-ad1f-4c61-9791-64e2b43a9a66",
+          "alumnos_matriculados": 20,
+          "matricula": "340",
+          "cuota_pension": "340",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "c350d70f-5b30-4526-af77-2c5f223c4e04",
+          "GradoId": 7
+        },
+        {
+          "id": "72215475-736f-4174-ae95-30d17589b142",
+          "alumnos_matriculados": 20,
+          "matricula": "340",
+          "cuota_pension": "340",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "c350d70f-5b30-4526-af77-2c5f223c4e04",
+          "GradoId": 8
+        },
+        {
+          "id": "80667dde-5dad-48f1-982a-de2942b8d99b",
+          "alumnos_matriculados": 20,
+          "matricula": "340",
+          "cuota_pension": "340",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "c350d70f-5b30-4526-af77-2c5f223c4e04",
+          "GradoId": 9
+        },
+        {
+          "id": "ba3a7ead-3209-4ad2-bdf6-325aa39a87e0",
+          "alumnos_matriculados": 20,
+          "matricula": "340",
+          "cuota_pension": "340",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "c350d70f-5b30-4526-af77-2c5f223c4e04",
+          "GradoId": 10
+        },
+        {
+          "id": "df768d85-60e5-48b5-bc71-0ca7b400c4ac",
+          "alumnos_matriculados": 20,
+          "matricula": "340",
+          "cuota_pension": "340",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "c350d70f-5b30-4526-af77-2c5f223c4e04",
+          "GradoId": 11
+        },
+        {
+          "id": "16c90731-2c8e-43c3-a1cd-2eca8ff5235b",
+          "alumnos_matriculados": 24,
+          "matricula": "340",
+          "cuota_pension": "340",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "c350d70f-5b30-4526-af77-2c5f223c4e04",
+          "GradoId": 5
+        },
+        {
+          "id": "d5c068de-5f36-4b95-ac26-32348d339f68",
+          "alumnos_matriculados": 20,
+          "matricula": "340",
+          "cuota_pension": "340",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "c350d70f-5b30-4526-af77-2c5f223c4e04",
+          "GradoId": 12
+        },
+        {
+          "id": "e109b794-0d8d-4ad4-a700-d4478317656f",
+          "alumnos_matriculados": 20,
+          "matricula": "340",
+          "cuota_pension": "340",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "c350d70f-5b30-4526-af77-2c5f223c4e04",
+          "GradoId": 13
+        },
+        {
+          "id": "cf890770-d74a-4fbf-b906-1f1d5556a9ab",
+          "alumnos_matriculados": 20,
+          "matricula": "340",
+          "cuota_pension": "340",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "c350d70f-5b30-4526-af77-2c5f223c4e04",
+          "GradoId": 14
+        },
+        {
+          "id": "ca04b756-a1ac-4748-a651-d3b643c6a548",
+          "alumnos_matriculados": 20,
+          "matricula": "340",
+          "cuota_pension": "340",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "c350d70f-5b30-4526-af77-2c5f223c4e04",
+          "GradoId": 15
+        },
+        {
+          "id": "8aa82df9-a9d2-4ee5-81b8-af42f8dc3ac1",
+          "alumnos_matriculados": 20,
+          "matricula": "340",
+          "cuota_pension": "340",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "c350d70f-5b30-4526-af77-2c5f223c4e04",
+          "GradoId": 16
+        },
+        {
+          "id": "516790fe-f569-4d60-877c-ebcd60a0517b",
+          "alumnos_matriculados": 20,
+          "matricula": "340",
+          "cuota_pension": "340",
+          "cuota_ingreso": "0",
+          "capacidad": 30,
+          "año": 2023,
+          "ColegioId": "c350d70f-5b30-4526-af77-2c5f223c4e04",
+          "GradoId": 17
+        }
+      ],
+      "Nivels": [
+        {
+          "id": 3,
+          "nombre_nivel": "Secundaria",
+          "Colegio_Nivel": {
+            "ColegioId": "c350d70f-5b30-4526-af77-2c5f223c4e04",
+            "NivelId": 3
+          }
+        },
+        {
+          "id": 2,
+          "nombre_nivel": "Primaria",
+          "Colegio_Nivel": {
+            "ColegioId": "c350d70f-5b30-4526-af77-2c5f223c4e04",
+            "NivelId": 2
+          }
+        },
+        {
+          "id": 1,
+          "nombre_nivel": "Inicial",
+          "Colegio_Nivel": {
+            "ColegioId": "c350d70f-5b30-4526-af77-2c5f223c4e04",
+            "NivelId": 1
+          }
+        }
+      ]
+    }
+  ]
+
