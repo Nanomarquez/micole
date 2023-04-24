@@ -13,8 +13,45 @@ export default function Comparador() {
   return (
     <>
       <div className="min-h-screen">
-        <div>
-          <Typography>Comparador de Colegios</Typography>
+      <div
+               style={{
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: 'flex-end',
+                paddingRight:'5vh'
+                
+                // paddingBottom: "2vh",
+              }}
+          >
+                  <Button
+            sx={{
+              fontFamily: "Poppins",
+              fontWeight: "600",
+              color: "0D263B",
+              fontSize: "1.5vh",
+            }}
+            variant="contained"
+          >
+            Descargar comparación
+          </Button>
+          </div>
+        <div
+          style={{
+            width: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            paddingBottom: "10vh",
+          }}
+        >
+          <Typography
+            sx={{ fontFamily: "Poppins", fontWeight: "600", color: "0D263B",  fontSize: "2.5vh" }}
+          >
+            Comparador de Colegios
+          </Typography>
+         
+    
         </div>
         <div
           style={{
@@ -23,7 +60,7 @@ export default function Comparador() {
             height: "100%",
             alignItems: "flex-end",
             justifyContent: "center",
-            gap:'4vh'
+            gap: "4vh",
           }}
           // className={style.layout}
         >
@@ -43,16 +80,15 @@ export default function Comparador() {
               <div className={style.divTabla}>
                 <p className={style.divTabla}>Tipo de escuela:</p>
               </div>
-              <div className='flex flex-col gap-5 items-centerjustify-center'>
+              <div className="flex flex-col gap-5 items-centerjustify-center">
                 <p>Cant. Alumnos:</p>
                 <p>Área:</p>
               </div>
-             
-              <div className='flex flex-col gap-11 items-centerjustify-center'>
+
+              <div className="flex flex-col gap-11 items-centerjustify-center">
                 <p>Métodos de Aprendizaje:</p>
                 <p>Neurodiversidad:</p>
               </div>
-           
 
               {/* <p>Acreditaciones:</p> */}
             </div>

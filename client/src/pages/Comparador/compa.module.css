@@ -3,8 +3,8 @@
     width: 100%;
     min-height: 50%;
     display: flex;
-    padding-bottom: 5.4vh;
-    gap: 6vh;
+    /* padding-bottom: 5.4vh; */
+    gap: 5vh;
     flex-direction: column;
   
 }
