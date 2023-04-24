@@ -67,7 +67,7 @@ export default function SwComparador({ galeria, primeraFoto }) {
                   <img
                     src={f}
                     alt="banner"
-                    style={{width:'100%', height:'100%'}}
+                    style={{width:'100%', height:'100%',borderRadius:'8px'}}
                   />
                 </SwiperSlide>
               </>

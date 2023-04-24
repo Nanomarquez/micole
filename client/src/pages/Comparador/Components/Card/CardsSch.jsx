@@ -784,10 +784,12 @@ export default function CardsSch() {
                 {/* BODY*/}
                 <div className={style.bodyCard}>
                   <div className={style.bodyInfo}>
-                  <div className={style.div}>
-                      <p>{c.direccion}</p>
-                  </div>
-                  
+                    <div className={style.div}>
+                      <p    style={{
+                          fontSize: "1.6vh",
+                        }}>{c.direccion}</p>
+                    </div>
+
                     {/* Tipo de escuela: */}
                     <div className={style.div}>
                       {c.Categoria.map((ca) => {
@@ -810,12 +812,22 @@ export default function CardsSch() {
 
                     {/* Cant. Alumnos: */}
                     <div className={style.div}>
-                      <p>{c.numero_estudiantes}</p>
+                      <p
+                         style={{
+                            fontSize: "1.6vh",
+                          }}
+                      >{c.numero_estudiantes} {'alumnos'}</p>
                     </div>
 
                     {/* Área */}
                     <div className={style.div}>
-                      <p>{c.area}</p>
+                      <p
+                        style={{
+                          fontSize: "1.6vh",
+                        }}
+                      >
+                        {c.area} {'m2'}
+                      </p>
                     </div>
 
                     {/* Métodos de Aprendizaje: */}
