@@ -57,7 +57,7 @@ export default function FormListaEspera({ gradoId, año }) {
     }
   };
   return (
-    <div className=" bg-white flex flex-col gap-5 rounded-md  w-full">
+    <div className="p-5  bg-white flex flex-col gap-5 rounded-md shadow-md w-full">
       <h2 className="font-semibold  text-[#0D263B] text-[2.4vh]">Lista de espera</h2>
       <form
         onSubmit={handleSubmitLista}

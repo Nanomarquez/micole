@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import SecCitas from '../../../components/SchoolDetail-CITAS/SecCitas';
 import { useDispatch, useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
@@ -24,6 +24,16 @@ export default function CitasD({ ingresoParams, nombre_grado }) {
         añoIngreso: ingresoParams,
         grado: nombre_grado
     });
+
+    useEffect(() => {
+        setCita({
+          ...cita,
+          nombre: isAuth ? user.nombre_responsable + " " + user?.apellidos_responsable : "",
+
+          celular: isAuth ? user.telefono : "",
+          correo: isAuth ? user.email : "",
+        })
+      }, [user])
 
     function handleChangeDateHS(data) {
         console.log(data)
@@ -94,12 +104,7 @@ export default function CitasD({ ingresoParams, nombre_grado }) {
         });
     };
 
-    // useEffect(() => {
-    //     setCita({
-    //       ...cita,
-    //       grado: nombre_grado
-    //     })
-    //   }, [nombre_grado])
+   
     return (
         <>
             <div className="p-5 bg-white flex flex-col gap-5 rounded-md shadow-md w-full">

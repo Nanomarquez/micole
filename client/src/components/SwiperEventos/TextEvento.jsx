@@ -39,7 +39,7 @@ export default function TextEvento({
           >
             <div className={style.divDetalles}>
               <p className={style.pTittle}>Horario</p>
-              {fechaEvento && <p className={style.p}>{hora}</p>}
+              {fechaEvento && <p className={style.p}>{horaEvento}{hora}</p>}
             </div>
             <div className={style.divDetalles}>
               <p className={style.pTittle}>Fecha</p>
@@ -52,7 +52,7 @@ export default function TextEvento({
           </div>
 
           <div>
-            <Button onClick={handleOpen} variant="contained">
+            <Button onClick={handleOpen} sx={{fontSize:'1.4vh'}} variant="contained">
               Inscribirme
             </Button>
           </div>

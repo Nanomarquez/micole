@@ -178,7 +178,7 @@ function SchoolDetail() {
           </div>}
         {/* BODY DETAIL----------------lg:px-[100px]-------*/}
         <div
-          className='flex flex-col  sm:flex-row  pl-1 pb-20 justify-around' >
+          className='flex flex-col  sm:flex-row pl-1 pb-20 justify-around' >
           {/* Header */}
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             {/* compartir en redes */}
@@ -324,7 +324,7 @@ function SchoolDetail() {
                     <Tab sx={{ textTransform: 'none' }} label="Infraestructura" value="2" />
                     <Tab sx={{ textTransform: 'none' }} label="Acreditaciones" value="3" />
                     <Tab sx={{ textTransform: 'none' }} label="Ubicacion" value="4" />
-                    <Tab sx={{ textTransform: 'none' }} label="Reservar Citas" value="5" />
+                    <Tab sx={{ textTransform: 'none' }} label={listaParams === "true" ?'Lista de espera' :"Reservar Citas"} value="5" />
                     <Tab sx={{ textTransform: 'none' }} label="Eventos" value="6" />
                     <Tab sx={{ textTransform: 'none' }} label="Comentarios" value="7" />
                     <Tab sx={{ textTransform: 'none' }} label="Multimedia" value="8" />
