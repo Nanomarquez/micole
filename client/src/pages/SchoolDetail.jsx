@@ -149,8 +149,6 @@ function SchoolDetail() {
     };
   }, []);
 
-
-
   const [openLogin, setOpenLogin] = useState(false);
 
   document.title = oneSchool?.nombre_colegio?.length > 0 ? oneSchool.nombre_colegio : "MiCole"
@@ -314,7 +312,6 @@ function SchoolDetail() {
 
             </div>
           </div>
-
           {/* TABS DETAIL */}
           <main className="flex gap-5 flex-col lg:flex-row">
 
